@@ -6,15 +6,15 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- Css -->
+        <link rel="stylesheet" href="{{asset("css/app.css")}}">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Playfair Display', serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -93,6 +93,8 @@
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
+                    <i class="fa fa-address-book-o" aria-hidden="true"></i>
+                    <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </div>
             </div>
         </div>
