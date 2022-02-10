@@ -26,6 +26,7 @@
         "@fontsource/oswald": "^4.5.3",
         "@fontsource/playfair-display": "^4.5.3",
         "@popperjs/core": "^2.11.2",
-        "font-awesome": "^4.7.0"
+        "font-awesome": "^4.7.0",
+        "swiper": "^8.0.5"
     }
 }

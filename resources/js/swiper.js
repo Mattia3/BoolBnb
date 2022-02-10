@@ -1,0 +1,1 @@
+window.Swiper = require("swiper");
