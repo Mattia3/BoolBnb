@@ -16,19 +16,19 @@ class CreateApartmentsTable extends Migration
         Schema::create('apartments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('category_id')->constrained();
-            $table->string('title')->nullable(false);
-            $table->string('address')->nullable(false);
-            $table->decimal('lat', 10, 8);
-            $table->decimal('lng', 11, 8);
-            $table->unsignedSmallInteger('square_mt')->nullable(false);
-            $table->unsignedTinyInteger('n_rooms')->nullable(false);
-            $table->unsignedTinyInteger('n_beds')->nullable(false);
-            $table->unsignedTinyInteger('n_baths')->nullable(false);
-            $table->string('cover_img')->nullable(false);
-            $table->text('description')->nullable(false);
+            $table->string('title');
+            $table->string('address');
+            $table->decimal('price', 7, 2);
+            $table->decimal('lat', 10, 8)->nullable();
+            $table->decimal('lng', 11, 8)->nullable();
+            $table->unsignedSmallInteger('square_mt');
+            $table->unsignedTinyInteger('n_rooms');
+            $table->unsignedTinyInteger('n_beds');
+            $table->unsignedTinyInteger('n_baths');
+            $table->string('cover_img');
+            $table->text('description');
             $table->boolean('visible')->default(1);
-            $table->text('place_description')->nullable(false);
+            $table->text('place_description');
             $table->timestamps();
         });
     }
