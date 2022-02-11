@@ -1,5 +1,9 @@
 const mix = require('laravel-mix');
 
+mix.setPublicPath('public');
+mix.setResourceRoot('../');
+mix.copy('node_modules/@fortawesome/fontawesome-free/webfonts', 'public/webfonts');
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management
