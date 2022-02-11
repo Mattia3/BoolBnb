@@ -15,7 +15,7 @@ class CreateVisitsTable extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('apartament_id')->constrained();
+            $table->foreignId('apartment_id')->constrained();
             $table->string('ip_address');
             $table->dateTime('visit_date');
             $table->timestamps();
