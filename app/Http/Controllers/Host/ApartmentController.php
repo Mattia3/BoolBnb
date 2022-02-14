@@ -20,8 +20,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::where('user_id', Auth::id())->get();
-        return view('host.apartments.index', compact('apartments'));
+        $apartments = Apartment::where('user_id', Auth::user()->id)->get();
+        return view('welcome', compact('apartments')); //ricordarsi di cambiare la view con 'host.apartments.index'
     }
 
     /**
@@ -34,7 +34,7 @@ class ApartmentController extends Controller
         $services = Service::all();
         $languages = Language::all();
         $rules = Rule::all();
-        return view('host.apartments.create', [
+        return view('welcome', [                //ricordarsi di cambiare la view con  'host.apartments.create'
             'services' => $services,
             'languages' => $languages,
             'rules' => $rules
@@ -88,7 +88,9 @@ class ApartmentController extends Controller
         //     ],
         //     'activeDate' => $activeDate,
         // ];
-        return view('host.apartments.show');
+        $sponsor_active = $apartment->sponsors()->get();
+        dd($sponsor_active);
+        return view('welcome');  //ricordarsi di cambiare la view con  'host.apartments.show'
     }
 
     /**
