@@ -1,0 +1,43 @@
+.container-footer {
+    background-color: lightgrey;
+
+    ul {
+        list-style: none;
+        color: black;
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .row-footer {
+            ul {
+                margin-bottom: 20px;
+                li {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+.container-social {
+    background-color: black;
+
+    p {
+        color: white;
+    }
+    @media only screen and (min-width: 768px) {
+        .text-right {
+            text-align: right;
+        }
+    }
+
+    @media only screen and (max-width: 767px) {
+        .query-icon {
+            text-align: center;
+        }
+    }
+}
