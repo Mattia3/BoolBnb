@@ -43,12 +43,43 @@ class ApartmentsTableSeeder extends Seeder
                 'cover_img' => 'storage/apartment/apartment_cover/cover-2.jpeg',
                 'description' => 'Vorresti affittare una piccola palazzina a Trastevere adatta ai VIP di Hollywood per il vostro soggiorno a Roma? Questa "Palazzina" con due camere da letto offre due camere da letto e bagni super lussuosi, un soggiorno adatto per una galleria Art Deco, una sala da pranzo e persino una terrazza per mangiare',
                 'visible' => true,
-                'place_description' => ''
+                'place_description' => 'Esattamente al centro di trastevere, a due passi dalla Basilica di Santa Maria. Tanti locali e osterie nei paraggi. La zona è sempre piena di vita, sia di giorno che di notte, con tanti posti da vedere nelle vicinanze per vivere a pieno uno dei quartieri più belli di Roma'
+            ],
+            [
+                'user_id' => 5,
+                'title' => 'Villa incantevole in Toscana con piscina',
+                'address' => 'Castel del piano, Grosseto, Toscana',
+                'price' => 10000,
+                'lat' => 42.889647,
+                'lng' => 11.5396756,
+                'square_mt' => 1200,
+                'n_rooms' => 12,
+                'n_beds' => 10,
+                'n_baths' => 8,
+                'cover_img' => 'storage/apartment/apartment_cover/cover-3.jpg',
+                'description' => 'Una vera reggia nel cuore sella campagna Toscana. Villa incantevole con 12 stanze e un giardino di 800 metri quadrati, che comprende piscina e area relax. Ideale per feste o grandi cerimonie per accogliere i propri invitati in una dimora da favola.',
+                'visible' => true,
+                'place_description' => 'A pochi chilometri troviamo il paesino di Castel del piano, molto tranquillo e caratteristico, con locali e negozi che vendono prodotti tipici della zona. Tutta la zona circostante è immersa nel verde, ideale per rilassarsi e immergersi nella natura.'
             ],
         ];
 
         foreach ($apartments as $apartment) {
             $newApartment = new Apartment();
+            $newApartment->user_id = $apartment['user_id'];
+            $newApartment->title = $apartment['title'];
+            $newApartment->address = $apartment['address'];
+            $newApartment->price = $apartment['price'];
+            $newApartment->lat = $apartment['lat'];
+            $newApartment->lng = $apartment['lng'];
+            $newApartment->square_mt = $apartment['square_mt'];
+            $newApartment->n_rooms = $apartment['n_rooms'];
+            $newApartment->n_beds = $apartment['n_beds'];
+            $newApartment->n_baths = $apartment['n_baths'];
+            $newApartment->cover_img = $apartment['cover_img'];
+            $newApartment->description = $apartment['description'];
+            $newApartment->visible = $apartment['visible'];
+            $newApartment->place_description = $apartment['place_description'];
+            $newApartment->save();
         }
     }
 }
