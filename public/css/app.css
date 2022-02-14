@@ -22313,12 +22313,20 @@ readers do not read off random characters that represent icons */
 }
 
 .bg-hero {
-  background-size: cover;
-  background-position-x: center;
-  height: 300px;
+  background-color: grey;
+  height: 250px;
 }
 
-.bg-hero-dashboard {
-  background-image: url(../images/hero.jpg?12af5df3adcd06e13b1165f6a698554a);
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
 }
 

@@ -3,7 +3,7 @@
 @import "~@fontsource/oswald/index.css";
 
 // Variables
-@import 'variables';
+@import 'partials/variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -19,4 +19,7 @@
 @import '~swiper/swiper-bundle.css';
 
 // Host
-@import 'navbar-host';
+@import 'partials/navbar';
+
+@import 'partials/generals';
+

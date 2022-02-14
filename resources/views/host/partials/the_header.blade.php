@@ -1,5 +1,4 @@
-
-<div class="bg-hero @yield('bg-hero') position-relative">
+<div class="bg-hero position-relative">
   <div class="d-flex justify-content-between px-4 py-4">
     <a href="">About us</a>
     <a href=""><h1>Boolbnb</h1></a>
@@ -15,7 +14,7 @@
     
     <div>
       <h3>Nome utente</h3>
-      <ul>
+      <ul class="d-flex">
         <li><a href="">Profilo utente</a></li>
         <li><a href="">Gestisci annunci</a></li>
         <li><a href="">Messaggi</a></li>
