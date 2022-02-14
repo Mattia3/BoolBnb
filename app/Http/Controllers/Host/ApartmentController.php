@@ -4,6 +4,12 @@ namespace App\Http\Controllers\Host;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Apartment;
+use App\Language;
+use App\Rule;
+use App\Service;
+use App\Sponsor;
 
 class ApartmentController extends Controller
 {
@@ -14,7 +20,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::where('user_id', Auth::id())->get();
+        return view('host.apartments.index', compact('apartments'));
     }
 
     /**
@@ -24,7 +31,14 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-        //
+        $services = Service::all();
+        $languages = Language::all();
+        $rules = Rule::all();
+        return view('host.apartments.create', [
+            'services' => $services,
+            'languages' => $languages,
+            'rules' => $rules
+        ]);
     }
 
     /**
@@ -35,7 +49,28 @@ class ApartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $request->validate([
+            'title' => 'string|min:5|max:60|required|unique:apartments',
+            'address' => 'string|required',
+            'price' => 'numeric|required|min:2|max:99999',
+            'square_mt' => 'numeric|required|min:10',
+            'n_rooms' => 'numeric|min:1',
+            'n_beds' => 'numeric|min:1',
+            'n_baths' => 'numeric|min:1',
+            'cover_img' => 'file|required',
+            'description' => 'string|required|min:15|max:2000',
+            'visible' => 'boolean|required',
+            'place_description' => 'string|required|min:15|max:2000'
+        ]);
+
+        $newApartment = new Apartment;
+        $newApartment->fill($data);
+        $newApartment->save();
+        $newApartment->rules()->sync($data['rules']);
+        $newApartment->services()->sync($data['services']);
+
+        return redirect()->route('host.apartments.index', $newApartment->id);
     }
 
     /**
@@ -44,9 +79,16 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apartment $apartment)
     {
-        //
+        // $data = [
+        //     'apartment' => $apartment,
+        //     'activeSponsor' => [
+        //         'name'
+        //     ],
+        //     'activeDate' => $activeDate,
+        // ];
+        return view('host.apartments.show');
     }
 
     /**
@@ -55,9 +97,18 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
-        //
+        $services = Service::all();
+        $languages = Language::all();
+        $rules = Rule::all();
+
+        return view('host.apartments.edit', [
+            'apartment' => $apartment,
+            'services' => $services,
+            'languages' => $languages,
+            'rules' => $rules
+        ]);
     }
 
     /**
@@ -67,9 +118,30 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Apartment $apartment)
     {
-        //
+        $data = $request->all();
+        $request->validate([
+            'title' => 'string|min:5|max:60|required|unique:apartments',
+            'address' => 'string|required',
+            'price' => 'numeric|required|min:2|max:99999',
+            'square_mt' => 'numeric|required|min:10',
+            'n_rooms' => 'numeric|min:1',
+            'n_beds' => 'numeric|min:1',
+            'n_baths' => 'numeric|min:1',
+            'cover_img' => 'file|required',
+            'description' => 'string|required|min:15|max:2000',
+            'visible' => 'boolean|required',
+            'place_description' => 'string|required|min:15|max:2000'
+        ]);
+
+        $newApartment = new Apartment;
+        $newApartment->fill($data);
+        $newApartment->save();
+        $newApartment->rules()->sync($data['rules']);
+        $newApartment->services()->sync($data['services']);
+
+        return redirect()->route('host.apartment.show', $apartment->id);
     }
 
     /**
@@ -78,8 +150,11 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->services()->detach();
+        $apartment->rules()->detach();
+        $apartment->delete();
+        return redirect()->route('host.apartment.index')->with(['status' => 'Appartamento eliminato correttamente']);
     }
 }
