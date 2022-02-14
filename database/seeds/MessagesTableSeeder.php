@@ -14,28 +14,28 @@ class MessagesTableSeeder extends Seeder
     {
         $messages = [
             [
-                'apartment_id' => 2,
+                'apartment_id' => 1,
                 'name' => 'Flavio',
                 'last_name' => 'Renzelli',
                 'email' => 'flaviorenze@libero.it',
                 'body_email' => 'Salve, volevo sapere se era disponbile dal 27 al 6 marzo.'
             ],
             [
-                'apartment_id' => 2,
+                'apartment_id' => 1,
                 'name' => 'Sara',
                 'last_name' => 'Capitelli',
                 'email' => 'saracapitelli@outlook.com',
                 'body_email' => 'Ciao, è disponibile per 2 settimane ad agosto? sono ammessi gli animali?'
             ],
             [
-                'apartment_id' => 3,
+                'apartment_id' => 2,
                 'name' => 'Sandro',
                 'last_name' => 'Buchet',
                 'email' => 'sandrobuch@libero.it',
                 'body_email' => 'Salve, vorrei prenotare per 5 giorni, per un matrimonio. Sarebbe possibile avere un maggiordomo?'
             ],
             [
-                'apartment_id' => 4,
+                'apartment_id' => 3,
                 'name' => 'Franca',
                 'last_name' => 'Salmerino',
                 'email' => 'salmerinofranca@libero.it',
