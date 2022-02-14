@@ -22396,3 +22396,47 @@ h6,
   margin: 0;
 }
 
+.container-footer {
+  background-color: lightgrey;
+}
+
+.container-footer ul {
+  list-style: none;
+  color: black;
+}
+
+.container-footer ul a {
+  text-decoration: none;
+  color: black;
+}
+
+@media only screen and (max-width: 768px) {
+  .container-footer .row-footer ul {
+    margin-bottom: 20px;
+  }
+
+  .container-footer .row-footer ul li {
+    text-align: center;
+  }
+}
+
+.container-social {
+  background-color: black;
+}
+
+.container-social p {
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  .container-social .text-right {
+    text-align: right;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .container-social .query-icon {
+    text-align: center;
+  }
+}
+
