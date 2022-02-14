@@ -14,8 +14,7 @@
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-
+  
   <title> @yield('page_title') </title>
 </head>
 
