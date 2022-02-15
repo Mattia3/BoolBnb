@@ -17,8 +17,8 @@ class CreateApartmentSponsorTable extends Migration
             $table->id();
             $table->foreignId('apartment_id')->constrained();
             $table->foreignId('sponsor_id')->constrained();
-            $table->dateTime('starting_date');
-            $table->dateTime('expire_date');
+            $table->dateTime('starting_date')->nullable();
+            $table->dateTime('expire_date')->nullable();
             $table->timestamps();
         });
     }
