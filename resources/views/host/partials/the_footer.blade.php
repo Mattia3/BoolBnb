@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <footer >
   <div class="container-footer">
     <div class="container">
@@ -54,4 +52,3 @@
     </div>
   </div>
 </footer>
->>>>>>> 2ea1e04223d8955b56da1e89574c44dde9d9e916
