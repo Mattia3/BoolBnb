@@ -22440,3 +22440,35 @@ h6,
   }
 }
 
+.container_apartment_show .label_price {
+  background-color: #9b7daf;
+  color: #fff;
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 25px;
+}
+
+.container_apartment_show .bg-grey {
+  background-color: #f0f0f0;
+}
+
+.container_apartment_show .bg-grey .map {
+  border-radius: 15px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 991px) {
+  .container_apartment_show .space_negative {
+    margin-right: -150px;
+    z-index: 1;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .container_apartment_show .arrow {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+}
+

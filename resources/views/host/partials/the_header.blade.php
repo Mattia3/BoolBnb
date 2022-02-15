@@ -19,7 +19,7 @@
 
     {{-- Link --}}
     <div class="col-lg-10 col-md-8 col-sm-7 col-xs-12">
-      <h3 class="text-white mb-3"> {{ Auth::user()->name }} </h3>
+      <h3 class="text-white mb-3"> {{-- {{ Auth::user()->name }} --}} </h3>
       <ul class="d-flex flex-wrap navbar-link">
         <li><a href="">Profilo utente</a></li>
         <li><a href="">Gestisci annunci</a></li>
