@@ -10,6 +10,8 @@ use App\Language;
 use App\Rule;
 use App\Service;
 use App\Sponsor;
+use App\User;
+use Carbon\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -81,16 +83,32 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        // $data = [
-        //     'apartment' => $apartment,
-        //     'activeSponsor' => [
-        //         'name'
-        //     ],
-        //     'activeDate' => $activeDate,
-        // ];
-        $sponsor_active = $apartment->sponsors()->get();
-        dd($sponsor_active);
-        return view('welcome');  //ricordarsi di cambiare la view con  'host.apartments.show'
+        $active_sponsor = $apartment->sponsors()->first();
+        $sponsor_starting_date = $active_sponsor->pivot->starting_date;
+        $sponsor_expire_date = $active_sponsor->pivot->expire_date;
+        $services = $apartment->services()->get();
+        $rules = $apartment->rules()->get();
+        $messages = $apartment->messages()->get();
+        $images = $apartment->images()->get();
+
+        $user_id = $apartment['user_id']; //Auth::user()->id;
+        $host = User::where('id', $user_id)->first();
+
+        //dd($apartment->title);
+        //dd($apartment_details['active_sponsor']->name);
+        //dd($apartment_details['messages'][0]->name);
+
+        return view('welcome', [
+            'active_sponsor' => $active_sponsor,
+            'sponsor_starting_date' => $sponsor_starting_date,
+            'sponsor_expire_date' => $sponsor_expire_date,
+            'services' => $services,
+            'rules' => $rules,
+            'messages' => $messages,
+            'images' => $images,
+            'apartment' => $apartment,
+            'host' => $host
+        ]);  //ricordarsi di cambiare la view con  'host.apartments.show'
     }
 
     /**
