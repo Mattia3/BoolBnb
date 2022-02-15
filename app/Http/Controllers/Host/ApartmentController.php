@@ -23,7 +23,7 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::user()->id)->get();
-        return view('welcome', compact('apartments')); //ricordarsi di cambiare la view con 'host.apartments.index'
+        return view('host.apartments.index', compact('apartments')); //ricordarsi di cambiare la view con 'host.apartments.index'
     }
 
     /**
@@ -36,7 +36,7 @@ class ApartmentController extends Controller
         $services = Service::all();
         $languages = Language::all();
         $rules = Rule::all();
-        return view('welcome', [                //ricordarsi di cambiare la view con  'host.apartments.create'
+        return view('host.apartments.create', [                //ricordarsi di cambiare la view con  'host.apartments.create'
             'services' => $services,
             'languages' => $languages,
             'rules' => $rules
@@ -71,6 +71,7 @@ class ApartmentController extends Controller
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
+        $newApartment->languages()->sync($data['languages']);
 
         return redirect()->route('host.apartments.index', $newApartment->id);
     }
@@ -98,7 +99,7 @@ class ApartmentController extends Controller
         //dd($apartment_details['active_sponsor']->name);
         //dd($apartment_details['messages'][0]->name);
 
-        return view('welcome', [
+        return view('host.apartments.show', [
             'active_sponsor' => $active_sponsor,
             'sponsor_starting_date' => $sponsor_starting_date,
             'sponsor_expire_date' => $sponsor_expire_date,
@@ -128,7 +129,7 @@ class ApartmentController extends Controller
             'services' => $services,
             'languages' => $languages,
             'rules' => $rules
-        ]);
+        ]); //ricordarsi di cambiare la view con  'host.apartments.edit'
     }
 
     /**
@@ -160,6 +161,7 @@ class ApartmentController extends Controller
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
+        $newApartment->languages()->sync($data['languages']);
 
         return redirect()->route('host.apartment.show', $apartment->id);
     }
@@ -174,6 +176,7 @@ class ApartmentController extends Controller
     {
         $apartment->services()->detach();
         $apartment->rules()->detach();
+        $apartment->languages()->detach();
         $apartment->delete();
         return redirect()->route('host.apartment.index')->with(['status' => 'Appartamento eliminato correttamente']);
     }
