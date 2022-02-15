@@ -6,13 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsor extends Model
 {
-    protected $fillable = [
-      'name',
-      'price',
-      'duration'
-    ];
+  protected $fillable = [
+    'name',
+    'price',
+    'duration'
+  ];
 
-    public function apartments(){
-      return $this->belongsToMany('App\Apartment', 'apartment_sponsor');
-    }
+  public function apartments()
+  {
+    return $this->belongsToMany('App\Apartment', 'apartment_sponsor');
+  }
 }
