@@ -22,10 +22,12 @@ Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
-Route::namespace('Host') //riaggiungere middleware('auth') 
+Route::middleware('auth')
+    ->namespace('Host') //riaggiungere middleware('auth') 
     ->prefix('host')
     ->name('host.')
     ->group(function () {
+        Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('apartments', 'ApartmentController');
     });
     

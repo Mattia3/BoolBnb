@@ -90,7 +90,7 @@ class ApartmentController extends Controller
         $services = $apartment->services()->get();
         $rules = $apartment->rules()->get();
         $messages = $apartment->messages()->get();
-        $images = $apartment->images()->get();
+        $images = $apartment->images()->get(); //probabilmente fare un paginate
 
         $user_id = $apartment['user_id']; //Auth::user()->id;
         $host = User::where('id', $user_id)->first();
