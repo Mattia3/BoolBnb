@@ -27,12 +27,12 @@
       {{-- Title --}}
       <div class="col-11 pb-3">
         <label for="field_title" class="title-form">Titolo</label>
-        <input type="text" name="title" class="col-12 input-form" id="field_title">
+        <input type="text" name="title" class="col-12 input-form w-100" id="field_title">
       </div>
       {{-- Address --}}
       <div class="col-11 pb-3">
         <label for="field_address" class="title-form">Indirizzo</label>
-        <input type="text" name="address" class="col-12 input-form" id="field_address">
+        <input type="text" name="address" class="col-12 input-form w-100" id="field_address">
       </div>
       {{-- Cover image --}}
       <div class="col-11 pb-3">
@@ -50,7 +50,7 @@
           <label for="field_square_mt" class="title-form">Metratura</label>
           <div>
             <input class="btn-counter-1 btn-counter-style" type="button" value="-" />
-            <input class="total-item-1 total-item-style text-white" type="text" value="0" />
+            <input class="total-item-1 total-item-style text-white" type="text" name="square_mt" value="0" />
             <input class="btn-counter-1 btn-counter-style" type="button" value="+" />
           </div>
         </div>
@@ -59,7 +59,7 @@
           <label for="field_square_mt" class="title-form">Stanze</label>
           <div>
             <input class="btn-counter-2 btn-counter-style" type="button" value="-" />
-            <input class="total-item-2 total-item-style text-white" type="text" value="0" />
+            <input class="total-item-2 total-item-style text-white" type="text" name="n_rooms" value="0" />
             <input class="btn-counter-2 btn-counter-style" type="button" value="+" />
           </div>
         </div>
@@ -68,7 +68,7 @@
           <label for="field_square_mt" class="title-form">Letti</label>
           <div>
             <input class="btn-counter-3 btn-counter-style" type="button" value="-" />
-            <input class="total-item-3 total-item-style text-white" type="text" value="0" />
+            <input class="total-item-3 total-item-style text-white" type="text" name="n_beds" value="0" />
             <input class="btn-counter-3 btn-counter-style" type="button" value="+" />
           </div>
         </div>
@@ -77,7 +77,7 @@
           <label for="field_square_mt" class="title-form">Bagni</label>
           <div>
             <input class="btn-counter-4 btn-counter-style" type="button" value="-" />
-            <input class="total-item-4 total-item-style text-white" type="text" value="0" />
+            <input class="total-item-4 total-item-style text-white" type="text" name="n_baths" value="0" />
             <input class="btn-counter-4 btn-counter-style" type="button" value="+" />
           </div>
         </div>
