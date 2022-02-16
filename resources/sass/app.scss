@@ -1,6 +1,9 @@
 // Fonts
 @import "~@fontsource/playfair-display/index.css";
 @import "~@fontsource/oswald/index.css";
+@import "~@fontsource/oswald/200.css";
+@import "~@fontsource/oswald/300.css";
+@import "~@fontsource/oswald/600.css";
 
 // Variables
 @import "partials/variables";
@@ -24,3 +27,5 @@
 @import "partials/generals";
 
 @import "partials/footer";
+
+@import "partials/create-edit";

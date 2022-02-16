@@ -14,6 +14,8 @@
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  {{-- <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
+  
   
   <title> @yield('page_title') </title>
 </head>

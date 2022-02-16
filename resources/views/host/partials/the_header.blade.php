@@ -14,12 +14,12 @@
     {{-- <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"> --}}
     <div class="img-profile">
       {{-- <div class="img-profile"></div> --}}
-      <img src="{{ asset('images/host/host-2.jpg') }}" alt="">
+      <img src="{{ asset('storage/host/host-1.jpg') }}" alt="profile">
     </div>
 
     {{-- Link --}}
     <div class="col-lg-10 col-md-8 col-sm-7 col-xs-12">
-      <h3 class="text-white mb-3"> {{ Auth::user()->name }} </h3>
+      <h3 class="text-white mb-3"> Nome </h3>
       <ul class="d-flex flex-wrap navbar-link">
         <li><a href="">Profilo utente</a></li>
         <li><a href="">Gestisci annunci</a></li>
