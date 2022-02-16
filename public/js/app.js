@@ -3299,17 +3299,6 @@ function withinMaxClamp(min, value, max) {
 
 /***/ }),
 
-/***/ "./node_modules/@tomtom-international/web-sdk-plugin-zoomcontrols/dist/ZoomControls.js":
-/*!*********************************************************************************************!*\
-  !*** ./node_modules/@tomtom-international/web-sdk-plugin-zoomcontrols/dist/ZoomControls.js ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-!function(t,n){if(true)module.exports=n();else { var o, e; }}(self,(function(){return function(){"use strict";var t={d:function(n,e){for(var o in e)t.o(e,o)&&!t.o(n,o)&&Object.defineProperty(n,o,{enumerable:!0,get:e[o]})}};t.g=function(){if("object"==typeof globalThis)return globalThis;try{return this||new Function("return this")()}catch(t){if("object"==typeof window)return window}}(),t.o=function(t,n){return Object.prototype.hasOwnProperty.call(t,n)},function(){var n;t.g.importScripts&&(n=t.g.location+"");var e=t.g.document;if(!n&&e&&(e.currentScript&&(n=e.currentScript.src),!n)){var o=e.getElementsByTagName("script");o.length&&(n=o[o.length-1].src)}if(!n)throw new Error("Automatic publicPath is not supported in this browser");n=n.replace(/#.*$/,"").replace(/\?.*$/,"").replace(/\/[^\/]+$/,"/"),t.p=n+"../../../"}();var n={};t.d(n,{default:function(){return s}});t.p;function e(t,n){var e;if("undefined"==typeof Symbol||null==t[Symbol.iterator]){if(Array.isArray(t)||(e=function(t,n){if(!t)return;if("string"==typeof t)return o(t,n);var e=Object.prototype.toString.call(t).slice(8,-1);"Object"===e&&t.constructor&&(e=t.constructor.name);if("Map"===e||"Set"===e)return Array.from(t);if("Arguments"===e||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e))return o(t,n)}(t))||n&&t&&"number"==typeof t.length){e&&(t=e);var i=0,r=function(){};return{s:r,n:function(){return i>=t.length?{done:!0}:{done:!1,value:t[i++]}},e:function(t){throw t},f:r}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}var a,s=!0,u=!1;return{s:function(){e=t[Symbol.iterator]()},n:function(){var t=e.next();return s=t.done,t},e:function(t){u=!0,a=t},f:function(){try{s||null==e.return||e.return()}finally{if(u)throw a}}}}function o(t,n){(null==n||n>t.length)&&(n=t.length);for(var e=0,o=new Array(n);e<n;e++)o[e]=t[e];return o}function i(t){var n,o=!1,i=e(document.styleSheets);try{for(i.s();!(n=i.n()).done;){var r=n.value.href;if(r&&-1!==r.indexOf(t)){o=!0;break}}}catch(t){i.e(t)}finally{i.f()}o||console.warn('It seems that you forgot to add "'.concat(t,'" to your page, that is ')+"why some information might not be visible on your map. You can find the missing asset on our Downloads page: https://developer.tomtom.com/maps-sdk-web-js/downloads")}function r(t,n){if(!(t instanceof n))throw new TypeError("Cannot call a class as a function")}function a(t,n){for(var e=0;e<n.length;e++){var o=n[e];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(t,o.key,o)}}var s=function(){function t(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},e=n.animate,o=void 0===e||e,i=n.className,a=void 0===i?"":i,s=n.cssStyleCheck,u=void 0===s||s;r(this,t),this.animate=o,this.className=a,this.cssStyleCheck=u,this.eventFired=!1,this._createRangeInput=this._createRangeInput.bind(this),this._onZoomEnd=this._onZoomEnd.bind(this),this._onChange=this._onChange.bind(this),this._bindEvents=this._bindEvents.bind(this),this._unbindEvents=this._unbindEvents.bind(this),this._createZoomControls=this._createZoomControls.bind(this)}var n,o,s;return n=t,(o=[{key:"onAdd",value:function(t){return this.cssStyleCheck&&function(t){var n,o=e(t);try{for(o.s();!(n=o.n()).done;)i(n.value)}catch(t){o.e(t)}finally{o.f()}}(["ZoomControls.css"]),this._map=t,this._container=document.createElement("div"),this._container.className="mapboxgl-ctrl tt-ctrl",this.minZoom=this._map.transform._minZoom,this.maxZoom=this._map.transform._maxZoom,this._container.appendChild(this._createZoomControls("tt-zoom-control ".concat(this.className))),this._bindEvents(),this._container}},{key:"onRemove",value:function(){this._unbindEvents(),this._container.parentNode.removeChild(this._container),this._map=void 0}},{key:"_bindEvents",value:function(){this._onZoomClickIn=this._onZoomClick.bind(this,"in"),this._onZoomClickOut=this._onZoomClick.bind(this,"out"),this._map.on("zoomend",this._onZoomEnd),this._rangeInput.addEventListener("change",this._onChange),this._zoomButtonIn.addEventListener("click",this._onZoomClickIn),this._zoomButtonOut.addEventListener("click",this._onZoomClickOut)}},{key:"_unbindEvents",value:function(){this._map.off("zoomend",this._onZoomEnd),this._rangeInput.removeEventListener("change",this._onChange),this._zoomButtonIn.removeEventListener("click",this._onZoomClickIn),this._zoomButtonOut.removeEventListener("click",this._onZoomClickOut)}},{key:"_onChange",value:function(){this.eventFired||(this.animate?this._map.zoomTo(this._rangeInput.value):this._map.setZoom(this._rangeInput.value))}},{key:"_onZoomClick",value:function(t){var n,e=this._map.getZoom();"in"===t?n=e+1:"out"===t&&(n=e-1),n<this.minZoom||n>this.maxZoom||(this.animate?this._map.zoomTo(n):this._map.setZoom(n))}},{key:"_onZoomEnd",value:function(){this.eventFired=!0,this._rangeInput.value=Math.floor(this._map.getZoom()),this.eventFired=!1}},{key:"_createZoomControls",value:function(t){var n=document.createElement("div");return n.className=t,this._rangeInput=this._createRangeInput(),this._zoomButtonIn=this._createZoomButton({type:"in"}),this._zoomButtonOut=this._createZoomButton({type:"out"}),n.appendChild(this._zoomButtonIn),n.appendChild(this._rangeInput),n.appendChild(this._zoomButtonOut),n}},{key:"_createRangeInput",value:function(){var t=document.createElement("input");return t.setAttribute("type","range"),t.setAttribute("min",this.minZoom),t.setAttribute("max",this.maxZoom),t.classList.add("tt-zoom-slider"),t.value=this._map.getZoom(),t}},{key:"_createZoomButton",value:function(t){var n=t.type,e=document.createElement("button"),o="tt-zoom-button--".concat(n);return e.classList.add("tt-zoom-button"),e.classList.add(o),e}}])&&a(n.prototype,o),s&&a(n,s),t}();return n=n.default}()}));
-
-/***/ }),
-
 /***/ "./node_modules/axios/index.js":
 /*!*************************************!*\
   !*** ./node_modules/axios/index.js ***!
@@ -40213,24 +40202,28 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-document.querySelector(document).ready(function () {
-  document.querySelector('.contact').click(function (e) {
-    document.querySelector('.card').classList.toggle('active');
-    document.querySelector('.banner').classList.toggle('active');
-    document.querySelector('.photo').classList.toggle('active');
-    document.querySelector('.social-media-banner').classList.toggle('active');
-    document.querySelector('.email-form').classList.toggle('active');
-    var buttonText = document.querySelector('button.contact#main-button').text();
-
-    if (buttonText === 'back') {
-      buttonText = 'click to get in touch';
-      document.querySelector('button.contact#main-button').text(buttonText);
-    } else {
-      buttonText = 'back';
-      document.querySelector('button.contact#main-button').text(buttonText);
-    }
-  });
-});
+// document.querySelector(document).ready(function()
+// {
+//     document.querySelector('.contact').click(function (e)
+//     {
+//         document.querySelector('.card').classList.toggle('active');
+//         document.querySelector('.banner').classList.toggle('active');
+//         document.querySelector('.photo').classList.toggle('active');
+//         document.querySelector('.social-media-banner').classList.toggle('active');
+//         document.querySelector('.email-form').classList.toggle('active');
+//         var buttonText = document.querySelector('button.contact#main-button').text();
+//         if (buttonText === 'back')
+//         {
+//             buttonText = 'click to get in touch';
+//             document.querySelector('button.contact#main-button').text(buttonText);
+//         }
+//         else
+//         {
+//             buttonText = 'back';
+//             document.querySelector('button.contact#main-button').text(buttonText);
+//         }
+//     });
+// });
 
 /***/ }),
 
@@ -40316,25 +40309,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _tomtom_international_web_sdk_plugin_pancontrols__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @tomtom-international/web-sdk-plugin-pancontrols */ "./node_modules/@tomtom-international/web-sdk-plugin-pancontrols/dist/PanControls.js");
 /* harmony import */ var _tomtom_international_web_sdk_plugin_pancontrols__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_plugin_pancontrols__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _tomtom_international_web_sdk_plugin_zoomcontrols__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @tomtom-international/web-sdk-plugin-zoomcontrols */ "./node_modules/@tomtom-international/web-sdk-plugin-zoomcontrols/dist/ZoomControls.js");
-/* harmony import */ var _tomtom_international_web_sdk_plugin_zoomcontrols__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_tomtom_international_web_sdk_plugin_zoomcontrols__WEBPACK_IMPORTED_MODULE_2__);
 // SDK
  // import tt from '@tomtom-international/web-sdk-services';
 // PanControl
 
  // ZoomControl
+// import ZoomControls from '@tomtom-international/web-sdk-plugin-zoomcontrols';
+// prendo lat e lng da hidden p in show
 
+var mylat = document.getElementById("lat").innerHTML;
+document.getElementById("lat").innerHTML = mylat.replace(/<[^>]*>/g, ""); // console.log(mylat);
+
+var mylng = document.getElementById("lng").innerHTML;
+document.getElementById("lng").innerHTML = mylng.replace(/<[^>]*>/g, ""); // console.log(mylng);
 
 var APIKEY = 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj';
-var chicago = {
-  lat: 41.964843,
-  lng: -87.6551149
+var point = {
+  lat: mylat,
+  lng: mylng
 }; // mappa
 
 var map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
   key: APIKEY,
   container: 'mymap',
-  center: chicago,
+  center: point,
   zoom: 14
 }); // panControl
 
@@ -40343,51 +40341,39 @@ var ttPanControls = new _tomtom_international_web_sdk_plugin_pancontrols__WEBPAC
   // default = ''
   panOffset: 100 // default = 100
 
-}); // zoomControl
-
-var ttZoomControls = new _tomtom_international_web_sdk_plugin_zoomcontrols__WEBPACK_IMPORTED_MODULE_2___default.a({
-  className: 'zoom-control',
-  // default = ''
-  animate: true // deafult = true
-
 }); // navigation controller
 
 var nav = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.NavigationControl({
-  showCompass: true,
-  showExtendedRotationControls: true
+  showCompass: true
 });
-map.addControl(nav, 'top-left');
 map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.FullscreenControl());
-map.addControl(ttPanControls, 'top-left');
-map.addControl(ttZoomControls, 'top-left'); // -------------
+map.addControl(nav);
+map.addControl(ttPanControls, 'top-left'); // -------------
 // marker ---- basta addTo() per aggiungerlo a alla mappa
-// var marker = new tt.Marker()
-//     .setLngLat(chicago)
-//     .addTo(map);
-// marker da finire
 
-function createMarker(position, color, popupText) {
-  var markerElement = document.createElement('div');
-  markerElement.className = 'marker';
-  var markerContentElement = document.createElement('div');
-  markerContentElement.className = 'marker-content';
-  markerContentElement.style.backgroundColor = color;
-  markerElement.appendChild(markerContentElement);
-  var iconElement = document.createElement('div');
-  iconElement.className = 'marker-icon';
-  iconElement.style.backgroundImage = 'url("storage/host/host-2.jpg")';
-  markerContentElement.appendChild(iconElement);
-  var popup = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Popup({
-    offset: 30
-  }).setText(popupText); // add marker to map;
-
-  new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
-    element: markerElement,
-    anchor: 'bottom'
-  }).setLngLat(position).setPopup(popup).addTo(map);
-}
-
-createMarker(chicago, '#5327c3', 'SVG icon'); // function flyTo->new point
+var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(point).addTo(map); // marker da finire
+// function createMarker(position, color, popupText)
+// {
+//     var markerElement = document.createElement('div');
+//     markerElement.className = 'marker';
+//     var markerContentElement = document.createElement('div');
+//     markerContentElement.className = 'marker-content';
+//     markerContentElement.style.backgroundColor = color;
+//     markerElement.appendChild(markerContentElement);
+//     var iconElement = document.createElement('div');
+//     iconElement.className = 'marker-icon';
+//     iconElement.style.backgroundImage =
+//         'url("storage/host/host-2.jpg")';
+//     markerContentElement.appendChild(iconElement);
+//     var popup = new tt.Popup({ offset: 30 }).setText(popupText);
+//     // add marker to map;
+//     new tt.Marker({ element: markerElement, anchor: 'bottom' })
+//         .setLngLat(position)
+//         .setPopup(popup)
+//         .addTo(map);
+// }
+// createMarker(chicago, '#5327c3', 'SVG icon');
+// function flyTo->new point
 
 /*
 var moveMap = function (lgnlat)

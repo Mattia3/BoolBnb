@@ -23825,6 +23825,10 @@ button.contact:focus {
   margin-top: 60px;
 }
 
+#mymap {
+  height: 500px;
+}
+
 .box_number {
   display: block;
   background-color: #e5e5e5;
