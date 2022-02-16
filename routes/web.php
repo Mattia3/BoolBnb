@@ -30,4 +30,3 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('apartments', 'ApartmentController');
 });
-    
