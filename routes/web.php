@@ -20,6 +20,10 @@ Route::get('/', function () {
  
 Auth::routes();
 
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
 //Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Host') //riaggiungere middleware('auth') 
@@ -27,6 +31,6 @@ Route::namespace('Host') //riaggiungere middleware('auth')
     ->name('host.')
     ->group(function () {
         Route::resource('apartments', 'ApartmentController');
-    });
+});
     
 
