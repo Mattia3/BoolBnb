@@ -22575,6 +22575,10 @@ body {
   }
 }
 
+.create-edit {
+  margin-bottom: -60px;
+}
+
 .create-edit .title {
   font-family: "Playfair Display", serif;
 }
@@ -22615,10 +22619,35 @@ body {
   bottom: 75px;
 }
 
+.create-edit .bg-form-5 {
+  background-color: #7d86af;
+  padding: 30px 0 35px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 100px;
+}
+
+.create-edit .bg-form-6 {
+  background-color: #616c9f;
+  padding: 40px 0 30px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 125px;
+  z-index: 1;
+}
+
+.create-edit .bg-form-7 {
+  background-color: #7d86af;
+  padding: 45px 0 30px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 150px;
+}
+
 .create-edit .title-form {
   color: white;
   font-size: 16px;
-  padding-bottom: 8px;
+  padding-bottom: 10px;
   font-weight: 300;
   letter-spacing: 0.5px;
 }
@@ -22633,6 +22662,11 @@ body {
 
 .create-edit .input-form:focus-visible {
   outline: none;
+}
+
+.create-edit .btn-create-edit {
+  position: relative;
+  bottom: 115px;
 }
 
 .create-edit .btn-create-edit .btn {
@@ -22671,7 +22705,7 @@ body {
 .create-edit .total-item-style {
   background-color: transparent;
   border: none;
-  width: 50px;
+  width: 40px;
   font-size: 16px;
   text-align: center;
 }

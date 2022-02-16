@@ -1,5 +1,5 @@
 .create-edit {
-  
+  margin-bottom: -60px;
   .title {
     font-family: $font-title;
   }
@@ -35,11 +35,34 @@
     position: relative;
     bottom: 75px;
   }
+  .bg-form-5 {
+    background-color: #7d86af;
+    padding: 30px 0 35px 0;
+    margin-right: 50px;
+    position: relative;
+    bottom: 100px;
+  }
+  .bg-form-6 {
+    background-color: #616c9f;
+    padding: 40px 0 30px 0;
+    margin-left: 50px;
+    position: relative;
+    bottom: 125px;
+    z-index: 1;
+  }
+  .bg-form-7 {
+    background-color: #7d86af;
+    padding: 45px 0 30px 0;
+    margin-right: 50px;
+    position: relative;
+    bottom: 150px;
+  }
+
 
   .title-form {
     color: white;
     font-size: 16px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     font-weight: 300;
     letter-spacing: 0.5px;
   }
@@ -56,6 +79,8 @@
   }
 
   .btn-create-edit {
+    position: relative;
+    bottom: 115px;
     .btn {
       color: white;
       padding: 8px 20px;
@@ -92,25 +117,12 @@
     background-color: transparent;
     // color: #717171;
     border: none;
-    width: 50px;
+    width: 40px;
     font-size: 16px;
     text-align: center;
     &:focus-visible {
       outline: none;
     }
   }
-
-
-  // .wrap{
-  //   width: 200px;
-  //   margin: 30px auto;
-  // }  
-  // input{  
-  // display: inline-block;
-  // &[type=text]{
-  //   width: 50px;
-  //   text-align: center;
-  //   }
-  // }
 
 }
