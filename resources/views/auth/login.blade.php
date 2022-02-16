@@ -5,7 +5,7 @@
   <div class="background-login">
     
   
-    <div class="section">
+    <div class="section container-login">
       <div class="container">
         <div class="row full-height justify-content-center">
           <div class="col-12 text-center align-self-center py-5">
@@ -18,7 +18,7 @@
                   <div class="card-front">
                     <div class="center-wrap">
                       <div class="section text-center">
-                        <h4 class="mb-4 pb-3">Log In</h4>
+                        <h4 class="mb-4 pb-3 text-white">Log In</h4>
                         <div class="form-group">
                           <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail" autocomplete="off">
                           <i class="input-icon uil uil-at"></i>
