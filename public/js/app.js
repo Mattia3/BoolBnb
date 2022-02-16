@@ -40100,6 +40100,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./card-contact-host */ "./resources/js/card-contact-host.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -40165,6 +40167,34 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/card-contact-host.js":
+/*!*******************************************!*\
+  !*** ./resources/js/card-contact-host.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+document.querySelector(document).ready(function () {
+  document.querySelector('.contact').click(function (e) {
+    document.querySelector('.card').classList.toggle('active');
+    document.querySelector('.banner').classList.toggle('active');
+    document.querySelector('.photo').classList.toggle('active');
+    document.querySelector('.social-media-banner').classList.toggle('active');
+    document.querySelector('.email-form').classList.toggle('active');
+    var buttonText = document.querySelector('button.contact#main-button').text();
+
+    if (buttonText === 'back') {
+      buttonText = 'click to get in touch';
+      document.querySelector('button.contact#main-button').text(buttonText);
+    } else {
+      buttonText = 'back';
+      document.querySelector('button.contact#main-button').text(buttonText);
+    }
+  });
+});
 
 /***/ }),
 
