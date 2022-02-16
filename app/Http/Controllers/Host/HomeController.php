@@ -11,7 +11,11 @@ class HomeController extends Controller
 {
     function index(){
         $apartments = Apartment::where('user_id', Auth::user()->id)->get();
-        return view('host.apartments.index', compact('apartments')); //da cambiare con 'host.index' in cui ci sarà la home della dashboard --> sarà quindi anche da togliere $apartments perchè non sarà più necessario passarli alla view!!!!
+        $host = Auth::user();
+        return view('dashboard', [
+            'apartments' => $apartments,
+            'host' => $host
+        ]); //da cambiare con 'host.index' in cui ci sarà la home della dashboard --> sarà quindi anche da togliere $apartments perchè non sarà più necessario passarli alla view!!!!
     }
 }
 

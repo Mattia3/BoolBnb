@@ -83,9 +83,16 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        $active_sponsor = $apartment->sponsors()->first();
-        $sponsor_starting_date = $active_sponsor->pivot->starting_date;
-        $sponsor_expire_date = $active_sponsor->pivot->expire_date;
+        if ($apartment->sponsors()->first()) {
+            $active_sponsor = $apartment->sponsors()->first();
+            $sponsor_starting_date = $active_sponsor->pivot->starting_date;
+            $sponsor_expire_date = $active_sponsor->pivot->expire_date;
+        }  else {
+            $active_sponsor = '';
+            $sponsor_starting_date = '';
+            $sponsor_expire_date = '';
+        }
+
         $services = $apartment->services()->get();
         $rules = $apartment->rules()->get();
         $messages = $apartment->messages()->get();
