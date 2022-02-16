@@ -22951,3 +22951,83 @@ button.contact:focus {
   outline: none;
 }
 
+.background-hero {
+  background-image: url("/images/road.jpg");
+  height: 250px;
+  background-size: cover;
+  background-position: center center;
+}
+
+.search-bar {
+  padding: 0 100px;
+}
+
+.container-range {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+  align-items: center;
+}
+
+.container-check {
+  padding-left: 16px;
+}
+
+.title-form {
+  margin-right: 60px;
+}
+
+.title-service {
+  margin-right: 387px;
+}
+
+.btn-counter-style {
+  background-color: white;
+  border: 1px solid #b1b1b1;
+  border-radius: 50%;
+  color: #717171;
+  padding: 5px 13px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.total-item-style {
+  background-color: transparent;
+  border: none;
+  width: 50px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.total-item-style:focus-visible {
+  outline: none;
+}
+
+.container-all-img {
+  overflow: auto;
+  height: 600px;
+}
+
+.container-all-img .img-filter {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.container-all-img .my-border {
+  border: 1px solid lightgray;
+  width: 32px;
+  margin: 11px 0;
+}
+
+.container-all-img .my-border-2 {
+  border: 1px solid lightgray;
+  margin-top: 29px;
+}
+
+.container-all-img .container-price {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-right: 10px;
+}
+
