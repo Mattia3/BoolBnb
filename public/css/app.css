@@ -79,6 +79,141 @@
   src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-400-normal.woff2?f3655d2e126fb0891c94407ce82bea4b) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-400-normal.woff?a3d2ec70b5a06220c34782770971fc5a) format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+/* oswald-cyrillic-ext-200-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-ext-200-normal.woff2?7c887ea71e5bef82e234ffff40921358) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* oswald-cyrillic-200-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-200-normal.woff2?6653ab49b8445872f7d8756cfd5af2bb) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* oswald-vietnamese-200-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-vietnamese-200-normal.woff2?9969c1044507bb6ace4f47a2e19ab279) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* oswald-latin-ext-200-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-ext-200-normal.woff2?517254e1b3ac1473226c8cedab538b31) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* oswald-latin-200-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 200;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-200-normal.woff2?d53461dc992aa53b314508a947d84bf5) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* oswald-cyrillic-ext-300-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-ext-300-normal.woff2?a580e50113bcbb41b223695d8cb6780c) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* oswald-cyrillic-300-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-300-normal.woff2?b6e40e7518a5788b5fc54cd17d2fadb5) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* oswald-vietnamese-300-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-vietnamese-300-normal.woff2?a103dabcacc8b3cc9d95e95bbbbfb5ad) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* oswald-latin-ext-300-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-ext-300-normal.woff2?731fdcafa1b2601998f36dadd4855705) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* oswald-latin-300-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 300;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-300-normal.woff2?95bf83dcbd798c779f2e6685aecf8fba) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* oswald-cyrillic-ext-600-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-ext-600-normal.woff2?dd40cd1007fb33019a25a864d460ae07) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* oswald-cyrillic-600-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-600-normal.woff2?ad078026b066e894f8142f924f81ac28) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
+  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* oswald-vietnamese-600-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-vietnamese-600-normal.woff2?c9db0b27b0eee90aee8fa9a3b9d8779b) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
+}
+/* oswald-latin-ext-600-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-ext-600-normal.woff2?894af20a01f0a805d3e365bbf9d2445a) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* oswald-latin-600-normal*/
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 600;
+  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-600-normal.woff2?161c0bfba22fa0b99354f854e15b15e8) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 /**
  * Swiper 8.0.5
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -22312,10 +22447,6 @@ readers do not read off random characters that represent icons */
   scroll-snap-align: center center;
 }
 
-header {
-  font-family: "Oswald", serif;
-}
-
 .bg-hero {
   background-size: cover;
   background-position-y: center;
@@ -22396,6 +22527,10 @@ h6,
   margin: 0;
 }
 
+body {
+  font-family: "Oswald", serif;
+}
+
 .container-footer {
   background-color: lightgrey;
 }
@@ -22440,395 +22575,142 @@ h6,
   }
 }
 
-.number-card-vote {
-  position: absolute;
-  top: 9px;
-  left: 7px;
-  background-color: white;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+.create-edit {
+  margin-bottom: -60px;
 }
 
-.icons-star {
-  color: #ffa700;
-  font-size: 10px;
-  padding-left: 2px;
+.create-edit .title {
+  font-family: "Playfair Display", serif;
 }
 
-.icons-star-2 {
-  color: #ffa700;
-  font-size: 13px;
-  padding: 0 2px;
+.create-edit .bg-form {
+  border-radius: 7px;
 }
 
-.number-card-price {
-  position: absolute;
-  top: 9px;
-  left: 49px;
-  background-color: white;
-  border-radius: 10em/10em;
-  width: 68px;
-  height: 35px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
+.create-edit .bg-form-1 {
+  background-color: #7d86af;
+  padding: 25px 0 35px 0;
+  margin: 0 25px;
 }
 
-.background-login {
-  background-image: url("/images/login/van.jpg");
-  height: 100vh;
-  background-size: cover;
-  background-position: center center;
+.create-edit .bg-form-2 {
+  background-color: #616c9f;
+  padding: 0px 0 25px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 25px;
+  z-index: 99;
 }
 
-.container-login {
+.create-edit .bg-form-3 {
+  background-color: #7d86af;
+  padding: 40px 0 35px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 50px;
+  z-index: 98;
+}
+
+.create-edit .bg-form-4 {
+  background-color: #616c9f;
+  padding: 40px 0 65px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 75px;
+}
+
+.create-edit .bg-form-5 {
+  background-color: #7d86af;
+  padding: 30px 0 35px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 100px;
+}
+
+.create-edit .bg-form-6 {
+  background-color: #616c9f;
+  padding: 40px 0 30px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 125px;
+  z-index: 1;
+}
+
+.create-edit .bg-form-7 {
+  background-color: #7d86af;
+  padding: 45px 0 30px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 150px;
+}
+
+.create-edit .title-form {
+  color: white;
+  font-size: 16px;
+  padding-bottom: 10px;
   font-weight: 300;
-  font-size: 15px;
-  line-height: 1.7;
-  overflow-x: hidden;
+  letter-spacing: 0.5px;
+}
+
+.create-edit .input-form {
+  letter-spacing: 0.3px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.712);
   color: white;
 }
 
-.container-login a {
-  cursor: pointer;
-  transition: all 200ms linear;
+.create-edit .input-form:focus-visible {
+  outline: none;
 }
 
-.container-login a:hover {
-  text-decoration: none;
-}
-
-.container-login .link {
-  color: #c4c3ca;
-}
-
-.container-login .link:hover {
-  color: #ffeba7;
-}
-
-.container-login p {
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-.container-login h4,
-.container-login .h4 {
-  font-weight: 600;
-}
-
-.container-login h6 span,
-.container-login .h6 span {
-  padding: 0 20px;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.container-login .section {
+.create-edit .btn-create-edit {
   position: relative;
-  width: 100%;
-  display: block;
+  bottom: 115px;
 }
 
-.container-login .full-height {
-  min-height: 100vh;
+.create-edit .btn-create-edit .btn {
+  color: white;
+  padding: 8px 20px;
 }
 
-.container-login [type=checkbox]:checked,
-.container-login [type=checkbox]:not(:checked) {
-  position: absolute;
-  left: -9999px;
+.create-edit .btn-create-edit .btn-reset {
+  color: #9b7daf;
+  text-decoration: underline;
 }
 
-.container-login .checkbox:checked + label,
-.container-login .checkbox:not(:checked) + label {
-  position: relative;
-  display: block;
-  text-align: center;
-  width: 60px;
-  height: 16px;
-  border-radius: 8px;
-  padding: 0;
-  margin: 10px auto;
-  cursor: pointer;
-  background-color: #ffeba7;
+.create-edit .btn-create-edit .btn-create {
+  background-color: #9b7daf;
 }
 
-.container-login .checkbox:checked + label:before,
-.container-login .checkbox:not(:checked) + label:before {
-  position: absolute;
-  display: block;
-  width: 36px;
-  height: 36px;
+.create-edit .form-check-input:checked {
+  background-color: #9b7daf;
+  border-color: #9b7daf;
+}
+
+.create-edit .form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(76, 13, 253, 0.15);
+}
+
+.create-edit .btn-counter-style {
+  background-color: white;
+  border: 1px solid #b1b1b1;
   border-radius: 50%;
-  color: #ffeba7;
-  background-color: #102770;
-  font-family: "unicons";
-  content: "\EB4F";
-  z-index: 20;
-  top: -10px;
-  left: -10px;
-  line-height: 36px;
+  color: #717171;
+  padding: 5px 13px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.create-edit .total-item-style {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  font-size: 16px;
   text-align: center;
-  font-size: 24px;
-  transition: all 0.5s ease;
 }
 
-.container-login .checkbox:checked + label:before {
-  transform: translateX(44px) rotate(-270deg);
-}
-
-.container-login .card-3d-wrap {
-  position: relative;
-  width: 440px;
-  max-width: 100%;
-  height: 400px;
-  transform-style: preserve-3d;
-  perspective: 800px;
-  margin-top: 60px;
-}
-
-.container-login .card-3d-wrapper {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transform-style: preserve-3d;
-  transition: all 600ms ease-out;
-}
-
-.container-login .card-front,
-.container-login .card-back {
-  width: 100%;
-  height: 100%;
-  background-color: #2a2b38;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg");
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  background-size: 300%;
-  position: absolute;
-  border-radius: 6px;
-  left: 0;
-  top: 0;
-  transform-style: preserve-3d;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.container-login .card-back {
-  transform: rotateY(180deg);
-}
-
-.container-login .checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
-  transform: rotateY(180deg);
-}
-
-.container-login .center-wrap {
-  position: absolute;
-  width: 100%;
-  padding: 0 35px;
-  top: 50%;
-  left: 0;
-  transform: translate3d(0, -50%, 35px) perspective(100px);
-  z-index: 20;
-  display: block;
-}
-
-.container-login .form-group {
-  position: relative;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-
-.container-login .form-style {
-  padding: 13px 20px;
-  padding-left: 55px;
-  height: 48px;
-  width: 100%;
-  font-weight: 500;
-  border-radius: 4px;
-  font-size: 14px;
-  line-height: 22px;
-  letter-spacing: 0.5px;
+.create-edit .total-item-style:focus-visible {
   outline: none;
-  color: #c4c3ca;
-  background-color: #1f2029;
-  border: none;
-  transition: all 200ms linear;
-  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
-}
-
-.container-login .form-style:focus,
-.container-login .form-style:active {
-  border: none;
-  outline: none;
-  box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
-}
-
-.container-login .input-icon {
-  position: absolute;
-  top: 0;
-  left: 18px;
-  height: 48px;
-  font-size: 24px;
-  line-height: 48px;
-  text-align: left;
-  color: #ffeba7;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input:-ms-input-placeholder {
-  color: #c4c3ca;
-  opacity: 0.7;
-  -ms-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input::-moz-placeholder {
-  color: #c4c3ca;
-  opacity: 0.7;
-  -moz-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input:-moz-placeholder {
-  color: #c4c3ca;
-  opacity: 0.7;
-  -moz-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input::-webkit-input-placeholder {
-  color: #c4c3ca;
-  opacity: 0.7;
-  -webkit-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input:focus:-ms-input-placeholder {
-  opacity: 0;
-  -ms-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input:focus::-moz-placeholder {
-  opacity: 0;
-  -moz-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input:focus:-moz-placeholder {
-  opacity: 0;
-  -moz-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .form-group input:focus::-webkit-input-placeholder {
-  opacity: 0;
-  -webkit-transition: all 200ms linear;
-  transition: all 200ms linear;
-}
-
-.container-login .btn {
-  border-radius: 4px;
-  height: 44px;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  transition: all 200ms linear;
-  padding: 0 30px;
-  letter-spacing: 1px;
-  display: inline-flex;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center;
-  text-align: center;
-  border: none;
-  background-color: #ffeba7;
-  color: #102770;
-  box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
-}
-
-.container-login .btn:active,
-.container-login .btn:focus {
-  background-color: #102770;
-  color: #ffeba7;
-  box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
-}
-
-.container-login .btn:hover {
-  background-color: #102770;
-  color: #ffeba7;
-  box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
-}
-
-.container-login .logo {
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  display: block;
-  z-index: 100;
-  transition: all 250ms linear;
-}
-
-.container-login .logo img {
-  height: 26px;
-  width: auto;
-  display: block;
-}
-
-.background-hero {
-  background-image: url("/images/road.jpg");
-  height: 250px;
-  background-size: cover;
-  background-position: center center;
-}
-
-.search-bar {
-  padding: 0 100px;
-}
-
-.container-range {
-  display: flex;
-  flex-direction: column;
-  margin: 20px 0;
-  align-items: center;
-}
-
-.container-check {
-  padding-left: 16px;
-}
-
-.input-incremate {
-  width: 25px;
-  text-align: center;
-}
-
-.title-form {
-  margin-right: 60px;
-}
-
-.wrap {
-  width: 200px;
-  margin: 30px auto;
-}
-
-input {
-  display: inline-block;
-}
-
-input[type=text] {
-  width: 50px;
-  text-align: center;
 }
 

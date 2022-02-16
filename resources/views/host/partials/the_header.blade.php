@@ -35,7 +35,7 @@
     {{-- <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"> --}}
     <div class="img-profile">
       {{-- <div class="img-profile"></div> --}}
-      <img src="{{ asset('images/host/host-2.jpg') }}" alt="">
+      <img src="{{ asset('storage/host/host-1.jpg') }}" alt="profile">
     </div>
 
     {{-- Link --}}
