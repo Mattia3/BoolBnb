@@ -14,38 +14,25 @@
 
                 <div class="row pb-3">
                     <div class="col md-12-col-sm-12 col-xs-12">
-                        <h2><strong>Hotel Espana Camera Matrimoniale nel cuore di Roma</strong></h2>
+                        <h2><strong>{{ $apartment->title }}</strong></h2>
                     </div>
                 </div>
 
                 <div class="row row-cols-2 align-items-center pb-3">
                     <div class="col">
-                        <p class="mb-0">Via Roma</p>
+                        <p class="mb-0">{{ $apartment->address }}</p>
                     </div>
                     <div class="col">
-                        <p class="text-end"><span class="label_price">50€</span></p>
+                        <p class="text-end"><span class="label_price">{{ $apartment->price }}€</span></p>
                     </div>
                 </div>
 
                 <div class="row row-cols-2 pb-3">
-                    <div class="col">
-                      <p>Wi-Fi</p>
-                    </div>
-                    <div class="col">
-                      <p>TV</p>
-                    </div>
-                    <div class="col">
-                        <p>Aria condizionata</p>
-                    </div>
-                    <div class="col">
-                        <p>Asciugacapelli</p>
-                    </div>
-                    <div class="col">
-                        <p>Spazio di lavoro dedicato</p>
-                    </div>
-                    <div class="col">
-                        <p>Sono permessi soggiorni a lungo termine</p>
-                    </div>
+                    @foreach ($services as $service)
+                        <div class="col">
+                            <p><i class="{{ $service->icon_class }}"></i> {{ $service->name }} </p>
+                        </div>
+                    @endforeach
                 </div>    
 
                 <div class="d-flex space_negative gap-3 pb-3">
@@ -54,13 +41,13 @@
                 </div>
 
                 <div class="arrow">
-                    <a class="text-black" href="#"><i class="fa-solid fa-arrow-left-long"></i></a>
-                    <a class="text-black"  href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
+                    <a class="text-secondary" href="#"><i class="fa-solid fa-arrow-left-long"></i></a>
+                    <a class="text-secondary"  href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
                 </div>
                 
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <img class="w-100" src="/images/image_appartment.jpg">
+                <img class="cover_img" src="{{ asset($apartment->cover_img) }}">
             </div>
         </div>
     </div>
@@ -73,13 +60,9 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 pb-5">
                     <h3 class="pb-3">Descrizione Appartamento</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac sem porttitor lorem eleifend porta ut non est. Curabitur bibendum quam id sem commodo dictum. Donec feugiat quam in lectus mollis, at lacinia est tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum eget tellus malesuada venenatis. Suspendisse laoreet tempus justo, ac fringilla lacus facilisis sed.
-                    </p>
+                    <p>{{ $apartment->description }}</p>
                     <h3 class="pb-3">Cosa puoi trovare nelle vicinanze</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ac sem porttitor lorem eleifend porta ut non est. Curabitur bibendum quam id sem commodo dictum. Donec feugiat quam in lectus mollis, at lacinia est tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rutrum eget tellus malesuada venenatis. Suspendisse laoreet tempus justo, ac fringilla lacus facilisis sed.
-                    </p>
+                    <p>{{ $apartment->place_description }}</p>
 
                 </div>
             </div>
@@ -92,15 +75,35 @@
                 <div class="rule_apartment">
                     <h3 class="pb-3">Regole della casa</h3>
                     <ul>
-                        <li>Lorem Ipsum</li>
-                        <li>Lorem Ipsum</li>
-                        <li>Lorem Ipsum</li>
-                        <li>Lorem Ipsum</li>
+                        @foreach ($rules as $rule)
+                            <li>{{ $rule->name }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 pb-5">
-                Card Utente
+                <div class="card">
+                    <div class="photo"></div>
+                    <div class="banner"></div>
+                    <ul>
+                        <li><b>John Doe</b></li>
+                        <li>Web Developer</li>
+        
+                    </ul>
+                    <button class="contact" id="main-button">click to get in touch</button>
+                    <div class="social-media-banner">
+                        <a href=""><i class="fa fa-twitter"></i></a>
+                        <a href=""><i class="fa fa-facebook"></i></a>
+                        <a href=""><i class="fa fa-instagram"></i></a>
+                        <a href=""><i class="fa fa-linkedin"></i></a>
+                    </div>
+                  <form class="email-form">
+                        <input id="name" type="text" placeholder="name">
+                        <input id="email" type="text" placeholder="email">
+                        <textarea id="comment" type="text" placeholder="comment"></textarea>
+                        <button class="contact">send</button>
+                  </form>
+                </div>
             </div>
         </div>
     </div>

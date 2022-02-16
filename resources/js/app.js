@@ -6,7 +6,10 @@
 
 require('./bootstrap');
 
+
 require('./tomtom');
+
+require('./card-contact-host');
 
 window.Vue = require('vue');
 
