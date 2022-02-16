@@ -67,11 +67,12 @@ class ApartmentController extends Controller
 
         $newApartment = new Apartment;
         $newApartment->fill($data);
+        $newApartment->user_id = Auth::user()->id;
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
 
-        return redirect()->route('host.apartments.index', $newApartment->id);
+        return redirect()->route('host.apartments.show', $newApartment->id);
     }
 
     /**
