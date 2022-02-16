@@ -151,9 +151,21 @@
       </div>
     </div>
 
+
+
+    {{-- Price --}}
+    <div class="py-3 bg-primary">
+      <label for="field_price" class="title-form">Price</label>
+      <input type="text" name="price" class="col-12 input-form w-100" id="field_price">
+    </div>
+    {{-- Visible --}}
+    <div class="form-check d-inline-block bg-primary py-2 mb-5">
+      <label class="form-check-label text-white text-capitalize pe-3" for="field_visible">Visible</label>
+      <input class="form-check-input" name="visible" type="checkbox" value="1" id="field_visible">
+    </div>
     
     {{-- Buttons Crea/Reset--}}
-    <div class="btn-create-edit">
+    <div class="btn-create-edit mt-5 pt-5">
       <button class="btn btn-reset" type="reset">Reset</button>
       <button class="btn btn-create ms-2" type="submit">Crea</button>
     </div>
