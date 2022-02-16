@@ -27,6 +27,8 @@
         "@fontsource/oswald": "^4.5.3",
         "@fontsource/playfair-display": "^4.5.3",
         "@popperjs/core": "^2.11.2",
+        "@tomtom-international/web-sdk-maps": "^6.18.0",
+        "@tomtom-international/web-sdk-services": "^6.18.0",
         "swiper": "^8.0.5"
     }
 }
