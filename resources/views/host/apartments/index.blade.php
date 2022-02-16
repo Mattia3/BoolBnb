@@ -11,86 +11,25 @@
     <h1>TUTTI GLI APPARTAMENTI</h1>
   </div>
   <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
-
+    @foreach ($apartments as $apartment)
     <div class="col mb-4">
       <div class="card">
         <div class="position-relative">
-          <img src="{{ asset('images/apartments/apartment-1.webp') }}" class="card-img-top" alt="...">
-          <div class="number-card-vote">
-            <strong>5</strong> 
-            <i class="fa-solid fa-star icons-star"></i>
-          </div>
+          
+          <img src="{{ asset( $apartment->cover_img ) }}" class="card-img-top" alt="{{ $apartment->title }} ">
+        
           <div class="number-card-price">
             <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
-            <strong>1300</strong> 
+            <strong>{{ $apartment->price }}</strong> 
           </div>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><strong> Faroe Island </strong> </h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title"><strong> {{ $apartment->title }} </strong> </h5>
+          <p class="card-text">{{ $apartment->description }}</p>
         </div>
       </div>
-    </div>
-
-    <div class="col  mb-4">
-      <div class="card">
-        <div class="position-relative">
-          <img src="{{ asset('images/apartments/apartment-1.webp') }}" class="card-img-top" alt="...">
-          <div class="number-card-vote">
-            <strong>5</strong> 
-            <i class="fa-solid fa-star icons-star"></i>
-          </div>
-          <div class="number-card-price">
-            <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
-            <strong>1300</strong> 
-          </div>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><strong> Faroe Island </strong> </h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col  mb-4">
-      <div class="card">
-        <div class="position-relative">
-          <img src="{{ asset('images/apartments/apartment-1.webp') }}" class="card-img-top" alt="...">
-          <div class="number-card-vote">
-            <strong>5</strong> 
-            <i class="fa-solid fa-star icons-star"></i>
-          </div>
-          <div class="number-card-price">
-            <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
-            <strong>1300</strong> 
-          </div>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><strong> Faroe Island </strong> </h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col  mb-4">
-      <div class="card">
-        <div class="position-relative">
-          <img src="{{ asset('images/apartments/apartment-1.webp') }}" class="card-img-top" alt="...">
-          <div class="number-card-vote">
-            <strong>5</strong> 
-            <i class="fa-solid fa-star icons-star"></i>
-          </div>
-          <div class="number-card-price">
-            <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
-            <strong>1300</strong> 
-          </div>
-        </div>
-        <div class="card-body">
-          <h5 class="card-title"><strong> Faroe Island </strong> </h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div>
+    </div> 
+    @endforeach
   </div>
 </div>
 
