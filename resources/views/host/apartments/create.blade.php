@@ -176,6 +176,7 @@
 
 
 
+
 <script>
   var btnCounterOne = document.querySelectorAll('.btn-counter-1');
   var totalItemOne = document.querySelector('.total-item-1');
