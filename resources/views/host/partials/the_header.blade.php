@@ -42,10 +42,10 @@
     <div class="col-lg-10 col-md-8 col-sm-7 col-xs-12">
       <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
       <ul class="d-flex flex-wrap navbar-link">
-        <li><a href="">Profilo utente</a></li>
-        <li><a href="">Gestisci annunci</a></li>
+        <li><a href="{{route('host.dashboard')}}">Profilo utente</a></li>
+        <li><a href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
         <li><a href="">Messaggi</a></li>
-        <li><a href="">Pubblica annuncio</a></li>
+        <li><a href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
         <li><a href="">Statistiche</a></li>
       </ul>
     </div>

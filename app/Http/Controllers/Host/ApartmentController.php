@@ -82,7 +82,14 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Apartment $apartment)
-    {
+    {   
+        //dd($apartment->user_id);
+        /* dd($apartment->where('user_id', Auth::id())->get());
+        $apartments = $apartment->where('user_id', Auth::id())->get();
+        $apartment = $apartments;
+        dd($apartment); */
+        //dd($apartment = $apartment->where('id', $apartment->id))->first();
+        //$apartment = $apartment->where('id', $apartment->id);
         if ($apartment->sponsors()->first()) {
             $active_sponsor = $apartment->sponsors()->first();
             $sponsor_starting_date = $active_sponsor->pivot->starting_date;
@@ -98,7 +105,7 @@ class ApartmentController extends Controller
         $messages = $apartment->messages()->get();
         $images = $apartment->images()->get(); //probabilmente fare un paginate
 
-        $user_id = $apartment['user_id']; //Auth::user()->id;
+        $user_id = Auth::id();
         $host = User::where('id', $user_id)->first();
 
         //dd($apartment->title);
@@ -181,6 +188,7 @@ class ApartmentController extends Controller
     {
         $apartment->services()->detach();
         $apartment->rules()->detach();
+        $apartment->languages()->detach();
         $apartment->delete();
         return redirect()->route('host.apartment.index')->with(['status' => 'Appartamento eliminato correttamente']);
     }
