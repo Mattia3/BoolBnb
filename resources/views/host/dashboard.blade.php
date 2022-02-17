@@ -11,20 +11,20 @@
             <h2 class="pb-3 pt-5">Profilo Utente</h2>
             <div class="row row-cols-1 row-cols-md-2 row-cols-sm-2 g-3 pb-5">
                 <div class="col">
-                    <label class="pb-2"><strong>Nome</strong></label>
-                    <input type="text" class="form-control" placeholder="Nome" aria-label="Nome">
+                    <p class="pb-2"><strong>Nome</strong></p>
+                    <p>{{ Auth::user()->name }}</p>
                 </div>
                 <div class="col">
-                    <label class="pb-2"><strong>Cognome</strong></label>
-                    <input type="text" class="form-control" placeholder="Cognome" aria-label="Cognome">
+                    <p class="pb-2"><strong>Cognome</strong></p>
+                    <p>{{ Auth::user()->last_name }}</p>
                 </div>
                 <div class="col">
-                    <label class="pb-2"><strong>Data di Nascita</strong></label>
-                    <input type="date" class="form-control" placeholder="Data di Nascita" aria-label="Data di Nascita">
+                    <p class="pb-2"><strong>Data di Nascita</strong></p>
+                    <p>{{ Auth::user()->date_birth }}</p>
                 </div>
                 <div class="col">
-                    <label class="pb-2"><strong>Email</strong></label>
-                    <input type="email" class="form-control" placeholder="Email" aria-label="Email">
+                    <p class="pb-2"><strong>Email</strong></p>
+                    <p>{{ Auth::user()->email }}</p>
                 </div>
             </div>
         </div>
