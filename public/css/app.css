@@ -79,141 +79,6 @@
   src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-400-normal.woff2?f3655d2e126fb0891c94407ce82bea4b) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-400-normal.woff?a3d2ec70b5a06220c34782770971fc5a) format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-/* oswald-cyrillic-ext-200-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-ext-200-normal.woff2?7c887ea71e5bef82e234ffff40921358) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* oswald-cyrillic-200-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-200-normal.woff2?6653ab49b8445872f7d8756cfd5af2bb) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* oswald-vietnamese-200-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-vietnamese-200-normal.woff2?9969c1044507bb6ace4f47a2e19ab279) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-}
-/* oswald-latin-ext-200-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-ext-200-normal.woff2?517254e1b3ac1473226c8cedab538b31) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* oswald-latin-200-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 200;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-200-normal.woff2?d53461dc992aa53b314508a947d84bf5) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-200-normal.woff?b251ed09fcb215aa167cf8fbfccb7a42) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* oswald-cyrillic-ext-300-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-ext-300-normal.woff2?a580e50113bcbb41b223695d8cb6780c) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* oswald-cyrillic-300-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-300-normal.woff2?b6e40e7518a5788b5fc54cd17d2fadb5) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* oswald-vietnamese-300-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-vietnamese-300-normal.woff2?a103dabcacc8b3cc9d95e95bbbbfb5ad) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-}
-/* oswald-latin-ext-300-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-ext-300-normal.woff2?731fdcafa1b2601998f36dadd4855705) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* oswald-latin-300-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 300;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-300-normal.woff2?95bf83dcbd798c779f2e6685aecf8fba) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-300-normal.woff?ae6da8abc78a282d11faf92551a49951) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* oswald-cyrillic-ext-600-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-ext-600-normal.woff2?dd40cd1007fb33019a25a864d460ae07) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
-  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* oswald-cyrillic-600-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-cyrillic-600-normal.woff2?ad078026b066e894f8142f924f81ac28) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
-  unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* oswald-vietnamese-600-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-vietnamese-600-normal.woff2?c9db0b27b0eee90aee8fa9a3b9d8779b) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
-  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-}
-/* oswald-latin-ext-600-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-ext-600-normal.woff2?894af20a01f0a805d3e365bbf9d2445a) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* oswald-latin-600-normal*/
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-display: swap;
-  font-weight: 600;
-  src: url(../fonts/vendor/@fontsource/oswald/files/oswald-latin-600-normal.woff2?161c0bfba22fa0b99354f854e15b15e8) format('woff2'), url(../fonts/vendor/@fontsource/oswald/files/oswald-all-600-normal.woff?1c198711c4eddb7174da75e97fb65d86) format('woff');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
 /**
  * Swiper 8.0.5
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -22584,307 +22449,6 @@ readers do not read off random characters that represent icons */
   box-sizing: border-box;
   background-color: transparent;
   cursor: pointer;
-
-
-.bg-hero {
-  background-size: cover;
-  background-position-y: center;
-  height: 250px;
-}
-
-.img-profile {
-  display: inline-block;
-  height: 100px;
-  width: 100px;
-}
-
-.img-profile img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
-  border-radius: 50%;
-}
-
-.navbar-link li {
-  margin: 0 10px 10px 0;
-}
-
-.navbar-link a {
-  background-color: #9b7daf;
-  border-radius: 21px;
-  padding: 8px 15px;
-  color: white;
-}
-
-.mt-50 {
-  margin-top: -40px;
-}
-
-.bg-index {
-  background-image: url("/images/hero.jpg");
-}
-
-.bg-show {
-  background-image: url("/images/hero.jpg");
-}
-
-.bg-create {
-  background-image: url("/images/hero.jpg");
-}
-
-.bg-edit {
-  background-image: url("/images/hero.jpg");
-}
-
-ul {
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  list-style: none;
-}
-
-a {
-  display: inline-block;
-  text-decoration: none;
-}
-
-h1,
-.h1,
-h2,
-.h2,
-h3,
-.h3,
-h4,
-.h4,
-h5,
-.h5,
-h6,
-.h6 {
-  margin: 0;
-}
-
-body {
-  font-family: "Oswald", serif;
-}
-
-.container-footer {
-  background-color: lightgrey;
-}
-
-.container-footer ul {
-  list-style: none;
-  color: black;
-}
-
-.container-footer ul a {
-  text-decoration: none;
-  color: black;
-}
-
-@media only screen and (max-width: 768px) {
-  .container-footer .row-footer ul {
-    margin-bottom: 20px;
-  }
-
-  .container-footer .row-footer ul li {
-    text-align: center;
-  }
-}
-
-.container-social {
-  background-color: black;
-}
-
-.container-social p {
-  color: white;
-}
-
-@media only screen and (min-width: 768px) {
-  .container-social .text-right {
-    text-align: right;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .container-social .query-icon {
-    text-align: center;
-  }
-}
-
-.box_number {
-  display: block;
-  background-color: #e5e5e5;
-  color: #000;
-  border-radius: 15px;
-  padding: 20px;
-}
-
-.box_number:hover {
-  color: #000;
-}
-
-.box_number .number {
-  font-size: 40px;
-  font-weight: bold;
-}
-
-.number-card-vote {
-  position: absolute;
-  top: 9px;
-  left: 7px;
-  background-color: white;
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-.icons-star-2 {
-  color: #ffa700;
-  font-size: 13px;
-  padding: 0 2px;
-}
-
-.number-card-price {
-  position: absolute;
-  top: 9px;
-  left: 10px;
-  background-color: white;
-  border-radius: 10em/10em;
-  width: 68px;
-  height: 35px;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-}
-
-.background-hero {
-  background-image: url("/images/road.jpg");
-  height: 250px;
-  background-size: cover;
-  background-position: center center;
-}
-
-.search-bar {
-  padding: 0 100px;
-}
-
-.container-range {
-  display: flex;
-  flex-direction: column;
-  margin: 20px 0;
-  align-items: center;
-}
-
-.container-check {
-  padding-left: 16px;
-}
-
-.title-form {
-  margin-right: 60px;
-}
-
-.title-service {
-  margin-right: 387px;
-}
-
-.btn-counter-style {
-  background-color: white;
-  border: 1px solid #b1b1b1;
-  border-radius: 50%;
-  color: #717171;
-  padding: 5px 13px;
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.total-item-style {
-  background-color: transparent;
-  border: none;
-  width: 50px;
-  font-size: 16px;
-  text-align: center;
-}
-
-.total-item-style:focus-visible {
-  outline: none;
-}
-
-.container-all-img {
-  overflow: auto;
-  height: 600px;
-}
-
-.container-all-img .img-filter {
-  width: 100%;
-  border-radius: 20px;
-}
-
-.container-all-img .my-border {
-  border: 1px solid lightgray;
-  width: 32px;
-  margin: 11px 0;
-}
-
-.container-all-img .my-border-2 {
-  border: 1px solid lightgray;
-  margin-top: 29px;
-}
-
-.container-all-img .container-price {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-right: 10px;
-}
-
-.btn-dropdown {
-  z-index: 2;
-  margin-bottom: 30px;
-}
-
-.btn-dropdown:after {
-  content: " \25BC";
-}
-
-.dropdown {
-  display: inline-block;
-}
-
-.dropdown-inner {
-  position: absolute;
-  padding: 20px 0;
-  opacity: 0;
-  transition: opacity 0.3s, visibility 0.3s;
-  visibility: hidden;
-  z-index: 2;
-  margin: 36px 0;
-}
-
-.dropdown-hover:hover .dropdown-inner,
-.dropdown-open:checked ~ .dropdown-inner {
-  opacity: 100;
-  visibility: visible;
-}
-
-.dropdown-hover:hover .dropdown-overlay,
-.dropdown-open:checked ~ .dropdown-overlay {
-  display: block;
 }
 
 .mapboxgl-ctrl-group button + button {
@@ -23306,54 +22870,8 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   border-top: none;
   border-left: none;
   border-bottom-color: #fff;
-input[type=text] {
-  width: 50px;
-  text-align: center;
 }
 
-.create-edit {
-  margin-bottom: -100px;
-}
-
-.create-edit .title {
-  font-family: "Playfair Display", serif;
-}
-
-.create-edit .bg-form {
-  border-radius: 7px;
-}
-
-.create-edit .bg-form-1 {
-  background-color: #7d86af;
-  padding: 25px 0 35px 0;
-  margin: 0 25px;
-}
-
-.create-edit .bg-form-2 {
-  background-color: #616c9f;
-  padding: 0px 0 25px 0;
-  margin-left: 50px;
-  position: relative;
-  bottom: 25px;
-  z-index: 99;
-}
-
-.create-edit .bg-form-3 {
-  background-color: #7d86af;
-  padding: 40px 0 35px 0;
-  margin-right: 50px;
-  position: relative;
-  bottom: 50px;
-  z-index: 98;
-}
-
-.create-edit .bg-form-4 {
-  background-color: #616c9f;
-  padding: 40px 0 65px 0;
-  margin-left: 50px;
-  position: relative;
-  bottom: 75px;
-}
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
   align-self: flex-end;
   border-top: none;
@@ -23392,58 +22910,7 @@ input[type=text] {
   border-right: none;
   border-left-color: #fff;
 }
-.create-edit .bg-form-5 {
-  background-color: #7d86af;
-  padding: 30px 0 35px 0;
-  margin-right: 50px;
-  position: relative;
-  bottom: 100px;
-}
 
-.create-edit .bg-form-6 {
-  background-color: #616c9f;
-  padding: 40px 0 30px 0;
-  margin-left: 50px;
-  position: relative;
-  bottom: 125px;
-  z-index: 1;
-}
-
-.create-edit .bg-form-7 {
-  background-color: #7d86af;
-  padding: 45px 0 30px 0;
-  margin-right: 50px;
-  position: relative;
-  bottom: 150px;
-}
-
-.create-edit .bg-form-8 {
-  background-color: #616c9f;
-  padding: 45px 0 30px 0;
-  margin-left: 50px;
-  position: relative;
-  bottom: 175px;
-}
-
-.create-edit .title-form {
-  color: white;
-  font-size: 16px;
-  padding-bottom: 10px;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-}
-
-.create-edit .input-form {
-  letter-spacing: 0.3px;
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.712);
-  color: white;
-}
-
-.create-edit .input-form:focus-visible {
-  outline: none;
-}
 .mapboxgl-popup-close-button {
   position: absolute;
   right: 0;
@@ -23465,43 +22932,6 @@ input[type=text] {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   padding: 10px 10px 15px;
   pointer-events: auto;
-}
-.create-edit .btn-create-edit {
-  position: relative;
-  bottom: 135px;
-}
-
-.create-edit .btn-create-edit .btn {
-  color: white;
-  padding: 8px 20px;
-}
-
-.create-edit .btn-create-edit .btn-reset {
-  color: #9b7daf;
-  text-decoration: underline;
-}
-
-.create-edit .btn-create-edit .btn-create {
-  background-color: #9b7daf;
-}
-
-.create-edit .form-check-input:checked {
-  background-color: #9b7daf;
-  border-color: #9b7daf;
-}
-
-.create-edit .form-check-input:focus {
-  box-shadow: 0 0 0 0.25rem rgba(76, 13, 253, 0.15);
-}
-
-.create-edit .btn-counter-style {
-  background-color: white;
-  border: 1px solid #b1b1b1;
-  border-radius: 50%;
-  color: #717171;
-  padding: 5px 13px;
-  font-size: 16px;
-  font-weight: bold;
 }
 
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-content {
@@ -24097,10 +23527,6 @@ h6,
   margin: 0;
 }
 
-body {
-  font-family: "Oswald", serif;
-}
-
 .container-footer {
   background-color: lightgrey;
 }
@@ -24143,16 +23569,6 @@ body {
   .container-social .query-icon {
     text-align: center;
   }
-.create-edit .total-item-style {
-  background-color: transparent;
-  border: none;
-  width: 40px;
-  font-size: 16px;
-  text-align: center;
-}
-
-.create-edit .total-item-style:focus-visible {
-  outline: none;
 }
 
 .container_apartment_show .label_price {
@@ -24179,7 +23595,22 @@ body {
      object-fit: cover;
 }
 
-.container_apartment_show .card {
+@media only screen and (min-width: 991px) {
+  .container_apartment_show .space_negative {
+    margin-right: -150px;
+    z-index: 1;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .container_apartment_show .arrow {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+}
+
+.card {
   z-index: 1;
   position: relative;
   width: 300px;
@@ -24194,11 +23625,11 @@ body {
   -ms-transition: all 0.7s ease-in-out;
 }
 
-.container_apartment_show .card.active {
+.card.active {
   height: 490px;
 }
 
-.container_apartment_show .banner {
+.banner {
   z-index: 2;
   position: relative;
   margin-top: -154px;
@@ -24213,11 +23644,11 @@ body {
   -ms-transition: all 0.7s ease-in-out;
 }
 
-.container_apartment_show .banner.active {
+.banner.active {
   height: 0;
 }
 
-.container_apartment_show .photo {
+.photo {
   z-index: 3;
   position: relative;
   border-radius: 50%;
@@ -24236,11 +23667,11 @@ body {
   -ms-transition: top 0.7s ease-in-out, background 0.15s ease;
 }
 
-.container_apartment_show .photo.active {
+.photo.active {
   top: -80px;
 }
 
-.container_apartment_show .card ul {
+.card ul {
   list-style: none;
   text-align: center;
   padding-left: 0;
@@ -24253,12 +23684,12 @@ body {
   -ms-transition: all 0.7s ease-in-out;
 }
 
-.container_apartment_show .card ul.active {
+.card ul.active {
   opacity: 0;
   visibility: hidden;
 }
 
-.container_apartment_show .card i {
+.card i {
   font-size: 25px;
   display: inline-block;
   margin-top: 10px;
@@ -24269,7 +23700,7 @@ body {
   color: #C7D0E1;
 }
 
-.container_apartment_show button.contact {
+button.contact {
   margin: 0 auto;
   text-align: center;
   margin-top: -15px;
@@ -24289,16 +23720,16 @@ body {
   -ms-transition: all 0.3s ease-in-out;
 }
 
-.container_apartment_show button.contact:hover {
+button.contact:hover {
   cursor: pointer;
   background-color: #979da8;
 }
 
-.container_apartment_show button.contact:focus {
+button.contact:focus {
   outline: 0;
 }
 
-.container_apartment_show .social-media-banner {
+.social-media-banner {
   width: 300px;
   height: 50px;
   margin-top: 25px;
@@ -24310,7 +23741,7 @@ body {
   -ms-transition: all 1.5 ease-in-out;
 }
 
-.container_apartment_show .social-media-banner.active {
+.social-media-banner.active {
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.1s ease-in-out;
@@ -24319,7 +23750,7 @@ body {
   -ms-transition: all 0.1s ease-in-out;
 }
 
-.container_apartment_show .social-media-banner a i {
+.social-media-banner a i {
   display: inline;
   width: auto;
   margin-right: 15px;
@@ -24330,11 +23761,11 @@ body {
   -ms-transition: all 0.3s ease-in-out;
 }
 
-.container_apartment_show .social-media-banner a i:hover {
+.social-media-banner a i:hover {
   color: #979da8;
 }
 
-.container_apartment_show .email-form {
+.email-form {
   height: 0;
   overflow: hidden;
   width: 300px;
@@ -24342,13 +23773,13 @@ body {
   transition: all 0.5s ease-in-out;
 }
 
-.container_apartment_show .email-form.active {
+.email-form.active {
   height: 310px;
   z-index: 3;
   transition: all 1s ease-in-out;
 }
 
-.container_apartment_show .email-form input {
+.email-form input {
   width: 200px;
   text-transform: capitalize;
   margin: 0 auto;
@@ -24363,19 +23794,19 @@ body {
   -ms-transition: all 0.2s ease-in-out;
 }
 
-.container_apartment_show .email-form input:focus,
-.container_apartment_show .email-form textarea:focus {
+.email-form input:focus,
+.email-form textarea:focus {
   border: 1px solid grey;
   outline: none;
 }
 
-.container_apartment_show ::-webkit-input-placeholder {
+::-webkit-input-placeholder {
   font-size: 12px;
   text-transform: uppercase;
   text-align: center;
 }
 
-.container_apartment_show .email-form textarea {
+.email-form textarea {
   width: 200px;
   text-transform: capitalize;
   background-color: white;
@@ -24390,26 +23821,28 @@ body {
   -ms-transition: all 0.3s ease-in-out;
 }
 
-.container_apartment_show .email-form button {
+.email-form button {
   margin-top: 60px;
-}
-
-@media only screen and (min-width: 991px) {
-  .container_apartment_show .space_negative {
-    margin-right: -150px;
-    z-index: 1;
-    position: relative;
-  }
-}
-
-@media only screen and (max-width: 990px) {
-  .container_apartment_show .arrow {
-    text-align: center;
-    margin-bottom: 24px;
-  }
 }
 
 #mymap {
   height: 500px;
+}
+
+.box_number {
+  display: block;
+  background-color: #e5e5e5;
+  color: #000;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.box_number:hover {
+  color: #000;
+}
+
+.box_number .number {
+  font-size: 40px;
+  font-weight: bold;
 }
 
