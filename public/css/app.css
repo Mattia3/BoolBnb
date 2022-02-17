@@ -22968,7 +22968,7 @@ input[type=text] {
 }
 
 .create-edit {
-  margin-bottom: -60px;
+  margin-bottom: -100px;
 }
 
 .create-edit .title {
@@ -23036,6 +23036,14 @@ input[type=text] {
   bottom: 150px;
 }
 
+.create-edit .bg-form-8 {
+  background-color: #616c9f;
+  padding: 45px 0 30px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 175px;
+}
+
 .create-edit .title-form {
   color: white;
   font-size: 16px;
@@ -23058,7 +23066,7 @@ input[type=text] {
 
 .create-edit .btn-create-edit {
   position: relative;
-  bottom: 115px;
+  bottom: 135px;
 }
 
 .create-edit .btn-create-edit .btn {
