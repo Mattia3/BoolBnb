@@ -1,5 +1,25 @@
 .container_apartment_show{
 
+    .btn-primary2{
+        background-color: rgb(58, 133, 204);
+        border-color: rgb(58, 133, 204);
+        color: #fff;
+        &:hover{
+            background-color: rgb(44, 44, 214) !important;
+            border-color: rgb(44, 44, 214) !important
+        }
+    }
+
+    .btn-danger2{
+        background-color: rgb(212, 105, 105);
+        border-color: rgb(212, 105, 105);
+        color: #fff;
+        &:hover{
+            background-color: rgb(197, 58, 58) !important;
+            border-color: rgb(197, 58, 58) !important;
+        }
+    }
+
     .label_price{
         background-color: #9b7daf;
         color: #fff;
