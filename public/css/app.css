@@ -22447,7 +22447,6 @@ readers do not read off random characters that represent icons */
   scroll-snap-align: center center;
 }
 
-<<<<<<< HEAD
 .mapboxgl-map {
   font: 12px/20px Helvetica Neue, Arial, Helvetica, sans-serif;
   overflow: hidden;
@@ -23583,8 +23582,6 @@ header {
   font-family: "Oswald", serif;
 }
 
-=======
->>>>>>> a710e9481a9b1e56ad1ae85ac5300a0db2c02416
 .bg-hero {
   background-size: cover;
   background-position-y: center;
