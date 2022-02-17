@@ -23041,7 +23041,7 @@ button.contact:focus {
 }
 
 .dropdown {
-  display: inline-block;
+  display: block;
 }
 
 .dropdown-inner {
@@ -23060,8 +23060,7 @@ button.contact:focus {
   visibility: visible;
 }
 
-.dropdown-hover:hover .dropdown-overlay,
-.dropdown-open:checked ~ .dropdown-overlay {
+.dropdown-hover:hover .dropdown-open:checked {
   display: block;
 }
 

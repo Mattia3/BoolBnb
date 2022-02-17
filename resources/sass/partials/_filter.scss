@@ -92,7 +92,7 @@
 }
 
 .dropdown {
-    display: inline-block;
+    display: block;
 }
 
 .dropdown-inner {
@@ -111,7 +111,6 @@
     visibility: visible;
 }
 
-.dropdown-hover:hover .dropdown-overlay,
-.dropdown-open:checked ~ .dropdown-overlay {
+.dropdown-hover:hover .dropdown-open:checked {
     display: block;
 }
