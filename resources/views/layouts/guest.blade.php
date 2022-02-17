@@ -11,11 +11,10 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/button-increment.js') }}" defer></script>
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-  {{-- <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
-  
   
   <title> @yield('page_title') </title>
 </head>
@@ -23,7 +22,7 @@
 
 <body>
   <header>
-    @include('host.partials.the_header')
+    @include('guest.partials.navbar')
   </header>
 
   <main>

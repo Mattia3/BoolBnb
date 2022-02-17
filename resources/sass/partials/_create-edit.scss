@@ -1,0 +1,116 @@
+.create-edit {
+  
+  .title {
+    font-family: $font-title;
+  }
+
+  .bg-form { 
+    border-radius: 7px;
+  }
+  .bg-form-1 { 
+    background-color: #7d86af;
+    padding: 25px 0 35px 0;
+    margin: 0 25px;
+  }
+  .bg-form-2 { 
+    background-color: #616c9f;
+    padding: 0px 0 25px 0;
+    margin-left: 50px;
+    position: relative;
+    bottom: 25px;
+    z-index: 99;
+  }
+  .bg-form-3 {
+    background-color: #7d86af;
+    padding: 40px 0 35px 0;
+    margin-right: 50px;
+    position: relative;
+    bottom: 50px;
+    z-index: 98;
+  }
+  .bg-form-4 {
+    background-color: #616c9f;
+    padding: 40px 0 65px 0;
+    margin-left: 50px;
+    position: relative;
+    bottom: 75px;
+  }
+
+  .title-form {
+    color: white;
+    font-size: 16px;
+    padding-bottom: 8px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+
+  .input-form {
+    letter-spacing: 0.3px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.712);
+    color: white;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  .btn-create-edit {
+    .btn {
+      color: white;
+      padding: 8px 20px;
+    }
+    .btn-reset {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+    .btn-create {
+      background-color: $color-primary;
+    }
+  }
+
+  .form-check-input {
+    &:checked {
+      background-color: $color-primary;
+      border-color: $color-primary;
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgb(76 13 253 / 15%);
+    }
+  }
+
+  .btn-counter-style {
+    background-color: white;
+    border: 1px solid #b1b1b1;
+    border-radius: 50%;
+    color: #717171;
+    padding: 5px 13px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .total-item-style {
+    background-color: transparent;
+    // color: #717171;
+    border: none;
+    width: 50px;
+    font-size: 16px;
+    text-align: center;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+
+  // .wrap{
+  //   width: 200px;
+  //   margin: 30px auto;
+  // }  
+  // input{  
+  // display: inline-block;
+  // &[type=text]{
+  //   width: 50px;
+  //   text-align: center;
+  //   }
+  // }
+
+}
