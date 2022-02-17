@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('guest/filter');
+    return view('welcome');
 });
  
 Auth::routes();

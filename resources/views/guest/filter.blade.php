@@ -15,22 +15,48 @@
           </div>
         </div>
         
-        <div class="d-flex my-4">
+        
+        <div class="dropdown">
+        <div class="position-relative d-flex my-4">
           <h3 class="title-service">Servizi</h3>
-          <button href="#" class="btn btn-primary">+ Filter </button>
-        </div>
-
-        <div class="row row-cols-3  container-check">
-          <div class="form-check dropdown-item">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
-                Default checkbox
+          
+          
+            <label for="dropdown-1" class="btn btn-dropdown"><b>Filter</b></label>
+            <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
+            
+            <div class="dropdown-inner row row-cols-3">
+              <label class="form-check-label" for="flexCheckDefault" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault">
+                 Default checkbox
               </label>
+              <label class="form-check-label" for="flexCheckDefault1" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault1">Default checkbox
+              </label>
+              <label class="form-check-label" for="flexCheckDefault2" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault2">Default checkbox
+              </label>
+              <label class="form-check-label" for="flexCheckDefault3" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault3">Default checkbox
+              </label>
+              <label class="form-check-label" for="flexCheckDefault4" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault4">Default checkbox
+              </label>
+              <label class="form-check-label" for="flexCheckDefault5" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault5">Default checkbox
+              </label>
+              <label class="form-check-label" for="flexCheckDefault6" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault6">Default checkbox
+              </label>
+              <label class="form-check-label" for="flexCheckDefault7" >
+                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault7">Default checkbox
+              </label>
+            </div>
           </div>
+
         </div>
        
 
-        <div class="row row-cols-2 mt-5">
+        <div class="row row-cols-2">
 
           <div class="col d-flex">
             <label for="field_square_mt " class="title-form">Stanze</label>
@@ -152,7 +178,10 @@
      
     </div>
 
-    <div class="col-8 "></div>
+    <div class="col-8">
+
+      
+    </div>
   </div>
 </div>
 
@@ -200,6 +229,7 @@
   countItems(btnCounterTwo, totalItemTwo);
   countItems(btnCounterThree, totalItemThree);
   countItems(btnCounterFour, totalItemFour);
+
 
 </script>
 @endsection

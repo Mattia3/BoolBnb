@@ -81,3 +81,37 @@
         padding-right: 10px;
     }
 }
+
+.btn-dropdown {
+    z-index: 2;
+    margin-bottom: 30px;
+}
+
+.btn-dropdown:after {
+    content: " ▼";
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-inner {
+    position: absolute;
+    padding: 20px 0;
+    opacity: 0;
+    transition: opacity 0.3s, visibility 0.3s;
+    visibility: hidden;
+    z-index: 2;
+    margin: 36px 0;
+}
+
+.dropdown-hover:hover .dropdown-inner,
+.dropdown-open:checked ~ .dropdown-inner {
+    opacity: 100;
+    visibility: visible;
+}
+
+.dropdown-hover:hover .dropdown-overlay,
+.dropdown-open:checked ~ .dropdown-overlay {
+    display: block;
+}

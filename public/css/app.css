@@ -23031,3 +23031,79 @@ button.contact:focus {
   padding-right: 10px;
 }
 
+.btn-dropdown {
+  z-index: 2;
+  margin-bottom: 30px;
+}
+
+.btn-dropdown:after {
+  content: " \25BC";
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-inner {
+  position: absolute;
+  padding: 20px 0;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+  visibility: hidden;
+  z-index: 2;
+  margin: 36px 0;
+}
+
+.dropdown-hover:hover .dropdown-inner,
+.dropdown-open:checked ~ .dropdown-inner {
+  opacity: 100;
+  visibility: visible;
+}
+
+.dropdown-hover:hover .dropdown-overlay,
+.dropdown-open:checked ~ .dropdown-overlay {
+  display: block;
+}
+
+.number-card-vote {
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  background-color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.icons-star-2 {
+  color: #ffa700;
+  font-size: 13px;
+  padding: 0 2px;
+}
+
+.number-card-price {
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  background-color: white;
+  border-radius: 10em/10em;
+  width: 68px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
