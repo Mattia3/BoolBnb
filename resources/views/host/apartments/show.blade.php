@@ -11,8 +11,8 @@
     <div class="container">
 
         <div class="d-flex justify-content-end ms-auto pt-3" style="gap:5px;">
-            <a href="{{ route('host.apartments.edit', $apartment->id)}}" class="btn btn-primary2"> <i class="fa-solid fa-pencil"></i> </a>
-            <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="post">
+            <a href="{{ route('host.apartments.edit', $apartment->slug)}}" class="btn btn-primary2"> <i class="fa-solid fa-pencil"></i> </a>
+            <form action="{{ route('host.apartments.destroy', $apartment->slug) }}" method="post">
                 @csrf
                 @method('delete')
                 <button type="submit" class="btn btn-danger2"><i class="fa-solid fa-trash-can"></i></button>

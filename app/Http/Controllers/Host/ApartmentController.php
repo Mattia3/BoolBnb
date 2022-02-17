@@ -11,9 +11,29 @@ use App\Rule;
 use App\Service;
 use App\Sponsor;
 use App\User;
+use Illuminate\Support\Str;
 
 class ApartmentController extends Controller
-{
+{   
+    private function createSlug($title){
+        $slug = Str::slug($title);
+
+        $alreadyExists = Apartment::where("slug", $slug)->first();
+        $counter = 1;
+    
+        while ($alreadyExists) {
+          $newSlug = $slug . "-" . $counter;
+          $alreadyExists = Apartment::where("slug", $newSlug)->first();
+          $counter++;
+    
+          if (!$alreadyExists) {
+            $slug = $newSlug;
+          }
+        }
+    
+        return $slug;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -68,12 +88,13 @@ class ApartmentController extends Controller
         $newApartment = new Apartment;
         $newApartment->fill($data);
         $newApartment->user_id = Auth::user()->id;
+        $newApartment->slug = $this->createSlug($data['title']);
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
         
 
-        return redirect()->route('host.apartments.show', $newApartment->id);
+        return redirect()->route('host.apartments.show', $newApartment->slug);
     }
 
     /**
@@ -82,9 +103,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Apartment $apartment)
+    public function show($slug)
     {   
-
+        $apartment = Apartment::where('slug', $slug)->first();
+        //dd($apartment->user_id);
         if ($apartment->user_id != Auth::id()) {
             return 'no no no non puoi!'; //view('dashboard');
         } else {
@@ -130,8 +152,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Apartment $apartment)
+    public function edit($slug)
     {
+        $apartment = Apartment::where('slug', $slug)->first();
         $services = Service::all();
         $languages = Language::all();
         $rules = Rule::all();
@@ -151,29 +174,22 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Apartment $apartment)
+    public function update(Request $request, $slug)
     {
+        $apartment = Apartment::where('slug', $slug)->first();
         $data = $request->all();
-        /* $request->validate([
-            'title' => 'string|min:5|max:60|required|unique:apartments',
-            'address' => 'string|required',
-            'price' => 'numeric|required|min:2|max:99999',
-            'square_mt' => 'numeric|required|min:10',
-            'n_rooms' => 'numeric|min:1',
-            'n_beds' => 'numeric|min:1',
-            'n_baths' => 'numeric|min:1',
-            'cover_img' => 'file|required',
-            'description' => 'string|required|min:15|max:2000',
-            'visible' => 'boolean|required',
-            'place_description' => 'string|required|min:15|max:2000'
-        ]); */
+        $oldTitle = $apartment->title;
+        $titleChanged = $oldTitle != $data['title'];
 
-//        $apartment->user_id = Auth::user()->id;
+        if ($titleChanged) {
+            $apartment->slug = $this->createSlug($data['title']);
+        }
+
         $apartment->update($data);
         $apartment->rules()->sync($data['rules']);
         $apartment->services()->sync($data['services']);
 
-        return redirect()->route('host.apartments.show', $apartment->id);
+        return redirect()->route('host.apartments.show', $apartment->slug);
     }
 
     /**
@@ -182,8 +198,9 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Apartment $apartment)
+    public function destroy($slug)
     {
+        $apartment = Apartment::where('slug', $slug)->first();
         $apartment->delete();
         return redirect()->route('host.apartments.index')->with(['status' => 'Appartamento eliminato correttamente']);
     }
