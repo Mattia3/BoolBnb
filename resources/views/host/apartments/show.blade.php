@@ -9,6 +9,16 @@
 <div class="container_apartment_show">
 
     <div class="container">
+
+        <div class="d-flex ms-auto pt-3" style="gap:5px;">
+            <a href="{{ route('host.apartments.edit', $apartment->id) }}" class="btn btn-primary"> Modifica </a>
+            <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="post">
+                @csrf
+                @method('delete')
+                <button type="submit" class="btn btn-danger">Elimina</button>
+            </form>
+        </div>
+
         <div class="row position-relative py-5">
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
 
