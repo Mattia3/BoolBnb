@@ -184,10 +184,7 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        $apartment->services()->detach();
-        $apartment->rules()->detach();
-        $apartment->languages()->detach();
         $apartment->delete();
-        return redirect()->route('host.apartment.index')->with(['status' => 'Appartamento eliminato correttamente']);
+        return redirect()->route('host.apartments.index')->with(['status' => 'Appartamento eliminato correttamente']);
     }
 }

@@ -12,7 +12,7 @@ class HomeController extends Controller
     function index(){
         $apartments = Apartment::where('user_id', Auth::user()->id)->get();
         $host = Auth::user();
-        return view('dashboard', [
+        return view('host.dashboard', [
             'apartments' => $apartments,
             'host' => $host
         ]); //da cambiare con 'host.index' in cui ci sarà la home della dashboard --> sarà quindi anche da togliere $apartments perchè non sarà più necessario passarli alla view!!!!
