@@ -83,46 +83,44 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {   
-        //dd($apartment->user_id);
-        /* dd($apartment->where('user_id', Auth::id())->get());
-        $apartments = $apartment->where('user_id', Auth::id())->get();
-        $apartment = $apartments;
-        dd($apartment); */
-        //dd($apartment = $apartment->where('id', $apartment->id))->first();
-        //$apartment = $apartment->where('id', $apartment->id);
-        if ($apartment->sponsors()->first()) {
-            $active_sponsor = $apartment->sponsors()->first();
-            $sponsor_starting_date = $active_sponsor->pivot->starting_date;
-            $sponsor_expire_date = $active_sponsor->pivot->expire_date;
-        }  else {
-            $active_sponsor = '';
-            $sponsor_starting_date = '';
-            $sponsor_expire_date = '';
+
+        if ($apartment->user_id != Auth::id()) {
+            return 'no no no non puoi!'; //view('dashboard');
+        } else {
+            if ($apartment->sponsors()->first()) {
+                $active_sponsor = $apartment->sponsors()->first();
+                $sponsor_starting_date = $active_sponsor->pivot->starting_date;
+                $sponsor_expire_date = $active_sponsor->pivot->expire_date;
+            }  else {
+                $active_sponsor = '';
+                $sponsor_starting_date = '';
+                $sponsor_expire_date = '';
+            }
+            
+            $services = $apartment->services()->get();
+            $rules = $apartment->rules()->get();
+            $messages = $apartment->messages()->get();
+            $images = $apartment->images()->get(); //probabilmente fare un paginate
+            
+            $user_id = Auth::id();
+            $host = User::where('id', $user_id)->first();
+            
+            //dd($apartment->title);
+            //dd($apartment_details['active_sponsor']->name);
+            //dd($apartment_details['messages'][0]->name);
+            
+            return view('host.apartments.show', [
+                'active_sponsor' => $active_sponsor,
+                'sponsor_starting_date' => $sponsor_starting_date,
+                'sponsor_expire_date' => $sponsor_expire_date,
+                'services' => $services,
+                'rules' => $rules,
+                'messages' => $messages,
+                'images' => $images,
+                'apartment' => $apartment,
+                'host' => $host
+            ]);  //ricordarsi di cambiare la view con  'host.apartments.show'
         }
-
-        $services = $apartment->services()->get();
-        $rules = $apartment->rules()->get();
-        $messages = $apartment->messages()->get();
-        $images = $apartment->images()->get(); //probabilmente fare un paginate
-
-        $user_id = Auth::id();
-        $host = User::where('id', $user_id)->first();
-
-        //dd($apartment->title);
-        //dd($apartment_details['active_sponsor']->name);
-        //dd($apartment_details['messages'][0]->name);
-
-        return view('host.apartments.show', [
-            'active_sponsor' => $active_sponsor,
-            'sponsor_starting_date' => $sponsor_starting_date,
-            'sponsor_expire_date' => $sponsor_expire_date,
-            'services' => $services,
-            'rules' => $rules,
-            'messages' => $messages,
-            'images' => $images,
-            'apartment' => $apartment,
-            'host' => $host
-        ]);  //ricordarsi di cambiare la view con  'host.apartments.show'
     }
 
     /**
