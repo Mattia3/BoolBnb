@@ -11,7 +11,6 @@ use App\Rule;
 use App\Service;
 use App\Sponsor;
 use App\User;
-use Carbon\Carbon;
 
 class ApartmentController extends Controller
 {
@@ -22,8 +21,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        $apartments = Apartment::where('user_id', Auth::user()->id)->get();
-        return view('host.apartments.index', compact('apartments')); //ricordarsi di cambiare la view con 'host.apartments.index'
+        $apartments = Apartment::where('user_id', Auth::id())->get();
+        return view('host.apartments.index', compact('apartments'));
     }
 
     /**
@@ -36,7 +35,7 @@ class ApartmentController extends Controller
         $services = Service::all();
         $languages = Language::all();
         $rules = Rule::all();
-        return view('host.apartments.create', [                //ricordarsi di cambiare la view con  'host.apartments.create'
+        return view('host.apartments.create', [
             'services' => $services,
             'languages' => $languages,
             'rules' => $rules
@@ -68,12 +67,12 @@ class ApartmentController extends Controller
 
         $newApartment = new Apartment;
         $newApartment->fill($data);
+        $newApartment->user_id = Auth::user()->id;
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
-        $newApartment->languages()->sync($data['languages']);
 
-        return redirect()->route('host.apartments.index', $newApartment->id);
+        return redirect()->route('host.apartments.show', $newApartment->id);
     }
 
     /**
@@ -83,16 +82,30 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Apartment $apartment)
-    {
-        $active_sponsor = $apartment->sponsors()->first();
-        $sponsor_starting_date = $active_sponsor->pivot->starting_date;
-        $sponsor_expire_date = $active_sponsor->pivot->expire_date;
+    {   
+        //dd($apartment->user_id);
+        /* dd($apartment->where('user_id', Auth::id())->get());
+        $apartments = $apartment->where('user_id', Auth::id())->get();
+        $apartment = $apartments;
+        dd($apartment); */
+        //dd($apartment = $apartment->where('id', $apartment->id))->first();
+        //$apartment = $apartment->where('id', $apartment->id);
+        if ($apartment->sponsors()->first()) {
+            $active_sponsor = $apartment->sponsors()->first();
+            $sponsor_starting_date = $active_sponsor->pivot->starting_date;
+            $sponsor_expire_date = $active_sponsor->pivot->expire_date;
+        }  else {
+            $active_sponsor = '';
+            $sponsor_starting_date = '';
+            $sponsor_expire_date = '';
+        }
+
         $services = $apartment->services()->get();
         $rules = $apartment->rules()->get();
         $messages = $apartment->messages()->get();
-        $images = $apartment->images()->get();
+        $images = $apartment->images()->get(); //probabilmente fare un paginate
 
-        $user_id = $apartment['user_id']; //Auth::user()->id;
+        $user_id = Auth::id();
         $host = User::where('id', $user_id)->first();
 
         //dd($apartment->title);
@@ -129,7 +142,7 @@ class ApartmentController extends Controller
             'services' => $services,
             'languages' => $languages,
             'rules' => $rules
-        ]); //ricordarsi di cambiare la view con  'host.apartments.edit'
+        ]);
     }
 
     /**
@@ -161,7 +174,6 @@ class ApartmentController extends Controller
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
-        $newApartment->languages()->sync($data['languages']);
 
         return redirect()->route('host.apartment.show', $apartment->id);
     }

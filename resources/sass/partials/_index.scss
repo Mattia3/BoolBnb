@@ -1,0 +1,37 @@
+.number-card-vote {
+    position: absolute;
+    top: 9px;
+    left: 7px;
+    background-color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.icons-star {
+    color: #ffa700;
+    font-size: 10px;
+    padding-left: 2px;
+}
+
+.icons-star-2 {
+    color: #ffa700;
+    font-size: 13px;
+    padding: 0 2px;
+}
+
+.number-card-price {
+    position: absolute;
+    top: 9px;
+    left: 49px;
+    background-color: white;
+    border-radius: 10em/10em;
+    width: 68px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
