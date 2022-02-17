@@ -27,17 +27,17 @@
       {{-- Title --}}
       <div class="col-11 pb-3">
         <label for="field_title" class="title-form">Titolo</label>
-        <input type="text" name="title" class="col-12 input-form w-100" id="field_title">
+        <input type="text" name="title" class="col-12 input-form w-100" id="field_title" value="{{ old("title") }}" required>
       </div>
       {{-- Address --}}
       <div class="col-11 pb-3">
         <label for="field_address" class="title-form">Indirizzo</label>
-        <input type="text" name="address" class="col-12 input-form w-100" id="field_address">
+        <input type="text" name="address" class="col-12 input-form w-100" id="field_address" value="{{ old("address") }}" required>
       </div>
       {{-- Cover image --}}
       <div class="col-11 pb-3">
         <label for="field_cover_img" class="title-form">Immagine</label>
-        <input type="file" name="cover_img" class="col-12 form-control input-form" id="field_cover_img">
+        <input type="file" name="cover_img" class="col-12 form-control input-form" id="field_cover_img" value="{{ old("cover_img") }}" required>
       </div>
     </div>
 
@@ -49,36 +49,36 @@
         <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
           <label for="field_square_mt" class="title-form">Metratura</label>
           <div>
-            <input class="btn-counter-1 btn-counter-style" type="button" value="-" />
-            <input class="total-item-1 total-item-style text-white" type="text" name="square_mt" value="0" />
-            <input class="btn-counter-1 btn-counter-style" type="button" value="+" />
+            <input class="btn-counter-1 btn-counter-style" type="button" value="-">
+            <input class="total-item-1 total-item-style text-white" type="text" name="square_mt" value="0" value="{{ old("square_mt") }}" required>
+            <input class="btn-counter-1 btn-counter-style" type="button" value="+">
           </div>
         </div>
         {{-- Rooms --}}
         <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
-          <label for="field_square_mt" class="title-form">Stanze</label>
+          <label for="field_n_rooms" class="title-form">Stanze</label>
           <div>
-            <input class="btn-counter-2 btn-counter-style" type="button" value="-" />
-            <input class="total-item-2 total-item-style text-white" type="text" name="n_rooms" value="0" />
-            <input class="btn-counter-2 btn-counter-style" type="button" value="+" />
+            <input class="btn-counter-2 btn-counter-style" type="button" value="-">
+            <input class="total-item-2 total-item-style text-white" type="text" name="n_rooms" value="0" value="{{ old("n_rooms") }}" required>
+            <input class="btn-counter-2 btn-counter-style" type="button" value="+">
           </div>
         </div>
         {{-- Beds --}}
         <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
-          <label for="field_square_mt" class="title-form">Letti</label>
+          <label for="field_n_beds" class="title-form">Letti</label>
           <div>
-            <input class="btn-counter-3 btn-counter-style" type="button" value="-" />
-            <input class="total-item-3 total-item-style text-white" type="text" name="n_beds" value="0" />
-            <input class="btn-counter-3 btn-counter-style" type="button" value="+" />
+            <input class="btn-counter-3 btn-counter-style" type="button" value="-">
+            <input class="total-item-3 total-item-style text-white" type="text" name="n_beds" value="0" value="{{ old("n_beds") }}" required>
+            <input class="btn-counter-3 btn-counter-style" type="button" value="+">
           </div>
         </div>
         {{-- Baths --}}
         <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
-          <label for="field_square_mt" class="title-form">Bagni</label>
+          <label for="field_n_baths" class="title-form">Bagni</label>
           <div>
-            <input class="btn-counter-4 btn-counter-style" type="button" value="-" />
-            <input class="total-item-4 total-item-style text-white" type="text" name="n_baths" value="0" />
-            <input class="btn-counter-4 btn-counter-style" type="button" value="+" />
+            <input class="btn-counter-4 btn-counter-style" type="button" value="-">
+            <input class="total-item-4 total-item-style text-white" type="text" name="n_baths" value="0" value="{{ old("n_baths") }}" required>
+            <input class="btn-counter-4 btn-counter-style" type="button" value="+">
           </div>
         </div>
 
@@ -92,7 +92,7 @@
       {{-- Descripstion --}}
       <div class="col-11">
         <label for="field_description" class="title-form">Descrizione appartamento</label>
-        <textarea rows="5" type="text" name="description" class="col-12 input-form" id="exampleFormControlTextarea1"></textarea>
+        <textarea rows="5" type="text" name="description" class="col-12 input-form" id="exampleFormControlTextarea1" value="{{ old("description") }}" required></textarea>
       </div>
     </div>
 
@@ -102,7 +102,7 @@
       {{-- Place Description --}}
       <div class="col-11">
         <label for="field_place_description" class="title-form">Descrizione della zona</label>
-        <textarea rows="5" type="text" name="place_description" class="col-12 input-form" id="exampleFormControlTextarea1"></textarea>
+        <textarea rows="5" type="text" name="place_description" class="col-12 input-form" id="exampleFormControlTextarea1" value="{{ old("place_description") }}" required></textarea>
       </div>
     </div>
 
@@ -115,7 +115,7 @@
         @foreach($services as $service)
         <div class="form-check d-inline-block pb-2">
           <label class="form-check-label text-white text-capitalize pe-3" for="{{$service->name}}-{{$service->id}}">{{str_replace("_", " ", $service->name)}}</label>
-          <input class="form-check-input" name="services[]" type="checkbox" value="{{$service->id}}" id="{{$service->name}}-{{$service->id}}">
+          <input class="form-check-input" name="services[]" type="checkbox" value="{{$service->id}}" id="{{$service->name}}-{{$service->id}}" value="{{ old("services") }}" required>
         </div>
         @endforeach
       </div>
@@ -130,7 +130,7 @@
         @foreach($rules as $rule)
         <div class="form-check d-inline-block pb-2">
           <label class="form-check-label text-white text-capitalize pe-3" for="{{$rule->name}}-{{$rule->id}}">{{$rule->name}}</label>
-          <input class="form-check-input" name="rules[]" type="checkbox" value="{{$rule->id}}" id="{{$rule->name}}-{{$rule->id}}">
+          <input class="form-check-input" name="rules[]" type="checkbox" value="{{$rule->id}}" id="{{$rule->name}}-{{$rule->id}}" value="{{ old("rules") }}" required>
         </div>
         @endforeach
       </div>
@@ -145,7 +145,7 @@
         @foreach($languages as $language)
         <div class="form-check d-inline-block pb-2">
           <label class="form-check-label text-white text-capitalize pe-3" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
-          <input class="form-check-input" name="languages[]" type="checkbox" value="{{$language->id}}" id="{{$language->name}}-{{$language->id}}">
+          <input class="form-check-input" name="languages[]" type="checkbox" value="{{$language->id}}" id="{{$language->name}}-{{$language->id}}" value="{{ old("languages") }}" required>
         </div>
         @endforeach
       </div>
@@ -157,10 +157,10 @@
       <div class="col-11">
         {{-- Price --}}
         <label for="field_price" class="title-form">Price</label>
-        <input type="text" name="price" class="col-12 input-form w-25" id="field_price">
+        <input type="text" name="price" class="col-12 input-form w-25" id="field_price" value="{{ old("price") }}" required>
         {{-- Visible --}}
         <label class="form-check-label text-white text-capitalize pe-3 ps-5" for="field_visible">Visible</label>
-        <input class="form-check-input" name="visible" type="checkbox" value="1" id="field_visible">
+        <input class="form-check-input" name="visible" type="checkbox" value="1" id="field_visible" value="{{ old("visible") }}" required>
       </div>
     </div>
 
