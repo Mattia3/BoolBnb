@@ -1,5 +1,5 @@
 .create-edit {
-  margin-bottom: -60px;
+  margin-bottom: -100px;
   .title {
     font-family: $font-title;
   }
@@ -57,6 +57,13 @@
     position: relative;
     bottom: 150px;
   }
+  .bg-form-8 {
+    background-color: #616c9f;
+    padding: 45px 0 30px 0;
+    margin-left: 50px;
+    position: relative;
+    bottom: 175px;
+  }
 
 
   .title-form {
@@ -80,7 +87,7 @@
 
   .btn-create-edit {
     position: relative;
-    bottom: 115px;
+    bottom: 135px;
     .btn {
       color: white;
       padding: 8px 20px;

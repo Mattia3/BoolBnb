@@ -24054,6 +24054,8 @@ button.contact:focus {
 .box_number .number {
   font-size: 40px;
   font-weight: bold;
+.create-edit {
+  margin-bottom: -100px;
 }
 
 .create-edit .title {
@@ -24096,6 +24098,39 @@ button.contact:focus {
   bottom: 75px;
 }
 
+.create-edit .bg-form-5 {
+  background-color: #7d86af;
+  padding: 30px 0 35px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 100px;
+}
+
+.create-edit .bg-form-6 {
+  background-color: #616c9f;
+  padding: 40px 0 30px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 125px;
+  z-index: 1;
+}
+
+.create-edit .bg-form-7 {
+  background-color: #7d86af;
+  padding: 45px 0 30px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 150px;
+}
+
+.create-edit .bg-form-8 {
+  background-color: #616c9f;
+  padding: 45px 0 30px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 175px;
+}
+
 .create-edit .title-form {
   color: white;
   font-size: 16px;
@@ -24114,6 +24149,11 @@ button.contact:focus {
 
 .create-edit .input-form:focus-visible {
   outline: none;
+}
+
+.create-edit .btn-create-edit {
+  position: relative;
+  bottom: 135px;
 }
 
 .create-edit .btn-create-edit .btn {
