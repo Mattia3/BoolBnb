@@ -22584,6 +22584,17 @@ readers do not read off random characters that represent icons */
   box-sizing: border-box;
   background-color: transparent;
   cursor: pointer;
+.number-card-vote {
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  background-color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .mapboxgl-ctrl-group button + button {
@@ -23005,6 +23016,17 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   border-top: none;
   border-left: none;
   border-bottom-color: #fff;
+input[type=text] {
+  width: 50px;
+  text-align: center;
+}
+
+.create-edit {
+  margin-bottom: -60px;
+}
+
+.create-edit .title {
+  font-family: "Playfair Display", serif;
 }
 
 .mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip {
@@ -23044,6 +23066,37 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   align-self: center;
   border-right: none;
   border-left-color: #fff;
+.create-edit .bg-form-5 {
+  background-color: #7d86af;
+  padding: 30px 0 35px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 100px;
+}
+
+.create-edit .bg-form-6 {
+  background-color: #616c9f;
+  padding: 40px 0 30px 0;
+  margin-left: 50px;
+  position: relative;
+  bottom: 125px;
+  z-index: 1;
+}
+
+.create-edit .bg-form-7 {
+  background-color: #7d86af;
+  padding: 45px 0 30px 0;
+  margin-right: 50px;
+  position: relative;
+  bottom: 150px;
+}
+
+.create-edit .title-form {
+  color: white;
+  font-size: 16px;
+  padding-bottom: 10px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 .mapboxgl-popup-close-button {
@@ -23067,6 +23120,14 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   padding: 10px 10px 15px;
   pointer-events: auto;
+.create-edit .btn-create-edit {
+  position: relative;
+  bottom: 115px;
+}
+
+.create-edit .btn-create-edit .btn {
+  color: white;
+  padding: 8px 20px;
 }
 
 .mapboxgl-popup-anchor-top-left .mapboxgl-popup-content {
@@ -23708,6 +23769,16 @@ body {
   .container-social .query-icon {
     text-align: center;
   }
+.create-edit .total-item-style {
+  background-color: transparent;
+  border: none;
+  width: 40px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.create-edit .total-item-style:focus-visible {
+  outline: none;
 }
 
 .container_apartment_show .label_price {

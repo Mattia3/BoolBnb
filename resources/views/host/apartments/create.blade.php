@@ -1,25 +1,25 @@
 @extends('layouts.host')
-@section("page_title", "Dashboard")
+@section("page_title", "Pubblica appartamento")
 
 @section('hero') bg-create @endsection
 
 
 @section('content')
-  <section class="create-edit container pt-5 pb-5">
-    <h1 class="title fw-bold pb-5">Pubblica appartamento</h1>
+<section class="create-edit container pt-5">
+  <h1 class="title fw-bold pb-5">Pubblica appartamento</h1>
 
-    @if($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-        <li> {{$error}} </li>
-        @endforeach
-      </ul>
-    </div>
-    @endif
+  @if($errors->any())
+  <div class="alert alert-danger">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li> {{$error}} </li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
 
-    {{-- Form --}}
-    <form action="{{route('host.apartments.store')}}" method="POST">
+  {{-- Form --}}
+  <form action="{{ route('host.apartments.store') }}"  enctype="multipart/form-data" method="POST">
     @csrf
 
     {{-- Box 1 --}}
@@ -27,12 +27,12 @@
       {{-- Title --}}
       <div class="col-11 pb-3">
         <label for="field_title" class="title-form">Titolo</label>
-        <input type="text" name="title" class="col-12 input-form" id="field_title">
+        <input type="text" name="title" class="col-12 input-form w-100" id="field_title">
       </div>
       {{-- Address --}}
       <div class="col-11 pb-3">
         <label for="field_address" class="title-form">Indirizzo</label>
-        <input type="text" name="address" class="col-12 input-form" id="field_address">
+        <input type="text" name="address" class="col-12 input-form w-100" id="field_address">
       </div>
       {{-- Cover image --}}
       <div class="col-11 pb-3">
@@ -44,74 +44,52 @@
 
     {{-- Box 2 --}}
     <div class="bg-form bg-form-2 row justify-content-center">
-      {{-- altro --}}
-      {{-- <div class="col-11">
-        <label for="field_title" class="title-form">Titolo</label>
-        <input type="text" name="title" class="col-12 input-form" id="field_title">
-      </div> --}}
-
-      {{-- opzione 1 --}}
       <div class="row justify-content-center gy-3">
-
-        <div class="col-md-6 col-sm-12 d-flex justify-content-between">
+        {{-- Square mt --}}
+        <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
           <label for="field_square_mt" class="title-form">Metratura</label>
-          {{-- <input class="quantity" id="id_form-0-quantity" min="0" name="form-0-quantity" value="0" type="number"> --}}
           <div>
-            <input class="btn-counter-1 btn-counter-style" type="button" value="-"/>
-            <input class="total-item-1 total-item-style text-white" type="text" value="0"/>
+            <input class="btn-counter-1 btn-counter-style" type="button" value="-" />
+            <input class="total-item-1 total-item-style text-white" type="text" name="square_mt" value="0" />
             <input class="btn-counter-1 btn-counter-style" type="button" value="+" />
           </div>
         </div>
-
-        <div class="col-md-6 col-sm-12 d-flex justify-content-between">
+        {{-- Rooms --}}
+        <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
           <label for="field_square_mt" class="title-form">Stanze</label>
           <div>
-            <input class="btn-counter-2 btn-counter-style" type="button" value="-"/>
-            <input class="total-item-2 total-item-style text-white" type="text" value="0"/>
+            <input class="btn-counter-2 btn-counter-style" type="button" value="-" />
+            <input class="total-item-2 total-item-style text-white" type="text" name="n_rooms" value="0" />
             <input class="btn-counter-2 btn-counter-style" type="button" value="+" />
           </div>
         </div>
-
-        <div class="col-md-6 col-sm-12 d-flex justify-content-between">
+        {{-- Beds --}}
+        <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
           <label for="field_square_mt" class="title-form">Letti</label>
           <div>
-            <input class="btn-counter-3 btn-counter-style" type="button" value="-"/>
-            <input class="total-item-3 total-item-style text-white" type="text" value="0"/>
+            <input class="btn-counter-3 btn-counter-style" type="button" value="-" />
+            <input class="total-item-3 total-item-style text-white" type="text" name="n_beds" value="0" />
             <input class="btn-counter-3 btn-counter-style" type="button" value="+" />
           </div>
         </div>
-
-        <div class="col-md-6 col-sm-12 d-flex justify-content-between">
+        {{-- Baths --}}
+        <div class="col-md-6 col-sm-12 d-flex justify-content-between px-md-5 px-sm-2">
           <label for="field_square_mt" class="title-form">Bagni</label>
           <div>
-            <input class="btn-counter-4 btn-counter-style" type="button" value="-"/>
-            <input class="total-item-4 total-item-style text-white" type="text" value="0"/>
+            <input class="btn-counter-4 btn-counter-style" type="button" value="-" />
+            <input class="total-item-4 total-item-style text-white" type="text" name="n_baths" value="0" />
             <input class="btn-counter-4 btn-counter-style" type="button" value="+" />
           </div>
         </div>
-        
+
       </div>
-
-
-      {{-- opzione 2 --}}
-      {{-- <div class="row gy-3">
-
-        <div class="col-md-6 col-sm-12 d-flex justify-content-between">
-          <label for="field_square_mt" class="title-form">Metratura</label>
-          <input type="text" class="quantity" id="id_form-0-quantity" min="0" name="form-0-quantity" value="0" type="number">
-        </div>
-        
-      </div> --}}
-
-
-
 
     </div>
 
 
     {{-- Box 3 --}}
     <div class="bg-form bg-form-3 row justify-content-center">
-      {{-- Descrizione appartamneto --}}
+      {{-- Descripstion --}}
       <div class="col-11">
         <label for="field_description" class="title-form">Descrizione appartamento</label>
         <textarea rows="5" type="text" name="description" class="col-12 input-form" id="exampleFormControlTextarea1"></textarea>
@@ -121,7 +99,7 @@
 
     {{-- Box 4 --}}
     <div class="bg-form bg-form-4 row justify-content-center">
-      {{-- Descrizione della zona --}}
+      {{-- Place Description --}}
       <div class="col-11">
         <label for="field_place_description" class="title-form">Descrizione della zona</label>
         <textarea rows="5" type="text" name="place_description" class="col-12 input-form" id="exampleFormControlTextarea1"></textarea>
@@ -129,116 +107,71 @@
     </div>
 
 
-    {{-- Select --}}
-    {{-- <div class="row justify-content-center" style="position: relative; bottom:120px"> --}}
-      {{-- Servizi --}}
-      {{-- <div class="col-md-3 col-sm-6 col-xs-8">
-        <label for="services_id" class="title-form">Servizi</label>
-        <select name="services[]" id="services_id" class="form-select" multiple>
-          @foreach($services as $service)
-            <option value="{{$service->id}}">{{str_replace("_", " ", $service->name)}}</option>
-          @endforeach
-        </select>
-      </div> --}}
-
-      {{-- Regole --}}
-      {{-- <div class="col-md-3 col-sm-6 col-xs-8" style="position: relative; bottom: 10px">
-        <label for="rules_id" class="title-form">Regole</label>
-        <select name="rules[]" id="rules_id" class="form-select" multiple>
-          @foreach($rules as $rule)
-            <option value="{{$rule->id}}">{{$rule->name}}</option>
-          @endforeach
-        </select>
-      </div> --}}
-
-      {{-- Lingue --}}
-      {{-- <div class="col-md-3 col-sm-6">
-        <label for="languages_id" class="title-form">Lingue</label>
-        <select name="languages_id[]" id="languages_id" class="form-select" multiple>
-          @foreach($languages as $language)
-            <option value="{{$language->id}}">{{$language->name}}</option>
-          @endforeach
-        </select>
-      </div> --}}
-    {{-- </div> --}}
-
-
-    {{-- Checkbox --}}
-    <div class="row" style="position: relative; bottom: 30px">
-      {{-- Servizi --}}
-      <div class="col-12 pb-4">
-        <h4 class="title-form text-black">Servizi</h4>
+    {{-- Box 5 --}}
+    <div class="bg-form bg-form-5 row justify-content-center">
+      {{-- Services --}}
+      <div class="col-11">
+        <h4 class="title-form">Servizi</h4>
         @foreach($services as $service)
         <div class="form-check d-inline-block pb-2">
-          <label class="form-check-label pe-3" for="{{$service->name}}-{{$service->id}}">{{str_replace("_", " ", $service->name)}}</label>
+          <label class="form-check-label text-white text-capitalize pe-3" for="{{$service->name}}-{{$service->id}}">{{str_replace("_", " ", $service->name)}}</label>
           <input class="form-check-input" name="services[]" type="checkbox" value="{{$service->id}}" id="{{$service->name}}-{{$service->id}}">
         </div>
         @endforeach
       </div>
+    </div>
 
-      {{-- Regole --}}
-      <div class="col-12 pb-4">
-        <h4 class="title-form text-black">Non è ammesso</h4>
+
+    {{-- Box 6 --}}
+    <div class="bg-form bg-form-6 row justify-content-center">
+      {{-- Rules --}}
+      <div class="col-11">
+        <h4 class="title-form">Non è ammesso</h4>
         @foreach($rules as $rule)
         <div class="form-check d-inline-block pb-2">
-          <label class="form-check-label pe-3" for="{{$rule->name}}-{{$rule->id}}">{{$rule->name}}</label>
+          <label class="form-check-label text-white text-capitalize pe-3" for="{{$rule->name}}-{{$rule->id}}">{{$rule->name}}</label>
           <input class="form-check-input" name="rules[]" type="checkbox" value="{{$rule->id}}" id="{{$rule->name}}-{{$rule->id}}">
         </div>
         @endforeach
       </div>
+    </div>
 
-      {{-- Regole --}}
-      <div class="col-12">
-        <h4 class="title-form text-black">Lingue</h4>
+
+    {{-- Box 7 --}}
+    <div class="bg-form bg-form-7 row justify-content-center">
+      {{-- Languages --}}
+      <div class="col-11">
+        <h4 class="title-form">Lingue</h4>
         @foreach($languages as $language)
         <div class="form-check d-inline-block pb-2">
-          <label class="form-check-label pe-3" for="{{$language->name}}-{{$language->id}}">{{ $language->name }}</label>
+          <label class="form-check-label text-white text-capitalize pe-3" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
           <input class="form-check-input" name="languages[]" type="checkbox" value="{{$language->id}}" id="{{$language->name}}-{{$language->id}}">
         </div>
         @endforeach
       </div>
     </div>
 
+
+
+    {{-- Price --}}
+    <div class="py-3 bg-primary">
+      <label for="field_price" class="title-form">Price</label>
+      <input type="text" name="price" class="col-12 input-form w-100" id="field_price">
+    </div>
+    {{-- Visible --}}
+    <div class="form-check d-inline-block bg-primary py-2 mb-5">
+      <label class="form-check-label text-white text-capitalize pe-3" for="field_visible">Visible</label>
+      <input class="form-check-input" name="visible" type="checkbox" value="1" id="field_visible">
+    </div>
+    
     {{-- Buttons Crea/Reset--}}
-    <div class="btn-create-edit">
+    <div class="btn-create-edit mt-5 pt-5">
       <button class="btn btn-reset" type="reset">Reset</button>
       <button class="btn btn-create ms-2" type="submit">Crea</button>
     </div>
 
-
-
-
-
-
-    {{-- <div class="wrap pt-5">
-      <form action="">
-        <div>
-          <button class="btn-counter-1" type="button"><i class="fa-solid fa-minus"></i></button>
-          <input class="total-item-1" type="text" value="0"/>
-          <button class="btn-counter-1" type="button"><i class="fa-solid fa-plus"></i></button>
-
-          <input class="btn-counter-1 btn-counter-style" type="button" value="-"/>
-          <input class="total-item-1 total-item-style" type="text" value="0"/>
-          <input class="btn-counter-1 btn-counter-style" type="button" value="+" />
-        </div>
-
-        <div>
-          <input class="btn-counter-2 btn-counter-style" type="button" value="-"/>
-          <input class="total-item-2 total-item-style" type="text" value="0" />
-          <input class="btn-counter-2 btn-counter-style" type="button" value="+" />
-        </div>
-
-        <div>
-          <input class="btn-counter-3 btn-counter-style" type="button" value="-"/>
-          <input class="total-item-3 total-item-style" type="text" value="0" />
-          <input class="btn-counter-3 btn-counter-style" type="button" value="+" />
-        </div>
-      </form>
-    </div> --}}
-
-    </form>
-
-  </section>
+  </form>
+</section>
 
 
 
@@ -256,9 +189,8 @@
   var totalItemFour = document.querySelector('.total-item-4');
 
   function countItems(one, two) {
-   
     for(var i = 0; i < one.length; i++) {
-      
+
       one[i].addEventListener('click', function() {
         var oldValue = two.value;
         
@@ -273,20 +205,16 @@
             newValue = 0;
           }
         }
-        
         // check if value is a number
         newValue = isNaN(newValue) ? 1 : newValue;
         two.value = newValue;
-        
       });
     }
   }
-
   countItems(btnCounterOne, totalItemOne);
   countItems(btnCounterTwo, totalItemTwo);
   countItems(btnCounterThree, totalItemThree);
   countItems(btnCounterFour, totalItemFour);
-
 </script>
 
 @endsection
