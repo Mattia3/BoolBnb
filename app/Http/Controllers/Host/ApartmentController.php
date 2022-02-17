@@ -71,6 +71,7 @@ class ApartmentController extends Controller
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
+        
 
         return redirect()->route('host.apartments.show', $newApartment->id);
     }
@@ -153,7 +154,7 @@ class ApartmentController extends Controller
     public function update(Request $request, Apartment $apartment)
     {
         $data = $request->all();
-        $request->validate([
+        /* $request->validate([
             'title' => 'string|min:5|max:60|required|unique:apartments',
             'address' => 'string|required',
             'price' => 'numeric|required|min:2|max:99999',
@@ -165,15 +166,14 @@ class ApartmentController extends Controller
             'description' => 'string|required|min:15|max:2000',
             'visible' => 'boolean|required',
             'place_description' => 'string|required|min:15|max:2000'
-        ]);
+        ]); */
 
-        $newApartment = new Apartment;
-        $newApartment->fill($data);
-        $newApartment->save();
-        $newApartment->rules()->sync($data['rules']);
-        $newApartment->services()->sync($data['services']);
+//        $apartment->user_id = Auth::user()->id;
+        $apartment->update($data);
+        $apartment->rules()->sync($data['rules']);
+        $apartment->services()->sync($data['services']);
 
-        return redirect()->route('host.apartment.show', $apartment->id);
+        return redirect()->route('host.apartments.show', $apartment->id);
     }
 
     /**
