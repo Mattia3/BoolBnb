@@ -1,130 +1,129 @@
 .create-edit {
-  margin-bottom: -100px;
-  .title {
-    font-family: $font-title;
-  }
+  padding-bottom: 50px;
 
-  .bg-form { 
-    border-radius: 7px;
-  }
-  .bg-form-1 { 
-    background-color: #7d86af;
-    padding: 25px 0 35px 0;
-    margin: 0 25px;
-  }
-  .bg-form-2 { 
-    background-color: #616c9f;
-    padding: 0px 0 25px 0;
-    margin-left: 50px;
-    position: relative;
-    bottom: 25px;
-    z-index: 99;
-  }
-  .bg-form-3 {
-    background-color: #7d86af;
-    padding: 40px 0 35px 0;
-    margin-right: 50px;
-    position: relative;
-    bottom: 50px;
-    z-index: 98;
-  }
-  .bg-form-4 {
-    background-color: #616c9f;
-    padding: 40px 0 65px 0;
-    margin-left: 50px;
-    position: relative;
-    bottom: 75px;
-  }
-  .bg-form-5 {
-    background-color: #7d86af;
-    padding: 30px 0 35px 0;
-    margin-right: 50px;
-    position: relative;
-    bottom: 100px;
-  }
-  .bg-form-6 {
-    background-color: #616c9f;
-    padding: 40px 0 30px 0;
-    margin-left: 50px;
-    position: relative;
-    bottom: 125px;
-    z-index: 1;
-  }
-  .bg-form-7 {
-    background-color: #7d86af;
-    padding: 45px 0 30px 0;
-    margin-right: 50px;
-    position: relative;
-    bottom: 150px;
-  }
-  .bg-form-8 {
-    background-color: #616c9f;
-    padding: 45px 0 30px 0;
-    margin-left: 50px;
-    position: relative;
-    bottom: 175px;
-  }
-
+  $color-green : #6CA3BA;
 
   .title-form {
-    color: white;
-    font-size: 16px;
-    padding-bottom: 10px;
-    font-weight: 300;
-    letter-spacing: 0.5px;
+    color: $color-green;
+    padding-bottom: 35px;
   }
 
-  .input-form {
-    letter-spacing: 0.3px;
-    background-color: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.712);
-    color: white;
+  .title-label {
+    color: $color-green;
+    padding-bottom: 12px;
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+  
+  .box-form {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    padding: 35px 40px;
+    margin-bottom: 55px;
+  }
+
+  .box-input {
+    padding-bottom: 23px;
+  }
+
+  input {
+    border-color: rgb(108 163 186 / 41%);
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #1b1b1b;
+
+    &:focus-visible {
+      outline: none;
+    }
+    &::placeholder {
+      color: #CBCBCB;
+    }
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    border-color: rgb(108 163 186 / 41%);
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #1b1b1b;
     &:focus-visible {
       outline: none;
     }
   }
 
-  .btn-create-edit {
-    position: relative;
-    bottom: 135px;
-    .btn {
-      color: white;
-      padding: 8px 20px;
-    }
-    .btn-reset {
-      color: $color-primary;
-      text-decoration: underline;
-    }
-    .btn-create {
-      background-color: $color-primary;
-    }
-  }
 
   .form-check-input {
     &:checked {
-      background-color: $color-primary;
-      border-color: $color-primary;
+      background-color: $color-green;
+      border-color: $color-green;
     }
     &:focus {
-      box-shadow: 0 0 0 0.25rem rgb(76 13 253 / 15%);
+      box-shadow: 0 0 0 0.25rem rgb(108 163 186 / 41%);
     }
   }
 
+  .form-file {
+    position: relative;
+    display: inline-block;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 20px;
+    padding: 55px 40px;
+    text-align: center;
+    width: 70%;
+    height: 85%;
+    transition: 1.2s;
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    div {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      i {
+        color: $color-green;
+        font-size: 40px;
+        padding-bottom: 8px;
+
+      }
+    }
+    
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 0;
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .create-edit .form-check-input:checked {
+    background-color: $color-green;
+    border-color: $color-green;
+  }
+
+
   .btn-counter-style {
     background-color: white;
-    border: 1px solid #b1b1b1;
+    border: 1px solid rgb(108 163 186 / 41%);
     border-radius: 50%;
-    color: #717171;
+    color: $color-green;
     padding: 5px 13px;
     font-size: 16px;
     font-weight: bold;
   }
   .total-item-style {
     background-color: transparent;
+    color: $color-green;
     // color: #717171;
     border: none;
-    width: 40px;
+    width: 60px;
     font-size: 16px;
     text-align: center;
     &:focus-visible {
@@ -132,4 +131,54 @@
     }
   }
 
+  
+  .btn-create-edit {
+    .btn {
+      color: white;
+      padding: 8px 20px;
+      &:focus {
+        box-shadow: rgb(108 163 186 / 41%);;
+      }
+    }
+    .btn-reset {
+      color: $color-green;
+      text-decoration: underline;
+      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+    }
+    .btn-create {
+      background-color: $color-green;
+      transition: 1s;
+      &:hover {
+        background-color: #6091a5
+      }
+      &:focus-visible {outline: none;}
+      &:focus{box-shadow: none;}
+    }
+  }
+
+}
+
+// sm //
+@media screen and (min-width: 576px){
+  .form-file {
+    width: 80%;
+  }
+}
+// md //
+@media screen and (min-width: 768px){
+  .form-file {
+    width: 100%;
+  }
+}
+// lg //
+@media screen and (min-width: 992px) {
+  .form-file {
+    width: 80%;
+  }
+}
+// xl //
+@media screen and (min-width: 1200px) {
+  .form-file {
+    width: 70%;
+  }
 }
