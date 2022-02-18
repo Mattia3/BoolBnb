@@ -10,7 +10,7 @@
                     <form action="" method="get" class="mb-5 d-flex">
                 
                         <input style="font-size:30px;" type="text" placeholder="Dove vuoi andare?" name="search" value="">
-                        
+
                       </form>
                 </div>
             </div>
@@ -34,6 +34,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+
                 <div class="carousel_apratments_swiper mt-150">
                     <div class="blog-slider">
                         <div class="blog-slider__wrp swiper-wrapper">
