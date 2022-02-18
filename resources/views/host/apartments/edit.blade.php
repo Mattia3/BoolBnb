@@ -137,31 +137,31 @@
         <div class="box-input">
           @foreach($services as $service)
           <div class="d-inline-block pb-2">
-            <input class="form-check-input p-0" name="services[]" type="checkbox" value="{{$service->id}}" @if ($apartment->services->contains($service)) checked @endif id="{{$service->name}}-{{$service->id}}">
-            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$service->name}}-{{$service->id}}">{{str_replace("_", " ", $service->name)}}</label>
+            <input class="form-check-input p-0" name="services[]" type="checkbox" id="{{$service->id}}-{{$service->name}}" value="{{$service->id}}" @if ($apartment->services->contains($service)) checked @endif >
+            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$service->id}}-{{$service->name}}">{{str_replace("_", " ", $service->name)}}</label>
           </div>
           @endforeach
         </div>
         {{-- Rule --}}
         <h4 class="title-label">Non è ammesso</h4>
-        <div class="box-input">
+        <div>
           @foreach($rules as $rule)
           <div class="d-inline-block pb-2">
-            <input class="form-check-input p-0" name="rules[]" type="checkbox" value="{{$rule->id}}" @if ($apartment->rules->contains($rule)) checked @endif id="{{$rule->name}}-{{$rule->id}}">
-            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$rule->name}}-{{$rule->id}}">{{$rule->name}}</label>
+            <input class="form-check-input p-0" name="rules[]" type="checkbox" id="{{$rule->id}}-{{$rule->name}}" value="{{$rule->id}}" @if ($apartment->rules->contains($rule)) checked @endif>
+            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$rule->id}}-{{$rule->name}}">{{$rule->name}}</label>
           </div>
           @endforeach
         </div>
         {{-- Languages --}}
-        <h4 class="title-label">Lingue</h4>
-        <div>
+        {{-- <h4 class="title-label">Lingue</h4> --}}
+        {{-- <div>
           @foreach($languages as $language)
           <div class="d-inline-block pb-2">
-            <input class="form-check-input p-0" name="languages[]" type="checkbox" value="{{$language->id}}" @if ($apartment->languages->contains($language)) checked @endif id="{{$language->name}}-{{$language->id}}">
-            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
+            <input class="form-check-input p-0" name="languages[]" type="checkbox" id="{{$language->id}}-{{$language->name}}" value="{{$language->id}}">
+            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->id}}-{{$language->name}}">{{$language->name }}</label>
           </div>
           @endforeach
-        </div>
+        </div> --}}
       </div>
     </div>
 

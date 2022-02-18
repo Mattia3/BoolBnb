@@ -17,7 +17,6 @@
   </div>
   @endif
 
-
   {{-- Form --}}
   <form action="{{ route('host.apartments.store') }}"  enctype="multipart/form-data" method="POST">
     @csrf
@@ -44,7 +43,7 @@
         {{-- Visible --}}
         <div class="form-check form-switch p-0">
           <label for="field_visible" class="title-label d-block">Mostra appartamento</label>
-          <input class="form-check-input m-0" name="visible" value="0" type="checkbox" id="field_visible" role="switch" id="flexSwitchCheckChecked" checked>
+          <input class="form-check-input m-0" name="visible" value="1" type="checkbox" id="field_visible" role="switch" id="flexSwitchCheckChecked" checked>
         </div>
       </div>
       {{-- Img --}}
@@ -152,15 +151,15 @@
           @endforeach
         </div>
         {{-- Languages --}}
-        <h4 class="title-label">Lingue</h4>
-        <div>
+        {{-- <h4 class="title-label">Lingue</h4> --}}
+        {{-- <div>
           @foreach($languages as $language)
           <div class="d-inline-block pb-2">
             <input class="form-check-input p-0" name="languages[]" type="checkbox" value="{{$language->id}}" id="{{$language->name}}-{{$language->id}}">
             <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
           </div>
           @endforeach
-        </div>
+        </div> --}}
       </div>
     </div>
 
@@ -174,10 +173,13 @@
   </form>
 </section>
 
-
-
-
 <script>
+
+
+function visit() {
+
+}
+
   var btnCounterOne = document.querySelectorAll('.btn-counter-1');
   var totalItemOne = document.querySelector('.total-item-1');
 
