@@ -24,12 +24,12 @@
           </div>
         </div>
         <div class="card-body">
-          <h5 class="card-title"><strong> {{ $apartment->title }} </strong> </h5>
-          <p class="card-text">{{ $apartment->description }}</p>
+           <a href="{{route('host.apartments.show', $apartments->slug)}}" class="card-title"><strong> {{ $apartment->title }} </strong> </a> 
+          <p class="card-text">{{ $apartment->description }}</p> 
         </div>
       </div>
     </div> 
-    @endforeach
+    @endforeach 
   </div>
 </div>
 

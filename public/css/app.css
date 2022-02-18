@@ -23032,8 +23032,9 @@ button.contact:focus {
 }
 
 .btn-dropdown {
-  z-index: 2;
   margin-bottom: 30px;
+  margin-left: 77%;
+  margin-top: -35px;
 }
 
 .btn-dropdown:after {
@@ -23045,19 +23046,14 @@ button.contact:focus {
 }
 
 .dropdown-inner {
-  position: absolute;
+  display: none;
   padding: 20px 0;
-  opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
-  visibility: hidden;
-  z-index: 2;
-  margin: 36px 0;
 }
 
 .dropdown-hover:hover .dropdown-inner,
 .dropdown-open:checked ~ .dropdown-inner {
-  opacity: 100;
-  visibility: visible;
+  display: block;
 }
 
 .dropdown-hover:hover .dropdown-open:checked {
