@@ -6,7 +6,6 @@
 
 @section('content')
 <section class="create-edit container pt-5">
-  <h1 class="title fw-bold pb-5">Pubblica appartamento</h1>
 
   @if($errors->any())
   <div class="alert alert-danger">
