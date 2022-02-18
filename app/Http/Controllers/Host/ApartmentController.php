@@ -11,6 +11,7 @@ use App\Rule;
 use App\Service;
 use App\Sponsor;
 use App\User;
+use Illuminate\Support\Facades\Http;
 
 class ApartmentController extends Controller
 {
@@ -82,7 +83,7 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Apartment $apartment)
-    {   
+    {
         //dd($apartment->user_id);
         /* dd($apartment->where('user_id', Auth::id())->get());
         $apartments = $apartment->where('user_id', Auth::id())->get();
@@ -94,7 +95,7 @@ class ApartmentController extends Controller
             $active_sponsor = $apartment->sponsors()->first();
             $sponsor_starting_date = $active_sponsor->pivot->starting_date;
             $sponsor_expire_date = $active_sponsor->pivot->expire_date;
-        }  else {
+        } else {
             $active_sponsor = '';
             $sponsor_starting_date = '';
             $sponsor_expire_date = '';

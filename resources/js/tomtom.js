@@ -45,36 +45,28 @@ map.addControl(ttPanControls, 'top-left');
 // -------------
 
 // marker ---- basta addTo() per aggiungerlo a alla mappa
-var marker = new tt.Marker()
+var customMarker = document.createElement('div');
+customMarker.className = 'marker';
+var marker = new tt.Marker({ element: customMarker })
     .setLngLat(point)
     .addTo(map);
 
-// marker da finire
-// function createMarker(position, color, popupText)
-// {
-//     var markerElement = document.createElement('div');
-//     markerElement.className = 'marker';
+// popup offset
+var popupOffsets = {
+    top: [0, 0],
+    bottom: [0, -70],
+    'bottom-right': [0, -70],
+    'bottom-left': [0, -70],
+    left: [25, -35],
+    right: [-25, -35]
+};
 
-//     var markerContentElement = document.createElement('div');
-//     markerContentElement.className = 'marker-content';
-//     markerContentElement.style.backgroundColor = color;
-//     markerElement.appendChild(markerContentElement);
+// popup ---- basta marker.setPopup(popup)
+var popup = new tt.Popup({ offset: popupOffsets })
+    .setHTML(`<strong>${mylat}</strong> <br> <strong>${mylng}</strong> `);
+marker.setPopup(popup);
 
-//     var iconElement = document.createElement('div');
-//     iconElement.className = 'marker-icon';
-//     iconElement.style.backgroundImage =
-//         'url("storage/host/host-2.jpg")';
-//     markerContentElement.appendChild(iconElement);
-
-//     var popup = new tt.Popup({ offset: 30 }).setText(popupText);
-//     // add marker to map;
-//     new tt.Marker({ element: markerElement, anchor: 'bottom' })
-//         .setLngLat(position)
-//         .setPopup(popup)
-//         .addTo(map);
-// }
-
-// createMarker(chicago, '#5327c3', 'SVG icon');
+// setDomContent
 
 
 // function flyTo->new point

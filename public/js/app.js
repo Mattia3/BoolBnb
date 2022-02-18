@@ -40382,28 +40382,25 @@ map.addControl(nav);
 map.addControl(ttPanControls, 'top-left'); // -------------
 // marker ---- basta addTo() per aggiungerlo a alla mappa
 
-var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(point).addTo(map); // marker da finire
-// function createMarker(position, color, popupText)
-// {
-//     var markerElement = document.createElement('div');
-//     markerElement.className = 'marker';
-//     var markerContentElement = document.createElement('div');
-//     markerContentElement.className = 'marker-content';
-//     markerContentElement.style.backgroundColor = color;
-//     markerElement.appendChild(markerContentElement);
-//     var iconElement = document.createElement('div');
-//     iconElement.className = 'marker-icon';
-//     iconElement.style.backgroundImage =
-//         'url("storage/host/host-2.jpg")';
-//     markerContentElement.appendChild(iconElement);
-//     var popup = new tt.Popup({ offset: 30 }).setText(popupText);
-//     // add marker to map;
-//     new tt.Marker({ element: markerElement, anchor: 'bottom' })
-//         .setLngLat(position)
-//         .setPopup(popup)
-//         .addTo(map);
-// }
-// createMarker(chicago, '#5327c3', 'SVG icon');
+var customMarker = document.createElement('div');
+customMarker.className = 'marker';
+var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
+  element: customMarker
+}).setLngLat(point).addTo(map); // popup offset
+
+var popupOffsets = {
+  top: [0, 0],
+  bottom: [0, -70],
+  'bottom-right': [0, -70],
+  'bottom-left': [0, -70],
+  left: [25, -35],
+  right: [-25, -35]
+}; // popup ---- basta marker.setPopup(popup)
+
+var popup = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Popup({
+  offset: popupOffsets
+}).setHTML("<strong>".concat(mylat, "</strong> <br> <strong>").concat(mylng, "</strong> "));
+marker.setPopup(popup); // setDomContent
 // function flyTo->new point
 
 /*

@@ -268,3 +268,15 @@ button.contact:focus{
 #mymap {
     height: 500px;
 }
+
+.marker{
+    background-image: url('https://i.pinimg.com/originals/6c/e9/12/6ce9124ba178121ec828d8e2e566c1f4.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 55px;
+    height: 75px;
+    &:hover {
+        opacity: 0.8;
+    }
+}
