@@ -11,12 +11,6 @@
     display: flex;
 }
 
-.icons-star {
-    color: #ffa700;
-    font-size: 10px;
-    padding-left: 2px;
-}
-
 .icons-star-2 {
     color: #ffa700;
     font-size: 13px;
@@ -26,7 +20,7 @@
 .number-card-price {
     position: absolute;
     top: 9px;
-    left: 49px;
+    left: 10px;
     background-color: white;
     border-radius: 10em/10em;
     width: 68px;
@@ -34,4 +28,13 @@
     align-items: center;
     justify-content: center;
     display: flex;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1;
 }
