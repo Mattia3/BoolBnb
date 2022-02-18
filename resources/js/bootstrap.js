@@ -6,10 +6,10 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
-    window.Popper = require('@popperjs/core').default;
+ try {
+    window.Popper = require('@popperjs/core');
 
-    require('bootstrap');
+    require('bootstrap/dist/js/bootstrap');
 } catch (e) {}
 
 /**

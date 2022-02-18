@@ -11,6 +11,9 @@
     <!-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> -->
     <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
     <!-- Styles -->
     <style>
         html,
@@ -65,6 +68,68 @@
         .m-b-md {
             margin-bottom: 30px;
         }
+
+        /* MAP */
+        #mymap {
+            width: 700px;
+            height: 700px;
+        }
+
+        .zoom-control {
+            margin-left: 30px;
+        }
+
+        .tt-zoom-control {
+            height: 195px;
+        }
+
+        .tt-zoom-control>.tt-zoom-button--out {
+            top: 165px;
+        }
+
+        .tt-zoom-control>.tt-zoom-slider {
+            width: 120px;
+        }
+
+        .marker-icon {
+            background-position: center;
+            background-size: 22px 22px;
+            border-radius: 50%;
+            height: 22px;
+            left: 4px;
+            position: absolute;
+            text-align: center;
+            top: 3px;
+            transform: rotate(45deg);
+            width: 22px;
+        }
+
+        .marker {
+            height: 30px;
+            width: 30px;
+        }
+
+        .marker-content {
+            background: #c30b82;
+            border-radius: 50% 50% 50% 0;
+            height: 30px;
+            left: 50%;
+            margin: -15px 0 0 -15px;
+            position: absolute;
+            top: 50%;
+            transform: rotate(-45deg);
+            width: 30px;
+        }
+
+        .marker-content::before {
+            background: #ffffff;
+            border-radius: 50%;
+            content: "";
+            height: 24px;
+            margin: 3px 0 0 3px;
+            position: absolute;
+            width: 24px;
+        }
     </style>
 </head>
 
@@ -97,6 +162,11 @@
                 <a href="#"></a>
             </div>
         </div>
+    </div>
+
+    <!-- MAPPA -->
+    <div id="mymap" class="map">
+
     </div>
 </body>
 

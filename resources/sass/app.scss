@@ -21,6 +21,11 @@
 @import "~swiper/swiper.scss";
 @import "~swiper/swiper-bundle.css";
 
+// TomTom
+@import "@tomtom-international/web-sdk-maps";
+@import "@tomtom-international/web-sdk-plugin-pancontrols";
+/* @import "@tomtom-international/web-sdk-plugin-zoomcontrols"; */
+
 // Host
 @import "partials/navbar";
 
@@ -28,4 +33,14 @@
 
 @import "partials/footer";
 
+@import "partials/home-dashboard";
+
+@import "partials/index";
+
+@import "partials/filter";
+
 @import "partials/create-edit";
+
+@import "partials/apartament-show";
+
+@import "partials/login";
