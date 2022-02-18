@@ -24316,7 +24316,11 @@ main {
   color: #c4c3ca;
   opacity: 0.7;
   -moz-transition: all 200ms linear;
-  transition: all 200ms linear;
+  transition: all 200ms linear;}
+.btn-dropdown {
+  margin-bottom: 30px;
+  margin-left: 77%;
+  margin-top: -35px;
 }
 
 .container-login .form-group input::-webkit-input-placeholder {
@@ -24347,7 +24351,24 @@ main {
 .container-login .form-group input:focus::-webkit-input-placeholder {
   opacity: 0;
   -webkit-transition: all 200ms linear;
-  transition: all 200ms linear;
+  transition: all 200ms linear;}
+.dropdown {
+  display: block;
+}
+
+.dropdown-inner {
+  display: none;
+  padding: 20px 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.dropdown-hover:hover .dropdown-inner,
+.dropdown-open:checked ~ .dropdown-inner {
+  display: block;
+}
+
+.dropdown-hover:hover .dropdown-open:checked {
+  display: block;
 }
 
 .container-login .btn {
