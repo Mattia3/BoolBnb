@@ -16,15 +16,14 @@
         </div>
         
         
-        <div class="dropdown">
-        <div class="position-relative d-flex my-4">
-          <h3 class="title-service">Servizi</h3>
+        <div class="dropdown my-4">
           
+            <h3 class="title-service">Servizi</h3>
           
-            <label for="dropdown-1" class="btn btn-dropdown"><b>Filter</b></label>
+            <label for="dropdown-1" class="btn btn-dropdown btn-primary"><b>Filter</b></label>
             <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
             
-            <div class="dropdown-inner row row-cols-3">
+            <div class="dropdown-inner row row-cols-3 text-center">
               <label class="form-check-label" for="flexCheckDefault" >
                 <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault">
                  Default checkbox
@@ -51,9 +50,10 @@
                 <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault7">Default checkbox
               </label>
             </div>
-          </div>
-
+          
         </div>
+
+       
        
 
         <div class="row row-cols-2">

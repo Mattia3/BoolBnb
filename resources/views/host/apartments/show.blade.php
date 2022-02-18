@@ -10,12 +10,12 @@
 
     <div class="container">
 
-        <div class="d-flex ms-auto pt-3" style="gap:5px;">
-            <a href="{{ route('host.apartments.create') }}" class="btn btn-primary"> Modifica </a>
-            <form action="{{ route('host.apartments.destroy', $apartment->id) }}" method="post">
+        <div class="d-flex justify-content-end ms-auto pt-3" style="gap:5px;">
+            <a href="{{ route('host.apartments.edit', $apartment->slug)}}" class="btn btn-primary2"> <i class="fa-solid fa-pencil"></i> </a>
+            <form action="{{ route('host.apartments.destroy', $apartment->slug) }}" method="post">
                 @csrf
                 @method('delete')
-                <button type="submit" class="btn btn-danger">Elimina</button>
+                <button type="submit" class="btn btn-danger2"><i class="fa-solid fa-trash-can"></i></button>
             </form>
         </div>
 
