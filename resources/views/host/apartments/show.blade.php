@@ -59,7 +59,7 @@
 
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <img class="cover_img" src="{{ asset($apartment->cover_img) }}">
+                <img class="cover_img" src="{{ asset('storage/' . $apartment->cover_img) }}">
             </div>
         </div>
     </div>

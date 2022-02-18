@@ -24,7 +24,7 @@ class ApartmentsTableSeeder extends Seeder
                 'n_rooms' => 5,
                 'n_beds' => 8,
                 'n_baths' => 5,
-                'cover_img' => 'storage/apartment/apartment_cover/cover-1.jpg',
+                'cover_img' => 'apartment/apartment_cover/cover-1.jpg',
                 'description' => 'Attico meraviglio al centro si Budapest. L’appartamento è composto da 5 camere da letto , ognuna con il suo bagno. I bagni sono completamente in marmo, 2 provvisti di doccia e 3 di vasca. C’è un bellissimo salone con degli affreschi antichi e delle colonne di marmo rarissimo di provenienza Afghana. Lungo il corridoio potrete ammirare delle stampe originali del Piranesi. Salendo la scala si arriva sulla terrazza e la cucina. La terrazza è vivibile anche d’inverno , visto che è provvista di 2 sistemi di riscaldamento. La vista è mozzafiato',
                 'visible' => true,
                 'place_description' => 'Essendo al centro di Budapest tutte le comodita sono a portata di mano. Basta attraversare la strada per trovarsi sul Danubio ed esattamente dopo 100 metri a sinistra si puà prendere il battello. A 500 metri dopo la piazza puoi trovare il Budavari Palota, la galleria nazionale ungherese. Seguendo la strada principlae ci sono moltissimi ristoranti, supermercati e anche la funicolare.',
@@ -40,7 +40,7 @@ class ApartmentsTableSeeder extends Seeder
                 'n_rooms' => 2,
                 'n_beds' => 2,
                 'n_baths' => 2,
-                'cover_img' => 'storage/apartment/apartment_cover/cover-2.jpeg',
+                'cover_img' => 'apartment/apartment_cover/cover-2.jpeg',
                 'description' => 'Vorresti affittare una piccola palazzina a Trastevere adatta ai VIP di Hollywood per il vostro soggiorno a Roma? Questa "Palazzina" con due camere da letto offre due camere da letto e bagni super lussuosi, un soggiorno adatto per una galleria Art Deco, una sala da pranzo e persino una terrazza per mangiare',
                 'visible' => true,
                 'place_description' => 'Esattamente al centro di trastevere, a due passi dalla Basilica di Santa Maria. Tanti locali e osterie nei paraggi. La zona è sempre piena di vita, sia di giorno che di notte, con tanti posti da vedere nelle vicinanze per vivere a pieno uno dei quartieri più belli di Roma'
@@ -56,7 +56,7 @@ class ApartmentsTableSeeder extends Seeder
                 'n_rooms' => 12,
                 'n_beds' => 10,
                 'n_baths' => 8,
-                'cover_img' => 'storage/apartment/apartment_cover/cover-3.jpg',
+                'cover_img' => 'apartment/apartment_cover/cover-3.jpg',
                 'description' => 'Una vera reggia nel cuore sella campagna Toscana. Villa incantevole con 12 stanze e un giardino di 800 metri quadrati, che comprende piscina e area relax. Ideale per feste o grandi cerimonie per accogliere i propri invitati in una dimora da favola.',
                 'visible' => true,
                 'place_description' => 'A pochi chilometri troviamo il paesino di Castel del piano, molto tranquillo e caratteristico, con locali e negozi che vendono prodotti tipici della zona. Tutta la zona circostante è immersa nel verde, ideale per rilassarsi e immergersi nella natura.'

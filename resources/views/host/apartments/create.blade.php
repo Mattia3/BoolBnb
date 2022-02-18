@@ -18,7 +18,7 @@
   @endif
 
   {{-- Form --}}
-  <form action="{{ route('host.apartments.store') }}"  enctype="multipart/form-data" method="POST">
+  <form action="{{ route('host.apartments.store') }}" enctype="multipart/form-data" method="POST">
     @csrf
 
     {{-- Box 1 --}}
@@ -33,12 +33,12 @@
         {{-- Address --}}
         <div class="box-input">
           <label for="field_address" class="title-label">Indirizzo</label>
-          <input class="w-100" type="text" name="address" id="field_address" placeholder="inserire la Via, Città, Cap" value="{{ old("address") }}" required>
+          <input class="w-100" type="text" name="address" id="field_address" placeholder="es. Viale europa 26, Roma, Italia" value="{{ old('address') }}" required>
         </div>
         {{-- Price --}}
         <div class="box-input">
           <label for="field_price" class="title-label">Prezzo</label>
-          <input class="w-100" type="number" name="price" id="field_price" value="{{ old("price") }}" required>
+          <input class="w-100" type="number" name="price" id="field_price" value="{{ old('price') }}" required>
         </div>
         {{-- Visible --}}
         <div class="form-check form-switch p-0">
@@ -53,7 +53,7 @@
             <i class="fa-solid fa-file-image"></i>
             <h4 class="title-label p-0">Immagine</h4>
           </div>
-          <input type="file" name="cover_img" id="field_cover_img" value="{{ old("cover_img") }}" required>
+          <input type="file" name="cover_img" id="field_cover_img" value="{{ old('cover_img') }}" required>
         </div>
       </div>
     </div>
@@ -114,12 +114,12 @@
         {{-- Descripstion --}}
         <div class="box-input">
           <label for="field_description" class="title-label">Descrizione appartamento</label>
-          <textarea rows="7" type="text" name="description" id="exampleFormControlTextarea1" value="{{ old("description") }}" required></textarea>
+          <textarea rows="7" type="text" name="description" id="exampleFormControlTextarea1" value="{{ old('description') }}" required>{{ old('description') }}</textarea>
         </div>
         {{-- Place Description --}}
         <div>
           <label label for="field_place_description" class="title-label">Descrizione della zona</label>
-          <textarea rows="7" type="text" name="place_description" id="exampleFormControlTextarea1" value="{{ old("place_description") }}" required></textarea>
+          <textarea rows="7" type="text" name="place_description" id="exampleFormControlTextarea1" value="{{ old('place_description') }}" required>{{ old('place_description') }}</textarea>
         </div>
       </div>
     </div>
@@ -156,14 +156,14 @@
           @foreach($languages as $language)
           <div class="d-inline-block pb-2">
             <input class="form-check-input p-0" name="languages[]" type="checkbox" value="{{$language->id}}" id="{{$language->name}}-{{$language->id}}">
-            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
-          </div>
-          @endforeach
-        </div> --}}
+        <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
       </div>
+      @endforeach
+    </div> --}}
+    </div>
     </div>
 
-    
+
     {{-- Buttons Crea/Reset--}}
     <div class="btn-create-edit">
       <button class="btn btn-reset" type="reset">Reset</button>
@@ -174,11 +174,9 @@
 </section>
 
 <script>
+  function visit() {
 
-
-function visit() {
-
-}
+  }
 
   var btnCounterOne = document.querySelectorAll('.btn-counter-1');
   var totalItemOne = document.querySelector('.total-item-1');
@@ -193,17 +191,17 @@ function visit() {
   var totalItemFour = document.querySelector('.total-item-4');
 
   function countItems(one, two) {
-    for(var i = 0; i < one.length; i++) {
+    for (var i = 0; i < one.length; i++) {
 
       one[i].addEventListener('click', function() {
         var oldValue = two.value;
-        
-        if( this.value === '+' ) {
+
+        if (this.value === '+') {
           // var string convert to integer
           var newValue = parseInt(oldValue, 10) + 1;
         } else {
           // Don't allow decrementing below 1
-          if(oldValue > 1) {
+          if (oldValue > 1) {
             var newValue = parseInt(oldValue, 10) - 1;
           } else {
             newValue = 0;

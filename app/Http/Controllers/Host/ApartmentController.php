@@ -12,6 +12,7 @@ use App\Service;
 use App\Sponsor;
 use App\User;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ApartmentController extends Controller
@@ -87,10 +88,33 @@ class ApartmentController extends Controller
             'place_description' => 'string|required|min:15|max:2000'
         ]);
 
+        // TomTom query . From address to -> lat lon 
+        $ttResponse = Http::get('https://api.tomtom.com/search/2/geocode/.json', [
+            'query' => $data['address'],
+            'key' => 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj',
+        ]);
+        // dd($ttResponse->json());
+        // dd($ttResponse->json()['results']);
+        // dd($ttResponse->json()['summary']['numResults']);
+        if ($ttResponse->json()['summary']['numResults'] == 0) {
+            return redirect()->route('host.apartments.show')->withErrors(['msg' => 'Indirizzo non valido o incompleto']);
+        }
+        $lat = $ttResponse->json()['results'][0]['position']['lat'];
+        $lng = $ttResponse->json()['results'][0]['position']['lon'];
+        // dd('lat:' . $lat, 'lng:' . $lng);
+        // -----------------------------
+
         $newApartment = new Apartment;
+        // passo lat e lon ricavate da tomtom
+        $newApartment->lat = $lat;
+        $newApartment->lng = $lng;
+
         $newApartment->fill($data);
         $newApartment->user_id = Auth::user()->id;
         $newApartment->slug = $this->createSlug($data['title']);
+        // cover img
+        $newApartment->cover_img = Storage::put('apartment/apartment_cover', $data['cover_img']);
+        //
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
@@ -187,7 +211,32 @@ class ApartmentController extends Controller
             $apartment->slug = $this->createSlug($data['title']);
         }
 
-        $apartment->update($data);
+        // TomTom query . From address to -> lat lon 
+        $ttResponse = Http::get('https://api.tomtom.com/search/2/geocode/.json', [
+            'query' => $data['address'],
+            'key' => 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj',
+        ]);
+        // dd($ttResponse->json());
+        // dd($ttResponse->json()['results']);
+        // dd($ttResponse->json()['summary']['numResults']);
+        if ($ttResponse->json()['summary']['numResults'] == 0) {
+            return redirect()->route('host.apartments.show')->withErrors(['msg' => 'Indirizzo non valido o incompleto']);
+        }
+        $lat = $ttResponse->json()['results'][0]['position']['lat'];
+        $lng = $ttResponse->json()['results'][0]['position']['lon'];
+        // dd('lat:' . $lat, 'lng:' . $lng);
+        // -----------------------------
+
+
+        $apartment->fill($data);
+        // passo lat e lon ricavate da tomtom
+        $apartment->lat = $lat;
+        $apartment->lng = $lng;
+
+        // cover img
+        $apartment->cover_img = Storage::put('apartment/apartment_cover', $data['cover_img']);
+        //
+        $apartment->save();
         $apartment->rules()->sync($data['rules']);
         $apartment->services()->sync($data['services']);
 

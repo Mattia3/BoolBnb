@@ -9,10 +9,10 @@ import PanControls from '@tomtom-international/web-sdk-plugin-pancontrols';
 // prendo lat e lng da hidden p in show
 var mylat = document.getElementById("lat").innerHTML;
 // document.getElementById("lat").innerHTML = mylat.replace(/<[^>]*>/g, "");
-console.log(mylat);
+// console.log(mylat);
 var mylng = document.getElementById("lng").innerHTML;
 // document.getElementById("lng").innerHTML = mylng.replace(/<[^>]*>/g, "");
-console.log(mylng);
+// console.log(mylng);
 
 var APIKEY = 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj';
 var point = {
