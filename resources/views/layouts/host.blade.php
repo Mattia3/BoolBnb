@@ -11,12 +11,13 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/tomtom.js') }}" defer></script>
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   {{-- <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
-  
-  
+
+
   <title> @yield('page_title') </title>
 </head>
 
