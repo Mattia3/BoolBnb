@@ -2,7 +2,7 @@
 @section('page_title', 'filter')
     
 @section('content')
-<div>
+<div id="app">
   <div class="background-hero"></div>
 
   <div class="row">
@@ -179,7 +179,7 @@
     </div>
 
     <div class="col-8">
-
+      
       
     </div>
   </div>
