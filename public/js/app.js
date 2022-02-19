@@ -27758,11 +27758,11 @@ __webpack_require__.r(__webpack_exports__);
 // prendo lat e lng da hidden p in show
 
 var mylat = document.getElementById("lat").innerHTML; // document.getElementById("lat").innerHTML = mylat.replace(/<[^>]*>/g, "");
+// console.log(mylat);
 
-console.log(mylat);
 var mylng = document.getElementById("lng").innerHTML; // document.getElementById("lng").innerHTML = mylng.replace(/<[^>]*>/g, "");
+// console.log(mylng);
 
-console.log(mylng);
 var APIKEY = 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj';
 var point = {
   lat: mylat,
@@ -27791,28 +27791,25 @@ map.addControl(nav);
 map.addControl(ttPanControls, 'top-left'); // -------------
 // marker ---- basta addTo() per aggiungerlo a alla mappa
 
-var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(point).addTo(map); // marker da finire
-// function createMarker(position, color, popupText)
-// {
-//     var markerElement = document.createElement('div');
-//     markerElement.className = 'marker';
-//     var markerContentElement = document.createElement('div');
-//     markerContentElement.className = 'marker-content';
-//     markerContentElement.style.backgroundColor = color;
-//     markerElement.appendChild(markerContentElement);
-//     var iconElement = document.createElement('div');
-//     iconElement.className = 'marker-icon';
-//     iconElement.style.backgroundImage =
-//         'url("storage/host/host-2.jpg")';
-//     markerContentElement.appendChild(iconElement);
-//     var popup = new tt.Popup({ offset: 30 }).setText(popupText);
-//     // add marker to map;
-//     new tt.Marker({ element: markerElement, anchor: 'bottom' })
-//         .setLngLat(position)
-//         .setPopup(popup)
-//         .addTo(map);
-// }
-// createMarker(chicago, '#5327c3', 'SVG icon');
+var customMarker = document.createElement('div');
+customMarker.className = 'marker';
+var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
+  element: customMarker
+}).setLngLat(point).addTo(map); // popup offset
+
+var popupOffsets = {
+  top: [0, 0],
+  bottom: [0, -70],
+  'bottom-right': [0, -70],
+  'bottom-left': [0, -70],
+  left: [25, -35],
+  right: [-25, -35]
+}; // popup ---- basta marker.setPopup(popup)
+
+var popup = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Popup({
+  offset: popupOffsets
+}).setHTML("<strong>".concat(mylat, "</strong> <br> <strong>").concat(mylng, "</strong> "));
+marker.setPopup(popup); // setDomContent
 // function flyTo->new point
 
 /*
@@ -27845,8 +27842,8 @@ var moveMap = function (lgnlat)
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Boolean\BoolBnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\Boolean\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Alessandro\Desktop\BoolBnB\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Alessandro\Desktop\BoolBnB\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
