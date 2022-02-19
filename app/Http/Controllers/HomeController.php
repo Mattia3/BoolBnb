@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Apartment;
+use App\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,8 +24,12 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        // return view('home');
-        return view('guest.filter');
+    {   
+        $services = Service::all();
+        $apartments = Apartment::with(['services','rules', 'sponsors'])->get();
+        return view('guest.filter', [
+            'services' => $services,
+            'apartments' => $apartments
+        ]);
     }
 }
