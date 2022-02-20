@@ -5,10 +5,10 @@
             <div class="col-4 my-5">
                 <div class="container">
                     <div class="d-flex justify-content-center">
-                    <div class="input-group mb-3 w-50 text-center">
-                        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
+                        <div class="input-group mb-3 w-50 text-center">
+                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
                     </div>
                     
                     
@@ -20,108 +20,53 @@
                         <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
                         
                         <div class="dropdown-inner row row-cols-3 text-center">
-                        <label class="form-check-label" for="flexCheckDefault" >
+                            <label class="form-check-label" for="flexCheckDefault" v-for="service in services" :key="service.id">
                             <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault">
-                            Default checkbox
-                        </label>
-                        <label class="form-check-label" for="flexCheckDefault1" >
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault1">Default checkbox
-                        </label>
-                        <label class="form-check-label" for="flexCheckDefault2" >
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault2">Default checkbox
-                        </label>
-                        <label class="form-check-label" for="flexCheckDefault3" >
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault3">Default checkbox
-                        </label>
-                        <label class="form-check-label" for="flexCheckDefault4" >
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault4">Default checkbox
-                        </label>
-                        <label class="form-check-label" for="flexCheckDefault5" >
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault5">Default checkbox
-                        </label>
-                        <label class="form-check-label" for="flexCheckDefault6" >
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault6">Default checkbox
-                        </label>
-                        <label class="form-check-label" for="flexCheckDefault7" >
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault7">Default checkbox
-                        </label>
+                                {{service.name.replace('_', ' ')}}
+                            </label>
                         </div>
                     
                     </div>
 
-                
-                
-
                     <div class="row row-cols-2">
 
-                    <div class="col d-flex">
-                        <label for="field_square_mt " class="title-form">Stanze</label>
-                        <div class="wrap">
-                        <form action="">
-                            <input class="btn-counter-3 input-incremate btn-counter-style" type="button" value="-"/>
-                            <input class="total-item-3 input-incremate total-item-style" type="text" value="1" />
-                            <input class="btn-counter-3 input-incremate btn-counter-style" type="button" value="+" />
-                        </form>
+                        <div class="col d-flex">
+                            <label for="field_square_mt " class="title-form">Stanze</label>
+                            <div class="wrap">
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickLess()">-</span>
+                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="roomsCounter" />
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickPlus()">+</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col d-flex">
-                        <label for="field_square_mt " class="title-form">Letti</label>
-                        <div class="wrap">
-                        <form action="">
-                            <input class="btn-counter-1 input-incremate btn-counter-style" type="button" value="-"/>
-                            <input class="total-item-1 input-incremate total-item-style" type="text" value="1" />
-                            <input class="btn-counter-1 input-incremate btn-counter-style" type="button" value="+" />
-                        </form>
+                        <div class="col d-flex">
+                            <label for="field_square_mt " class="title-form">Letti</label>
+                            <div class="wrap">
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickLess()">-</span>
+                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="bedsCounter" />
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickPlus()">+</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="col d-flex mt-2">
-                        <label for="field_square_mt " class="title-form">Stanze</label>
-                        <div class="wrap">
-                        <form action="">
-                            <input class="btn-counter-2 input-incremate btn-counter-style" type="button" value="-"/>
-                            <input class="total-item-2 input-incremate total-item-style" type="text" value="1" />
-                            <input class="btn-counter-2 input-incremate btn-counter-style" type="button" value="+" />
-                        </form>
+                        <div class="col d-flex mt-2">
+                            <label for="field_square_mt " class="title-form">Bagni</label>
+                            <div class="wrap">
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickLess()">-</span>
+                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="bathsCounter" />
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickPlus()">+</span>
+                            </div>
                         </div>
-                    </div>
 
                     </div>
 
                     <div class="container-range">
-                    <label for="customRange1" class="form-label">Raggio di ricerca</label>
-                    <input type="range" class="form-range w-50" id="customRange1">
+                        <label for="customRange1" class="form-label">Raggio di ricerca</label>
+                        <input type="range" class="form-range w-50" id="customRange1">
                     </div>
                 </div>
-
-                <div class="container container-all-img">
-                    <div class="row mt-5">
-                        <div class="col-6">
-                            <img class="img-filter" src="#" alt="">
-                        </div>
-    
-                        <div class="col-6 position-relative">
-                            <h5 class="my-2">titolo:</h5>
-                            <div class="my-border"></div>
-                            <p class="text-muted m-0">servizi smoke,toilette,casa,casa</p>
-                            <p class="text-muted">servizi smoke,toilette,casa,casa</p>
                 
-                            <div class="container-price">
-                                <h4>187$</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="my-border-2"></div>
-
-                    <div class="row mt-5">
-                    <div class="col-6">
-                        <img class="img-filter" src="#" alt="">
-                    </div>
-                </div>
-
-
-        
+                <div class="container container-all-img">
+                    <CardComponent v-for="apartment in apartments" :key="apartment.id" :apartment="apartment"></CardComponent>
                 </div>
             </div>
 
@@ -132,10 +77,20 @@
 </template>
 
 <script>
+import CardComponent from './CardComponent.vue'
 export default {
     name: 'MainComponent',
+    components: {CardComponent},
     props: {
-        apartments: Array
+        apartments: Array,
+        services: Array
+    },
+    data() {
+        return {
+            roomsCounter: 0,
+            bedsCounter: 0,
+            bathsCounter: 0,
+        }
     },
 
     methods: {
@@ -184,7 +139,45 @@ export default {
             countItems(btnCounterThree, totalItemThree);
             countItems(btnCounterFour, totalItemFour);
 
-        }
+        },
+
+        rooms_onClickLess(){
+            if (this.roomsCounter === 0) {
+                this.roomsCounter = 0;
+            } else {
+                this.roomsCounter--;
+            }
+        },
+
+        rooms_onClickPlus(){
+            this.roomsCounter++;
+        },
+
+        beds_onClickLess(){
+            if (this.bedsCounter === 0) {
+                this.bedsCounter = 0;
+            } else {
+                this.bedsCounter--;
+            }
+        },
+
+        beds_onClickPlus(){
+            this.bedsCounter++;
+        },
+
+        baths_onClickLess(){
+            if (this.bathsCounter === 0) {
+                this.bathsCounter = 0;
+            } else {
+                this.bathsCounter--;
+            }
+        },
+
+        baths_onClickPlus(){
+            this.bathsCounter++;
+        },
+
+
     }
 }
 </script>

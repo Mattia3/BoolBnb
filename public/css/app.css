@@ -23608,6 +23608,12 @@ main {
 .container-all-img {
   overflow: auto;
   height: 600px;
+  /* .container-price {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding-right: 10px;
+  } */
 }
 
 .container-all-img .img-filter {
@@ -23624,13 +23630,6 @@ main {
 .container-all-img .my-border-2 {
   border: 1px solid lightgray;
   margin-top: 29px;
-}
-
-.container-all-img .container-price {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  padding-right: 10px;
 }
 
 .btn-dropdown {
