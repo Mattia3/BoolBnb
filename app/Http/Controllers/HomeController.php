@@ -24,13 +24,15 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request)
-    {   
+    {
         // dd($request->search);
+        // $search = $request->search;
         $services = Service::all();
-        $apartments = Apartment::with(['services','rules', 'sponsors'])->get();
+        $apartments = Apartment::with(['services', 'rules', 'sponsors'])->get();
         return view('guest.filter', [
             'services' => $services,
-            'apartments' => $apartments
+            'apartments' => $apartments,
+            // $search
         ]);
     }
 }
