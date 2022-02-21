@@ -31,6 +31,7 @@
         "@tomtom-international/web-sdk-plugin-pancontrols": "^2.1.6",
         "@tomtom-international/web-sdk-plugin-zoomcontrols": "^2.1.6",
         "@tomtom-international/web-sdk-services": "^6.18.0",
+        "dayjs": "^1.10.7",
         "swiper": "^8.0.5"
     }
 }
