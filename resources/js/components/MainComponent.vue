@@ -211,7 +211,9 @@
 <script>
 // SDK
 import tt from "@tomtom-international/web-sdk-maps";
+import { services } from "@tomtom-international/web-sdk-services";
 import PanControls from "@tomtom-international/web-sdk-plugin-pancontrols";
+import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 
 export default {
   name: "MainComponent",

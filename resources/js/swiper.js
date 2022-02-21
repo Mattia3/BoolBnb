@@ -1,1 +1,1 @@
-window.Swiper = require('swiper');
+// window.Swiper = require('swiper');

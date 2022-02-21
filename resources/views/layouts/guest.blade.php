@@ -12,8 +12,9 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="{{ asset('js/vue.js') }}" defer></script>
+  <script src="{{ asset('js/homeSearchBox.js') }}" defer></script>
   <script src="{{ asset('js/button-increment.js') }}" defer></script>
-  <script src="{{ asset('js/swiper.js') }}" defer></script>
+  <!-- <script src="{{ asset('js/swiper.js') }}" defer></script> -->
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
