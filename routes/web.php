@@ -31,6 +31,9 @@ Route::namespace('Host') //riaggiungere middleware('auth')
     ->name('host.')
     ->group(function () {
         Route::resource('apartments', 'ApartmentController');
+        Route::get('/payment/process', 'SponsorController@process')->name('payment.process');
 });
+
+
     
 
