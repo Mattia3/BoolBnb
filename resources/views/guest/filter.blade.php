@@ -1,6 +1,6 @@
 @extends('layouts.guest')
 @section('page_title', 'filter')
-    
+
 @section('content')
 <div id="app">
   <div class="background-hero"></div>

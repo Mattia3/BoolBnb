@@ -6,13 +6,13 @@
 <div class="container">
     <div class="row vh-100 justify-content-center align-items-center">
         <div class="col-md-6 col-sm-6 col-xs-12">
-            <div class="bar_search">
+            <!-- <div class="bar_search">
                 <form action="{{ route('search')}}" method="get" class="mb-5 d-flex">
 
                     <input style="font-size:30px;" type="text" placeholder="Dove vuoi andare?" name="search" value="">
 
                 </form>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
