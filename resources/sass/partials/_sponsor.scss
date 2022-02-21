@@ -1,0 +1,66 @@
+.my-container {
+    .price-card {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 135px;
+        background-color: #0bab64;
+        flex-direction: column;
+        border-radius: 0px 20px;
+        position: relative;
+
+        .price {
+            font-size: 40px;
+            color: white;
+        }
+
+        .price-day {
+            position: absolute;
+            right: 83px;
+            color: white;
+            font-style: oblique;
+            font-size: small;
+        }
+
+        .icon-euro {
+            position: absolute;
+            left: 106px;
+            top: 38px;
+            font-size: 11px;
+            color: wheat;
+        }
+    }
+
+    .service-sponsor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 96px 0;
+    }
+
+    .btn-sponsor {
+        button {
+            width: 172px;
+            border-radius: 19px;
+            background-color: #0bab64;
+            border: none;
+            height: 37px;
+            color: white;
+        }
+    }
+
+    .my-card {
+        z-index: 1;
+        position: relative;
+        width: 300px;
+        height: 500px;
+        background-color: white;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        -moz-transition: all 0.7s ease-in-out;
+        border-radius: 20px;
+        &:hover {
+            scale: 1.1;
+            z-index: 99;
+        }
+    }
+}
