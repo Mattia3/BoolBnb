@@ -26,11 +26,13 @@ class HomeController extends Controller
     public function index(Request $request)
     {   
         // dd($request->search);
+        $place = $request->search;
         $services = Service::all();
         $apartments = Apartment::with(['services','rules', 'sponsors'])->get();
         return view('guest.filter', [
             'services' => $services,
-            'apartments' => $apartments
+            'apartments' => $apartments,
+            'place' => $place
         ]);
     }
 }

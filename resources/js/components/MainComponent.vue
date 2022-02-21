@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="d-flex justify-content-center">
                         <div class="input-group mb-3 w-50 text-center">
-                            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="text" class="form-control" :value="place" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </div>
@@ -21,7 +21,7 @@
                         
                         <div class="dropdown-inner row row-cols-3 text-center">
                             <label class="form-check-label" for="flexCheckDefault" v-for="service in services" :key="service.id">
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault">
+                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault" @change="addFilter(service)" ><!-- v-model="checked" -->
                                 {{service.name.replace('_', ' ')}}
                             </label>
                         </div>
@@ -66,7 +66,7 @@
                 </div>
                 
                 <div class="container container-all-img">
-                    <CardComponent v-for="apartment in apartments" :key="apartment.id" :apartment="apartment"></CardComponent>
+                    <CardComponent v-for="apartment in apartmentsFiltered" :key="apartment.id" :apartment="apartment"></CardComponent>
                 </div>
             </div>
 
@@ -83,18 +83,22 @@ export default {
     components: {CardComponent},
     props: {
         apartments: Array,
-        services: Array
+        services: Array,
+        place: String
     },
     data() {
         return {
-            roomsCounter: 0,
-            bedsCounter: 0,
-            bathsCounter: 0,
+            roomsCounter: 1,
+            bedsCounter: 1,
+            bathsCounter: 1,
+            serviceFilter: [],
+            apartmentsFiltered: [],
+            //checked: false
         }
     },
 
     methods: {
-        filterButtons(){
+/*         filterButtons(){
             var btnCounterOne = document.querySelectorAll('.btn-counter-1');
             var totalItemOne = document.querySelector('.total-item-1');
 
@@ -139,11 +143,11 @@ export default {
             countItems(btnCounterThree, totalItemThree);
             countItems(btnCounterFour, totalItemFour);
 
-        },
+        }, */
 
         rooms_onClickLess(){
-            if (this.roomsCounter === 0) {
-                this.roomsCounter = 0;
+            if (this.roomsCounter === 1) {
+                this.roomsCounter = 1;
             } else {
                 this.roomsCounter--;
             }
@@ -154,8 +158,8 @@ export default {
         },
 
         beds_onClickLess(){
-            if (this.bedsCounter === 0) {
-                this.bedsCounter = 0;
+            if (this.bedsCounter === 1) {
+                this.bedsCounter = 1;
             } else {
                 this.bedsCounter--;
             }
@@ -166,8 +170,8 @@ export default {
         },
 
         baths_onClickLess(){
-            if (this.bathsCounter === 0) {
-                this.bathsCounter = 0;
+            if (this.bathsCounter === 1) {
+                this.bathsCounter = 1;
             } else {
                 this.bathsCounter--;
             }
@@ -177,8 +181,83 @@ export default {
             this.bathsCounter++;
         },
 
+        /* prova(service){
+            service.checked = this.checked;
+            if (this.checked) {
+                console.log('checked');
+            }else {
+                console.log('not checked');
+            }
+        }, */
 
+        addFilter(service){
+            if (!this.serviceFilter.includes(service.name)) {
+               this.serviceFilter.push(service.name); 
+            }
+            
+            /* this.apartments.forEach(apartment => {
+                if (this.twoArrEqual(apartment.services, this.serviceFilter)) {
+                    this.apartmentsFiltered.push(apartment)
+                }
+            });
+ */
+            
+
+            
+            this.apartments.forEach(apartment => {
+                let prova = apartment.services.filter((service) => {
+                    
+                    if (this.serviceFilter.includes(service.name)) {
+                        if (!this.apartmentsFiltered.includes(apartment)/*  && apartment.address.toLowerCase().includes(this.place.toLowerCase()) */) {
+                            this.apartmentsFiltered.push(apartment);
+                        }
+                        return this.apartmentsFiltered;
+                    }
+                })
+            });
+
+            return console.log(this.apartmentsFiltered);
+
+            //console.log(this.apartments[0].services.includes(service.name));;
+            /* return this.apartments.filter((apartment) => {
+                return console.log(apartment.services.includes(this.serviceFilter));;
+            }) */
+        },
+
+        twoArrEqual(apService, filService) { 
+                // If lengths of array are not equal means 
+                // array are not equal 
+                
+                /* if (apService.length != filService.length) {
+                    return false;
+                } */
+            
+                // Sort both arrays 
+                apService.sort()
+                filService.sort()
+            
+                // Linearly compare elements 
+                for (let i = 0; i < apService.length; i++) {
+                    console.log(apService[i].name, filService[i]);
+                    if (apService[i].name != filService[i]) {
+                        return false
+                    }
+                    return true
+                }
+        }
+
+    },
+
+    mounted() {
+        
+        /* this.apartments.forEach(apartment => {
+            if (apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
+                this.apartmentsFiltered.push(apartment);
+                
+            }
+        }); */
     }
+
 }
 </script>
 

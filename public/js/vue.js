@@ -220,58 +220,69 @@ __webpack_require__.r(__webpack_exports__);
   },
   props: {
     apartments: Array,
-    services: Array
+    services: Array,
+    place: String
   },
   data: function data() {
     return {
-      roomsCounter: 0,
-      bedsCounter: 0,
-      bathsCounter: 0
+      roomsCounter: 1,
+      bedsCounter: 1,
+      bathsCounter: 1,
+      serviceFilter: [],
+      apartmentsFiltered: [] //checked: false
+
     };
   },
   methods: {
-    filterButtons: function filterButtons() {
-      var btnCounterOne = document.querySelectorAll('.btn-counter-1');
-      var totalItemOne = document.querySelector('.total-item-1');
-      var btnCounterTwo = document.querySelectorAll('.btn-counter-2');
-      var totalItemTwo = document.querySelector('.total-item-2');
-      var btnCounterThree = document.querySelectorAll('.btn-counter-3');
-      var totalItemThree = document.querySelector('.total-item-3');
-      var btnCounterFour = document.querySelectorAll('.btn-counter-4');
-      var totalItemFour = document.querySelector('.total-item-4');
-
-      function countItems(one, two) {
-        for (var i = 0; i < one.length; i++) {
-          one[i].addEventListener('click', function () {
-            var oldValue = two.value;
-
-            if (this.value === '+') {
-              // var string convert to integer
-              var newValue = parseInt(oldValue, 10) + 1;
-            } else {
-              // Don't allow decrementing below 1
-              if (oldValue > 1) {
-                var newValue = parseInt(oldValue, 10) - 1;
-              } else {
-                newValue = 0;
-              }
-            } // check if value is a number
-
-
-            newValue = isNaN(newValue) ? 1 : newValue;
-            two.value = newValue;
-          });
-        }
-      }
-
-      countItems(btnCounterOne, totalItemOne);
-      countItems(btnCounterTwo, totalItemTwo);
-      countItems(btnCounterThree, totalItemThree);
-      countItems(btnCounterFour, totalItemFour);
-    },
+    /*         filterButtons(){
+                var btnCounterOne = document.querySelectorAll('.btn-counter-1');
+                var totalItemOne = document.querySelector('.total-item-1');
+    
+                var btnCounterTwo = document.querySelectorAll('.btn-counter-2');
+                var totalItemTwo = document.querySelector('.total-item-2');
+    
+                var btnCounterThree = document.querySelectorAll('.btn-counter-3');
+                var totalItemThree = document.querySelector('.total-item-3');
+    
+                var btnCounterFour = document.querySelectorAll('.btn-counter-4');
+                var totalItemFour = document.querySelector('.total-item-4');
+    
+                function countItems(one, two) {
+                
+                    for(var i = 0; i < one.length; i++) {
+                    
+                    one[i].addEventListener('click', function() {
+                        var oldValue = two.value;
+                        
+                        if( this.value === '+' ) {
+                        // var string convert to integer
+                        var newValue = parseInt(oldValue, 10) + 1;
+                        } else {
+                        // Don't allow decrementing below 1
+                        if(oldValue > 1) {
+                            var newValue = parseInt(oldValue, 10) - 1;
+                        } else {
+                            newValue = 0;
+                        }
+                        }
+                        
+                        // check if value is a number
+                        newValue = isNaN(newValue) ? 1 : newValue;
+                        two.value = newValue;
+                        
+                    });
+                    }
+                }
+    
+                countItems(btnCounterOne, totalItemOne);
+                countItems(btnCounterTwo, totalItemTwo);
+                countItems(btnCounterThree, totalItemThree);
+                countItems(btnCounterFour, totalItemFour);
+    
+            }, */
     rooms_onClickLess: function rooms_onClickLess() {
-      if (this.roomsCounter === 0) {
-        this.roomsCounter = 0;
+      if (this.roomsCounter === 1) {
+        this.roomsCounter = 1;
       } else {
         this.roomsCounter--;
       }
@@ -280,8 +291,8 @@ __webpack_require__.r(__webpack_exports__);
       this.roomsCounter++;
     },
     beds_onClickLess: function beds_onClickLess() {
-      if (this.bedsCounter === 0) {
-        this.bedsCounter = 0;
+      if (this.bedsCounter === 1) {
+        this.bedsCounter = 1;
       } else {
         this.bedsCounter--;
       }
@@ -290,15 +301,86 @@ __webpack_require__.r(__webpack_exports__);
       this.bedsCounter++;
     },
     baths_onClickLess: function baths_onClickLess() {
-      if (this.bathsCounter === 0) {
-        this.bathsCounter = 0;
+      if (this.bathsCounter === 1) {
+        this.bathsCounter = 1;
       } else {
         this.bathsCounter--;
       }
     },
     baths_onClickPlus: function baths_onClickPlus() {
       this.bathsCounter++;
+    },
+
+    /* prova(service){
+        service.checked = this.checked;
+        if (this.checked) {
+            console.log('checked');
+        }else {
+            console.log('not checked');
+        }
+    }, */
+    addFilter: function addFilter(service) {
+      var _this = this;
+
+      if (!this.serviceFilter.includes(service.name)) {
+        this.serviceFilter.push(service.name);
+      }
+      /* this.apartments.forEach(apartment => {
+          if (this.twoArrEqual(apartment.services, this.serviceFilter)) {
+              this.apartmentsFiltered.push(apartment)
+          }
+      });
+      */
+
+
+      this.apartments.forEach(function (apartment) {
+        var prova = apartment.services.filter(function (service) {
+          if (_this.serviceFilter.includes(service.name)) {
+            if (!_this.apartmentsFiltered.includes(apartment)
+            /*  && apartment.address.toLowerCase().includes(this.place.toLowerCase()) */
+            ) {
+              _this.apartmentsFiltered.push(apartment);
+            }
+
+            return _this.apartmentsFiltered;
+          }
+        });
+      });
+      return console.log(this.apartmentsFiltered); //console.log(this.apartments[0].services.includes(service.name));;
+
+      /* return this.apartments.filter((apartment) => {
+          return console.log(apartment.services.includes(this.serviceFilter));;
+      }) */
+    },
+    twoArrEqual: function twoArrEqual(apService, filService) {
+      // If lengths of array are not equal means 
+      // array are not equal 
+
+      /* if (apService.length != filService.length) {
+          return false;
+      } */
+      // Sort both arrays 
+      apService.sort();
+      filService.sort(); // Linearly compare elements 
+
+      for (var i = 0; i < apService.length; i++) {
+        console.log(apService[i].name, filService[i]);
+
+        if (apService[i].name != filService[i]) {
+          return false;
+        }
+
+        return true;
+      }
     }
+  },
+  mounted: function mounted() {
+    /* this.apartments.forEach(apartment => {
+        if (apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
+            this.apartmentsFiltered.push(apartment);
+            
+        }
+    }); */
   }
 });
 
@@ -1495,7 +1577,21 @@ var render = function () {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-4 my-5" }, [
         _c("div", { staticClass: "container" }, [
-          _vm._m(0),
+          _c("div", { staticClass: "d-flex justify-content-center" }, [
+            _c("div", { staticClass: "input-group mb-3 w-50 text-center" }, [
+              _c("input", {
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  "aria-label": "Recipient's username",
+                  "aria-describedby": "button-addon2",
+                },
+                domProps: { value: _vm.place },
+              }),
+              _vm._v(" "),
+              _vm._m(0),
+            ]),
+          ]),
           _vm._v(" "),
           _c("div", { staticClass: "dropdown my-4" }, [
             _c("h3", { staticClass: "title-service" }, [_vm._v("Servizi")]),
@@ -1527,6 +1623,11 @@ var render = function () {
                     _c("input", {
                       staticClass: "form-check-input me-1",
                       attrs: { type: "checkbox", id: "flexCheckDefault" },
+                      on: {
+                        change: function ($event) {
+                          return _vm.addFilter(service)
+                        },
+                      },
                     }),
                     _vm._v(
                       "\n                              " +
@@ -1695,7 +1796,7 @@ var render = function () {
         _c(
           "div",
           { staticClass: "container container-all-img" },
-          _vm._l(_vm.apartments, function (apartment) {
+          _vm._l(_vm.apartmentsFiltered, function (apartment) {
             return _c("CardComponent", {
               key: apartment.id,
               attrs: { apartment: apartment },
@@ -1714,28 +1815,14 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex justify-content-center" }, [
-      _c("div", { staticClass: "input-group mb-3 w-50 text-center" }, [
-        _c("input", {
-          staticClass: "form-control",
-          attrs: {
-            type: "text",
-            placeholder: "Recipient's username",
-            "aria-label": "Recipient's username",
-            "aria-describedby": "button-addon2",
-          },
-        }),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { type: "button", id: "button-addon2" },
-          },
-          [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
-        ),
-      ]),
-    ])
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-primary",
+        attrs: { type: "button", id: "button-addon2" },
+      },
+      [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
+    )
   },
   function () {
     var _vm = this
