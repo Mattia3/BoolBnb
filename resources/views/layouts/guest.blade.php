@@ -12,11 +12,10 @@
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
   <script src="{{ asset('js/vue.js') }}" defer></script>
-  {{-- <script src="{{ asset('js/homeSearchBox.js') }}" defer></script> --}}
   <script src="{{ asset('js/button-increment.js') }}" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script> -->
   <!-- <script src="{{ asset('js/swiper.js') }}" defer></script> -->
-
+  <script src='https://unpkg.com/@turf/turf@6/turf.min.js'></script>
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 

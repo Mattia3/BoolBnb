@@ -8,6 +8,7 @@ require('./bootstrap');
 
 
 // require('./tomtom');
+require('./homeSeachBox');
 
 require('./card-contact-host');
 

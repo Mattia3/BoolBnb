@@ -606,3 +606,23 @@
         }
     }
 }
+
+/// searchbar
+.tt-search-box {
+    background: 0;
+}
+.tt-search-box-input-container {
+    border-radius: 30px;
+    background-color: #d3d3d378;
+}
+.bar_search input {
+    border-radius: 30px;
+    margin-left: 6px;
+}
+input::placeholder {
+    color: white;
+}
+
+.tt-search-box-close-icon {
+    padding-left: 6px;
+}

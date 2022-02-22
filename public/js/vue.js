@@ -244,6 +244,86 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // SDK
  //import { services } from "@tomtom-international/web-sdk-services";
 
@@ -252,7 +332,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'MainComponent',
+  name: "MainComponent",
   components: {
     CardComponent: _CardComponent_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
@@ -263,131 +343,28 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      searchPoint: null,
+      rangeValue: "10",
       roomsCounter: 1,
       bedsCounter: 1,
       bathsCounter: 1,
-      serviceFilter: [],
+      selectedServices: [],
       apartmentsFiltered: [],
       /////////////////////////////////////////
       APIKEY: "cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj",
-      point: {
-        lat: "41.28502118588756",
-        lng: "13.230922869211417"
-      } //checked: false
-
+      mymap: {}
     };
   },
   methods: {
-    rooms_onClickLess: function rooms_onClickLess() {
-      if (this.roomsCounter === 1) {
-        this.roomsCounter = 1;
-      } else {
-        this.roomsCounter--;
-      }
-    },
-    rooms_onClickPlus: function rooms_onClickPlus() {
-      this.roomsCounter++;
-    },
-    beds_onClickLess: function beds_onClickLess() {
-      if (this.bedsCounter === 1) {
-        this.bedsCounter = 1;
-      } else {
-        this.bedsCounter--;
-      }
-    },
-    beds_onClickPlus: function beds_onClickPlus() {
-      this.bedsCounter++;
-    },
-    baths_onClickLess: function baths_onClickLess() {
-      if (this.bathsCounter === 1) {
-        this.bathsCounter = 1;
-      } else {
-        this.bathsCounter--;
-      }
-    },
-    baths_onClickPlus: function baths_onClickPlus() {
-      this.bathsCounter++;
-    },
-
-    /* prova(service){
-        service.checked = this.checked;
-        if (this.checked) {
-            console.log('checked');
-        }else {
-            console.log('not checked');
-        }
-    }, */
-    addFilter: function addFilter(service) {
-      if (!this.serviceFilter.includes(service.name)) {
-        this.serviceFilter.push(service.name);
-      }
-      /*             console.log(this.serviceFilter[0]);
-                  console.log(this.apartments[0].services[0].name);
-                  console.log(_.isEqual(this.serviceFilter[0], this.apartments[0].services[0].name)); */
-      //this.apartments.forEach(apartment => {
-
-
-      var apartmentServices = [];
-      this.apartments[0].services.forEach(function (service) {
-        apartmentServices.push(service.name);
-      });
-      console.log(apartmentServices); //});
-
-      /* this.apartments.forEach(apartment => {
-          if (this.twoArrEqual(apartment.services, this.serviceFilter)) {
-              this.apartmentsFiltered.push(apartment)
-          }
-      }); */
-
-      /* this.apartments.forEach(apartment => {
-          let prova = apartment.services.filter((service) => {
-              
-              if (this.serviceFilter.includes(service.name)) {
-                  if (!this.apartmentsFiltered.includes(apartment) && apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
-                      this.apartmentsFiltered.push(apartment);
-                  }
-                  return this.apartmentsFiltered;
-              }
-          })
-      });
-        return console.log(this.apartmentsFiltered); */
-      //console.log(this.apartments[0].services.includes(service.name));;
-
-      /* return this.apartments.filter((apartment) => {
-          return console.log(apartment.services.includes(this.serviceFilter));;
-      }) */
-    },
-    twoArrEqual: function twoArrEqual(apService, filService) {
-      // If lengths of array are not equal means 
-      // array are not equal 
-
-      /* if (apService.length != filService.length) {
-          return false;
-      } */
-      // Sort both arrays 
-
-      /* apService.sort()
-      filService.sort()
-                // Linearly compare elements 
-      for (let i = 0; i < apService.length; i++) {
-          console.log(apService[i].name);
-          if (apService[i].name != filService[i]) {
-              return false
-          }
-          return true
-      } */
-      var filServiceSorted = filService.slice().sort();
-      console.log(filServiceSorted);
-      console.log(apService.length === filService.length && apService.slice().sort().every(function (value, index) {
-        return value === filServiceSorted[index];
-      }));
-    },
     initializeMap: function initializeMap() {
       var map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
         key: this.APIKEY,
         container: "filterMap",
-        center: [12, 41],
-        zoom: 4
+        center: {
+          lat: this.searchPoint.lat,
+          lng: this.searchPoint.lng
+        },
+        zoom: 10.5
       }); // panControl
 
       var ttPanControls = new _tomtom_international_web_sdk_plugin_pancontrols__WEBPACK_IMPORTED_MODULE_1___default.a({
@@ -402,17 +379,53 @@ __webpack_require__.r(__webpack_exports__);
       });
       map.addControl(new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.FullscreenControl());
       map.addControl(nav);
-      map.addControl(ttPanControls, "top-left"); // -------------
-      // var marker = new tt.Marker().setLngLat(this.point).addTo(map);
-    }
+      map.addControl(ttPanControls, "top-left");
+      this.mymap = map; // -------------
+
+      this.drawCircle(map, "selected", [this.searchPoint.lng, this.searchPoint.lat]); // var marker = new tt.Marker().setLngLat(this.point).addTo(map);
+    },
+    // TurfJS
+    drawCircle: function drawCircle(map, name, center) {
+      if (map.getLayer(name)) {
+        map.removeLayer(name);
+        map.removeSource(name);
+      }
+
+      var options = {
+        steps: 64,
+        units: "kilometers",
+        properties: {
+          key: name
+        }
+      };
+      var circle = turf.circle(center, this.rangeValue, options);
+      map.on("load", function () {
+        map.addLayer({
+          id: name,
+          type: "fill",
+          source: {
+            type: "geojson",
+            data: circle
+          },
+          paint: {
+            "fill-color": "green",
+            "fill-opacity": 0.3
+          }
+        });
+      });
+    } // ---------------------------
+
   },
   mounted: function mounted() {
     /* this.apartments.forEach(apartment => {
-        if (apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
-            this.apartmentsFiltered.push(apartment);
-            
-        }
-    }); */
+            if (apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
+                this.apartmentsFiltered.push(apartment);
+                
+            }
+        }); */
+    // get location from home-search
+    this.searchPoint = JSON.parse(sessionStorage.getItem("location")); // console.log(this.searchPoint.lat, this.searchPoint.lng);
+
     this.initializeMap();
   }
 });
@@ -1695,26 +1708,61 @@ var render = function () {
               { staticClass: "dropdown-inner row row-cols-3 text-center" },
               _vm._l(_vm.services, function (service) {
                 return _c(
-                  "label",
+                  "div",
                   {
                     key: service.id,
-                    staticClass: "form-check-label",
-                    attrs: { for: "flexCheckDefault" },
+                    staticClass: "form-check form-check-inline",
+                    attrs: { id: "checkbox_service" },
                   },
                   [
                     _c("input", {
-                      staticClass: "form-check-input me-1",
-                      attrs: { type: "checkbox", id: "flexCheckDefault" },
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedServices,
+                          expression: "selectedServices",
+                        },
+                      ],
+                      staticClass: "form-check-input",
+                      attrs: { type: "checkbox", id: "service-" + service.id },
+                      domProps: {
+                        value: service.name,
+                        checked: Array.isArray(_vm.selectedServices)
+                          ? _vm._i(_vm.selectedServices, service.name) > -1
+                          : _vm.selectedServices,
+                      },
                       on: {
                         change: function ($event) {
-                          return _vm.addFilter(service)
+                          var $$a = _vm.selectedServices,
+                            $$el = $event.target,
+                            $$c = $$el.checked ? true : false
+                          if (Array.isArray($$a)) {
+                            var $$v = service.name,
+                              $$i = _vm._i($$a, $$v)
+                            if ($$el.checked) {
+                              $$i < 0 &&
+                                (_vm.selectedServices = $$a.concat([$$v]))
+                            } else {
+                              $$i > -1 &&
+                                (_vm.selectedServices = $$a
+                                  .slice(0, $$i)
+                                  .concat($$a.slice($$i + 1)))
+                            }
+                          } else {
+                            _vm.selectedServices = $$c
+                          }
                         },
                       },
                     }),
-                    _vm._v(
-                      "\n                              " +
-                        _vm._s(service.name.replace("_", " ")) +
-                        "\n                          "
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "form-check-label",
+                        attrs: { for: "service-" + service.id },
+                      },
+                      [_vm._v(_vm._s(service.name))]
                     ),
                   ]
                 )
@@ -1872,7 +1920,41 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _vm._m(2),
+          _c("div", { staticClass: "container-range" }, [
+            _c(
+              "label",
+              { staticClass: "form-label", attrs: { for: "customRange1" } },
+              [_vm._v("Raggio di ricerca")]
+            ),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.rangeValue,
+                  expression: "rangeValue",
+                },
+              ],
+              staticClass: "form-range w-50",
+              attrs: {
+                type: "range",
+                id: "customRange1",
+                min: "10",
+                max: "70",
+                step: "20",
+              },
+              domProps: { value: _vm.rangeValue },
+              on: {
+                change: function ($event) {
+                  return _vm.initializeMap()
+                },
+                __r: function ($event) {
+                  _vm.rangeValue = $event.target.value
+                },
+              },
+            }),
+          ]),
         ]),
         _vm._v(" "),
         _c(
@@ -1888,7 +1970,7 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(3),
+      _vm._m(2),
     ]),
   ])
 }
@@ -1918,23 +2000,6 @@ var staticRenderFns = [
       },
       [_c("b", [_vm._v("Filter")])]
     )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container-range" }, [
-      _c(
-        "label",
-        { staticClass: "form-label", attrs: { for: "customRange1" } },
-        [_vm._v("Raggio di ricerca")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "form-range w-50",
-        attrs: { type: "range", id: "customRange1" },
-      }),
-    ])
   },
   function () {
     var _vm = this
@@ -14332,7 +14397,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean_#43\BoolBnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\Alessandro\Desktop\BoolBnB\BoolBnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
