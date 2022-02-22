@@ -23661,6 +23661,10 @@ main {
   display: block;
 }
 
+.btn-dropdown:after {
+  content: "" !important;
+}
+
 .create-edit {
   padding-bottom: 50px;
 }

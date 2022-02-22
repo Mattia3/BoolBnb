@@ -250,6 +250,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 // SDK
  //import { services } from "@tomtom-international/web-sdk-services";
 
@@ -315,11 +323,16 @@ __webpack_require__.r(__webpack_exports__);
     baths_onClickPlus: function baths_onClickPlus() {
       this.bathsCounter++;
     },
-    filterService: function filterService() {
+    filter: function filter() {
       var _this = this;
 
       if (this.filtersArray.length === 0) {
-        return this.apartments;
+        this.apartments.forEach(function (apartment) {
+          if (apartment.n_rooms >= _this.roomsCounter && apartment.n_beds >= _this.bedsCounter && apartment.n_baths >= _this.bathsCounter) {
+            //console.log('dentro if');
+            return _this.apartments;
+          }
+        });
       }
 
       this.apartments.forEach(function (apartment) {
@@ -333,7 +346,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (_this.filtersArray.every(function (elem) {
           return servicesID.includes(elem);
-        })) {
+        }) && apartment.n_rooms >= _this.roomsCounter && apartment.n_beds >= _this.bedsCounter && apartment.n_baths >= _this.bathsCounter) {
           if (!_this.apartmentsFiltered.some(function (apFil) {
             return apFil == apartment;
           })) {
@@ -347,45 +360,6 @@ __webpack_require__.r(__webpack_exports__);
             var apartmentIndex = _this.apartmentsFiltered.indexOf(apartment);
 
             _this.apartmentsFiltered.splice(apartmentIndex, 1);
-          }
-
-          console.log('appartamento ' + apartment.id + ' NON PRESENTE');
-        }
-      });
-      return this.apartmentsFiltered;
-    },
-    newFilter: function newFilter() {
-      var _this2 = this;
-
-      if (this.filtersArray.length === 0) {
-        return this.apartments;
-      }
-
-      this.apartments.forEach(function (apartment) {
-        /**** generate apartment's array with only services id (for each apartment) ****/
-        var services = apartment.services;
-        var servicesID = [];
-        services.forEach(function (service) {
-          servicesID.push(service.id);
-        });
-        /**** compare array's of services ID and array's filters from guest ****/
-
-        if (_this2.filtersArray.every(function (elem) {
-          return servicesID.includes(elem);
-        }) && apartment.n_rooms >= _this2.roomsCounter && apartment.n_beds >= _this2.bedsCounter && apartment.n_baths >= _this2.bathsCounter) {
-          if (!_this2.apartmentsFiltered.some(function (apFil) {
-            return apFil == apartment;
-          })) {
-            _this2.apartmentsFiltered.push(apartment);
-          } //console.log('appartamento ' + apartment.id + ' presente');
-
-        } else {
-          if (_this2.apartmentsFiltered.some(function (apFil) {
-            return apFil == apartment;
-          })) {
-            var apartmentIndex = _this2.apartmentsFiltered.indexOf(apartment);
-
-            _this2.apartmentsFiltered.splice(apartmentIndex, 1);
           }
 
           console.log('appartamento ' + apartment.id + ' NON PRESENTE');
@@ -1704,7 +1678,9 @@ var render = function () {
               _vm._v(" "),
               _c(
                 "div",
-                { staticClass: "dropdown-inner row row-cols-3 text-center" },
+                {
+                  staticClass: "dropdown-inner row row-cols-sm-2 row-cols-xl-3",
+                },
                 _vm._l(_vm.services, function (service) {
                   return _c(
                     "label",
@@ -1764,179 +1740,160 @@ var render = function () {
                 }),
                 0
               ),
-              _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn btn-primary",
-                  attrs: { type: "button" },
-                  on: {
-                    click: function ($event) {
-                      return _vm.compare()
-                    },
-                  },
-                },
-                [_vm._v("Submit")]
-              ),
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "row row-cols-2" }, [
-            _c("div", { staticClass: "col d-flex" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "title-form",
-                  attrs: { for: "field_square_mt " },
-                },
-                [_vm._v("Stanze")]
-              ),
-              _vm._v(" "),
-              _c("div", { staticClass: "wrap" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "btn-counter-3 input-incremate btn-counter-style",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.rooms_onClickLess()
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
+          _c(
+            "div",
+            {
+              staticClass:
+                "row row-cols-xl-2 row-cols-sm-1 justify-content-sm-center justify-content-xl-between",
+            },
+            [
+              _c("div", { staticClass: "row mb-3 align-items-center" }, [
+                _vm._m(2),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "total-item-3 input-incremate total-item-style",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.roomsCounter },
-                }),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "btn-counter-3 input-incremate btn-counter-style",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.rooms_onClickPlus()
+                _c("div", { staticClass: "col-8" }, [
+                  _c("div", { staticClass: "wrap d-flex" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "btn-counter-3 input-incremate btn-counter-style",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.rooms_onClickLess()
+                          },
+                        },
                       },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
+                      [_vm._v("-")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass:
+                        "total-item-3 input-incremate total-item-style",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.roomsCounter },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "btn-counter-3 input-incremate btn-counter-style",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.rooms_onClickPlus()
+                          },
+                        },
+                      },
+                      [_vm._v("+")]
+                    ),
+                  ]),
+                ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col d-flex" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "title-form",
-                  attrs: { for: "field_square_mt " },
-                },
-                [_vm._v("Letti")]
-              ),
               _vm._v(" "),
-              _c("div", { staticClass: "wrap" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "btn-counter-3 input-incremate btn-counter-style",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.beds_onClickLess()
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
+              _c("div", { staticClass: "row mb-3 align-items-center" }, [
+                _vm._m(3),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "total-item-3 input-incremate total-item-style",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.bedsCounter },
-                }),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "btn-counter-3 input-incremate btn-counter-style",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.beds_onClickPlus()
+                _c("div", { staticClass: "col-8" }, [
+                  _c("div", { staticClass: "wrap d-flex" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "btn-counter-3 input-incremate btn-counter-style",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.beds_onClickLess()
+                          },
+                        },
                       },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
+                      [_vm._v("-")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass:
+                        "total-item-3 input-incremate total-item-style",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.bedsCounter },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "btn-counter-3 input-incremate btn-counter-style",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.beds_onClickPlus()
+                          },
+                        },
+                      },
+                      [_vm._v("+")]
+                    ),
+                  ]),
+                ]),
               ]),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "col d-flex mt-2" }, [
-              _c(
-                "label",
-                {
-                  staticClass: "title-form",
-                  attrs: { for: "field_square_mt " },
-                },
-                [_vm._v("Bagni")]
-              ),
               _vm._v(" "),
-              _c("div", { staticClass: "wrap" }, [
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "btn-counter-3 input-incremate btn-counter-style",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.baths_onClickLess()
-                      },
-                    },
-                  },
-                  [_vm._v("-")]
-                ),
+              _c("div", { staticClass: "row mb-3 align-items-center" }, [
+                _vm._m(4),
                 _vm._v(" "),
-                _c("input", {
-                  staticClass: "total-item-3 input-incremate total-item-style",
-                  attrs: { type: "text" },
-                  domProps: { value: _vm.bathsCounter },
-                }),
-                _vm._v(" "),
-                _c(
-                  "span",
-                  {
-                    staticClass:
-                      "btn-counter-3 input-incremate btn-counter-style",
-                    attrs: { type: "button" },
-                    on: {
-                      click: function ($event) {
-                        return _vm.baths_onClickPlus()
+                _c("div", { staticClass: "col-8" }, [
+                  _c("div", { staticClass: "wrap d-flex" }, [
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "btn-counter-3 input-incremate btn-counter-style",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.baths_onClickLess()
+                          },
+                        },
                       },
-                    },
-                  },
-                  [_vm._v("+")]
-                ),
+                      [_vm._v("-")]
+                    ),
+                    _vm._v(" "),
+                    _c("input", {
+                      staticClass:
+                        "total-item-3 input-incremate total-item-style",
+                      attrs: { type: "text" },
+                      domProps: { value: _vm.bathsCounter },
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass:
+                          "btn-counter-3 input-incremate btn-counter-style",
+                        attrs: { type: "button" },
+                        on: {
+                          click: function ($event) {
+                            return _vm.baths_onClickPlus()
+                          },
+                        },
+                      },
+                      [_vm._v("+")]
+                    ),
+                  ]),
+                ]),
               ]),
-            ]),
-          ]),
+            ]
+          ),
           _vm._v(" "),
-          _vm._m(2),
+          _vm._m(5),
         ]),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "container container-all-img" },
-          _vm._l(_vm.newFilter(), function (apartment, i) {
+          _vm._l(_vm.filter(), function (apartment, i) {
             return _c("CardComponent", {
               key: i,
               attrs: { apartment: apartment },
@@ -1946,7 +1903,7 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(3),
+      _vm._m(6),
     ]),
   ])
 }
@@ -1976,6 +1933,38 @@ var staticRenderFns = [
       },
       [_c("b", [_vm._v("Filter")])]
     )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c("label", { attrs: { for: "field_square_mt " } }, [_vm._v("Stanze")]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4 d-flex" }, [
+      _c(
+        "label",
+        { staticClass: "title-form", attrs: { for: "field_square_mt " } },
+        [_vm._v("Letti")]
+      ),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-4" }, [
+      _c(
+        "label",
+        { staticClass: "title-form", attrs: { for: "field_square_mt " } },
+        [_vm._v("Bagni")]
+      ),
+    ])
   },
   function () {
     var _vm = this

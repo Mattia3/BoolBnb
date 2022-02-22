@@ -16,50 +16,58 @@
                         <div class="dropdown my-4">
                     
                             <h3 class="title-service">Servizi</h3>
-                            
+
+                            <!-- MATTIA -->
                             <label for="dropdown-1" class="btn btn-dropdown btn-primary"><b>Filter</b></label>
                             <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
                             
-                            <div class="dropdown-inner row row-cols-3 text-center">
+                            <div class="dropdown-inner row row-cols-sm-2 row-cols-xl-3">
                                 <label class="form-check-label" for="flexCheckDefault" v-for="service in services" :key="service.id">
                                 <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault" v-model="filtersArray" :value="service.id"><!-- v-model="checked" -->
                                     {{service.name.replace('_', ' ')}}
                                 </label>
                             </div>
-
-                            <button class="btn btn-primary" type="button" @click="compare()">Submit</button>
-
                         </div>
-
-                        <!-- <button class="btn btn-primary">Submit</button> -->
                     </form>
 
-                    <div class="row row-cols-2">
+                    <div class="row row-cols-xl-2 row-cols-sm-1 justify-content-sm-center justify-content-xl-between">
 
-                        <div class="col d-flex">
-                            <label for="field_square_mt " class="title-form">Stanze</label>
-                            <div class="wrap">
-                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickLess()">-</span>
-                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="roomsCounter" />
-                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickPlus()">+</span>
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4">
+                                <label for="field_square_mt ">Stanze</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="wrap d-flex">
+                                        <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickLess()">-</span>
+                                        <input class="total-item-3 input-incremate total-item-style" type="text" :value="roomsCounter" />
+                                        <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickPlus()">+</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col d-flex">
-                            <label for="field_square_mt " class="title-form">Letti</label>
-                            <div class="wrap">
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4 d-flex">
+                                <label for="field_square_mt " class="title-form">Letti</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="wrap d-flex">
                                     <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickLess()">-</span>
                                     <input class="total-item-3 input-incremate total-item-style" type="text" :value="bedsCounter" />
                                     <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickPlus()">+</span>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col d-flex mt-2">
-                            <label for="field_square_mt " class="title-form">Bagni</label>
-                            <div class="wrap">
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4">
+                                <label for="field_square_mt " class="title-form">Bagni</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="wrap d-flex">
                                     <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickLess()">-</span>
                                     <input class="total-item-3 input-incremate total-item-style" type="text" :value="bathsCounter" />
                                     <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickPlus()">+</span>
+                                </div>
                             </div>
                         </div>
 
@@ -72,7 +80,7 @@
                 </div>
                 
                 <div class="container container-all-img">
-                    <CardComponent v-for="(apartment, i) in newFilter()" :key="i" :apartment="apartment"></CardComponent>
+                    <CardComponent v-for="(apartment, i) in filter()" :key="i" :apartment="apartment"></CardComponent>
                 </div>
             </div>
 
@@ -158,43 +166,15 @@ export default {
             this.bathsCounter++;
         },
 
-        filterService() {
+
+        filter(){
             if (this.filtersArray.length === 0) {
-                return this.apartments
-            } 
-
-
-            this.apartments.forEach(apartment => {
-                /**** generate apartment's array with only services id (for each apartment) ****/
-                let services = apartment.services
-                let servicesID = []
-                services.forEach(service => {
-                    servicesID.push(service.id)
-                });
-
-                /**** compare array's of services ID and array's filters from guest ****/
-                if (this.filtersArray.every(elem => servicesID.includes(elem))) {                   
-                    if (!this.apartmentsFiltered.some(apFil => apFil == apartment)) {
-                        this.apartmentsFiltered.push(apartment)
+                this.apartments.forEach(apartment =>  {
+                    if ((apartment.n_rooms >= this.roomsCounter) && (apartment.n_beds >= this.bedsCounter) && (apartment.n_baths >= this.bathsCounter)) {
+                        //console.log('dentro if');
+                        return this.apartments
                     }
-                    //console.log('appartamento ' + apartment.id + ' presente');
-                } else {
-
-                    if (this.apartmentsFiltered.some(apFil => apFil == apartment)) {
-                        let apartmentIndex = this.apartmentsFiltered.indexOf(apartment);
-                        this.apartmentsFiltered.splice(apartmentIndex, 1)
-                    }
-                    console.log('appartamento ' + apartment.id + ' NON PRESENTE');
-                }
-
-            });          
-
-            return this.apartmentsFiltered;
-        },
-
-        newFilter(){
-            if (this.filtersArray.length === 0) {
-                return this.apartments
+                })
             } 
 
             this.apartments.forEach(apartment => {
