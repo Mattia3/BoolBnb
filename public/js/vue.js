@@ -318,52 +318,79 @@ __webpack_require__.r(__webpack_exports__);
     filterService: function filterService() {
       var _this = this;
 
-      if (this.filtersArray.length === 0) {//this.apartmentsFiltered = this.apartments
-      } else {
-        //console.log(this.apartments.length);
-        this.apartments.forEach(function (apartment) {
-          //console.log('appartamento' + apartment.id, apartment);
-
-          /**** generate apartment's array with only services id (for each apartment) ****/
-          var services = apartment.services;
-          var servicesID = [];
-          services.forEach(function (service) {
-            servicesID.push(service.id);
-          }); //console.log('servizi appartamento ' + apartment.id, servicesID);
-
-          /**** compare array's of services ID and array's filters from guest ****/
-
-          if (_this.filtersArray.every(function (elem) {
-            return servicesID.includes(elem);
-          })) {
-            //console.log(apartment.id);
-            //console.log(this.apartmentsFiltered.some(apFil => apFil == apartment))
-            if (!_this.apartmentsFiltered.some(function (apFil) {
-              return apFil == apartment;
-            })) {
-              _this.apartmentsFiltered.push(apartment);
-            }
-            /* this.apartmentsFiltered.push(apartment)
-            debugger */
-
-
-            console.log('appartamento ' + apartment.id + ' presente');
-          } else {
-            if (_this.apartmentsFiltered.some(function (apFil) {
-              return apFil == apartment;
-            })) {
-              //this.apartmentsFiltered.pop(apartment)
-              var apartmentIndex = _this.apartmentsFiltered.indexOf(apartment);
-
-              _this.apartmentsFiltered.splice(apartmentIndex, 1);
-            } //this.apartmentsFiltered.pop(apartment.id)
-
-
-            console.log('appartamento ' + apartment.id + ' NON PRESENTE');
-          }
-        });
+      if (this.filtersArray.length === 0) {
+        return this.apartments;
       }
 
+      this.apartments.forEach(function (apartment) {
+        /**** generate apartment's array with only services id (for each apartment) ****/
+        var services = apartment.services;
+        var servicesID = [];
+        services.forEach(function (service) {
+          servicesID.push(service.id);
+        });
+        /**** compare array's of services ID and array's filters from guest ****/
+
+        if (_this.filtersArray.every(function (elem) {
+          return servicesID.includes(elem);
+        })) {
+          if (!_this.apartmentsFiltered.some(function (apFil) {
+            return apFil == apartment;
+          })) {
+            _this.apartmentsFiltered.push(apartment);
+          } //console.log('appartamento ' + apartment.id + ' presente');
+
+        } else {
+          if (_this.apartmentsFiltered.some(function (apFil) {
+            return apFil == apartment;
+          })) {
+            var apartmentIndex = _this.apartmentsFiltered.indexOf(apartment);
+
+            _this.apartmentsFiltered.splice(apartmentIndex, 1);
+          }
+
+          console.log('appartamento ' + apartment.id + ' NON PRESENTE');
+        }
+      });
+      return this.apartmentsFiltered;
+    },
+    newFilter: function newFilter() {
+      var _this2 = this;
+
+      if (this.filtersArray.length === 0) {
+        return this.apartments;
+      }
+
+      this.apartments.forEach(function (apartment) {
+        /**** generate apartment's array with only services id (for each apartment) ****/
+        var services = apartment.services;
+        var servicesID = [];
+        services.forEach(function (service) {
+          servicesID.push(service.id);
+        });
+        /**** compare array's of services ID and array's filters from guest ****/
+
+        if (_this2.filtersArray.every(function (elem) {
+          return servicesID.includes(elem);
+        }) && apartment.n_rooms >= _this2.roomsCounter && apartment.n_beds >= _this2.bedsCounter && apartment.n_baths >= _this2.bathsCounter) {
+          if (!_this2.apartmentsFiltered.some(function (apFil) {
+            return apFil == apartment;
+          })) {
+            _this2.apartmentsFiltered.push(apartment);
+          } //console.log('appartamento ' + apartment.id + ' presente');
+
+        } else {
+          if (_this2.apartmentsFiltered.some(function (apFil) {
+            return apFil == apartment;
+          })) {
+            var apartmentIndex = _this2.apartmentsFiltered.indexOf(apartment);
+
+            _this2.apartmentsFiltered.splice(apartmentIndex, 1);
+          }
+
+          console.log('appartamento ' + apartment.id + ' NON PRESENTE');
+        }
+      });
       return this.apartmentsFiltered;
     },
     initializeMap: function initializeMap() {
@@ -1909,7 +1936,7 @@ var render = function () {
         _c(
           "div",
           { staticClass: "container container-all-img" },
-          _vm._l(_vm.filterService(), function (apartment, i) {
+          _vm._l(_vm.newFilter(), function (apartment, i) {
             return _c("CardComponent", {
               key: i,
               attrs: { apartment: apartment },

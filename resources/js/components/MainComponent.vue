@@ -72,7 +72,7 @@
                 </div>
                 
                 <div class="container container-all-img">
-                    <CardComponent v-for="(apartment, i) in filterService()" :key="i" :apartment="apartment"></CardComponent>
+                    <CardComponent v-for="(apartment, i) in newFilter()" :key="i" :apartment="apartment"></CardComponent>
                 </div>
             </div>
 
@@ -160,44 +160,67 @@ export default {
 
         filterService() {
             if (this.filtersArray.length === 0) {
-                //this.apartmentsFiltered = this.apartments
-            } else {
-                //console.log(this.apartments.length);
-                this.apartments.forEach(apartment => {
-                    //console.log('appartamento' + apartment.id, apartment);
+                return this.apartments
+            } 
 
-                    /**** generate apartment's array with only services id (for each apartment) ****/
-                    let services = apartment.services
-                    let servicesID = []
-                    services.forEach(service => {
-                        servicesID.push(service.id)
-                    });
 
-                    //console.log('servizi appartamento ' + apartment.id, servicesID);
-                    /**** compare array's of services ID and array's filters from guest ****/
-                    if (this.filtersArray.every(elem => servicesID.includes(elem))) {                   
-                        //console.log(apartment.id);
-                        //console.log(this.apartmentsFiltered.some(apFil => apFil == apartment))
-                        if (!this.apartmentsFiltered.some(apFil => apFil == apartment)) {
-                            this.apartmentsFiltered.push(apartment)
-                        }
-
-                        /* this.apartmentsFiltered.push(apartment)
-                        debugger */
-                        console.log('appartamento ' + apartment.id + ' presente');
-                    } else {
-
-                        if (this.apartmentsFiltered.some(apFil => apFil == apartment)) {
-                            //this.apartmentsFiltered.pop(apartment)
-                            let apartmentIndex = this.apartmentsFiltered.indexOf(apartment);
-                            this.apartmentsFiltered.splice(apartmentIndex, 1)
-                        }
-                        //this.apartmentsFiltered.pop(apartment.id)
-                        console.log('appartamento ' + apartment.id + ' NON PRESENTE');
-                    }
-
+            this.apartments.forEach(apartment => {
+                /**** generate apartment's array with only services id (for each apartment) ****/
+                let services = apartment.services
+                let servicesID = []
+                services.forEach(service => {
+                    servicesID.push(service.id)
                 });
-            }           
+
+                /**** compare array's of services ID and array's filters from guest ****/
+                if (this.filtersArray.every(elem => servicesID.includes(elem))) {                   
+                    if (!this.apartmentsFiltered.some(apFil => apFil == apartment)) {
+                        this.apartmentsFiltered.push(apartment)
+                    }
+                    //console.log('appartamento ' + apartment.id + ' presente');
+                } else {
+
+                    if (this.apartmentsFiltered.some(apFil => apFil == apartment)) {
+                        let apartmentIndex = this.apartmentsFiltered.indexOf(apartment);
+                        this.apartmentsFiltered.splice(apartmentIndex, 1)
+                    }
+                    console.log('appartamento ' + apartment.id + ' NON PRESENTE');
+                }
+
+            });          
+
+            return this.apartmentsFiltered;
+        },
+
+        newFilter(){
+            if (this.filtersArray.length === 0) {
+                return this.apartments
+            } 
+
+            this.apartments.forEach(apartment => {
+                /**** generate apartment's array with only services id (for each apartment) ****/
+                let services = apartment.services
+                let servicesID = []
+                services.forEach(service => {
+                    servicesID.push(service.id)
+                });
+
+                /**** compare array's of services ID and array's filters from guest ****/
+                if (this.filtersArray.every(elem => servicesID.includes(elem)) && (apartment.n_rooms >= this.roomsCounter) && (apartment.n_beds >= this.bedsCounter) && (apartment.n_baths >= this.bathsCounter)) {                   
+                    if (!this.apartmentsFiltered.some(apFil => apFil == apartment)) {
+                        this.apartmentsFiltered.push(apartment)
+                    }
+                    //console.log('appartamento ' + apartment.id + ' presente');
+                } else {
+
+                    if (this.apartmentsFiltered.some(apFil => apFil == apartment)) {
+                        let apartmentIndex = this.apartmentsFiltered.indexOf(apartment);
+                        this.apartmentsFiltered.splice(apartmentIndex, 1)
+                    }
+                    console.log('appartamento ' + apartment.id + ' NON PRESENTE');
+                }
+
+            });          
 
             return this.apartmentsFiltered;
         },
