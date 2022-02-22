@@ -12,21 +12,27 @@
                     </div>
                     
                     
-                    <div class="dropdown my-4">
+                    <form action="">
+                        <div class="dropdown my-4">
                     
-                        <h3 class="title-service">Servizi</h3>
-                    
-                        <label for="dropdown-1" class="btn btn-dropdown btn-primary"><b>Filter</b></label>
-                        <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
-                        
-                        <div class="dropdown-inner row row-cols-3 text-center">
-                            <label class="form-check-label" for="flexCheckDefault" v-for="service in services" :key="service.id">
-                            <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault" @change="addFilter(service)" ><!-- v-model="checked" -->
-                                {{service.name.replace('_', ' ')}}
-                            </label>
+                            <h3 class="title-service">Servizi</h3>
+                            
+                            <label for="dropdown-1" class="btn btn-dropdown btn-primary"><b>Filter</b></label>
+                            <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
+                            
+                            <div class="dropdown-inner row row-cols-3 text-center">
+                                <label class="form-check-label" for="flexCheckDefault" v-for="service in services" :key="service.id">
+                                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault" v-model="filtersArray" :value="service.id"><!-- v-model="checked" -->
+                                    {{service.name.replace('_', ' ')}}
+                                </label>
+                            </div>
+
+                            <button class="btn btn-primary" type="button" @click="compare()">Submit</button>
+
                         </div>
-                    
-                    </div>
+
+                        <!-- <button class="btn btn-primary">Submit</button> -->
+                    </form>
 
                     <div class="row row-cols-2">
 
@@ -66,7 +72,7 @@
                 </div>
                 
                 <div class="container container-all-img">
-                    <CardComponent v-for="apartment in apartmentsFiltered" :key="apartment.id" :apartment="apartment"></CardComponent>
+                    <CardComponent v-for="(apartment, i) in filterService()" :key="i" :apartment="apartment"></CardComponent>
                 </div>
             </div>
 
@@ -102,8 +108,9 @@ export default {
             roomsCounter: 1,
             bedsCounter: 1,
             bathsCounter: 1,
-            serviceFilter: [],
+            filtersArray: [],
             apartmentsFiltered: [],
+            appServices: [],
             /////////////////////////////////////////
             APIKEY: "cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj",
             point: {
@@ -151,89 +158,48 @@ export default {
             this.bathsCounter++;
         },
 
-        /* prova(service){
-            service.checked = this.checked;
-            if (this.checked) {
-                console.log('checked');
-            }else {
-                console.log('not checked');
-            }
-        }, */
+        filterService() {
+            if (this.filtersArray.length === 0) {
+                //this.apartmentsFiltered = this.apartments
+            } else {
+                //console.log(this.apartments.length);
+                this.apartments.forEach(apartment => {
+                    //console.log('appartamento' + apartment.id, apartment);
 
-        addFilter(service){
-            if (!this.serviceFilter.includes(service.name)) {
-               this.serviceFilter.push(service.name); 
-            }
+                    /**** generate apartment's array with only services id (for each apartment) ****/
+                    let services = apartment.services
+                    let servicesID = []
+                    services.forEach(service => {
+                        servicesID.push(service.id)
+                    });
 
-/*             console.log(this.serviceFilter[0]);
-            console.log(this.apartments[0].services[0].name);
-            console.log(_.isEqual(this.serviceFilter[0], this.apartments[0].services[0].name)); */
-
-            //this.apartments.forEach(apartment => {
-               let apartmentServices = []
-               this.apartments[0].services.forEach(service => {
-                   apartmentServices.push(service.name)
-               });
-               console.log(apartmentServices);
-               
-                
-            //});
-
-            /* this.apartments.forEach(apartment => {
-                if (this.twoArrEqual(apartment.services, this.serviceFilter)) {
-                    this.apartmentsFiltered.push(apartment)
-                }
-            }); */
-           
-                       
-            /* this.apartments.forEach(apartment => {
-                let prova = apartment.services.filter((service) => {
-                    
-                    if (this.serviceFilter.includes(service.name)) {
-                        if (!this.apartmentsFiltered.includes(apartment) && apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
-                            this.apartmentsFiltered.push(apartment);
+                    //console.log('servizi appartamento ' + apartment.id, servicesID);
+                    /**** compare array's of services ID and array's filters from guest ****/
+                    if (this.filtersArray.every(elem => servicesID.includes(elem))) {                   
+                        //console.log(apartment.id);
+                        //console.log(this.apartmentsFiltered.some(apFil => apFil == apartment))
+                        if (!this.apartmentsFiltered.some(apFil => apFil == apartment)) {
+                            this.apartmentsFiltered.push(apartment)
                         }
-                        return this.apartmentsFiltered;
+
+                        /* this.apartmentsFiltered.push(apartment)
+                        debugger */
+                        console.log('appartamento ' + apartment.id + ' presente');
+                    } else {
+
+                        if (this.apartmentsFiltered.some(apFil => apFil == apartment)) {
+                            //this.apartmentsFiltered.pop(apartment)
+                            let apartmentIndex = this.apartmentsFiltered.indexOf(apartment);
+                            this.apartmentsFiltered.splice(apartmentIndex, 1)
+                        }
+                        //this.apartmentsFiltered.pop(apartment.id)
+                        console.log('appartamento ' + apartment.id + ' NON PRESENTE');
                     }
-                })
-            });
 
-            return console.log(this.apartmentsFiltered); */
+                });
+            }           
 
-            //console.log(this.apartments[0].services.includes(service.name));;
-            /* return this.apartments.filter((apartment) => {
-                return console.log(apartment.services.includes(this.serviceFilter));;
-            }) */
-        },
-
-        twoArrEqual(apService, filService) { 
-            // If lengths of array are not equal means 
-            // array are not equal 
-            
-            /* if (apService.length != filService.length) {
-                return false;
-            } */
-        
-            // Sort both arrays 
-            /* apService.sort()
-            filService.sort()
-        
-            // Linearly compare elements 
-            for (let i = 0; i < apService.length; i++) {
-                console.log(apService[i].name);
-                if (apService[i].name != filService[i]) {
-                    return false
-                }
-                return true
-            } */
-
-            const filServiceSorted = filService.slice().sort();
-            console.log(filServiceSorted);
-            console.log(
-                apService.length === filService.length && apService.slice().sort().every(function(value, index) {
-                return value === filServiceSorted[index];
-                })
-            );
+            return this.apartmentsFiltered;
         },
 
         initializeMap() {
@@ -264,6 +230,8 @@ export default {
 
     },
 
+
+
     mounted() {
         
         /* this.apartments.forEach(apartment => {
@@ -272,7 +240,8 @@ export default {
                 
             }
         }); */
-
+        
+        
         this.initializeMap();
     }
 

@@ -244,6 +244,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 // SDK
  //import { services } from "@tomtom-international/web-sdk-services";
 
@@ -266,8 +272,9 @@ __webpack_require__.r(__webpack_exports__);
       roomsCounter: 1,
       bedsCounter: 1,
       bathsCounter: 1,
-      serviceFilter: [],
+      filtersArray: [],
       apartmentsFiltered: [],
+      appServices: [],
       /////////////////////////////////////////
       APIKEY: "cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj",
       point: {
@@ -308,79 +315,56 @@ __webpack_require__.r(__webpack_exports__);
     baths_onClickPlus: function baths_onClickPlus() {
       this.bathsCounter++;
     },
+    filterService: function filterService() {
+      var _this = this;
 
-    /* prova(service){
-        service.checked = this.checked;
-        if (this.checked) {
-            console.log('checked');
-        }else {
-            console.log('not checked');
-        }
-    }, */
-    addFilter: function addFilter(service) {
-      if (!this.serviceFilter.includes(service.name)) {
-        this.serviceFilter.push(service.name);
+      if (this.filtersArray.length === 0) {//this.apartmentsFiltered = this.apartments
+      } else {
+        //console.log(this.apartments.length);
+        this.apartments.forEach(function (apartment) {
+          //console.log('appartamento' + apartment.id, apartment);
+
+          /**** generate apartment's array with only services id (for each apartment) ****/
+          var services = apartment.services;
+          var servicesID = [];
+          services.forEach(function (service) {
+            servicesID.push(service.id);
+          }); //console.log('servizi appartamento ' + apartment.id, servicesID);
+
+          /**** compare array's of services ID and array's filters from guest ****/
+
+          if (_this.filtersArray.every(function (elem) {
+            return servicesID.includes(elem);
+          })) {
+            //console.log(apartment.id);
+            //console.log(this.apartmentsFiltered.some(apFil => apFil == apartment))
+            if (!_this.apartmentsFiltered.some(function (apFil) {
+              return apFil == apartment;
+            })) {
+              _this.apartmentsFiltered.push(apartment);
+            }
+            /* this.apartmentsFiltered.push(apartment)
+            debugger */
+
+
+            console.log('appartamento ' + apartment.id + ' presente');
+          } else {
+            if (_this.apartmentsFiltered.some(function (apFil) {
+              return apFil == apartment;
+            })) {
+              //this.apartmentsFiltered.pop(apartment)
+              var apartmentIndex = _this.apartmentsFiltered.indexOf(apartment);
+
+              _this.apartmentsFiltered.splice(apartmentIndex, 1);
+            } //this.apartmentsFiltered.pop(apartment.id)
+
+
+            console.log('appartamento ' + apartment.id + ' NON PRESENTE');
+          }
+        });
       }
-      /*             console.log(this.serviceFilter[0]);
-                  console.log(this.apartments[0].services[0].name);
-                  console.log(_.isEqual(this.serviceFilter[0], this.apartments[0].services[0].name)); */
-      //this.apartments.forEach(apartment => {
 
-
-      var apartmentServices = [];
-      this.apartments[0].services.forEach(function (service) {
-        apartmentServices.push(service.name);
-      });
-      console.log(apartmentServices); //});
-
-      /* this.apartments.forEach(apartment => {
-          if (this.twoArrEqual(apartment.services, this.serviceFilter)) {
-              this.apartmentsFiltered.push(apartment)
-          }
-      }); */
-
-      /* this.apartments.forEach(apartment => {
-          let prova = apartment.services.filter((service) => {
-              
-              if (this.serviceFilter.includes(service.name)) {
-                  if (!this.apartmentsFiltered.includes(apartment) && apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
-                      this.apartmentsFiltered.push(apartment);
-                  }
-                  return this.apartmentsFiltered;
-              }
-          })
-      });
-        return console.log(this.apartmentsFiltered); */
-      //console.log(this.apartments[0].services.includes(service.name));;
-
-      /* return this.apartments.filter((apartment) => {
-          return console.log(apartment.services.includes(this.serviceFilter));;
-      }) */
-    },
-    twoArrEqual: function twoArrEqual(apService, filService) {
-      // If lengths of array are not equal means 
-      // array are not equal 
-
-      /* if (apService.length != filService.length) {
-          return false;
-      } */
-      // Sort both arrays 
-
-      /* apService.sort()
-      filService.sort()
-                // Linearly compare elements 
-      for (let i = 0; i < apService.length; i++) {
-          console.log(apService[i].name);
-          if (apService[i].name != filService[i]) {
-              return false
-          }
-          return true
-      } */
-      var filServiceSorted = filService.slice().sort();
-      console.log(filServiceSorted);
-      console.log(apService.length === filService.length && apService.slice().sort().every(function (value, index) {
-        return value === filServiceSorted[index];
-      }));
+      return this.apartmentsFiltered;
     },
     initializeMap: function initializeMap() {
       var map = _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.map({
@@ -1675,52 +1659,99 @@ var render = function () {
             ]),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "dropdown my-4" }, [
-            _c("h3", { staticClass: "title-service" }, [_vm._v("Servizi")]),
-            _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "dropdown-open",
-              attrs: {
-                type: "checkbox",
-                id: "dropdown-1",
-                "aria-hidden": "true",
-                hidden: "",
-              },
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "dropdown-inner row row-cols-3 text-center" },
-              _vm._l(_vm.services, function (service) {
-                return _c(
-                  "label",
-                  {
-                    key: service.id,
-                    staticClass: "form-check-label",
-                    attrs: { for: "flexCheckDefault" },
-                  },
-                  [
-                    _c("input", {
-                      staticClass: "form-check-input me-1",
-                      attrs: { type: "checkbox", id: "flexCheckDefault" },
-                      on: {
-                        change: function ($event) {
-                          return _vm.addFilter(service)
-                        },
-                      },
-                    }),
-                    _vm._v(
-                      "\n                              " +
-                        _vm._s(service.name.replace("_", " ")) +
-                        "\n                          "
-                    ),
-                  ]
-                )
+          _c("form", { attrs: { action: "" } }, [
+            _c("div", { staticClass: "dropdown my-4" }, [
+              _c("h3", { staticClass: "title-service" }, [_vm._v("Servizi")]),
+              _vm._v(" "),
+              _vm._m(1),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "dropdown-open",
+                attrs: {
+                  type: "checkbox",
+                  id: "dropdown-1",
+                  "aria-hidden": "true",
+                  hidden: "",
+                },
               }),
-              0
-            ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "dropdown-inner row row-cols-3 text-center" },
+                _vm._l(_vm.services, function (service) {
+                  return _c(
+                    "label",
+                    {
+                      key: service.id,
+                      staticClass: "form-check-label",
+                      attrs: { for: "flexCheckDefault" },
+                    },
+                    [
+                      _c("input", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.filtersArray,
+                            expression: "filtersArray",
+                          },
+                        ],
+                        staticClass: "form-check-input me-1",
+                        attrs: { type: "checkbox", id: "flexCheckDefault" },
+                        domProps: {
+                          value: service.id,
+                          checked: Array.isArray(_vm.filtersArray)
+                            ? _vm._i(_vm.filtersArray, service.id) > -1
+                            : _vm.filtersArray,
+                        },
+                        on: {
+                          change: function ($event) {
+                            var $$a = _vm.filtersArray,
+                              $$el = $event.target,
+                              $$c = $$el.checked ? true : false
+                            if (Array.isArray($$a)) {
+                              var $$v = service.id,
+                                $$i = _vm._i($$a, $$v)
+                              if ($$el.checked) {
+                                $$i < 0 &&
+                                  (_vm.filtersArray = $$a.concat([$$v]))
+                              } else {
+                                $$i > -1 &&
+                                  (_vm.filtersArray = $$a
+                                    .slice(0, $$i)
+                                    .concat($$a.slice($$i + 1)))
+                              }
+                            } else {
+                              _vm.filtersArray = $$c
+                            }
+                          },
+                        },
+                      }),
+                      _vm._v(
+                        "\n                                  " +
+                          _vm._s(service.name.replace("_", " ")) +
+                          "\n                              "
+                      ),
+                    ]
+                  )
+                }),
+                0
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-primary",
+                  attrs: { type: "button" },
+                  on: {
+                    click: function ($event) {
+                      return _vm.compare()
+                    },
+                  },
+                },
+                [_vm._v("Submit")]
+              ),
+            ]),
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "row row-cols-2" }, [
@@ -1878,9 +1909,9 @@ var render = function () {
         _c(
           "div",
           { staticClass: "container container-all-img" },
-          _vm._l(_vm.apartmentsFiltered, function (apartment) {
+          _vm._l(_vm.filterService(), function (apartment, i) {
             return _c("CardComponent", {
-              key: apartment.id,
+              key: i,
               attrs: { apartment: apartment },
             })
           }),
