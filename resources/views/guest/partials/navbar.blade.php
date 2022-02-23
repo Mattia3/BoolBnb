@@ -21,6 +21,11 @@
           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
             @csrf
           </form></li>
+
+          <li><a class="dropdown-item text-center" href="{{ route('host.dashboard') }}">
+            {{ __('Area privata') }}
+          </a>
+        </li>
         </ul>
       </div>
     </h5>

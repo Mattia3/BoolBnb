@@ -1,133 +1,78 @@
 <template>
   <div>
-    <div class="row">
-      <!-- Filtri -->
-      <div class="col-4 my-5">
-        <div class="container">
-          <div class="d-flex justify-content-center">
-            <div class="input-group mb-3 w-50 text-center">
-              <input
-                type="text"
-                class="form-control"
-                :value="place"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-              />
-              <button class="btn btn-primary" type="button" id="button-addon2">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
-          </div>
+        <div class="row">
+            <!-- Filtri -->
+            <div class="col-4 my-5">
+                <div class="container">
+                    <div class="d-flex justify-content-center">
+                        <div class="input-group mb-3 w-50 text-center">
+                            <input type="text" class="form-control" :value="place" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+                    
+                    
+                    <form action="">
+                        <div class="dropdown my-4">
+                    
+                            <h3 class="title-service">Servizi</h3>
 
-          <div class="dropdown my-4">
-            <h3 class="title-service">Servizi</h3>
+                            <!-- MATTIA -->
+                            <label for="dropdown-1" class="btn btn-dropdown btn-primary"><b>Filter</b></label>
+                            <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
+                            
+                            <div class="dropdown-inner row row-cols-sm-2 row-cols-xl-3">
+                                <label class="form-check-label" for="flexCheckDefault" v-for="service in services" :key="service.id">
+                                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault" v-model="filtersArray" :value="service.id"><!-- v-model="checked" -->
+                                    {{service.name.replace('_', ' ')}}
+                                </label>
+                            </div>
+                        </div>
+                    </form>
 
-            <label for="dropdown-1" class="btn btn-dropdown btn-primary"
-              ><b>Filter</b></label
-            >
-            <input
-              class="dropdown-open"
-              type="checkbox"
-              id="dropdown-1"
-              aria-hidden="true"
-              hidden
-            />
+                    <div class="row row-cols-xl-2 row-cols-sm-1 justify-content-sm-center justify-content-xl-between">
 
-            <div class="dropdown-inner row row-cols-3 text-center">
-              <div
-                id="checkbox_service"
-                class="form-check form-check-inline"
-                v-for="service in services"
-                :key="service.id"
-              >
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  :id="`service-${service.id}`"
-                  :value="service.name"
-                  v-model="selectedServices"
-                />
-                <label
-                  class="form-check-label"
-                  :for="`service-${service.id}`"
-                  >{{ service.name }}</label
-                >
-              </div>
-            </div>
-          </div>
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4">
+                                <label for="field_square_mt ">Stanze</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="wrap d-flex">
+                                        <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickLess()">-</span>
+                                        <input class="total-item-3 input-incremate total-item-style" type="text" :value="roomsCounter" />
+                                        <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickPlus()">+</span>
+                                </div>
+                            </div>
+                        </div>
 
-          <div class="row row-cols-2">
-            <div class="col d-flex">
-              <label for="field_square_mt " class="title-form">Stanze</label>
-              <div class="wrap">
-                <span
-                  class="btn-counter-3 input-incremate btn-counter-style"
-                  type="button"
-                  @click="rooms_onClickLess()"
-                  >-</span
-                >
-                <input
-                  class="total-item-3 input-incremate total-item-style"
-                  type="text"
-                  :value="roomsCounter"
-                />
-                <span
-                  class="btn-counter-3 input-incremate btn-counter-style"
-                  type="button"
-                  @click="rooms_onClickPlus()"
-                  >+</span
-                >
-              </div>
-            </div>
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4 d-flex">
+                                <label for="field_square_mt " class="title-form">Letti</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="wrap d-flex">
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickLess()">-</span>
+                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="bedsCounter" />
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickPlus()">+</span>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="col d-flex">
-              <label for="field_square_mt " class="title-form">Letti</label>
-              <div class="wrap">
-                <span
-                  class="btn-counter-3 input-incremate btn-counter-style"
-                  type="button"
-                  @click="beds_onClickLess()"
-                  >-</span
-                >
-                <input
-                  class="total-item-3 input-incremate total-item-style"
-                  type="text"
-                  :value="bedsCounter"
-                />
-                <span
-                  class="btn-counter-3 input-incremate btn-counter-style"
-                  type="button"
-                  @click="beds_onClickPlus()"
-                  >+</span
-                >
-              </div>
-            </div>
+                        <div class="row mb-3 align-items-center">
+                            <div class="col-4">
+                                <label for="field_square_mt " class="title-form">Bagni</label>
+                            </div>
+                            <div class="col-8">
+                                <div class="wrap d-flex">
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickLess()">-</span>
+                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="bathsCounter" />
+                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickPlus()">+</span>
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="col d-flex mt-2">
-              <label for="field_square_mt " class="title-form">Bagni</label>
-              <div class="wrap">
-                <span
-                  class="btn-counter-3 input-incremate btn-counter-style"
-                  type="button"
-                  @click="baths_onClickLess()"
-                  >-</span
-                >
-                <input
-                  class="total-item-3 input-incremate total-item-style"
-                  type="text"
-                  :value="bathsCounter"
-                />
-                <span
-                  class="btn-counter-3 input-incremate btn-counter-style"
-                  type="button"
-                  @click="baths_onClickPlus()"
-                  >+</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="container-range">
+                    </div>
+                    <div class="container-range">
             <label for="customRange1" class="form-label"
               >Raggio di ricerca</label
             >
@@ -142,14 +87,14 @@
               @change="initializeMap()"
             />
           </div>
-        </div>
-
-        <div class="container container-all-img">
-          <CardComponent
-            v-for="apartment in apartmentsFiltered"
-            :key="apartment.id"
-            :apartment="apartment"
-          ></CardComponent>
+                    
+                </div>
+                
+                <div class="container container-all-img">
+                    <CardComponent v-for="(apartment, i) in filter()" :key="i" :apartment="apartment"></CardComponent>
+                </div>
+            </div>         
+          </div>    
         </div>
       </div>
 
@@ -184,8 +129,9 @@ export default {
       roomsCounter: 1,
       bedsCounter: 1,
       bathsCounter: 1,
-      selectedServices: [],
+      filtersArray: [],
       apartmentsFiltered: [],
+      appServices: [],
       /////////////////////////////////////////
       APIKEY: "cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj",
       mymap: {},
@@ -193,6 +139,86 @@ export default {
   },
 
   methods: {
+    rooms_onClickLess() {
+      if (this.roomsCounter === 1) {
+        this.roomsCounter = 1;
+      } else {
+        this.roomsCounter--;
+      }
+    },
+
+    rooms_onClickPlus() {
+      this.roomsCounter++;
+    },
+
+    beds_onClickLess() {
+      if (this.bedsCounter === 1) {
+        this.bedsCounter = 1;
+      } else {
+        this.bedsCounter--;
+      }
+    },
+
+    beds_onClickPlus() {
+      this.bedsCounter++;
+    },
+
+    baths_onClickLess() {
+      if (this.bathsCounter === 1) {
+        this.bathsCounter = 1;
+      } else {
+        this.bathsCounter--;
+      }
+    },
+
+    baths_onClickPlus() {
+      this.bathsCounter++;
+    },
+
+    filter() {
+      if (this.filtersArray.length === 0) {
+        this.apartments.forEach((apartment) => {
+          if (
+            apartment.n_rooms >= this.roomsCounter &&
+            apartment.n_beds >= this.bedsCounter &&
+            apartment.n_baths >= this.bathsCounter
+          ) {
+            //console.log('dentro if');
+            return this.apartments;
+          }
+        });
+      }
+
+      this.apartments.forEach((apartment) => {
+        /**** generate apartment's array with only services id (for each apartment) ****/
+        let services = apartment.services;
+        let servicesID = [];
+        services.forEach((service) => {
+          servicesID.push(service.id);
+        });
+
+        /**** compare array's of services ID and array's filters from guest ****/
+        if (
+          this.filtersArray.every((elem) => servicesID.includes(elem)) &&
+          apartment.n_rooms >= this.roomsCounter &&
+          apartment.n_beds >= this.bedsCounter &&
+          apartment.n_baths >= this.bathsCounter
+        ) {
+          if (!this.apartmentsFiltered.some((apFil) => apFil == apartment)) {
+            this.apartmentsFiltered.push(apartment);
+          }
+          //console.log('appartamento ' + apartment.id + ' presente');
+        } else {
+          if (this.apartmentsFiltered.some((apFil) => apFil == apartment)) {
+            let apartmentIndex = this.apartmentsFiltered.indexOf(apartment);
+            this.apartmentsFiltered.splice(apartmentIndex, 1);
+          }
+          console.log("appartamento " + apartment.id + " NON PRESENTE");
+        }
+      });
+
+      return this.apartmentsFiltered;
+    },
     initializeMap() {
       var map = tt.map({
         key: this.APIKEY,

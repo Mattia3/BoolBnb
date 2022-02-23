@@ -110,3 +110,8 @@
 .dropdown-hover:hover .dropdown-open:checked {
     display: block;
 }
+
+
+.btn-dropdown:after {
+    content: "" !important;
+}
