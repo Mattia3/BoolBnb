@@ -92,8 +92,21 @@ $sponsors = Sponsor::all();
     <div class="container my-5">
       <div class="row justify-content-center">
         <div class="col-md-8 col-md-offset-2">
-          <div id="dropin-container"></div>
-          <button id="submit-button" class="btn btn-success">Request payment method</button>
+          <form action="{{ route('host.payment.process')}}" >
+            <label class="sr-only">Seleziona la sponsorizzazione</label><br>
+            <select id="sponsorship_select" name="sponsorship_select" class="form-control">
+              <option>Seleziona la sponsorizzazione</option>
+              @foreach ($sponsors as $sponsor)
+              <option data-price="{{ $sponsor->price }}" value="{{ $sponsor->price }}">{{ $sponsor->name }}</option>
+              @endforeach
+            </select>
+
+
+            <div id="dropin-container"></div>
+            <input id="nonce" name="payment_method_nonce" type="hidden"/>
+            <button id="submit-button" class="btn btn-success">Request payment method</button>
+          </form>
+          
         </div>
       </div>
    </div>
@@ -108,8 +121,13 @@ $sponsors = Sponsor::all();
        button.addEventListener('click', function () {
          instance.requestPaymentMethod(function (err, payload) {
            $.get("{{ route('host.payment.process') }}", {payload}, function (response) {
-             if (response.success) {
-               alert('Payment successfull!');
+            if (response.success) {
+              document.getElementById('nonce').value = payload.nonce;
+              alert('Payment successfull!');
+              // var e = document.getElementById("sponsorship_select");
+              // var value = e.options[e.selectedIndex].value;
+              // alert(value);
+              // response.amount = value;
              } else {
                alert('Payment failed');
              }
