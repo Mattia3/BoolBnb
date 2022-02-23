@@ -1,78 +1,148 @@
 <template>
   <div>
-        <div class="row">
-            <!-- Filtri -->
-            <div class="col-4 my-5">
-                <div class="container">
-                    <div class="d-flex justify-content-center">
-                        <div class="input-group mb-3 w-50 text-center">
-                            <input type="text" class="form-control" :value="place" aria-label="Recipient's username" aria-describedby="button-addon2">
-                            <button class="btn btn-primary" type="button" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </div>
-                    
-                    
-                    <form action="">
-                        <div class="dropdown my-4">
-                    
-                            <h3 class="title-service">Servizi</h3>
+    <div class="row">
+      <!-- Filtri -->
+      <div class="col-4 my-5">
+        <div class="container">
+          <div class="d-flex justify-content-center">
+            <div class="input-group mb-3 w-50 text-center">
+              <input
+                type="text"
+                class="form-control"
+                :value="place"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button class="btn btn-primary" type="button" id="button-addon2">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </div>
+          </div>
 
-                            <!-- MATTIA -->
-                            <label for="dropdown-1" class="btn btn-dropdown btn-primary"><b>Filter</b></label>
-                            <input class="dropdown-open" type="checkbox" id="dropdown-1" aria-hidden="true" hidden />
-                            
-                            <div class="dropdown-inner row row-cols-sm-2 row-cols-xl-3">
-                                <label class="form-check-label" for="flexCheckDefault" v-for="service in services" :key="service.id">
-                                <input class="form-check-input me-1" type="checkbox"  id="flexCheckDefault" v-model="filtersArray" :value="service.id"><!-- v-model="checked" -->
-                                    {{service.name.replace('_', ' ')}}
-                                </label>
-                            </div>
-                        </div>
-                    </form>
+          <form action="">
+            <div class="dropdown my-4">
+              <h3 class="title-service">Servizi</h3>
 
-                    <div class="row row-cols-xl-2 row-cols-sm-1 justify-content-sm-center justify-content-xl-between">
+              <!-- MATTIA -->
+              <label for="dropdown-1" class="btn btn-dropdown btn-primary"
+                ><b>Filter</b></label
+              >
+              <input
+                class="dropdown-open"
+                type="checkbox"
+                id="dropdown-1"
+                aria-hidden="true"
+                hidden
+              />
 
-                        <div class="row mb-3 align-items-center">
-                            <div class="col-4">
-                                <label for="field_square_mt ">Stanze</label>
-                            </div>
-                            <div class="col-8">
-                                <div class="wrap d-flex">
-                                        <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickLess()">-</span>
-                                        <input class="total-item-3 input-incremate total-item-style" type="text" :value="roomsCounter" />
-                                        <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="rooms_onClickPlus()">+</span>
-                                </div>
-                            </div>
-                        </div>
+              <div class="dropdown-inner row row-cols-sm-2 row-cols-xl-3">
+                <label
+                  class="form-check-label"
+                  for="flexCheckDefault"
+                  v-for="service in services"
+                  :key="service.id"
+                >
+                  <input
+                    class="form-check-input me-1"
+                    type="checkbox"
+                    id="flexCheckDefault"
+                    v-model="filtersArray"
+                    :value="service.id"
+                  /><!-- v-model="checked" -->
+                  {{ service.name.replace("_", " ") }}
+                </label>
+              </div>
+            </div>
+          </form>
 
-                        <div class="row mb-3 align-items-center">
-                            <div class="col-4 d-flex">
-                                <label for="field_square_mt " class="title-form">Letti</label>
-                            </div>
-                            <div class="col-8">
-                                <div class="wrap d-flex">
-                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickLess()">-</span>
-                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="bedsCounter" />
-                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="beds_onClickPlus()">+</span>
-                                </div>
-                            </div>
-                        </div>
+          <div
+            class="
+              row row-cols-xl-2 row-cols-sm-1
+              justify-content-sm-center justify-content-xl-between
+            "
+          >
+            <div class="row mb-3 align-items-center">
+              <div class="col-4">
+                <label for="field_square_mt ">Stanze</label>
+              </div>
+              <div class="col-8">
+                <div class="wrap d-flex">
+                  <span
+                    class="btn-counter-3 input-incremate btn-counter-style"
+                    type="button"
+                    @click="rooms_onClickLess()"
+                    >-</span
+                  >
+                  <input
+                    class="total-item-3 input-incremate total-item-style"
+                    type="text"
+                    :value="roomsCounter"
+                  />
+                  <span
+                    class="btn-counter-3 input-incremate btn-counter-style"
+                    type="button"
+                    @click="rooms_onClickPlus()"
+                    >+</span
+                  >
+                </div>
+              </div>
+            </div>
 
-                        <div class="row mb-3 align-items-center">
-                            <div class="col-4">
-                                <label for="field_square_mt " class="title-form">Bagni</label>
-                            </div>
-                            <div class="col-8">
-                                <div class="wrap d-flex">
-                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickLess()">-</span>
-                                    <input class="total-item-3 input-incremate total-item-style" type="text" :value="bathsCounter" />
-                                    <span class="btn-counter-3 input-incremate btn-counter-style" type="button" @click="baths_onClickPlus()">+</span>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row mb-3 align-items-center">
+              <div class="col-4 d-flex">
+                <label for="field_square_mt " class="title-form">Letti</label>
+              </div>
+              <div class="col-8">
+                <div class="wrap d-flex">
+                  <span
+                    class="btn-counter-3 input-incremate btn-counter-style"
+                    type="button"
+                    @click="beds_onClickLess()"
+                    >-</span
+                  >
+                  <input
+                    class="total-item-3 input-incremate total-item-style"
+                    type="text"
+                    :value="bedsCounter"
+                  />
+                  <span
+                    class="btn-counter-3 input-incremate btn-counter-style"
+                    type="button"
+                    @click="beds_onClickPlus()"
+                    >+</span
+                  >
+                </div>
+              </div>
+            </div>
 
-                    </div>
-                    <div class="container-range">
+            <div class="row mb-3 align-items-center">
+              <div class="col-4">
+                <label for="field_square_mt " class="title-form">Bagni</label>
+              </div>
+              <div class="col-8">
+                <div class="wrap d-flex">
+                  <span
+                    class="btn-counter-3 input-incremate btn-counter-style"
+                    type="button"
+                    @click="baths_onClickLess()"
+                    >-</span
+                  >
+                  <input
+                    class="total-item-3 input-incremate total-item-style"
+                    type="text"
+                    :value="bathsCounter"
+                  />
+                  <span
+                    class="btn-counter-3 input-incremate btn-counter-style"
+                    type="button"
+                    @click="baths_onClickPlus()"
+                    >+</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container-range">
             <label for="customRange1" class="form-label"
               >Raggio di ricerca</label
             >
@@ -87,14 +157,14 @@
               @change="initializeMap()"
             />
           </div>
-                    
-                </div>
-                
-                <div class="container container-all-img">
-                    <CardComponent v-for="(apartment, i) in filter()" :key="i" :apartment="apartment"></CardComponent>
-                </div>
-            </div>         
-          </div>    
+        </div>
+
+        <div class="container container-all-img">
+          <CardComponent
+            v-for="(apartment, i) in filter()"
+            :key="i"
+            :apartment="apartment"
+          ></CardComponent>
         </div>
       </div>
 
@@ -114,6 +184,7 @@ import PanControls from "@tomtom-international/web-sdk-plugin-pancontrols";
 //import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 /////////////////////////
 import CardComponent from "./CardComponent.vue";
+
 export default {
   name: "MainComponent",
   components: { CardComponent },
@@ -134,7 +205,8 @@ export default {
       appServices: [],
       /////////////////////////////////////////
       APIKEY: "cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj",
-      mymap: {},
+      inRangeApartments: [],
+      inCircleRange: [],
     };
   },
 
@@ -219,7 +291,14 @@ export default {
 
       return this.apartmentsFiltered;
     },
+
     initializeMap() {
+      // Load Assets
+      document.getElementById("filterMap").innerHTML = "";
+      this.inRangeApartments = [];
+      this.inCircleRange = [];
+      // ----------------------------------
+
       var map = tt.map({
         key: this.APIKEY,
         container: "filterMap",
@@ -243,13 +322,28 @@ export default {
       map.addControl(new tt.FullscreenControl());
       map.addControl(nav);
       map.addControl(ttPanControls, "top-left");
-
-      this.mymap = map;
       // -------------
+
+      this.apartments.forEach((apartment) => {
+        let lng = parseFloat(apartment.lng);
+        let lat = parseFloat(apartment.lat);
+        let dupla = [];
+        dupla.push(lng);
+        dupla.push(lat);
+        this.inRangeApartments.push(dupla);
+      });
+
       this.drawCircle(map, "selected", [
         this.searchPoint.lng,
         this.searchPoint.lat,
       ]);
+      // console.log(this.inRangeApartments);
+
+      // Aggiungo marker per ogni appartamento
+      this.inCircleRange.forEach(function (dupla) {
+        new tt.Marker().setLngLat(dupla).addTo(map);
+      });
+
       // var marker = new tt.Marker().setLngLat(this.point).addTo(map);
     },
     // TurfJS
@@ -263,11 +357,22 @@ export default {
         units: "kilometers",
         properties: { key: name },
       };
+
       var circle = turf.circle(center, this.rangeValue, options);
+      var points = turf.points(this.inRangeApartments);
+      var ptsWithin = turf.pointsWithinPolygon(points, circle);
+      // console.log(ptsWithin.features);
+      // console.log(ptsWithin.features[0].geometry.coordinates);
+      ptsWithin.features.forEach((apartment) => {
+        this.inCircleRange.push(apartment.geometry.coordinates);
+      });
+      console.log(this.inCircleRange);
+
       map.on("load", function () {
         map.addLayer({
           id: name,
           type: "fill",
+          // geometry: "Polygon",
           source: {
             type: "geojson",
             data: circle,
