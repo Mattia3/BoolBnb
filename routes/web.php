@@ -30,3 +30,5 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('apartments', 'ApartmentController');
 });
+
+Route::post('/contacts', 'ContactController@store');
