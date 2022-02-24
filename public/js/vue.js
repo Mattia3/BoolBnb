@@ -417,18 +417,34 @@ __webpack_require__.r(__webpack_exports__);
 
       this.apartments.forEach(function (apartment) {
         // need lat lng
+<<<<<<< HEAD
         var tdupla = [];
         var tlat = apartment.lat;
         var tlng = apartment.lng;
         tdupla.push(tlng, tlat); // apartment in range lat lng
+=======
+        var apartmentAddress = false;
+        var tdupla = [];
+        var tlat = apartment.lat;
+        var tlng = apartment.lng;
+        tdupla.push(tlng, tlat); //console.log(tlat, tlng);
+        // apartment in range lat lng
+>>>>>>> c801b4d994c96a7276279c1e1a2857d160dc8674
 
         var ilat = "";
         var ilng = "";
 
         _this.inCircleRange.forEach(function (coords) {
-          ilng = coords[0];
-          ilat = coords[1];
+          if (!apartmentAddress) {
+            ilng = coords[0];
+            ilat = coords[1];
+
+            if (ilng == tlng && ilat == tlat) {
+              apartmentAddress = true;
+            }
+          }
         }); // console.log(ilat);
+        //console.log('tdupla: ' + typeof(tdupla) , 'dupla di inCircleRange: ' + typeof(this.inCircleRange[0]));
 
         /**** generate apartment's array with only services id (for each apartment) ****/
 
@@ -443,8 +459,7 @@ __webpack_require__.r(__webpack_exports__);
 
         if (_this.filtersArray.every(function (elem) {
           return servicesID.includes(elem);
-        }) && apartment.n_rooms >= _this.roomsCounter && apartment.n_beds >= _this.bedsCounter && apartment.n_baths >= _this.bathsCounter // &&
-        // ilng == tlng &&
+        }) && apartment.n_rooms >= _this.roomsCounter && apartment.n_beds >= _this.bedsCounter && apartment.n_baths >= _this.bathsCounter && apartmentAddress // ilng == tlng &&
         // ilat == tlat
         ) {
           if (!_this.apartmentsFiltered.some(function (apFil) {
@@ -460,9 +475,8 @@ __webpack_require__.r(__webpack_exports__);
             var apartmentIndex = _this.apartmentsFiltered.indexOf(apartment);
 
             _this.apartmentsFiltered.splice(apartmentIndex, 1);
-          }
+          } //console.log("appartamento " + apartment.id + " NON PRESENTE");
 
-          console.log("appartamento " + apartment.id + " NON PRESENTE");
         }
       });
       return this.apartmentsFiltered;
@@ -14567,7 +14581,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Alessandro\Desktop\BoolBnB\BoolBnb\resources\js\vue.js */"./resources/js/vue.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean_#43\BoolBnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })

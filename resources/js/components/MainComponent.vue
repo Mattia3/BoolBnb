@@ -250,11 +250,7 @@ export default {
     filter() {
       if (this.filtersArray.length === 0) {
         this.apartments.forEach((apartment) => {
-          if (
-            apartment.n_rooms >= this.roomsCounter &&
-            apartment.n_beds >= this.bedsCounter &&
-            apartment.n_baths >= this.bathsCounter
-          ) {
+          if (apartment.n_rooms >= this.roomsCounter && apartment.n_beds >= this.bedsCounter && apartment.n_baths >= this.bathsCounter) {
             //console.log('dentro if');
             return this.apartments;
           }
@@ -263,20 +259,35 @@ export default {
 
       this.apartments.forEach((apartment) => {
         // need lat lng
+<<<<<<< HEAD
+=======
+        let apartmentAddress = false;
+>>>>>>> c801b4d994c96a7276279c1e1a2857d160dc8674
         let tdupla = [];
         let tlat = apartment.lat;
         let tlng = apartment.lng;
         tdupla.push(tlng, tlat);
+<<<<<<< HEAD
+=======
+
+        //console.log(tlat, tlng);
+>>>>>>> c801b4d994c96a7276279c1e1a2857d160dc8674
 
         // apartment in range lat lng
         let ilat = "";
         let ilng = "";
         this.inCircleRange.forEach(function (coords) {
-          ilng = coords[0];
-          ilat = coords[1];
+            if (!apartmentAddress) {
+                ilng = coords[0];
+                ilat = coords[1];
+    
+                if ( ilng == tlng &&  ilat == tlat) {
+                    apartmentAddress = true;
+                }
+            }
         });
         // console.log(ilat);
-
+        //console.log('tdupla: ' + typeof(tdupla) , 'dupla di inCircleRange: ' + typeof(this.inCircleRange[0]));
         /**** generate apartment's array with only services id (for each apartment) ****/
         let services = apartment.services;
         let servicesID = [];
@@ -284,14 +295,9 @@ export default {
           servicesID.push(service.id);
         });
         // console.log(tlat, tlng);
-
         /**** compare array's of services ID and array's filters from guest ****/
-        if (
-          this.filtersArray.every((elem) => servicesID.includes(elem)) &&
-          apartment.n_rooms >= this.roomsCounter &&
-          apartment.n_beds >= this.bedsCounter &&
-          apartment.n_baths >= this.bathsCounter
-          // &&
+        if (this.filtersArray.every((elem) => servicesID.includes(elem)) && apartment.n_rooms >= this.roomsCounter && apartment.n_beds >= this.bedsCounter && apartment.n_baths >= this.bathsCounter
+          && apartmentAddress
           // ilng == tlng &&
           // ilat == tlat
         ) {
@@ -304,7 +310,7 @@ export default {
             let apartmentIndex = this.apartmentsFiltered.indexOf(apartment);
             this.apartmentsFiltered.splice(apartmentIndex, 1);
           }
-          console.log("appartamento " + apartment.id + " NON PRESENTE");
+          //console.log("appartamento " + apartment.id + " NON PRESENTE");
         }
       });
 
