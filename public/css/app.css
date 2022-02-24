@@ -23374,22 +23374,6 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 img.img-profile {
   width: 130px;
   height: 130px;
-  background-position-y: center;
-  height: 250px;
-}
-
-.img-profile {
-  display: inline-block;
-  height: 100px;
-  width: 100px;
-  padding: 0;
-}
-
-.img-profile img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
   border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -23875,117 +23859,6 @@ main {
   height: 7px;
   border-radius: 50%;
   background: white;
-}
-
-.create-edit .form-check-input:checked {
-  background-color: #6CA3BA;
-  border-color: #6CA3BA;
-}
-
-.create-edit .form-check-input:focus {
-  box-shadow: 0 0 0 0.25rem rgba(108, 163, 186, 0.41);
-}
-
-.create-edit .form-file {
-  position: relative;
-  display: inline-block;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 20px;
-  padding: 55px 40px;
-  text-align: center;
-  width: 70%;
-  height: 85%;
-  transition: 1.2s;
-}
-
-.create-edit .form-file:hover {
-  transform: scale(1.04);
-}
-
-.create-edit .form-file div {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.create-edit .form-file div i {
-  color: #6CA3BA;
-  font-size: 40px;
-  padding-bottom: 8px;
-}
-
-.create-edit .form-file input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 0;
-  cursor: pointer;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-}
-
-}
-
-.create-edit .title-form {
-  color: #6CA3BA;
-  padding-bottom: 35px;
-}
-
-.create-edit .title-label {
-  color: #6CA3BA;
-  padding-bottom: 12px;
-  font-size: 17px;
-  letter-spacing: 1px;
-}
-
-.create-edit .box-form {
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 20px;
-  padding: 35px 40px;
-  margin-bottom: 55px;
-}
-
-.create-edit .box-input {
-  padding-bottom: 23px;
-}
-
-.create-edit input {
-  border-color: rgba(108, 163, 186, 0.41);
-  border-radius: 10px;
-  padding: 10px 15px;
-  color: #1b1b1b;
-}
-
-.create-edit input:focus-visible {
-  outline: none;
-}
-
-.create-edit input::-moz-placeholder {
-  color: #CBCBCB;
-}
-
-.create-edit input:-ms-input-placeholder {
-  color: #CBCBCB;
-}
-
-.create-edit input::placeholder {
-  color: #CBCBCB;
-}
-
-.create-edit textarea {
-  display: block;
-  width: 100%;
-  border-color: rgba(108, 163, 186, 0.41);
-  border-radius: 10px;
-  padding: 10px 15px;
-  color: #1b1b1b;
-}
-
-.create-edit textarea:focus-visible {
-  outline: none;
 }
 
 .create-edit .form-check-input:checked {
@@ -24922,6 +24795,8 @@ main {
 .my-container .my-card:hover {
   scale: 1.1;
   z-index: 99;
+}
+
 .bg-home {
   background-image: url("/images/hero.jpg");
   background-size: cover;
