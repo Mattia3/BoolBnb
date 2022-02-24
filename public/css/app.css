@@ -25488,7 +25488,6 @@ main {
   width: 300px;
   height: 400px;
   margin: 0 auto;
-  margin-top: 100px;
   background-color: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   -webkit-transition: all 0.7s ease-in-out;
@@ -25509,11 +25508,16 @@ main {
   height: 150px;
   background-image: url("https://snap-photos.s3.amazonaws.com/img-thumbs/960w/RQ2Z75PQIN.jpg");
   background-size: cover;
-  border-bottom: solid 1px lightgrey;
   -webkit-transition: all 0.7s ease-in-out;
   -moz-transition: all 0.7s ease-in-out;
   -o-transition: all 0.7s ease-in-out;
   -ms-transition: all 0.7s ease-in-out;
+  overflow: hidden;
+}
+
+.container_apartment_show .banner img {
+  width: 300px;
+  max-width: 100%;
 }
 
 .container_apartment_show .banner.active {
@@ -25537,6 +25541,12 @@ main {
   -moz-transition: top 0.7s ease-in-out, background 0.15s ease;
   -o-transition: top 0.7s ease-in-out, background 0.15s ease;
   -ms-transition: top 0.7s ease-in-out, background 0.15s ease;
+  overflow: hidden;
+}
+
+.container_apartment_show .photo img {
+  width: 150px;
+  max-width: 100%;
 }
 
 .container_apartment_show .photo.active {
@@ -25607,6 +25617,7 @@ main {
   margin-top: 25px;
   text-align: center;
   position: absolute;
+  bottom: 0;
   -webkit-transition: all 1.5s ease-in-out;
   -moz-transition: all 1.5s ease-in-out;
   -o-transition: all 1.5s ease-in-out;
@@ -25694,7 +25705,7 @@ main {
 }
 
 .container_apartment_show .email-form button {
-  margin-top: 60px;
+  margin-top: 0px;
 }
 
 @media only screen and (min-width: 991px) {

@@ -97,25 +97,28 @@
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 pb-5">
                 <div class="card">
-                    <div class="photo"></div>
-                    <div class="banner"></div>
+                    <div class="photo">
+                        <img src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="{{ Auth::user()->name }} {{ Auth::user()->last_name }}">
+                    </div>
+                    <div class="banner">
+                        <img src="{{ asset('storage/' . $apartment->cover_img) }}">
+                    </div>
                     <ul>
-                        <li><b>John Doe</b></li>
-                        <li>Web Developer</li>
-
+                        <li><b>{{ Auth::user()->name }} {{ Auth::user()->last_name }}</b></li>
+                        <li>Host</li>
                     </ul>
-                    <button class="contact" id="main-button">click to get in touch</button>
-                    <div class="social-media-banner">
-                        <a href=""><i class="fa fa-twitter"></i></a>
-                        <a href=""><i class="fa fa-facebook"></i></a>
-                        <a href=""><i class="fa fa-instagram"></i></a>
-                        <a href=""><i class="fa fa-linkedin"></i></a>
+                    <button class="contact" id="main-button">contattatami</button>
+                    <div class="social-media-banner d-flex align-items-center justify-content-center">
+                        <a href=""><i class="fa-brands fa-twitter"></i></a>
+                        <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                     <form class="email-form">
-                        <input id="name" type="text" placeholder="name">
-                        <input id="email" type="text" placeholder="email">
-                        <textarea id="comment" type="text" placeholder="comment"></textarea>
-                        <button class="contact">send</button>
+                        <input id="name" type="text" class="input-name" placeholder="Nome">
+                        <input id="email" type="text" class="input-email" placeholder="Email">
+                        <textarea id="comment" type="text" class="input-message" placeholder="Messaggio"></textarea>
+                        <button id="send" class="contact">send</button>
                     </form>
                 </div>
             </div>
@@ -133,3 +136,71 @@
 </div>
 
 @endsection
+
+<script type="module">
+
+    // Card Contatts Host
+    const btnContact = document.querySelector(".contact");
+
+    btnContact.addEventListener("click", function(e){
+
+    document.querySelector(".card").classList.toggle("active");
+    document.querySelector(".banner").classList.toggle("active");
+    document.querySelector(".photo").classList.toggle("active");
+    document.querySelector(".social-media-banner").classList.toggle("active");
+    document.querySelector(".email-form").classList.toggle("active");
+
+    let buttonText = document.querySelector("button.contact#main-button").textContent;
+    console.log(buttonText);
+
+    if(buttonText === "indietro"){
+        buttonText = 'contattatami';
+        document.querySelector('button.contact#main-button').textContent = buttonText;
+    } else {
+        buttonText = 'indietro';
+        document.querySelector('button.contact#main-button').textContent = buttonText;
+    }
+    });
+
+    // Mailtrap
+    let btnSend = document.getElementById("send");
+
+    let formSubmitted = false;
+
+    let form = {
+        name: "",
+        email: "",
+        message: ""
+    }
+
+    function onSubmit (){
+        window.axios.post("/contacts", form)
+        .then(resp =>{
+            alert("ok, la mail dovrebbe essere partita correttamente");
+        });
+    };
+
+    btnSend.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        let valueInputName = document.querySelector(".input-name").value;
+        let valueInputEmail = document.querySelector(".input-email").value;
+        let valueInputMessage = document.querySelector(".input-message").value;
+
+        if((valueInputName == null) || (valueInputEmail == null) || (valueInputMessage == null)){
+            return;
+        }
+
+        form = {
+            name: valueInputName,
+            email: valueInputEmail,
+            message: valueInputMessage
+        }
+
+        onSubmit();
+
+    });
+
+
+</script>
