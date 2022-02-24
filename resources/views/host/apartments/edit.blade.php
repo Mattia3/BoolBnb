@@ -6,7 +6,6 @@
 
 @section('content')
 <section class="create-edit container pt-5">
-  <h1 class="title fw-bold pb-5">Pubblica appartamento</h1>
 
   @if($errors->any())
   <div class="alert alert-danger">
@@ -43,9 +42,20 @@
           <input class="w-100" type="number" name="price" id="field_price" value="{{ old('price') ?? $apartment->price }}" required>
         </div>
         {{-- Visible --}}
-        <div class="form-check form-switch p-0">
-          <label for="field_visible" class="title-label d-block">Mostra appartamento</label>
-          <input class="form-check-input m-0" name="visible" value="0" type="checkbox" id="field_visible" role="switch" id="flexSwitchCheckChecked" checked>
+        <div class="p-0">
+          <div class="d-inline-block pe-4">
+            <label class="container-radio title-label pb-0">Mostra appartamento
+              <input name="visible" value="1" type="radio" @if($apartment->visible === 1) checked @endif>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div class="d-inline-block pe-4">
+            <label class="container-radio title-label pb-0">Nascondi appartamento
+              <input name="visible" value="0" type="radio" @if($apartment->visible === 0) checked @endif>
+              <span class="checkmark"></span>
+            </label>
+          </div>
         </div>
       </div>
       {{-- Img --}}

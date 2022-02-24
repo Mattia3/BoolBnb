@@ -1,7 +1,8 @@
+$color-green : #6CA3BA;
+
 .create-edit {
   padding-bottom: 50px;
 
-  $color-green : #6CA3BA;
 
   .title-form {
     color: $color-green;
@@ -51,6 +52,68 @@
       outline: none;
     }
   }
+  
+
+  .container-radio {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .container-radio input {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border: 1px solid rgb(108 163 186 / 50%);
+    border-radius: 50%;
+  }
+
+  .container-radio:hover input ~ .checkmark {
+    background-color: #e7e7e7;
+  }
+
+  .container-radio input:checked ~ .checkmark {
+    background-color: $color-green;
+    border: none;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .container-radio input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .container-radio .checkmark:after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+
+
+
 
 
   .form-check-input {

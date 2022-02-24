@@ -41,13 +41,24 @@
           <input class="w-100" type="number" name="price" id="field_price" value="{{ old('price') }}" required>
         </div>
         {{-- Visible --}}
-        <div class="form-check form-switch p-0">
-          <label for="field_visible" class="title-label d-block">Mostra appartamento</label>
-          <input class="form-check-input m-0" name="visible" value="1" type="checkbox" id="field_visible" role="switch" id="flexSwitchCheckChecked" checked>
+        <div class="p-0">
+          <div class="d-inline-block pe-4">
+            <label class="container-radio title-label pb-0">Mostra appartamento
+              <input name="visible" value="1" type="radio" checked>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div class="d-inline-block pe-4">
+            <label class="container-radio title-label pb-0">Nascondi appartamento
+              <input name="visible" value="0" type="radio">
+              <span class="checkmark"></span>
+            </label>
+          </div>
         </div>
       </div>
       {{-- Img --}}
-      <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center pt-sm-3 pt-md-0">
+      <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
         <div class="form-file">
           <div>
             <i class="fa-solid fa-file-image"></i>
