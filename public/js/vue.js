@@ -417,8 +417,10 @@ __webpack_require__.r(__webpack_exports__);
 
       this.apartments.forEach(function (apartment) {
         // need lat lng
+        var tdupla = [];
         var tlat = apartment.lat;
-        var tlng = apartment.lng; // apartment in range lat lng
+        var tlng = apartment.lng;
+        tdupla.push(tlng, tlat); // apartment in range lat lng
 
         var ilat = "";
         var ilng = "";

@@ -263,8 +263,10 @@ export default {
 
       this.apartments.forEach((apartment) => {
         // need lat lng
+        let tdupla = [];
         let tlat = apartment.lat;
         let tlng = apartment.lng;
+        tdupla.push(tlng, tlat);
 
         // apartment in range lat lng
         let ilat = "";
