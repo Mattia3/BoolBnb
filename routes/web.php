@@ -21,6 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/search', 'HomeController@index')->name('search');
+Route::get('/{apartment}', 'HomeController@show')->name('show');
+Route::post('/messages/{apartment}', 'MessageController@store')->name('message.store');
 
 Route::middleware('auth')
     ->namespace('Host') //riaggiungere middleware('auth') 
@@ -30,3 +32,4 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('apartments', 'ApartmentController');
     });
+

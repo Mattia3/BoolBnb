@@ -1772,7 +1772,9 @@ var render = function () {
       { staticClass: "col-6 position-relative" },
       [
         _c("h5", { staticClass: "my-2" }, [
-          _vm._v(_vm._s(_vm.apartment.title)),
+          _c("a", { attrs: { href: "/" + _vm.apartment.slug } }, [
+            _vm._v(_vm._s(_vm.apartment.title)),
+          ]),
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "my-border" }),

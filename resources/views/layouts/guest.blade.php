@@ -28,7 +28,7 @@
 
 <body>
   
-    <header class="@if(Request::is('/')) bg-home @elseif(Request::is('/dettaglio')) bg-guest-show @endif">
+    <header class="@if(Request::is('/')) bg-home @elseif(Request::is('login')) bg-login @elseif(Request::is('search')) bg-search @else bg-guest-show @endif">
       @include('guest.partials.navbar')
       @yield('content_header')
     </header>

@@ -12,29 +12,29 @@
 
                 <div class="row pb-3">
                     <div class="col md-12-col-sm-12 col-xs-12">
-                        <h2><strong>Titolo{{-- {{ $apartment->title }} --}}</strong></h2>
+                        <h2><strong>{{ $apartment->title }}</strong></h2>
                     </div>
                 </div>
 
                 <div class="row row-cols-2 align-items-center pb-3">
                     <div class="col">
-                        <p class="mb-0">{{-- {{ $apartment->address }} --}}</p>
-                        <p id="lat" hidden>{{-- {{ $apartment->lat }} --}}</p>
-                        <p id="lng" hidden>{{-- {{ $apartment->lng }} --}}</p>
+                        <p class="mb-0">{{ $apartment->address }}</p>
+                        <p id="lat" hidden>{{ $apartment->lat }}</p>
+                        <p id="lng" hidden>{{ $apartment->lng }}</p>
                     </div>
                     <div class="col">
-                        <p class="text-end"><span class="label_price">{{-- {{ $apartment->price }} --}}00,00€</span></p>
+                        <p class="text-end"><span class="label_price">{{ $apartment->price }}€</span></p>
                     </div>
                 </div>
 
                 <div class="row row-cols-2 pb-3">
-                   {{--  @foreach ($services as $service)
+                    @foreach ($services as $service)
                     <div class="col">
                         <p><i class="{{ $service->icon_class }}"></i> {{ $service->name }} </p>
                     </div>
-                    @endforeach --}}
+                    @endforeach
                     <div class="col">
-                        <p><i class="fa-solid fa-pencil"></i> {{-- {{ $service->name }} --}} Test </p>
+                        <p><i class="fa-solid fa-pencil"></i> {{ $service->name }} </p>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
 
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <img class="cover_img" src="{{-- {{ asset('storage/' . $apartment->cover_img) }} --}}">
+                <img class="cover_img" src="{{ asset('storage/' . $apartment->cover_img) }}">
             </div>
         </div>
     </div>
@@ -65,10 +65,10 @@
                 <!-- ------------------------------------------ -->
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <h3 class="pb-3">Descrizione Appartamento</h3>
-                    {{-- <p>{{ $apartment->description }}</p> --}}
+                    <p>{{ $apartment->description }}</p>
                     <p>Descrizione</p>
                     <h3 class="pb-3">Cosa puoi trovare nelle vicinanze</h3>
-                    {{-- <p>{{ $apartment->place_description }}</p> --}}
+                    <p>{{ $apartment->place_description }}</p>
                     <p>Place Description</p>
 
                 </div>
@@ -81,24 +81,24 @@
             <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 pb-5">
                 <div class="rule_apartment">
                     <h3 class="pb-3">Regole della casa</h3>
-                    {{-- <ul>
+                    <ul>
                         @foreach ($rules as $rule)
                         <li>{{ $rule->name }}</li>
                         @endforeach
-                    </ul> --}}
+                    </ul>
                 </div>
             </div>
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 pb-5">
                 <div class="card">
                     <div class="photo">
-                        {{-- <img src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="{{ Auth::user()->name }} {{ Auth::user()->last_name }}"> --}}
+                        <img src="{{ asset('storage/' . $host->img_profile) }}" alt="{{ $host->name }} {{ $host->last_name }}">
                     </div>
                     <div class="banner">
-                        {{-- <img src="{{ asset('storage/' . $apartment->cover_img) }}"> --}}
+                        <img src="{{ asset('storage/' . $apartment->cover_img) }}">
                     </div>
                     <ul>
-                        {{-- <li><b>{{ Auth::user()->name }} {{ Auth::user()->last_name }}</b></li> --}}
-                        <li>Host</li>
+                        <li><b>{{ $host->name }} {{ $host->last_name }}</b></li>
+                        <li>Certificated Host</li>
                     </ul>
                     <button class="contact" id="main-button">contattatami</button>
                     <div class="social-media-banner d-flex align-items-center justify-content-center">
@@ -107,10 +107,12 @@
                         <a href=""><i class="fa-brands fa-instagram"></i></a>
                         <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
-                    <form class="email-form">
-                        <input id="name" type="text" class="input-name" placeholder="Nome">
-                        <input id="email" type="text" class="input-email" placeholder="Email">
-                        <textarea id="comment" type="text" class="input-message" placeholder="Messaggio"></textarea>
+                    <form class="email-form" action="{{route('message.store', $apartment->slug)}}" method="POST">
+                        @csrf
+                        <input id="name" type="text" class="input-name" placeholder="Nome" name="name">
+                        <input id="name" type="text" class="input-name" placeholder="Cognome" name="last_name">
+                        <input id="email" type="text" class="input-email" placeholder="Email" name="email">
+                        <textarea id="comment" type="text" class="input-message" placeholder="Messaggio" name="body_email"></textarea>
                         <button id="send" class="contact">send</button>
                     </form>
                 </div>

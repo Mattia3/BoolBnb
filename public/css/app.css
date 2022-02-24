@@ -25657,7 +25657,7 @@ main {
 }
 
 .container_apartment_show .email-form.active {
-  height: 310px;
+  height: 520px;
   z-index: 3;
   transition: all 1s ease-in-out;
 }
