@@ -262,12 +262,26 @@ export default {
       }
 
       this.apartments.forEach((apartment) => {
+        // need lat lng
+        let tlat = apartment.lat;
+        let tlng = apartment.lng;
+
+        // apartment in range lat lng
+        let ilat = "";
+        let ilng = "";
+        this.inCircleRange.forEach(function (coords) {
+          ilng = coords[0];
+          ilat = coords[1];
+        });
+        // console.log(ilat);
+
         /**** generate apartment's array with only services id (for each apartment) ****/
         let services = apartment.services;
         let servicesID = [];
         services.forEach((service) => {
           servicesID.push(service.id);
         });
+        // console.log(tlat, tlng);
 
         /**** compare array's of services ID and array's filters from guest ****/
         if (
@@ -275,6 +289,9 @@ export default {
           apartment.n_rooms >= this.roomsCounter &&
           apartment.n_beds >= this.bedsCounter &&
           apartment.n_baths >= this.bathsCounter
+          // &&
+          // ilng == tlng &&
+          // ilat == tlat
         ) {
           if (!this.apartmentsFiltered.some((apFil) => apFil == apartment)) {
             this.apartmentsFiltered.push(apartment);
@@ -306,7 +323,8 @@ export default {
           lat: this.searchPoint.lat,
           lng: this.searchPoint.lng,
         },
-        zoom: 10.5,
+        // zoom: 10.5,
+        zoom: 8,
       });
       // panControl
       const ttPanControls = new PanControls({

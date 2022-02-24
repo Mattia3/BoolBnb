@@ -416,17 +416,35 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.apartments.forEach(function (apartment) {
+        // need lat lng
+        var tlat = apartment.lat;
+        var tlng = apartment.lng; // apartment in range lat lng
+
+        var ilat = "";
+        var ilng = "";
+
+        _this.inCircleRange.forEach(function (coords) {
+          ilng = coords[0];
+          ilat = coords[1];
+        }); // console.log(ilat);
+
         /**** generate apartment's array with only services id (for each apartment) ****/
+
+
         var services = apartment.services;
         var servicesID = [];
         services.forEach(function (service) {
           servicesID.push(service.id);
-        });
+        }); // console.log(tlat, tlng);
+
         /**** compare array's of services ID and array's filters from guest ****/
 
         if (_this.filtersArray.every(function (elem) {
           return servicesID.includes(elem);
-        }) && apartment.n_rooms >= _this.roomsCounter && apartment.n_beds >= _this.bedsCounter && apartment.n_baths >= _this.bathsCounter) {
+        }) && apartment.n_rooms >= _this.roomsCounter && apartment.n_beds >= _this.bedsCounter && apartment.n_baths >= _this.bathsCounter // &&
+        // ilng == tlng &&
+        // ilat == tlat
+        ) {
           if (!_this.apartmentsFiltered.some(function (apFil) {
             return apFil == apartment;
           })) {
@@ -462,7 +480,8 @@ __webpack_require__.r(__webpack_exports__);
           lat: this.searchPoint.lat,
           lng: this.searchPoint.lng
         },
-        zoom: 10.5
+        // zoom: 10.5,
+        zoom: 8
       }); // panControl
 
       var ttPanControls = new _tomtom_international_web_sdk_plugin_pancontrols__WEBPACK_IMPORTED_MODULE_1___default.a({
