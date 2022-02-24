@@ -48,7 +48,6 @@
         width: 300px;
         height:400px;
         margin: 0 auto;
-        margin-top:100px;
         background-color: white;
         -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -71,12 +70,17 @@
         height:150px;
         background-image: url("https://snap-photos.s3.amazonaws.com/img-thumbs/960w/RQ2Z75PQIN.jpg");
         background-size: cover;
-        border-bottom: solid 1px lightgrey;
-    
         -webkit-transition: all 0.7s ease-in-out;
         -moz-transition:    all 0.7s ease-in-out;
         -o-transition:      all 0.7s ease-in-out;
         -ms-transition:     all 0.7s ease-in-out;
+        overflow: hidden;
+
+        img{
+            width: 300px;
+            max-width: 100%;
+        }
+
     }
 
     .banner.active
@@ -104,6 +108,13 @@
         -moz-transition:    top 0.7s ease-in-out, background 0.15s ease;
         -o-transition:      top 0.7s ease-in-out, background 0.15s ease;
         -ms-transition:     top 0.7s ease-in-out, background 0.15s ease;
+        overflow: hidden;
+
+        img{
+            width: 150px;
+            max-width: 100%;
+        }
+
     }
 
     .photo.active{
@@ -173,6 +184,7 @@
         margin-top: 25px;
         text-align: center;
         position: absolute;
+        bottom: 0;
         -webkit-transition: all 1.5s ease-in-out;
         -moz-transition:    all 1.5s ease-in-out;
         -o-transition:      all 1.5s ease-in-out;
@@ -264,7 +276,7 @@
     }
 
     .email-form button{
-        margin-top: 60px;
+        margin-top: 0px;
     }
     
     @media only screen and (min-width: 991px) {    
@@ -287,4 +299,16 @@
 // MAP TomTom
 #mymap {
     height: 500px;
+}
+
+.marker{
+    background-image: url('https://i.pinimg.com/originals/6c/e9/12/6ce9124ba178121ec828d8e2e566c1f4.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    width: 55px;
+    height: 75px;
+    &:hover {
+        opacity: 0.8;
+    }
 }

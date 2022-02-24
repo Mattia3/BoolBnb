@@ -11,26 +11,29 @@ use App\Rule;
 use App\Service;
 use App\Sponsor;
 use App\User;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ApartmentController extends Controller
-{   
-    private function createSlug($title){
+{
+    private function createSlug($title)
+    {
         $slug = Str::slug($title);
 
         $alreadyExists = Apartment::where("slug", $slug)->first();
         $counter = 1;
-    
+
         while ($alreadyExists) {
-          $newSlug = $slug . "-" . $counter;
-          $alreadyExists = Apartment::where("slug", $newSlug)->first();
-          $counter++;
-    
-          if (!$alreadyExists) {
-            $slug = $newSlug;
-          }
+            $newSlug = $slug . "-" . $counter;
+            $alreadyExists = Apartment::where("slug", $newSlug)->first();
+            $counter++;
+
+            if (!$alreadyExists) {
+                $slug = $newSlug;
+            }
         }
-    
+
         return $slug;
     }
 
@@ -85,14 +88,37 @@ class ApartmentController extends Controller
             'place_description' => 'string|required|min:15|max:2000'
         ]);
 
+        // TomTom query . From address to -> lat lon 
+        $ttResponse = Http::get('https://api.tomtom.com/search/2/geocode/.json', [
+            'query' => $data['address'],
+            'key' => 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj',
+        ]);
+        // dd($ttResponse->json());
+        // dd($ttResponse->json()['results']);
+        // dd($ttResponse->json()['summary']['numResults']);
+        if ($ttResponse->json()['summary']['numResults'] == 0) {
+            return redirect()->route('host.apartments.show')->withErrors(['msg' => 'Indirizzo non valido o incompleto']);
+        }
+        $lat = $ttResponse->json()['results'][0]['position']['lat'];
+        $lng = $ttResponse->json()['results'][0]['position']['lon'];
+        // dd('lat:' . $lat, 'lng:' . $lng);
+        // -----------------------------
+
         $newApartment = new Apartment;
+        // passo lat e lon ricavate da tomtom
+        $newApartment->lat = $lat;
+        $newApartment->lng = $lng;
+
         $newApartment->fill($data);
         $newApartment->user_id = Auth::user()->id;
         $newApartment->slug = $this->createSlug($data['title']);
+        // cover img
+        $newApartment->cover_img = Storage::put('apartment/apartment_cover', $data['cover_img']);
+        //
         $newApartment->save();
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
-        
+
 
         return redirect()->route('host.apartments.show', $newApartment->slug);
     }
@@ -104,7 +130,7 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($slug)
-    {   
+    {
         $apartment = Apartment::where('slug', $slug)->first();
         //dd($apartment->user_id);
         if ($apartment->user_id != Auth::id()) {
@@ -114,24 +140,24 @@ class ApartmentController extends Controller
                 $active_sponsor = $apartment->sponsors()->first();
                 $sponsor_starting_date = $active_sponsor->pivot->starting_date;
                 $sponsor_expire_date = $active_sponsor->pivot->expire_date;
-            }  else {
+            } else {
                 $active_sponsor = '';
                 $sponsor_starting_date = '';
                 $sponsor_expire_date = '';
             }
-            
+
             $services = $apartment->services()->get();
             $rules = $apartment->rules()->get();
             $messages = $apartment->messages()->get();
             $images = $apartment->images()->get(); //probabilmente fare un paginate
-            
+
             $user_id = Auth::id();
             $host = User::where('id', $user_id)->first();
-            
+
             //dd($apartment->title);
             //dd($apartment_details['active_sponsor']->name);
             //dd($apartment_details['messages'][0]->name);
-            
+
             return view('host.apartments.show', [
                 'active_sponsor' => $active_sponsor,
                 'sponsor_starting_date' => $sponsor_starting_date,
@@ -185,7 +211,32 @@ class ApartmentController extends Controller
             $apartment->slug = $this->createSlug($data['title']);
         }
 
-        $apartment->update($data);
+        // TomTom query . From address to -> lat lon 
+        $ttResponse = Http::get('https://api.tomtom.com/search/2/geocode/.json', [
+            'query' => $data['address'],
+            'key' => 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj',
+        ]);
+        // dd($ttResponse->json());
+        // dd($ttResponse->json()['results']);
+        // dd($ttResponse->json()['summary']['numResults']);
+        if ($ttResponse->json()['summary']['numResults'] == 0) {
+            return redirect()->route('host.apartments.show')->withErrors(['msg' => 'Indirizzo non valido o incompleto']);
+        }
+        $lat = $ttResponse->json()['results'][0]['position']['lat'];
+        $lng = $ttResponse->json()['results'][0]['position']['lon'];
+        // dd('lat:' . $lat, 'lng:' . $lng);
+        // -----------------------------
+
+
+        $apartment->fill($data);
+        // passo lat e lon ricavate da tomtom
+        $apartment->lat = $lat;
+        $apartment->lng = $lng;
+
+        // cover img
+        $apartment->cover_img = Storage::put('apartment/apartment_cover', $data['cover_img']);
+        //
+        $apartment->save();
         $apartment->rules()->sync($data['rules']);
         $apartment->services()->sync($data['services']);
 

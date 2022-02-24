@@ -20,7 +20,7 @@ Route::get('/', function () {
  
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search', 'HomeController@index')->name('home');
 
 Route::middleware('auth')
     ->namespace('Host') //riaggiungere middleware('auth') 
@@ -30,3 +30,5 @@ Route::middleware('auth')
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('apartments', 'ApartmentController');
 });
+
+Route::post('/contacts', 'ContactController@store');

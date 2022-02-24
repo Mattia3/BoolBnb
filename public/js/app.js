@@ -40188,7 +40188,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#root'
 });
 
 /***/ }),
@@ -40362,11 +40362,11 @@ __webpack_require__.r(__webpack_exports__);
 // prendo lat e lng da hidden p in show
 
 var mylat = document.getElementById("lat").innerHTML; // document.getElementById("lat").innerHTML = mylat.replace(/<[^>]*>/g, "");
+// console.log(mylat);
 
-console.log(mylat);
 var mylng = document.getElementById("lng").innerHTML; // document.getElementById("lng").innerHTML = mylng.replace(/<[^>]*>/g, "");
+// console.log(mylng);
 
-console.log(mylng);
 var APIKEY = 'cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj';
 var point = {
   lat: mylat,
@@ -40395,28 +40395,25 @@ map.addControl(nav);
 map.addControl(ttPanControls, 'top-left'); // -------------
 // marker ---- basta addTo() per aggiungerlo a alla mappa
 
-var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(point).addTo(map); // marker da finire
-// function createMarker(position, color, popupText)
-// {
-//     var markerElement = document.createElement('div');
-//     markerElement.className = 'marker';
-//     var markerContentElement = document.createElement('div');
-//     markerContentElement.className = 'marker-content';
-//     markerContentElement.style.backgroundColor = color;
-//     markerElement.appendChild(markerContentElement);
-//     var iconElement = document.createElement('div');
-//     iconElement.className = 'marker-icon';
-//     iconElement.style.backgroundImage =
-//         'url("storage/host/host-2.jpg")';
-//     markerContentElement.appendChild(iconElement);
-//     var popup = new tt.Popup({ offset: 30 }).setText(popupText);
-//     // add marker to map;
-//     new tt.Marker({ element: markerElement, anchor: 'bottom' })
-//         .setLngLat(position)
-//         .setPopup(popup)
-//         .addTo(map);
-// }
-// createMarker(chicago, '#5327c3', 'SVG icon');
+var customMarker = document.createElement('div');
+customMarker.className = 'marker';
+var marker = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
+  element: customMarker
+}).setLngLat(point).addTo(map); // popup offset
+
+var popupOffsets = {
+  top: [0, 0],
+  bottom: [0, -70],
+  'bottom-right': [0, -70],
+  'bottom-left': [0, -70],
+  left: [25, -35],
+  right: [-25, -35]
+}; // popup ---- basta marker.setPopup(popup)
+
+var popup = new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Popup({
+  offset: popupOffsets
+}).setHTML("<strong>".concat(mylat, "</strong> <br> <strong>").concat(mylng, "</strong> "));
+marker.setPopup(popup); // setDomContent
 // function flyTo->new point
 
 /*
@@ -40438,7 +40435,7 @@ var moveMap = function (lgnlat)
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/dist/cjs.js):\nSassError: expected \"{\".\n   ╷\n30 │ >>>>>>> 11f772aee538cf71632408e24549df66c4f65900\r\n   │                                                 ^\n   ╵\n  resources\\sass\\partials\\_navbar.scss 30:49  @import\n  D:\\Boolean\\BoolBnb\\resources\\sass\\app.scss 30:9                                  root stylesheet\n    at D:\\Boolean\\BoolBnb\\node_modules\\webpack\\lib\\NormalModule.js:316:20\n    at D:\\Boolean\\BoolBnb\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at D:\\Boolean\\BoolBnb\\node_modules\\loader-runner\\lib\\LoaderRunner.js:233:18\n    at context.callback (D:\\Boolean\\BoolBnb\\node_modules\\loader-runner\\lib\\LoaderRunner.js:111:13)\n    at D:\\Boolean\\BoolBnb\\node_modules\\sass-loader\\dist\\index.js:73:7\n    at Function.call$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:99012:16)\n    at render_closure1.call$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:84527:12)\n    at _RootZone.runBinary$3$3 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:29558:18)\n    at _FutureListener.handleError$1 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28080:21)\n    at _Future__propagateToListeners_handleError.call$0 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28387:49)\n    at Object._Future__propagateToListeners (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3901:77)\n    at _Future._completeError$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28233:9)\n    at _AsyncAwaitCompleter.completeError$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:27881:12)\n    at Object._asyncRethrow (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3704:17)\n    at D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:19778:20\n    at _wrapJsFunctionForAsync_closure.$protected (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3729:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:27900:12)\n    at _awaitOnObject_closure0.call$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:27894:25)\n    at _RootZone.runBinary$3$3 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:29558:18)\n    at _FutureListener.handleError$1 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28080:21)\n    at _Future__propagateToListeners_handleError.call$0 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28387:49)\n    at Object._Future__propagateToListeners (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3901:77)\n    at _Future._completeError$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28233:9)\n    at _AsyncAwaitCompleter.completeError$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:27881:12)\n    at Object._asyncRethrow (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3704:17)\n    at D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:15279:20\n    at _wrapJsFunctionForAsync_closure.$protected (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3729:15)\n    at _wrapJsFunctionForAsync_closure.call$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:27900:12)\n    at _awaitOnObject_closure0.call$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:27894:25)\n    at _RootZone.runBinary$3$3 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:29558:18)\n    at _FutureListener.handleError$1 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28080:21)\n    at _Future__propagateToListeners_handleError.call$0 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28387:49)\n    at Object._Future__propagateToListeners (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3901:77)\n    at _Future._completeError$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:28233:9)\n    at _AsyncAwaitCompleter.completeError$2 (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:27881:12)\n    at Object._asyncRethrow (D:\\Boolean\\BoolBnb\\node_modules\\sass\\sass.dart.js:3704:17)");
 
 /***/ }),
 

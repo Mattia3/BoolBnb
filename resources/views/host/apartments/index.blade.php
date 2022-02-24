@@ -15,25 +15,23 @@
     <div class="col mb-4">
       <div class="card">
         <div class="position-relative">
-          
-          <img src="{{ asset( $apartment->cover_img ) }}" class="card-img-top" alt="{{ $apartment->title }} ">
-        
+
+          <img src="{{ asset('storage/' . $apartment->cover_img) }}" class="card-img-top" alt="{{ $apartment->title }} ">
+
           <div class="number-card-price">
             <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
-            <strong>{{ $apartment->price }}</strong> 
+            <strong>{{ $apartment->price }}</strong>
           </div>
         </div>
         <div class="card-body">
-           <a href="{{route('host.apartments.show', $apartment->slug)}}" class="card-title"><strong> {{ $apartment->title }} </strong> </a> 
-          <p class="card-text">{{ $apartment->description }}</p> 
+          <a href="{{route('host.apartments.show', $apartment->slug)}}" class="card-title"><strong> {{ $apartment->title }} </strong> </a>
+          <p class="card-text">{{ $apartment->description }}</p>
         </div>
       </div>
-    </div> 
-    @endforeach 
+    </div>
+    @endforeach
   </div>
 </div>
 
 
 @endsection
-
-
