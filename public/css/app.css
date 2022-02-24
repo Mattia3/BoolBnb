@@ -24941,23 +24941,18 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 
 .bg-hero {
   background-size: cover;
-  background-position-y: center;
-  height: 250px;
+  background-position: center;
+  height: 300px;
 }
 
-.img-profile {
-  display: inline-block;
-  height: 100px;
-  width: 100px;
-  padding: 0;
-}
-
-.img-profile img {
-  width: 100%;
-  height: 100%;
+img.img-profile {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 50%;
+  padding-top: calc(var(--bs-gutter-x) * 0.5);
+  padding-bottom: calc(var(--bs-gutter-x) * 0.5);
 }
 
 .navbar-link li {
@@ -24965,14 +24960,47 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 }
 
 .navbar-link a {
-  background-color: #9b7daf;
+  background-color: #6CA3BA;
   border-radius: 21px;
   padding: 8px 15px;
   color: white;
 }
 
-.mt-50 {
-  margin-top: -40px;
+.btn-hamburger {
+  background-color: #6CA3BA;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 12px 11px 16px;
+  margin: 0;
+  text-align: center;
+  border: none;
+}
+
+.dropdown-item {
+  padding: 9px 20px;
+  color: #6CA3BA;
+}
+
+.dropdown-item:hover {
+  color: #6CA3BA;
+  background-color: #f5f5f5;
+}
+
+.dropdown-item:active {
+  color: #6CA3BA;
+  background-color: white;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0;
+  vertical-align: none;
+  content: "";
+  border: none;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
 }
 
 .bg-index {
@@ -24989,6 +25017,40 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
 
 .bg-edit {
   background-image: url("/images/hero.jpg");
+}
+
+._d-none-sm {
+  display: none;
+}
+
+._d-none-hamburger {
+  display: block;
+}
+
+@media screen and (max-width: 575px) {
+  ._p-nav {
+    padding-top: 80px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  ._d-none-sm {
+    display: block;
+  }
+
+  ._d-none-hamburger {
+    display: none;
+  }
+
+  ._p-nav {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  ._p-nav {
+    padding-top: 75px;
+  }
 }
 
 ul {
@@ -25016,7 +25078,8 @@ h4,
 h5,
 .h5,
 h6,
-.h6 {
+.h6,
+p {
   margin: 0;
 }
 
@@ -25025,17 +25088,20 @@ body {
 }
 
 .container-footer {
-  background-color: lightgrey;
+  background-color: #f7f7f7;
 }
 
 .container-footer ul {
-  list-style: none;
   color: black;
 }
 
-.container-footer ul a {
-  text-decoration: none;
+.container-footer ul li {
+  padding-bottom: 10px;
+}
+
+.container-footer ul li a {
   color: black;
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 768px) {
@@ -25049,11 +25115,24 @@ body {
 }
 
 .container-social {
-  background-color: black;
+  background-color: #333333;
 }
 
 .container-social p {
   color: white;
+  font-size: 14px;
+}
+
+.container-social a {
+  color: white;
+}
+
+.container-social a i {
+  font-size: 19px;
+}
+
+.container-social a i:hover {
+  color: #6CA3BA;
 }
 
 @media only screen and (min-width: 768px) {
@@ -25300,6 +25379,63 @@ main {
 
 .create-edit textarea:focus-visible {
   outline: none;
+}
+
+.create-edit .container-radio {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  padding-right: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.create-edit .container-radio input {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.create-edit .checkmark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 16px;
+  width: 16px;
+  border: 1px solid rgba(108, 163, 186, 0.5);
+  border-radius: 50%;
+}
+
+.create-edit .container-radio:hover input ~ .checkmark {
+  background-color: #e7e7e7;
+}
+
+.create-edit .container-radio input:checked ~ .checkmark {
+  background-color: #6CA3BA;
+  border: none;
+}
+
+.create-edit .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.create-edit .container-radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.create-edit .container-radio .checkmark:after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: white;
 }
 
 .create-edit .form-check-input:checked {
@@ -26054,6 +26190,195 @@ main {
   height: 26px;
   width: auto;
   display: block;
+}
+
+.messages-container {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.messages-container .box-messages {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 13px;
+  display: flex;
+  height: 100px;
+}
+
+.messages-container .box-messages img.img-profile-messages {
+  width: 100px;
+  height: 100px;
+  border-radius: 13px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.messages-container .box-messages .box-text {
+  padding: 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.messages-container .box-messages .box-text .title-apartment {
+  color: #6CA3BA;
+  display: inline-block;
+  font-size: 19px;
+}
+
+.messages-container .box-messages .box-text .number-messages {
+  color: #ADADAD;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.messages-container .box-messages .box-text i {
+  color: #6CA3BA;
+  display: inline-block;
+  font-size: 21px;
+  float: right;
+}
+
+.messages-container .accordion-box {
+  border: 1px solid #6CA3BA;
+  border-radius: 13px;
+  padding: 20px;
+}
+
+.messages-container .accordion-box .accordion-messages {
+  background-color: #6CA3BA;
+  border-radius: 7px;
+  padding: 15px 15px;
+}
+
+.messages-container .accordion-box .accordion-messages .title-user {
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+}
+
+.messages-container .accordion-box .accordion-messages .title-user h5,
+.messages-container .accordion-box .accordion-messages .title-user .h5 {
+  color: white;
+  font-size: 15px;
+  padding-right: 20px;
+  display: inline-block;
+}
+
+.messages-container .accordion-box .accordion-messages .title-user h5 i,
+.messages-container .accordion-box .accordion-messages .title-user .h5 i {
+  padding-right: 8px;
+}
+
+.messages-container .accordion-box .accordion-messages .text-messages {
+  color: white;
+  font-size: 16px;
+  padding-top: 15px;
+}
+
+.number-card-vote {
+  position: absolute;
+  top: 9px;
+  left: 7px;
+  background-color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.icons-star-2 {
+  color: #ffa700;
+  font-size: 13px;
+  padding: 0 2px;
+}
+
+.number-card-price {
+  position: absolute;
+  top: 9px;
+  left: 10px;
+  background-color: white;
+  border-radius: 10em/10em;
+  width: 68px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+.my-container .price-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 135px;
+  background-color: #0bab64;
+  flex-direction: column;
+  border-radius: 0px 20px;
+  position: relative;
+}
+
+.my-container .price-card .price {
+  font-size: 40px;
+  color: white;
+}
+
+.my-container .price-card .price-day {
+  position: absolute;
+  right: 83px;
+  color: white;
+  font-style: oblique;
+  font-size: small;
+}
+
+.my-container .price-card .icon-euro {
+  position: absolute;
+  left: 106px;
+  top: 38px;
+  font-size: 11px;
+  color: wheat;
+}
+
+.my-container .service-sponsor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 96px 0;
+}
+
+.my-container .btn-sponsor button {
+  width: 172px;
+  border-radius: 19px;
+  background-color: #0bab64;
+  border: none;
+  height: 37px;
+  color: white;
+}
+
+.my-container .my-card {
+  z-index: 1;
+  position: relative;
+  width: 300px;
+  height: 500px;
+  background-color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  -moz-transition: all 0.7s ease-in-out;
+  border-radius: 20px;
+}
+
+.my-container .my-card:hover {
+  scale: 1.1;
+  z-index: 99;
 }
 
 .bg-home {
