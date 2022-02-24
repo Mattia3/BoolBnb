@@ -23514,17 +23514,20 @@ body {
 }
 
 .container-footer {
-  background-color: lightgrey;
+  background-color: #f7f7f7;
 }
 
 .container-footer ul {
-  list-style: none;
   color: black;
 }
 
-.container-footer ul a {
-  text-decoration: none;
+.container-footer ul li {
+  padding-bottom: 10px;
+}
+
+.container-footer ul li a {
   color: black;
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 768px) {
@@ -23538,11 +23541,24 @@ body {
 }
 
 .container-social {
-  background-color: black;
+  background-color: #333333;
 }
 
 .container-social p {
   color: white;
+  font-size: 14px;
+}
+
+.container-social a {
+  color: white;
+}
+
+.container-social a i {
+  font-size: 19px;
+}
+
+.container-social a i:hover {
+  color: #6CA3BA;
 }
 
 @media only screen and (min-width: 768px) {
