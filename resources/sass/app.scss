@@ -24,6 +24,7 @@
 // TomTom
 @import "@tomtom-international/web-sdk-maps";
 @import "@tomtom-international/web-sdk-plugin-pancontrols";
+@import "@tomtom-international/web-sdk-plugin-searchbox";
 /* @import "@tomtom-international/web-sdk-plugin-zoomcontrols"; */
 
 // Host
@@ -44,5 +45,11 @@
 @import "partials/apartament-show";
 
 @import "partials/login";
+
+@import "partials/messages";
+
+@import "partials/index";
+
+@import "partials/sponsor";
 
 @import "partials/home-guests";

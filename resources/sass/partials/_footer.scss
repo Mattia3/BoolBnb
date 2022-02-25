@@ -1,13 +1,14 @@
 .container-footer {
-    background-color: lightgrey;
+    background-color: #f7f7f7;
 
     ul {
-        list-style: none;
         color: black;
-
-        a {
-            text-decoration: none;
-            color: black;
+        li {
+            padding-bottom: 10px;
+            a {
+                color: black;
+                font-weight: 300;
+            }
         }
     }
 
@@ -23,12 +24,26 @@
     }
 }
 
+
 .container-social {
-    background-color: black;
+    background-color: #333333;
 
     p {
         color: white;
+        font-size: 14px;
     }
+
+    a {
+        color: white;
+        i {
+            font-size: 19px;
+            &:hover {
+                color: #6CA3BA;
+            }
+        }
+    }
+
+
     @media only screen and (min-width: 768px) {
         .text-right {
             text-align: right;

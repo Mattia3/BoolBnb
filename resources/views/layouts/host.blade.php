@@ -11,11 +11,15 @@
 
   <!-- Scripts -->
   <script src="{{ asset('js/app.js') }}" defer></script>
+  <script src="{{ asset('js/tomtom.js') }}" defer></script>
 
   <!-- Styles -->
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   {{-- <link type="text/css" rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
-  
+
+  <!--Braintree-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.braintreegateway.com/web/dropin/1.8.1/js/dropin.min.js"></script>
   
   <title> @yield('page_title') </title>
 </head>

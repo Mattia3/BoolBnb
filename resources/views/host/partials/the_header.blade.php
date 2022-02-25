@@ -22,35 +22,61 @@
                 @csrf
               </form>
             </li>
+
+            <li><a class="dropdown-item text-center" href="{{ route('host.dashboard') }}">
+                {{ __('Area privata') }}
+              </a>
+            </li>
           </ul>
         </div>
       </h5>
     </ul>
   </div>
-</div>
 
 
-<div class="container">
-  <div class="row mt-50 align-items-center">
 
-    {{-- Image Profile --}}
-    {{-- <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12"> --}}
-    <div class="img-profile">
-      {{-- <div class="img-profile"></div> --}}
-      <img src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="profile">
+  <div class="container _p-nav">
+    <div class="row align-items-center">
+  
+      {{-- Image Profile --}}
+      <img class="img-profile" src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="profile">
+  
+  
+      {{-- Link --}}
+      <div class="col-lg-10 col-sm-9 _d-none-sm">
+        <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
+        <ul class="d-flex flex-wrap navbar-link">
+          <li><a href="{{route('host.dashboard')}}">Profilo utente</a></li>
+          <li><a href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
+          <li><a href="{{route('host.messages')}}">Messaggi</a></li>
+          <li><a href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
+          <li><a href="">Statistiche</a></li>
+        </ul>
+      </div>
+
+
+      {{-- Hamburger --}}
+      <div class="col-6 _d-none-hamburger"> 
+        <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
+
+        <div class="dropdown">
+          <button class="btn-hamburger dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bars text-white"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li><a class="dropdown-item" href="{{route('host.dashboard')}}">Profilo utente</a></li>
+            <li><a class="dropdown-item" href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
+            <li><a class="dropdown-item" href="{{route('host.messages')}}">Messaggi</a></li>
+            <li><hr class="m-1"></li>
+            <li><a class="dropdown-item" href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
+            <li><a class="dropdown-item" href="">Statistiche</a></li>
+          </ul>
+        </div>
+      </div>
+
     </div>
-
-    {{-- Link --}}
-    <div class="col-lg-10 col-md-8 col-sm-7 col-xs-12">
-      <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
-      <ul class="d-flex flex-wrap navbar-link">
-        <li><a href="{{route('host.dashboard')}}">Profilo utente</a></li>
-        <li><a href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
-        <li><a href="">Messaggi</a></li>
-        <li><a href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
-        <li><a href="">Statistiche</a></li>
-      </ul>
-    </div>
-
   </div>
+
 </div>
+
+

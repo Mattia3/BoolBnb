@@ -45,7 +45,13 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::id())->get();
-        return view('host.apartments.index', compact('apartments'));
+
+        $apartmentsOn = $apartments->where('visible', 1);
+        $apartmentsOff = $apartments->where('visible', 0);
+        return view('host.apartments.index', [
+            'apartmentsOn' => $apartmentsOn,
+            'apartmentsOff' => $apartmentsOff
+        ]);
     }
 
     /**
@@ -84,7 +90,7 @@ class ApartmentController extends Controller
             'n_baths' => 'numeric|min:1',
             'cover_img' => 'file|required',
             'description' => 'string|required|min:15|max:2000',
-            'visible' => 'boolean|required',
+            // 'visible' => 'boolean|required',
             'place_description' => 'string|required|min:15|max:2000'
         ]);
 

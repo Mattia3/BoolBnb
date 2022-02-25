@@ -74,12 +74,12 @@
         margin-top: 29px;
     }
 
-    .container-price {
+    /* .container-price {
         position: absolute;
         bottom: 0;
         right: 0;
         padding-right: 10px;
-    }
+    } */
 }
 
 .btn-dropdown {
@@ -109,4 +109,9 @@
 
 .dropdown-hover:hover .dropdown-open:checked {
     display: block;
+}
+
+
+.btn-dropdown:after {
+    content: "" !important;
 }
