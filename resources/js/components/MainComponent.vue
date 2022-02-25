@@ -2,28 +2,16 @@
   <div>
     <div class="row">
       <!-- Filtri -->
-      <div class="col-4 my-5">
+      <div class="col-4 mb-5">
         <div class="container">
-          <div class="d-flex justify-content-center">
-            <div class="input-group mb-3 w-50 text-center">
-              <input
-                type="text"
-                class="form-control"
-                :value="place"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-              />
-              <button class="btn btn-primary" type="button" id="button-addon2">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
+          <div>
+            <div class="bar_search" id="ttSearch"></div>
           </div>
 
           <form action="">
             <div class="dropdown my-4">
               <h3 class="title-service">Servizi</h3>
 
-              <!-- MATTIA -->
               <label for="dropdown-1" class="btn btn-dropdown btn-primary"
                 ><b>Filter</b></label
               >
@@ -184,6 +172,9 @@ import PanControls from "@tomtom-international/web-sdk-plugin-pancontrols";
 //import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 /////////////////////////
 import CardComponent from "./CardComponent.vue";
+/////
+import { services } from "@tomtom-international/web-sdk-services";
+import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 
 export default {
   name: "MainComponent",
@@ -250,7 +241,11 @@ export default {
     filter() {
       if (this.filtersArray.length === 0) {
         this.apartments.forEach((apartment) => {
-          if (apartment.n_rooms >= this.roomsCounter && apartment.n_beds >= this.bedsCounter && apartment.n_baths >= this.bathsCounter) {
+          if (
+            apartment.n_rooms >= this.roomsCounter &&
+            apartment.n_beds >= this.bedsCounter &&
+            apartment.n_baths >= this.bathsCounter
+          ) {
             //console.log('dentro if');
             return this.apartments;
           }
@@ -271,14 +266,14 @@ export default {
         let ilat = "";
         let ilng = "";
         this.inCircleRange.forEach(function (coords) {
-            if (!apartmentAddress) {
-                ilng = coords[0];
-                ilat = coords[1];
-    
-                if ( ilng == tlng &&  ilat == tlat) {
-                    apartmentAddress = true;
-                }
+          if (!apartmentAddress) {
+            ilng = coords[0];
+            ilat = coords[1];
+
+            if (ilng == tlng && ilat == tlat) {
+              apartmentAddress = true;
             }
+          }
         });
         // console.log(ilat);
         //console.log('tdupla: ' + typeof(tdupla) , 'dupla di inCircleRange: ' + typeof(this.inCircleRange[0]));
@@ -290,10 +285,12 @@ export default {
         });
         // console.log(tlat, tlng);
         /**** compare array's of services ID and array's filters from guest ****/
-        if (this.filtersArray.every((elem) => servicesID.includes(elem)) && apartment.n_rooms >= this.roomsCounter && apartment.n_beds >= this.bedsCounter && apartment.n_baths >= this.bathsCounter
-          && apartmentAddress
-          // ilng == tlng &&
-          // ilat == tlat
+        if (
+          this.filtersArray.every((elem) => servicesID.includes(elem)) &&
+          apartment.n_rooms >= this.roomsCounter &&
+          apartment.n_beds >= this.bedsCounter &&
+          apartment.n_baths >= this.bathsCounter &&
+          apartmentAddress
         ) {
           if (!this.apartmentsFiltered.some((apFil) => apFil == apartment)) {
             this.apartmentsFiltered.push(apartment);
@@ -361,7 +358,9 @@ export default {
 
       // Aggiungo marker per ogni appartamento
       this.inCircleRange.forEach(function (dupla) {
-        new tt.Marker().setLngLat(dupla).addTo(map);
+        var customMarker = document.createElement("div");
+        customMarker.className = "marker";
+        new tt.Marker({ element: customMarker }).setLngLat(dupla).addTo(map);
       });
 
       // var marker = new tt.Marker().setLngLat(this.point).addTo(map);
@@ -405,19 +404,41 @@ export default {
       });
     },
     // ---------------------------
+    searchBar() {
+      let searchbox = document.getElementById("ttSearch");
+      var APIKEY = "cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj";
+      var options = {
+        searchOptions: {
+          key: APIKEY,
+          language: "it-IT",
+          limit: 5,
+        },
+        autocompleteOptions: {
+          key: APIKEY,
+          language: "it-IT",
+        },
+        placeholder: "Dove vuoi andare?",
+      };
+
+      var ttSearchBox = new SearchBox(services, options);
+      var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+      searchbox.append(searchBoxHTML);
+      ttSearchBox.on("tomtom.searchbox.resultselected", function (event) {
+        // console.log(event.data.result);
+        const results = event.data.result.position;
+
+        sessionStorage.setItem("location", JSON.stringify(results));
+        window.location.href = "/search";
+      });
+    },
   },
 
   mounted() {
-    /* this.apartments.forEach(apartment => {
-            if (apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
-                this.apartmentsFiltered.push(apartment);
-                
-            }
-        }); */
-
     // get location from home-search
     this.searchPoint = JSON.parse(sessionStorage.getItem("location"));
     // console.log(this.searchPoint.lat, this.searchPoint.lng);
+
+    this.searchBar();
 
     this.initializeMap();
   },
