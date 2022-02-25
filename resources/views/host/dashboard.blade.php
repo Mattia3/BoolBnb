@@ -67,7 +67,7 @@
               <img src="/images/map_apartments" class="card-img-top" alt="...">
     
               <div class="number-card-price">
-                <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
+                <i class="fa-solid fa-euro-sign"></i>
                 <strong>00,00€</strong> 
               </div>
             </div>
@@ -84,7 +84,7 @@
               <img src="/images/map_apartments" class="card-img-top" alt="...">
     
               <div class="number-card-price">
-                <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
+                <i class="fa-solid fa-euro-sign"></i>
                 <strong>00,00€</strong> 
               </div>
             </div>
@@ -101,7 +101,7 @@
               <img src="/images/map_apartments" class="card-img-top" alt="...">
     
               <div class="number-card-price">
-                <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
+                <i class="fa-solid fa-euro-sign"></i>
                 <strong>00,00€</strong> 
               </div>
             </div>
@@ -118,7 +118,7 @@
               <img src="/images/map_apartments" class="card-img-top" alt="...">
     
               <div class="number-card-price">
-                <i class="fa-solid fa-dollar-sign icons-star-2 "></i>
+                <i class="fa-solid fa-euro-sign"></i>
                 <strong>00,00€</strong> 
               </div>
             </div>
