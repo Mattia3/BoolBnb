@@ -84,7 +84,7 @@ class ApartmentController extends Controller
             'n_baths' => 'numeric|min:1',
             'cover_img' => 'file|required',
             'description' => 'string|required|min:15|max:2000',
-            'visible' => 'boolean|required',
+            // 'visible' => 'boolean|required',
             'place_description' => 'string|required|min:15|max:2000'
         ]);
 

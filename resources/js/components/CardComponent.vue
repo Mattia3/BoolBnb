@@ -5,7 +5,7 @@
         </div>
 
         <div class="col-6 position-relative">
-            <h5 class="my-2">{{apartment.title}}</h5>
+            <h5 class="my-2"><a :href="'/' + apartment.slug">{{apartment.title}}</a></h5>
             <div class="my-border"></div>
             <span class="text-muted m-0" v-for="(service, i) in apartment.services" :key="i">{{service.name.replace('_', ' ')}}<span v-if="i !== apartment.services.length - 1">, </span> </span>
 

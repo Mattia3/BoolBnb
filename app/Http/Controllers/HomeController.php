@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Apartment;
 use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,6 +34,23 @@ class HomeController extends Controller
             'services' => $services,
             'apartments' => $apartments,
             'place' => $place
+        ]);
+    }
+
+    public function show($slug){
+
+        //dd($slug);
+        $apartment = Apartment::where('slug', $slug)->first();
+        $services = $apartment->services()->get();
+        $rules = $apartment->rules()->get();
+        $host = User::where('id', $apartment->user_id)->first();
+        
+        //dd($apartment);
+        return view('guest.show', [
+            'apartment' => $apartment,
+            'services' => $services,
+            'rules' => $rules,
+            'host' => $host
         ]);
     }
 }
