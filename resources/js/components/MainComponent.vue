@@ -356,7 +356,9 @@ export default {
 
       // Aggiungo marker per ogni appartamento
       this.inCircleRange.forEach(function (dupla) {
-        new tt.Marker().setLngLat(dupla).addTo(map);
+        var customMarker = document.createElement("div");
+        customMarker.className = "marker";
+        new tt.Marker({ element: customMarker }).setLngLat(dupla).addTo(map);
       });
 
       // var marker = new tt.Marker().setLngLat(this.point).addTo(map);

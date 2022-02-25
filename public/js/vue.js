@@ -507,7 +507,11 @@ __webpack_require__.r(__webpack_exports__);
       // Aggiungo marker per ogni appartamento
 
       this.inCircleRange.forEach(function (dupla) {
-        new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker().setLngLat(dupla).addTo(map);
+        var customMarker = document.createElement("div");
+        customMarker.className = "marker";
+        new _tomtom_international_web_sdk_maps__WEBPACK_IMPORTED_MODULE_0___default.a.Marker({
+          element: customMarker
+        }).setLngLat(dupla).addTo(map);
       }); // var marker = new tt.Marker().setLngLat(this.point).addTo(map);
     },
     // TurfJS
@@ -1805,11 +1809,13 @@ var render = function () {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-4 my-5" }, [
         _c("div", { staticClass: "container" }, [
+          _vm._m(0),
+          _vm._v(" "),
           _c("form", { attrs: { action: "" } }, [
             _c("div", { staticClass: "dropdown my-4" }, [
               _c("h3", { staticClass: "title-service" }, [_vm._v("Servizi")]),
               _vm._v(" "),
-              _vm._m(0),
+              _vm._m(1),
               _vm._v(" "),
               _c("input", {
                 staticClass: "dropdown-open",
@@ -1896,7 +1902,7 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "row mb-3 align-items-center" }, [
-                _vm._m(1),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-8" }, [
                   _c("div", { staticClass: "wrap d-flex" }, [
@@ -1941,7 +1947,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row mb-3 align-items-center" }, [
-                _vm._m(2),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-8" }, [
                   _c("div", { staticClass: "wrap d-flex" }, [
@@ -1986,7 +1992,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row mb-3 align-items-center" }, [
-                _vm._m(3),
+                _vm._m(4),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-8" }, [
                   _c("div", { staticClass: "wrap d-flex" }, [
@@ -2082,11 +2088,19 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(4),
+      _vm._m(5),
     ]),
   ])
 }
 var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "d-flex justify-content-center" }, [
+      _c("div", { staticClass: "bar_search", attrs: { id: "ttSearch" } }),
+    ])
+  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
