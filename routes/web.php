@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('host/apartments/sponsor');
+    return view('welcome');
 });
  
 Auth::routes();
@@ -29,6 +29,10 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('dashboard');
         Route::resource('apartments', 'ApartmentController');
+        
+        Route::get('/apartments/{apartment}/sponsor', 'SponsorController@index')->name('apartments.sponsor');
+        Route::post('/payment/process/{apartment}', 'SponsorController@process')->name('payment.process');
+
 });
 
 Route::post('/contacts', 'ContactController@store');

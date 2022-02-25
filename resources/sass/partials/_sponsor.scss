@@ -1,10 +1,12 @@
+$color-green : #6CA3BA;
+
 .my-container {
     .price-card {
         display: flex;
         align-items: center;
         justify-content: center;
         height: 135px;
-        background-color: #0bab64;
+        background-color: $color-green;
         flex-direction: column;
         border-radius: 0px 20px;
         position: relative;
@@ -36,16 +38,8 @@
         flex-direction: column;
         align-items: center;
         margin: 96px 0;
-    }
-
-    .btn-sponsor {
-        button {
-            width: 172px;
-            border-radius: 19px;
-            background-color: #0bab64;
-            border: none;
-            height: 37px;
-            color: white;
+        i {
+            color: $color-green;
         }
     }
 
@@ -62,5 +56,76 @@
             scale: 1.1;
             z-index: 99;
         }
+
+        .btn-sponsor {
+            button {
+                width: 172px;
+                border-radius: 19px;
+                background-color: $color-green;
+                border: none;
+                height: 37px;
+                color: white;
+            }
+        }
+
+        // INPUT RADIO
+        .container-radio {
+            display: inline-block;
+            position: relative;
+            // padding-left: 30px;
+            // padding-right: 20px;
+            cursor: pointer;
+        }
+        
+        .container-radio input {
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 0;
+            padding: 10px 20px;
+            background-color: $color-green;
+            color: white;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: 1s;
+        }
+        
+        .container-radio:hover input ~ .checkmark {
+            background-color: #56889d;
+        }
+        
+        .container-radio input:checked ~ .checkmark {
+            background-color: #56889d;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        
+        // .checkmark:after {
+        //     content: "";
+        //     position: absolute;
+        //     display: none;
+        // }
+        
+        // .container-radio input:checked ~ .checkmark:after {
+        //     display: block;
+        // }
+        
+        // .container-radio .checkmark:after {
+        //     top: 50%;
+        //     left: 50%;
+        //     transform: translate(-50%, -50%);
+        //     width: 7px;
+        //     height: 7px;
+        //     border-radius: 50%;
+        //     background: white;
+        // }
+        
     }
 }
