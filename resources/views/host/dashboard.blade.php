@@ -32,13 +32,13 @@
             <div class="row row-cols-1 row-cols-md-3 row-cols-sm-3 g-3 pb-5">
                 <div class="col">
                     <a class="box_number text-center">
-                        <p class="number mb-0">00</p>
+                        <p class="number mb-0">{{ count($apartments) }}</p>
                         <p class="text">Annunci</p>
                     </a>
                 </div>
                 <div class="col">
                     <a class="box_number text-center">
-                        <p class="number mb-0">00</p>
+                        <p class="number mb-0"> {{ $messages }}</p>
                         <p class="text">Messaggi</p>
                     </a>
                 </div>

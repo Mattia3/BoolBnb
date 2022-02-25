@@ -13,7 +13,12 @@ class HomeController extends Controller
     function index(){
         $apartments = Apartment::where('user_id', Auth::user()->id)->get();
         $host = Auth::user();
-        $messages = Message::all();
+        
+        $messages = null;
+        foreach ($apartments as $key => $apartment) {
+            $msg = $apartment->messages()->get();
+            $messages += count($msg);
+        }
 
         return view('host.dashboard', [
             'apartments' => $apartments,
