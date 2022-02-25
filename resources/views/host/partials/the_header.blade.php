@@ -39,7 +39,7 @@
     <div class="row align-items-center">
   
       {{-- Image Profile --}}
-      <img class="img-profile" src="{{ asset('storage/host/host-2.jpg') }}" alt="profile">
+      <img class="img-profile" src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="profile">
   
   
       {{-- Link --}}
@@ -48,7 +48,7 @@
         <ul class="d-flex flex-wrap navbar-link">
           <li><a href="{{route('host.dashboard')}}">Profilo utente</a></li>
           <li><a href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
-          <li><a href="">Messaggi</a></li>
+          <li><a href="{{route('host.messages')}}">Messaggi</a></li>
           <li><a href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
           <li><a href="">Statistiche</a></li>
         </ul>
@@ -66,7 +66,7 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <li><a class="dropdown-item" href="{{route('host.dashboard')}}">Profilo utente</a></li>
             <li><a class="dropdown-item" href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
-            <li><a class="dropdown-item" href="">Messaggi</a></li>
+            <li><a class="dropdown-item" href="{{route('host.messages')}}">Messaggi</a></li>
             <li><hr class="m-1"></li>
             <li><a class="dropdown-item" href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
             <li><a class="dropdown-item" href="">Statistiche</a></li>
