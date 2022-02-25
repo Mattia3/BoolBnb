@@ -2,9 +2,9 @@
   <div>
     <div class="row">
       <!-- Filtri -->
-      <div class="col-4 my-5">
+      <div class="col-4 mb-5">
         <div class="container">
-          <div class="d-flex justify-content-center">
+          <div>
             <div class="bar_search" id="ttSearch"></div>
           </div>
 
@@ -173,6 +173,8 @@ import PanControls from "@tomtom-international/web-sdk-plugin-pancontrols";
 /////////////////////////
 import CardComponent from "./CardComponent.vue";
 /////
+import { services } from "@tomtom-international/web-sdk-services";
+import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 
 export default {
   name: "MainComponent",
@@ -402,12 +404,41 @@ export default {
       });
     },
     // ---------------------------
+    searchBar() {
+      let searchbox = document.getElementById("ttSearch");
+      var APIKEY = "cYIXTXUp7yVKyDMAcyRlG3xxdxXtmotj";
+      var options = {
+        searchOptions: {
+          key: APIKEY,
+          language: "it-IT",
+          limit: 5,
+        },
+        autocompleteOptions: {
+          key: APIKEY,
+          language: "it-IT",
+        },
+        placeholder: "Dove vuoi andare?",
+      };
+
+      var ttSearchBox = new SearchBox(services, options);
+      var searchBoxHTML = ttSearchBox.getSearchBoxHTML();
+      searchbox.append(searchBoxHTML);
+      ttSearchBox.on("tomtom.searchbox.resultselected", function (event) {
+        // console.log(event.data.result);
+        const results = event.data.result.position;
+
+        sessionStorage.setItem("location", JSON.stringify(results));
+        window.location.href = "/search";
+      });
+    },
   },
 
   mounted() {
     // get location from home-search
     this.searchPoint = JSON.parse(sessionStorage.getItem("location"));
     // console.log(this.searchPoint.lat, this.searchPoint.lng);
+
+    this.searchBar();
 
     this.initializeMap();
   },
