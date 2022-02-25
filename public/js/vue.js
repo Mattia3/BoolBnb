@@ -327,24 +327,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 // SDK
  //import { services } from "@tomtom-international/web-sdk-services";
 
  //import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 /////////////////////////
 
+ /////
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "MainComponent",
@@ -565,12 +554,6 @@ __webpack_require__.r(__webpack_exports__);
 
   },
   mounted: function mounted() {
-    /* this.apartments.forEach(apartment => {
-            if (apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
-                this.apartmentsFiltered.push(apartment);
-                
-            }
-        }); */
     // get location from home-search
     this.searchPoint = JSON.parse(sessionStorage.getItem("location")); // console.log(this.searchPoint.lat, this.searchPoint.lng);
 
@@ -1820,27 +1803,11 @@ var render = function () {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-4 my-5" }, [
         _c("div", { staticClass: "container" }, [
-          _c("div", { staticClass: "d-flex justify-content-center" }, [
-            _c("div", { staticClass: "input-group mb-3 w-50 text-center" }, [
-              _c("input", {
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  "aria-label": "Recipient's username",
-                  "aria-describedby": "button-addon2",
-                },
-                domProps: { value: _vm.place },
-              }),
-              _vm._v(" "),
-              _vm._m(0),
-            ]),
-          ]),
-          _vm._v(" "),
           _c("form", { attrs: { action: "" } }, [
             _c("div", { staticClass: "dropdown my-4" }, [
               _c("h3", { staticClass: "title-service" }, [_vm._v("Servizi")]),
               _vm._v(" "),
-              _vm._m(1),
+              _vm._m(0),
               _vm._v(" "),
               _c("input", {
                 staticClass: "dropdown-open",
@@ -1927,7 +1894,7 @@ var render = function () {
             },
             [
               _c("div", { staticClass: "row mb-3 align-items-center" }, [
-                _vm._m(2),
+                _vm._m(1),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-8" }, [
                   _c("div", { staticClass: "wrap d-flex" }, [
@@ -1972,7 +1939,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row mb-3 align-items-center" }, [
-                _vm._m(3),
+                _vm._m(2),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-8" }, [
                   _c("div", { staticClass: "wrap d-flex" }, [
@@ -2017,7 +1984,7 @@ var render = function () {
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "row mb-3 align-items-center" }, [
-                _vm._m(4),
+                _vm._m(3),
                 _vm._v(" "),
                 _c("div", { staticClass: "col-8" }, [
                   _c("div", { staticClass: "wrap d-flex" }, [
@@ -2113,24 +2080,11 @@ var render = function () {
         ),
       ]),
       _vm._v(" "),
-      _vm._m(5),
+      _vm._m(4),
     ]),
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      {
-        staticClass: "btn btn-primary",
-        attrs: { type: "button", id: "button-addon2" },
-      },
-      [_c("i", { staticClass: "fa-solid fa-magnifying-glass" })]
-    )
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement

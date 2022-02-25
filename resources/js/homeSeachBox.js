@@ -28,4 +28,4 @@ ttSearchBox.on('tomtom.searchbox.resultselected', function (event)
     const results = event.data.result.position;
     sessionStorage.setItem('location', JSON.stringify(results));
     window.location.href = '/search';
-});;
+});

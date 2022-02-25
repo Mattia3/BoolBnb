@@ -5,25 +5,13 @@
       <div class="col-4 my-5">
         <div class="container">
           <div class="d-flex justify-content-center">
-            <div class="input-group mb-3 w-50 text-center">
-              <input
-                type="text"
-                class="form-control"
-                :value="place"
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-              />
-              <button class="btn btn-primary" type="button" id="button-addon2">
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </button>
-            </div>
+            <div class="bar_search" id="ttSearch"></div>
           </div>
 
           <form action="">
             <div class="dropdown my-4">
               <h3 class="title-service">Servizi</h3>
 
-              <!-- MATTIA -->
               <label for="dropdown-1" class="btn btn-dropdown btn-primary"
                 ><b>Filter</b></label
               >
@@ -184,6 +172,7 @@ import PanControls from "@tomtom-international/web-sdk-plugin-pancontrols";
 //import SearchBox from "@tomtom-international/web-sdk-plugin-searchbox";
 /////////////////////////
 import CardComponent from "./CardComponent.vue";
+/////
 
 export default {
   name: "MainComponent",
@@ -414,13 +403,6 @@ export default {
   },
 
   mounted() {
-    /* this.apartments.forEach(apartment => {
-            if (apartment.address.toLowerCase().includes(this.place.toLowerCase())) {
-                this.apartmentsFiltered.push(apartment);
-                
-            }
-        }); */
-
     // get location from home-search
     this.searchPoint = JSON.parse(sessionStorage.getItem("location"));
     // console.log(this.searchPoint.lat, this.searchPoint.lng);

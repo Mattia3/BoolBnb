@@ -67,15 +67,3 @@ var popup = new tt.Popup({ offset: popupOffsets })
 marker.setPopup(popup);
 
 // setDomContent
-
-
-// function flyTo->new point
-/*
-var moveMap = function (lgnlat)
-{
-    map.flyTo({
-        center: lgnlat,
-        zoom: 18
-    });
-};
-*/
