@@ -26306,10 +26306,9 @@ main {
   display: flex;
 }
 
-.icons-star-2 {
-  color: #ffa700;
-  font-size: 13px;
-  padding: 0 2px;
+.number-card-price i {
+  color: #000;
+  padding-right: 5px;
 }
 
 .number-card-price {
@@ -26318,11 +26317,30 @@ main {
   left: 10px;
   background-color: white;
   border-radius: 10em/10em;
-  width: 68px;
   height: 35px;
   align-items: center;
   justify-content: center;
   display: flex;
+  padding: 10px;
+}
+
+.card {
+  transition: transform 0.5s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card-title {
+  margin-bottom: 0.5rem;
+  font-size: 20px;
+  line-height: 1em;
+  color: #9b7daf;
+}
+
+.card-title:hover {
+  color: #8151a2;
 }
 
 body {
