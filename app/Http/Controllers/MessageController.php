@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Apartment;
 use App\Message;
+use App\User;
 use Illuminate\Http\Request;
 
 class MessageController extends Controller
@@ -14,6 +15,8 @@ class MessageController extends Controller
         $rules = $apartment->rules()->get();
         $data = $request->all();
 
+        $host = User::where('id', $apartment->user_id)->first();
+        
         $message = new Message();
         $message->fill($data);
         $message->apartment_id = $apartment->id;
@@ -22,7 +25,8 @@ class MessageController extends Controller
         return view('guest.show', [
             'apartment' => $apartment,
             'services' => $services,
-            'rules' => $rules
+            'rules' => $rules,
+            'host' => $host
         ])->with(['status' => 'Messaggio inviato correttamente']);
     }
 }

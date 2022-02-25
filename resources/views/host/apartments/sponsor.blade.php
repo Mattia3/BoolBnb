@@ -1,14 +1,14 @@
-@extends('layouts.host')
+{{-- @extends('layouts.host')
 @section("page_title", "Sponsor")
 @section('hero') bg-index @endsection
-@section('content')
+@section('content') --}}
 
-@php
+{{-- @php
 use App\Sponsor;
 $sponsors = Sponsor::all();    
-@endphp
+@endphp --}}
     
-  <div class="container my-container py-5">
+  {{-- <div class="container my-container py-5">
     <div class="mb-5">
       <h2>METTI IN EVIDENZA LA TUA STRUTTURA</h2>
     </div>
@@ -39,7 +39,7 @@ $sponsors = Sponsor::all();
        
        
       @endforeach
-        
+         --}}
 
       {{-- <div class="p-0 mx-3 my-card my-2">
 
@@ -86,7 +86,7 @@ $sponsors = Sponsor::all();
         </div>
 
       </div> --}}
-    </div>
+    {{-- </div>
     
     
     <div class="container my-5">
@@ -112,9 +112,9 @@ $sponsors = Sponsor::all();
    </div>
    <script>
      document.addEventListener('DOMContentLoaded', function(){
-      var button = document.querySelector('#submit-button');
+      var button = document.querySelector('#submit-button'); --}}
  
-     braintree.dropin.create({
+     {{-- braintree.dropin.create({
        authorization: "{{ \Braintree\ClientToken::generate() }}",
        container: '#dropin-container'
      }, function (createErr, instance) {
@@ -140,4 +140,4 @@ $sponsors = Sponsor::all();
    </script>
   </div>
 
-@endsection
+@endsection --}}
