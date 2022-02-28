@@ -8,6 +8,9 @@
             a {
                 color: black;
                 font-weight: 300;
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -38,7 +41,7 @@
         i {
             font-size: 19px;
             &:hover {
-                color: #6CA3BA;
+                color: $color-b2;
             }
         }
     }

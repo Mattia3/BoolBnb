@@ -1,8 +1,6 @@
-$color-green : #6CA3BA;
-
 .messages-container {
-  padding-top: 40px;
-  padding-bottom: 50px;
+  padding: 60px 0 70px;
+
 
   .box-messages {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -25,12 +23,12 @@ $color-green : #6CA3BA;
       justify-content: space-around;
 
       .title-apartment {
-        color: $color-green;
+        color: $color-b1;
         display: inline-block;
         font-size: 19px;
       }
       .number-messages {
-        color: #ADADAD;
+        color: $color-b2;
         display: inline-block;
         font-size: 14px;
       }
@@ -43,7 +41,7 @@ $color-green : #6CA3BA;
       //   float: right;
       // }
       i {
-        color: $color-green;
+        color: $color-g2;
         display: inline-block;
         font-size: 21px;
         float: right;
@@ -55,12 +53,12 @@ $color-green : #6CA3BA;
 
 
   .accordion-box {
-    border: 1px solid $color-green;
+    border: 1px solid rgba($color: $color-b2, $alpha: 0.5);
     border-radius: 13px;
     padding: 20px;
 
     .accordion-messages {
-      background-color: $color-green;
+      background: $color-gradient;
       border-radius: 7px;
       padding: 15px 15px;
 

@@ -1,6 +1,7 @@
 @extends('layouts.host')
 @section("page_title", "Sponsor")
 @section('hero') bg-index @endsection
+
 @section('content')
 
 @php
@@ -111,7 +112,7 @@ $sponsors = Sponsor::all();
      
 
      // Check
-     
+
    </script>
   </div>
 

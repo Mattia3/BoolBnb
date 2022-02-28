@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('host.apartments.messages');
 });
  
 Auth::routes();
@@ -32,6 +32,7 @@ Route::middleware('auth')
         
         Route::get('/apartments/{apartment}/sponsor', 'SponsorController@index')->name('apartments.sponsor');
         Route::post('/payment/process/{apartment}', 'SponsorController@process')->name('payment.process');
+        // Route::post('braintree/webhook', '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook');
 
 });
 
