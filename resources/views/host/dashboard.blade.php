@@ -60,74 +60,29 @@
         </div>
     </div>
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+      @if(count($highlitedApartments) != 0)
+        @foreach ($highlitedApartments as $apartment)
         <div class="col mb-4">
           <div class="card">
             <div class="position-relative">
     
-              <img src="/images/map_apartments" class="card-img-top" alt="...">
+              <img src="{{ asset('storage/' . $apartment->cover_img) }}" class="card-img-top" alt="{{ $apartment->title }} ">
     
               <div class="number-card-price">
                 <i class="fa-solid fa-euro-sign"></i>
-                <strong>00,00€</strong> 
+                <strong>{{ $apartment->price }}</strong>
               </div>
             </div>
             <div class="card-body">
-              <h5 class="card-title"><strong> Titolo Appartamento </strong> </h5>
-              <p class="card-text">Descrizione</p>
+              <a href="{{route('host.apartments.show', $apartment->slug)}}" class="card-title"><strong> {{ Str::limit($apartment->title, 35) }} </strong> </a>
+              <p class="card-text">{{ Str::limit($apartment->description, 200) }}</p>
             </div>
           </div>
         </div>
-        <div class="col mb-4">
-          <div class="card">
-            <div class="position-relative">
-    
-              <img src="/images/map_apartments" class="card-img-top" alt="...">
-    
-              <div class="number-card-price">
-                <i class="fa-solid fa-euro-sign"></i>
-                <strong>00,00€</strong> 
-              </div>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><strong> Titolo Appartamento </strong> </h5>
-              <p class="card-text">Descrizione</p>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <div class="position-relative">
-    
-              <img src="/images/map_apartments" class="card-img-top" alt="...">
-    
-              <div class="number-card-price">
-                <i class="fa-solid fa-euro-sign"></i>
-                <strong>00,00€</strong> 
-              </div>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><strong> Titolo Appartamento </strong> </h5>
-              <p class="card-text">Descrizione</p>
-            </div>
-          </div>
-        </div>
-        <div class="col mb-4">
-          <div class="card">
-            <div class="position-relative">
-    
-              <img src="/images/map_apartments" class="card-img-top" alt="...">
-    
-              <div class="number-card-price">
-                <i class="fa-solid fa-euro-sign"></i>
-                <strong>00,00€</strong> 
-              </div>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><strong> Titolo Appartamento </strong> </h5>
-              <p class="card-text">Descrizione</p>
-            </div>
-          </div>
-        </div>
+        @endforeach
+      @else
+        <span>Non hai appartamenti sponsorizzati...</span>
+      @endif
     </div>
 </div>
 

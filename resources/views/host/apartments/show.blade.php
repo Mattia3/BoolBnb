@@ -51,8 +51,11 @@
                 </div>
 
                 <div class="d-flex space_negative gap-3 pb-3">
-                    <img class="w-100" src="{{ asset('storage/' . $images[0]->img_path) }}">
-                    <img class="w-100" src="{{ asset('storage/' . $images[1]->img_path) }}">
+                    @foreach($images as $image)
+                        <img class="w-100" src="{{ asset('storage/' . $image->img_path) }}">
+                    @endforeach
+                    {{-- <img class="w-100" src="{{ asset('storage/' . $images[0]->img_path) }}">
+                    <img class="w-100" src="{{ asset('storage/' . $images[1]->img_path) }}"> --}}
                 </div>
 
                 <div class="arrow">

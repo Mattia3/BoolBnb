@@ -30,7 +30,7 @@ class SponsorController extends Controller
   public function process(Request $request, $slug)
   {
     $payload = $request->payload;
-    $nonce = $payload['nonce'];
+    //$nonce = $payload['nonce'];
 
 
     // $payload = $request->input('payload', true);
@@ -77,8 +77,8 @@ class SponsorController extends Controller
     $status = \Braintree\Transaction::sale([
       'amount' => $sponsor->price,
       // 'paymentMethodNonce' => 'fake-luhn-invalid-nonce',
-      // 'paymentMethodNonce' => 'fake-valid-nonce',
-      'paymentMethodNonce' => $nonce,
+      'paymentMethodNonce' => 'fake-valid-nonce',
+      //'paymentMethodNonce' => $nonce,
       'options' => [
         'submitForSettlement' => True
     ]]);
@@ -130,7 +130,7 @@ class SponsorController extends Controller
     // }
     
 
-    // return redirect()->route('host.apartments.index');
-    return response()->json($status);
+    return redirect()->route('host.apartments.index');
+    //return response()->json($status);
   }
 }
