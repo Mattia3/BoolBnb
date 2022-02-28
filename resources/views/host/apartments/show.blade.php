@@ -10,7 +10,10 @@
 
     <div class="container">
 
+        <h5></h5>
+
         <div class="d-flex justify-content-end ms-auto pt-3" style="gap:5px;">
+            <a href="{{ route('host.apartments.sponsor', $apartment->slug)}}" class="btn btn-primary2"><i class="fa-solid fa-star"></i></a>
             <a href="{{ route('host.apartments.edit', $apartment->slug)}}" class="btn btn-primary2"> <i class="fa-solid fa-pencil"></i> </a>
             <form action="{{ route('host.apartments.destroy', $apartment->slug) }}" method="post">
                 @csrf
@@ -48,8 +51,11 @@
                 </div>
 
                 <div class="d-flex space_negative gap-3 pb-3">
-                    <img class="w-100" src="/images/image_appartment_gallery.jpg">
-                    <img class="w-100" src="/images/image_appartment_gallery.jpg">
+                    @foreach($images as $image)
+                        <img class="w-100" src="{{ asset('storage/' . $image->img_path) }}">
+                    @endforeach
+                    {{-- <img class="w-100" src="{{ asset('storage/' . $images[0]->img_path) }}">
+                    <img class="w-100" src="{{ asset('storage/' . $images[1]->img_path) }}"> --}}
                 </div>
 
                 <div class="arrow">

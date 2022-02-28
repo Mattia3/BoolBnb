@@ -29,6 +29,9 @@ Route::middleware('auth')
 ->group(function () {
     Route::get('/', 'HomeController@index')->name('dashboard');
     Route::resource('apartments', 'ApartmentController');
+    Route::get('messages', 'MessageController@index')->name('messages');
+    Route::get('/apartments/{apartment}/sponsor', 'SponsorController@index')->name('apartments.sponsor');
+    Route::post('/payment/process/{apartment}', 'SponsorController@process')->name('payment.process');
 });
 
 

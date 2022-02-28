@@ -5,7 +5,7 @@
 
 
 @section('content')
-<section class="create-edit container pt-5">
+<section class="create-edit container">
 
   @if($errors->any())
   <div class="alert alert-danger">
@@ -24,7 +24,7 @@
     {{-- Box 1 --}}
     <h2 class="title-form">Appartamento</h2>
     <div class="row box-form">
-      <div class="col-md-8 col-sm-12">
+      <div class="col-xl-8 col-lg-7 col-md-6 col-sm-12">
         {{-- Title --}}
         <div class="box-input">
           <label for="field_title" class="title-label">Titolo appartamento</label>
@@ -58,15 +58,27 @@
         </div>
       </div>
       {{-- Img --}}
-      <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
+      <div class="col-xl-4 col-lg-5 col-md-6 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
         <div class="form-file">
-          <div>
+          <input class="image-path" type="file" accept="image/*" name="cover_img" id="field_cover_img" value="{{ old('cover_img') }}" required>
+          <div class="title-preview">
             <i class="fa-solid fa-file-image"></i>
-            <h4 class="title-label p-0">Immagine</h4>
+            <h4 class="title-label p-0 lh-base">Seleziona Immagine</h4>
           </div>
-          <input type="file" name="cover_img" id="field_cover_img" value="{{ old('cover_img') }}" required>
         </div>
       </div>
+
+      @for($i = 0; $i < 3; $i++)
+        <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
+          <div class="form-file">
+            <div>
+              <i class="fa-solid fa-file-image"></i>
+              <h4 class="title-label p-0">Immagine {{$i+1}}</h4>
+            </div>
+            <input type="file" name="images[]" id="field_images" value="{{ old('cover_img') }}" required>
+          </div>
+        </div>
+      @endfor
     </div>
 
 
@@ -113,7 +125,6 @@
           <input class="btn-counter-4 btn-counter-style" type="button" value="+">
         </div>
       </div>
-
     </div>
 
 
@@ -162,33 +173,70 @@
           @endforeach
         </div>
         {{-- Languages --}}
-        {{-- <h4 class="title-label">Lingue</h4> --}}
-        {{-- <div>
+        {{-- <h4 class="title-label">Lingue</h4>
+        <div>
           @foreach($languages as $language)
           <div class="d-inline-block pb-2">
             <input class="form-check-input p-0" name="languages[]" type="checkbox" value="{{$language->id}}" id="{{$language->name}}-{{$language->id}}">
-        <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
+            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
+          </div>
+          @endforeach
+        </div> --}}
       </div>
-      @endforeach
-    </div> --}}
-    </div>
     </div>
 
 
     {{-- Buttons Crea/Reset--}}
-    <div class="btn-create-edit">
-      <button class="btn btn-reset" type="reset">Reset</button>
-      <button class="btn btn-create ms-3" type="submit">Pubblica</button>
-    </div>
+    <button class="btn btn-reset" type="reset">Reset</button>
+    <button class="btn btn-1 ms-3" type="submit">Pubblica</button>
 
   </form>
 </section>
 
-<script>
-  function visit() {
 
+
+<script>
+  // Function Preview Image //
+  const inputImg = document.querySelector('.image-path');
+  const titlePreview = document.querySelector('.title-preview');
+  const formImage = document.querySelector('.form-file');
+
+  inputImg.addEventListener('change', updateImage);
+
+  function updateImage() {
+    // Reset
+    while(titlePreview.firstChild) {
+      titlePreview.removeChild(titlePreview.firstChild);
+    }
+    // info file
+    const curFiles = inputImg.files;
+    // se il file non è caricato mostra text
+    if(curFiles.length === 0) {
+      const icon = document.createElement('i');
+      const text = document.createElement('h4');
+
+      icon.classList.add('fa-solid', 'fa-file-image');
+      text.textContent = 'Seleziona Immagine';
+      text.classList.add('title-label', 'p-0', 'lh-base');
+      titlePreview.appendChild(icon);
+      titlePreview.appendChild(text);
+      formImage.classList.remove('p-0');
+      // Se il file è caricato mostra img
+    } else {
+      // Ciclo info del file caricato
+      for(const file of curFiles) {
+        const image = document.createElement('img');
+        image.src = URL.createObjectURL(file);
+        image.classList.add('style-image-preview');
+        titlePreview.appendChild(image);
+        formImage.classList.add('p-0');
+      }
+    }
   }
 
+
+
+  // Function Button Increment //
   var btnCounterOne = document.querySelectorAll('.btn-counter-1');
   var totalItemOne = document.querySelector('.total-item-1');
 

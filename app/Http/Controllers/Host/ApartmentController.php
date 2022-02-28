@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Apartment;
+use App\Image;
 use App\Language;
 use App\Rule;
 use App\Service;
@@ -45,7 +46,13 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::id())->get();
-        return view('host.apartments.index', compact('apartments'));
+
+        $apartmentsOn = $apartments->where('visible', 1);
+        $apartmentsOff = $apartments->where('visible', 0);
+        return view('host.apartments.index', [
+            'apartmentsOn' => $apartmentsOn,
+            'apartmentsOff' => $apartmentsOff
+        ]);
     }
 
     /**
@@ -74,6 +81,7 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        
         $request->validate([
             'title' => 'string|min:5|max:60|required|unique:apartments',
             'address' => 'string|required',
@@ -119,6 +127,13 @@ class ApartmentController extends Controller
         $newApartment->rules()->sync($data['rules']);
         $newApartment->services()->sync($data['services']);
 
+        $images = $request->images;
+        foreach ($images as $image) {
+            $newImage = new Image;
+            $newImage->img_path = Storage::put('apartment/apartment_img', $image);
+            $newImage->apartment_id = $newApartment->id;
+            $newImage->save();
+        }
 
         return redirect()->route('host.apartments.show', $newApartment->slug);
     }
@@ -239,6 +254,16 @@ class ApartmentController extends Controller
         $apartment->save();
         $apartment->rules()->sync($data['rules']);
         $apartment->services()->sync($data['services']);
+
+        $oldImages = $apartment->images()->get();
+        //dd($request->images);
+        $images = $request->images;
+        foreach ($oldImages as $key => $oldImage) {
+            $image = $images[$key];
+            $oldImage->img_path = Storage::put('apartment/apartment_img', $image);
+            $oldImage->apartment_id = $apartment->id;
+            $oldImage->save();
+        }
 
         return redirect()->route('host.apartments.show', $apartment->slug);
     }
