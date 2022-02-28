@@ -14,15 +14,21 @@ class HomeController extends Controller
         $apartments = Apartment::where('user_id', Auth::user()->id)->get();
         $host = Auth::user();
         
-        $messages = null;
+        $nMessages = null;
         foreach ($apartments as $key => $apartment) {
             $msg = $apartment->messages()->get();
-            $messages += count($msg);
+            $nMessages += count($msg);
+
+            $messages[$key] = $apartment->messages()->get();
+
         }
+        
+        //dd($messages);
 
         return view('host.dashboard', [
             'apartments' => $apartments,
             'host' => $host,
+            'nMessages' => $nMessages,
             'messages' => $messages
         ]); //da cambiare con 'host.index' in cui ci sarà la home della dashboard --> sarà quindi anche da togliere $apartments perchè non sarà più necessario passarli alla view!!!!
     }

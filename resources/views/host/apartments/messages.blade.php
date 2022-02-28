@@ -40,6 +40,7 @@
                     <div class="title-user">
                       <h5><i class="fa-solid fa-user"></i>{{$message->name}} {{$message->last_name}}</h5>
                       <h5><i class="fa-solid fa-envelope"></i></i>{{$message->email}}</h5>
+                      <h5>{{$message->created_at}}</h5>
                     </div>
                     <p class="text-messages">{{$message->body_email}}</p>
                   </div>
