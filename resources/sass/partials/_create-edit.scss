@@ -1,23 +1,20 @@
-$color-green : #6CA3BA;
-
 .create-edit {
-  padding-bottom: 50px;
-
+  padding: $p-page;
 
   .title-form {
-    color: $color-green;
+    color: $color-b1;
     padding-bottom: 35px;
   }
 
   .title-label {
-    color: $color-green;
+    color: $color-b2;
     padding-bottom: 12px;
     font-size: 17px;
     letter-spacing: 1px;
   }
   
   .box-form {
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: $shadow-1;
     border-radius: 20px;
     padding: 35px 40px;
     margin-bottom: 55px;
@@ -28,7 +25,7 @@ $color-green : #6CA3BA;
   }
 
   input {
-    border-color: rgb(108 163 186 / 41%);
+    border-color: rgba($color: $color-b2, $alpha: 0.5);
     border-radius: 10px;
     padding: 10px 15px;
     color: #1b1b1b;
@@ -44,7 +41,7 @@ $color-green : #6CA3BA;
   textarea {
     display: block;
     width: 100%;
-    border-color: rgb(108 163 186 / 41%);
+    border-color: rgba($color: $color-b2, $alpha: 0.5);
     border-radius: 10px;
     padding: 10px 15px;
     color: #1b1b1b;
@@ -78,7 +75,7 @@ $color-green : #6CA3BA;
     left: 0;
     height: 16px;
     width: 16px;
-    border: 1px solid rgb(108 163 186 / 50%);
+    border: 1px solid rgba($color: $color-b2, $alpha: 0.5);
     border-radius: 50%;
   }
 
@@ -87,7 +84,7 @@ $color-green : #6CA3BA;
   }
 
   .container-radio input:checked ~ .checkmark {
-    background-color: $color-green;
+    background-color: $color-b2;
     border: none;
   }
 
@@ -113,40 +110,42 @@ $color-green : #6CA3BA;
   
 
 
-
-
-
   .form-check-input {
     &:checked {
-      background-color: $color-green;
-      border-color: $color-green;
+      background-color: $color-b2;
+      border-color: $color-b2;
     }
     &:focus {
-      box-shadow: 0 0 0 0.25rem rgb(108 163 186 / 41%);
+      border-color: transparent;
+      box-shadow: 0 0 0 0.25rem rgba($color: $color-b2, $alpha: 0.5);
     }
   }
 
   .form-file {
     position: relative;
     display: inline-block;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    box-shadow: $shadow-1;
     border-radius: 20px;
     padding: 55px 40px;
     text-align: center;
-    width: 70%;
-    height: 85%;
+    // width: 70%;
+    // height: 85%;
     transition: 1.2s;
     &:hover {
       transform: scale(1.04);
     }
 
-    div {
+    .title-preview {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%); display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
       i {
-        color: $color-green;
+        color: $color-g2;
         font-size: 40px;
         padding-bottom: 8px;
 
@@ -164,26 +163,33 @@ $color-green : #6CA3BA;
       width: 100%;
       height: 100%;
     }
+
+    .style-image-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
   }
 
-  .create-edit .form-check-input:checked {
-    background-color: $color-green;
-    border-color: $color-green;
-  }
+
 
 
   .btn-counter-style {
     background-color: white;
-    border: 1px solid rgb(108 163 186 / 41%);
+    border: 1px solid rgba($color: $color-b2, $alpha: 0.5);
     border-radius: 50%;
-    color: $color-green;
+    color: $color-b1;
     padding: 5px 13px;
     font-size: 16px;
     font-weight: bold;
   }
   .total-item-style {
     background-color: transparent;
-    color: $color-green;
+    color: $color-b1;
     // color: #717171;
     border: none;
     width: 60px;
@@ -194,43 +200,21 @@ $color-green : #6CA3BA;
     }
   }
 
-  
-  .btn-create-edit {
-    .btn {
-      color: white;
-      padding: 8px 20px;
-      &:focus {
-        box-shadow: rgb(108 163 186 / 41%);;
-      }
-    }
-    .btn-reset {
-      color: $color-green;
-      text-decoration: underline;
-      box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
-    }
-    .btn-create {
-      background-color: $color-green;
-      transition: 1s;
-      &:hover {
-        background-color: #6091a5
-      }
-      &:focus-visible {outline: none;}
-      &:focus{box-shadow: none;}
-    }
-  }
 
 }
 
 // sm //
-@media screen and (min-width: 576px){
+@media screen and (min-width: 100px){
   .form-file {
     width: 80%;
+    height: 200px;
   }
 }
 // md //
 @media screen and (min-width: 768px){
   .form-file {
-    width: 100%;
+    width: 85%;
+    height: 85%;
   }
 }
 // lg //

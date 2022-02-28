@@ -17,3 +17,22 @@ h1, h2, h3, h4, h5, h6, p {
 body {
   font-family: $font-text;
 }
+
+
+// Btn //
+.btn {
+  color: white;
+  padding: 8px 20px;
+}
+.btn-1 {
+  @include btn-gradient-transition; 
+  &:focus-visible {outline: none;}
+  &:focus{box-shadow: none;}
+}
+.btn-reset {
+  color: $color-b1;
+  text-decoration: underline;
+  box-shadow: $shadow-2;
+  &:focus {box-shadow: $shadow-2;}
+  &:hover {color: $color-b1;}
+}
