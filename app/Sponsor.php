@@ -14,6 +14,6 @@ class Sponsor extends Model
 
   public function apartments()
   {
-    return $this->belongsToMany('App\Apartment', 'apartment_sponsor');
+    return $this->belongsToMany('App\Apartment', 'apartment_sponsor')->withPivot('starting_date', 'expire_date');
   }
 }

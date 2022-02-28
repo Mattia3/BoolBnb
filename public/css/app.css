@@ -26358,7 +26358,7 @@ main {
   align-items: center;
   justify-content: center;
   height: 135px;
-  background-color: #0bab64;
+  background-color: #6CA3BA;
   flex-direction: column;
   border-radius: 0px 20px;
   position: relative;
@@ -26392,13 +26392,8 @@ main {
   margin: 96px 0;
 }
 
-.my-container .btn-sponsor button {
-  width: 172px;
-  border-radius: 19px;
-  background-color: #0bab64;
-  border: none;
-  height: 37px;
-  color: white;
+.my-container .service-sponsor i {
+  color: #6CA3BA;
 }
 
 .my-container .my-card {
@@ -26415,6 +26410,51 @@ main {
 .my-container .my-card:hover {
   scale: 1.1;
   z-index: 99;
+}
+
+.my-container .my-card .btn-sponsor button {
+  width: 172px;
+  border-radius: 19px;
+  background-color: #6CA3BA;
+  border: none;
+  height: 37px;
+  color: white;
+}
+
+.my-container .my-card .container-radio {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.my-container .my-card .container-radio input {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.my-container .my-card .checkmark {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 0;
+  padding: 10px 20px;
+  background-color: #6CA3BA;
+  color: white;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 1s;
+}
+
+.my-container .my-card .container-radio:hover input ~ .checkmark {
+  background-color: #56889d;
+}
+
+.my-container .my-card .container-radio input:checked ~ .checkmark {
+  background-color: #56889d;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .bg-home {
