@@ -654,7 +654,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n#filterMap {\r\n  height: 500px;\r\n  width: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n#filterMap {\r\n  height: 1087px;\r\n  width: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -1862,8 +1862,8 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-4 mb-5" }, [
+    _c("div", { staticClass: "row m-0" }, [
+      _c("div", { staticClass: "col-4" }, [
         _c("div", { staticClass: "container" }, [
           _vm._m(0),
           _vm._v(" "),
@@ -2206,7 +2206,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-8" }, [
+    return _c("div", { staticClass: "col-8 p-0" }, [
       _c("div", { attrs: { id: "filterMap" } }),
     ])
   },

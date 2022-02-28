@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="row">
+    <div class="row m-0">
       <!-- Filtri -->
-      <div class="col-4 mb-5">
+      <div class="col-4">
         <div class="container">
           <div>
             <div class="bar_search" id="ttSearch"></div>
@@ -157,7 +157,7 @@
       </div>
 
       <!-- Mappa -->
-      <div class="col-8">
+      <div class="col-8 p-0">
         <div id="filterMap"></div>
       </div>
     </div>
@@ -447,7 +447,7 @@ export default {
 
 <style>
 #filterMap {
-  height: 500px;
+  height: 1087px;
   width: 100%;
 }
 </style>
