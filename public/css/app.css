@@ -26353,23 +26353,46 @@ main {
   flex: 1;
 }
 
-.my-container .price-card {
+.my-container {
+  padding: 70px 0;
+}
+
+.my-container h2,
+.my-container .h2 {
+  color: #A0BAB7;
+}
+
+.my-container .my-card {
+  z-index: 1;
+  position: relative;
+  width: 300px;
+  background-color: white;
+  box-shadow: rgba(191, 124, 79, 0.2) 0px 7px 29px 0px;
+  -moz-transition: all 0.7s ease-in-out;
+  border-radius: 20px;
+}
+
+.my-container .my-card:hover {
+  z-index: 99;
+}
+
+.my-container .my-card .price-card {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 135px;
-  background-color: #6CA3BA;
+  background-image: linear-gradient(0deg, #b8d0d0 0%, #a0bab7 100%);
   flex-direction: column;
   border-radius: 0px 20px;
   position: relative;
 }
 
-.my-container .price-card .price {
+.my-container .my-card .price-card .price {
   font-size: 40px;
   color: white;
 }
 
-.my-container .price-card .price-day {
+.my-container .my-card .price-card .price-day {
   position: absolute;
   right: 83px;
   color: white;
@@ -26377,48 +26400,27 @@ main {
   font-size: small;
 }
 
-.my-container .price-card .icon-euro {
+.my-container .my-card .price-card .icon-euro {
   position: absolute;
   left: 106px;
   top: 38px;
   font-size: 11px;
-  color: wheat;
+  color: white;
 }
 
-.my-container .service-sponsor {
+.my-container .my-card .service-sponsor {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 96px 0;
+  padding: 70px 0;
 }
 
-.my-container .service-sponsor i {
-  color: #6CA3BA;
+.my-container .my-card .service-sponsor i {
+  color: #7A9A83;
 }
 
-.my-container .my-card {
-  z-index: 1;
-  position: relative;
-  width: 300px;
-  height: 500px;
-  background-color: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
-  -moz-transition: all 0.7s ease-in-out;
-  border-radius: 20px;
-}
-
-.my-container .my-card:hover {
-  scale: 1.1;
-  z-index: 99;
-}
-
-.my-container .my-card .btn-sponsor button {
-  width: 172px;
-  border-radius: 19px;
-  background-color: #6CA3BA;
-  border: none;
-  height: 37px;
-  color: white;
+.my-container .my-card .btn-sponsor {
+  padding-bottom: 60px;
 }
 
 .my-container .my-card .container-radio {
@@ -26440,21 +26442,24 @@ main {
   transform: translate(-50%, -50%);
   left: 0;
   padding: 10px 20px;
-  background-color: #6CA3BA;
+  background-color: linear-gradient(0deg, #b8d0d0 0%, #a0bab7 100%);
   color: white;
   border-radius: 15px;
   font-size: 16px;
   font-weight: 600;
-  transition: 1s;
-}
-
-.my-container .my-card .container-radio:hover input ~ .checkmark {
-  background-color: #56889d;
+  transition: 0.5s;
 }
 
 .my-container .my-card .container-radio input:checked ~ .checkmark {
-  background-color: #56889d;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.my-container .my-card .container-radio input:checked ~ .my-card {
+  box-shadow: #a0bab7 0px 7px 29px 0px;
+}
+
+.my-container .my-card .shadow-check {
+  box-shadow: #a0bab7 0px 7px 29px 0px;
 }
 
 .bg-home {
