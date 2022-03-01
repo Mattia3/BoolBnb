@@ -56,7 +56,7 @@
 <div class="container">
     <div class="row pb-5">
         <div class="col">
-            <h2>I miei appartamenti</h2>
+            <h2>Appartamenti Sponsorizzati</h2>
         </div>
     </div>
     <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2">

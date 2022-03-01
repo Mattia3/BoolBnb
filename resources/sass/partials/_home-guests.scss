@@ -8,7 +8,7 @@
 .bar_search{
     input{
         flex: 1;
-        background-color: rgba(0, 0, 0, 0.4);
+        /* background-color: rgba(0, 0, 0, 0.4); */
         border-color: transparent;
         border-radius: 10px;
         color: #fff;
@@ -200,7 +200,7 @@
             }
             @media screen and (max-width: 768px) {
                 min-height: 500px;
-                height: auto;
+                /* height: auto; */
                 margin: 180px auto;
             }
             @media screen and (max-height: 500px) and (min-width: 992px) {
@@ -384,6 +384,47 @@
             }
         }
     }
+
+    .card_punti_focus{
+        perspective:1500px;
+        text-transform: uppercase;
+        position:relative;
+        width:100%;
+        height:350px;
+        margin-bottom: 24px;
+        .card__side{
+          border-radius:5px;
+          position:absolute;
+          display:flex;
+          justify-content:center;
+          align-items:center; 
+          top: 0;
+          left: 0;
+          width:100%;
+          height:100%;
+          transition:all .8s ease;
+          
+          backface-visibility: hidden;
+          &--front{
+            background-color:#ccc;
+          }
+          &--back{
+            transform: rotateY(180deg);
+            background-color:#b4a1c1;
+            text-transform: none;
+    
+          }  
+        }
+        
+        
+        &:hover .card__side--front{
+            transform: rotateY(-180deg);
+        }
+        &:hover .card__side--back{
+            transform: rotateY(0);
+        }
+    }
+    
 
     .container_comments_swiper{
         // variables
@@ -614,6 +655,16 @@
 .tt-search-box-input-container {
     border-radius: 30px;
     background-color: #d3d3d378;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 9px 10px;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: rgba(0, 0, 0, 0.6) !important;
+    svg{
+        -webkit-filter:invert(1);
+        filter:invert(1);
+    }
 }
 .bar_search input {
     border-radius: 30px;
@@ -625,4 +676,10 @@ input::placeholder {
 
 .tt-search-box-close-icon {
     padding-left: 6px;
+}
+
+@media only screen and (max-width: 767px) {
+    .menuNavigazione{
+        display: none !important;
+    }
 }

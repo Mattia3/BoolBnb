@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-between align-items-center px-4 py-4 w-100 position-absolute">
+<div class="d-flex justify-content-between align-items-center px-4 py-4 w-100 position-absolute menuNavigazione">
   <h5><a class="nav-link text-white" href="{{ url('/') }}" role="button">Home</a></h5>
   <a href="#" class="text-white"><h1>Boolbnb</h1></a>
   @if(!Auth::user())

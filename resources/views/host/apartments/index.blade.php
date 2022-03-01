@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container">
-  <div class="my-3">
+  <div class="my-3 pt-5">
     <h1>I TUOI ANNUNCI</h1>
   </div>
   <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 py-5">
@@ -30,6 +30,9 @@
       </div>
     </div>
     @endforeach
+  </div>
+  <div class="mt-0 mb-3">
+    <h1>ANNUNCI NON VISIBILI</h1>
   </div>
   <div class="row row-cols-1 row-cols-lg-4 row-cols-md-3 row-cols-sm-2 py-5">
     @foreach ($apartmentsOff as $apartment)
