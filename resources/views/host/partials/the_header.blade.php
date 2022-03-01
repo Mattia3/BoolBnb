@@ -8,8 +8,7 @@ $nav = Apartment::where('slug');
   <div class="d-flex justify-content-between align-items-center px-4 py-4">
     <h5><a class="nav-link text-white" href="{{ url('/') }}" role="button">Home</a></h5>
     <a href="" class="text-white">
-      <h1>Boolbnb</h1>
-      {{-- <img src="{{ asset('images/Logo-BoolBnb-white.png')}}" alt="" style="width: 50px"> <span>Boolbnb</span> --}}
+      <img style="width: 35px;" src="{{ asset('storage/Logo.png') }}" alt="logo">
     </a>
     {{-- <a href="" class="text-white"><h5>Login</h5></a> --}}
     <ul class="navbar-nav ml-auto">
@@ -55,7 +54,7 @@ $nav = Apartment::where('slug');
         <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
         <ul class="d-flex flex-wrap navbar-link">
           <li><a href="{{route('host.dashboard')}}" class="{{(request()-> is('host')) ? '_active' : '' }}">Profilo utente</a></li>
-          <li><a href="{{route('host.apartments.index')}}" class="{{(request()-> is('host/apartments')) ? '_active' : '' }}">Gestisci annunci</a></li>
+          <li><a href="{{route('host.apartments.index')}}" class="@yield('Gestisci-annunci')">Gestisci annunci</a></li>
           <li><a href="{{route('host.messages')}}" class="{{ (request()->is('host/messages')) ? '_active' : '' }}">Messaggi</a></li>
           <li><a href="{{route('host.apartments.create')}}" class="{{(request()-> is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
         </ul>

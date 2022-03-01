@@ -184,26 +184,8 @@
                             <div class="swiper-slide">
                                 <div class="content-wrapper">
                                     <div class="content">
-                                        <div class="swiper-avatar"><img src="https://dgalywyr863hv.cloudfront.net/pictures/athletes/188112/45714/8/full.jpg"></div>
-                                        <p>"Da qualche anno uso BoolBnb e mi trovo molto bene: le strutture scelte sono sempre coincidenti con le descrizioni presenti nel portale. Quando ho avuto problemi di salute ed ho dovuto annullare la prenotazione, sono sempre riuscita a recuperare la quota pattuita. Il call center funziona molto bene e mi ha saputo dare indicazioni molto utili, quando ne ho avuto bisogno."</p>
-                                        <p class="cite">- Alison Tetrick, Cyclist</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="content-wrapper">
-                                    <div class="content">
                                         <div class="swiper-avatar"><img src="https://img.freepik.com/free-photo/pregnant-woman-taking-selfie_23-2148765138.jpg?w=826"></div>
                                         <p>"Esperienza di prenotazione semplice e veloce. Buona scelta di appartamenti di varie tipologie, con esaustiva descrizione e foto. Possibilità di disdetta entro un certo periodo con rimborso pagamento."</p>
-                                        <p class="cite">- Alison Tetrick, Cyclist</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="content-wrapper">
-                                    <div class="content">
-                                        <div class="swiper-avatar"><img src="https://img.freepik.com/free-photo/pregnant-woman-taking-selfie_23-2148765138.jpg?w=826"></div>
-                                        <p>"Utilizzo questa applicazione da otto anni come viaggiatore e da quattro come host; mai avuto un problema con BoolBnb, è una certezza!"</p>
                                         <p class="cite">- Alison Tetrick, Cyclist</p>
                                     </div>
                                 </div>

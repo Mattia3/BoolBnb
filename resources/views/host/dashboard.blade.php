@@ -45,7 +45,7 @@
                 </div>
                 <div class="col">
                     <a class="box_number text-center">
-                        <p class="number mb-0">00</p>
+                        <p class="number mb-0">21</p>
                         <p class="text">Views</p>
                     </a>
                 </div>

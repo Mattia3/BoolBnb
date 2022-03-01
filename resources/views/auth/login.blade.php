@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="form-group mt-2 text-start">
-                          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Email's Address">
+                          <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
 
                           @error('password')
                           <span class="invalid-feedback" role="alert">

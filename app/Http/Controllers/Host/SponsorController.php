@@ -89,50 +89,8 @@ class SponsorController extends Controller
       'starting_date' => $starting_date,
       'expire_date' => $expire_date
     ]);
-    // $oldExpirationMonth = $status->transaction->creditCard['expirationMonth'];
-    // $oldExpirationYear = $status->transaction->creditCard['expirationYear'];
-    // $oldBin = $status->transaction->creditCard['bin'];
-    // $oldLast4 = $status->transaction->creditCard['last4'];
 
-
-    // if($oldExpirationMonth == $status->transaction->creditCard['expirationMonth']){
-    // }
-    //   if ($status) {
-    //     return back()->with('status', 'Sponsorizzazione avvenuta con successo!');
-    // } else {
-    //     return back()->with('error', 'Sponsorizzazione negata!');
-    // }
-
-
-    // if ($status->success) {
-    //   $transaction = $status->transaction;
-
-    // if ($sponsor->id == 1) {
-    //   $expire_date = Carbon::now()->addDay(1)->toDateTimeString();
-    // } elseif ($sponsor->id == 2) {
-    //   $expire_date = Carbon::now()->addDay(3)->toDateTimeString();
-    // } else {
-    //   $expire_date = Carbon::now()->addDay(6)->toDateTimeString();
-    // }
-    // $apartment->sponsors()->attach($sponsor,[
-    //   'starting_date' => $starting_date,
-    //   'expire_date' => $expire_date
-    // ]);
-    //   return redirect()->route('host.apartments.index');
-
-    // } else {
-    //   $errorString = '';
-
-    //   foreach($status->errors->deepAll() as $error) {
-    //     $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-    //   }
-
-
-    //   return back()->withErrors('An error occured with message '. $status->message);
-    // }
-
-
-    return redirect()->route('host.apartments.index');
+    return redirect()->route('host.dashboard');
     //return response()->json($status);
   }
 }
