@@ -41159,20 +41159,29 @@ ttSearchBox.on('tomtom.searchbox.resultselected', function (event) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
 
+var m = document.getElementById('m').innerHTML;
+console.log(m); // 2
+
 var labels = ['January', 'February', 'March', 'April', 'May', 'June'];
 var data = {
   labels: labels,
   datasets: [{
-    label: 'My First dataset',
+    label: 'Messaggi',
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
-    data: [0, 10, 5, 2, 20, 30, 45]
+    data: [0, m, 2, 3, 4]
   }]
 };
 var config = {
-  type: 'line',
+  type: 'bar',
   data: data,
-  options: {}
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
 };
 var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document.getElementById('myChart'), config);
 

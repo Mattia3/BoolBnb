@@ -1,5 +1,8 @@
 import Chart from 'chart.js/auto';
 
+let m = document.getElementById('m').innerHTML;
+console.log(m); // 2
+
 const labels = [
     'January',
     'February',
@@ -12,17 +15,23 @@ const labels = [
 const data = {
     labels: labels,
     datasets: [{
-        label: 'My First dataset',
+        label: 'Messaggi',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: [0, 10, 5, 2, 20, 30, 45],
+        data: [0, m, 2, 3, 4],
     }]
 };
 
 const config = {
-    type: 'line',
+    type: 'bar',
     data: data,
-    options: {}
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
 };
 
 const myChart = new Chart(

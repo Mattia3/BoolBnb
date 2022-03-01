@@ -38,7 +38,7 @@
                 </div>
                 <div class="col">
                     <a class="box_number text-center">
-                        <p class="number mb-0"> {{ $messages }}</p>
+                        <p id="m" class="number mb-0"> {{ $messages }}</p>
                         <p class="text">Messaggi</p>
                     </a>
                 </div>
@@ -96,5 +96,4 @@
         </div>
     </div>
 </div>
-
 @endsection
