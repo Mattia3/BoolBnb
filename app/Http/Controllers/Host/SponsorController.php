@@ -11,19 +11,20 @@ use App\Sponsor;
 use App\Apartment;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
- 
+
 
 class SponsorController extends Controller
 {
-  public function index($slug) 
-  {  
+  public function index($slug)
+  {
     $apartment = Apartment::where('slug', $slug)->first();
+    $sponsors = Sponsor::all();
 
     // $sponsor = Sponsor::all();
     // $starting_date = Carbon::now()->toDateTimeString();
 
 
-    return view('host.apartments.sponsor', compact('apartment'));
+    return view('host.apartments.sponsor', compact('apartment', 'sponsors'));
   }
 
 
@@ -56,14 +57,14 @@ class SponsorController extends Controller
 
 
 
-  //   $status = $gateway->paymentMethod()->create([
-  //     'customerId' => '12345',
-  //     'paymentMethodNonce' => 'nonceFromTheClient'
-  // ]);
+    //   $status = $gateway->paymentMethod()->create([
+    //     'customerId' => '12345',
+    //     'paymentMethodNonce' => 'nonceFromTheClient'
+    // ]);
 
     // dd($status);
     // dd($status->success);
-    
+
     if ($sponsor->id == 1) {
       $expire_date = Carbon::now()->addDay(1)->toDateTimeString();
     } elseif ($sponsor->id == 2) {
@@ -81,9 +82,10 @@ class SponsorController extends Controller
       //'paymentMethodNonce' => $nonce,
       'options' => [
         'submitForSettlement' => True
-    ]]);
+      ]
+    ]);
 
-    $apartment->sponsors()->attach($sponsor,[
+    $apartment->sponsors()->attach($sponsor, [
       'starting_date' => $starting_date,
       'expire_date' => $expire_date
     ]);
@@ -92,30 +94,30 @@ class SponsorController extends Controller
     // $oldBin = $status->transaction->creditCard['bin'];
     // $oldLast4 = $status->transaction->creditCard['last4'];
 
-      
+
     // if($oldExpirationMonth == $status->transaction->creditCard['expirationMonth']){
     // }
-  //   if ($status) {
-  //     return back()->with('status', 'Sponsorizzazione avvenuta con successo!');
-  // } else {
-  //     return back()->with('error', 'Sponsorizzazione negata!');
-  // }
+    //   if ($status) {
+    //     return back()->with('status', 'Sponsorizzazione avvenuta con successo!');
+    // } else {
+    //     return back()->with('error', 'Sponsorizzazione negata!');
+    // }
 
 
     // if ($status->success) {
     //   $transaction = $status->transaction;
 
-        // if ($sponsor->id == 1) {
-        //   $expire_date = Carbon::now()->addDay(1)->toDateTimeString();
-        // } elseif ($sponsor->id == 2) {
-        //   $expire_date = Carbon::now()->addDay(3)->toDateTimeString();
-        // } else {
-        //   $expire_date = Carbon::now()->addDay(6)->toDateTimeString();
-        // }
-        // $apartment->sponsors()->attach($sponsor,[
-        //   'starting_date' => $starting_date,
-        //   'expire_date' => $expire_date
-        // ]);
+    // if ($sponsor->id == 1) {
+    //   $expire_date = Carbon::now()->addDay(1)->toDateTimeString();
+    // } elseif ($sponsor->id == 2) {
+    //   $expire_date = Carbon::now()->addDay(3)->toDateTimeString();
+    // } else {
+    //   $expire_date = Carbon::now()->addDay(6)->toDateTimeString();
+    // }
+    // $apartment->sponsors()->attach($sponsor,[
+    //   'starting_date' => $starting_date,
+    //   'expire_date' => $expire_date
+    // ]);
     //   return redirect()->route('host.apartments.index');
 
     // } else {
@@ -128,7 +130,7 @@ class SponsorController extends Controller
 
     //   return back()->withErrors('An error occured with message '. $status->message);
     // }
-    
+
 
     return redirect()->route('host.apartments.index');
     //return response()->json($status);

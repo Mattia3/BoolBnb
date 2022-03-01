@@ -30,6 +30,10 @@ img.img-profile {
     background-image: $color-gradient;
     border: none;
   }
+  ._active-red {
+    background-image: red;
+    border: none;
+  }
 }
 
 
@@ -72,17 +76,15 @@ img.img-profile {
 
 // Background Hero
 .bg-index {
-  background-image: url('/images/hero.jpg');
+  background-image: url('storage/app/public/hero/hero-2.jpg');
 }
-.bg-show {
-  background-image: url('/images/hero.jpg');
+.bg-dashboard {
+  background-image: url('storage/app/public/hero/hero-1.jpg');
 }
-.bg-create {
-  background-image: url('/images/hero.jpg');
+.bg-filter {
+  background-image: uurl('storage/app/public/hero/hero-3.jpg');
 }
-.bg-edit {
-  background-image: url('/images/hero.jpg');
-}
+
 
 
 

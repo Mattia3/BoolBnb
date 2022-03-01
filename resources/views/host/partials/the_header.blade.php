@@ -1,3 +1,9 @@
+@php
+use Illuminate\Support\Str;
+use App\Apartment;
+$nav = Apartment::where('slug');
+@endphp
+
 <div class="bg-hero @yield('hero')">
   <div class="d-flex justify-content-between align-items-center px-4 py-4">
     <h5><a class="nav-link text-white" href="{{ url('/') }}" role="button">Home</a></h5>
@@ -38,11 +44,12 @@
 
   <div class="container _p-nav">
     <div class="row align-items-center">
-  
+
       {{-- Image Profile --}}
       <img class="img-profile" src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="profile">
-  
-  
+
+
+
       {{-- Link --}}
       <div class="col-lg-10 col-sm-9 _d-none-sm">
         <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
@@ -51,13 +58,12 @@
           <li><a href="{{route('host.apartments.index')}}" class="{{(request()-> is('host/apartments')) ? '_active' : '' }}">Gestisci annunci</a></li>
           <li><a href="{{route('host.messages')}}">Messaggi</a></li>
           <li><a href="{{route('host.apartments.create')}}" class="{{(request()-> is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
-          <li><a href="">Statistiche</a></li>
         </ul>
       </div>
 
 
       {{-- Hamburger --}}
-      <div class="col-6 _d-none-hamburger"> 
+      <div class="col-6 _d-none-hamburger">
         <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
 
         <div class="dropdown">
@@ -68,7 +74,9 @@
             <li><a class="dropdown-item" href="{{route('host.dashboard')}}">Profilo utente</a></li>
             <li><a class="dropdown-item" href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
             <li><a class="dropdown-item" href="{{route('host.messages')}}">Messaggi</a></li>
-            <li><hr class="m-1"></li>
+            <li>
+              <hr class="m-1">
+            </li>
             <li><a class="dropdown-item" href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
             <li><a class="dropdown-item" href="">Statistiche</a></li>
           </ul>
@@ -79,5 +87,3 @@
   </div>
 
 </div>
-
-

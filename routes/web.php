@@ -21,17 +21,16 @@ Route::get('/', function () {
     $highlitedApartments = [];
     foreach ($apartments as $apartment) {
         $sponsorsOnApartment = $apartment->sponsors()->get();
-        
-        if(count($sponsorsOnApartment) != 0) {
+
+        if (count($sponsorsOnApartment) != 0) {
             foreach ($sponsorsOnApartment as $sponsor) {
-                
-                if (Carbon::now()->gte($sponsor->pivot->starting_date) && Carbon::now()->lt($sponsor->pivot->expire_date )) {
+
+                if (Carbon::now()->gte($sponsor->pivot->starting_date) && Carbon::now()->lt($sponsor->pivot->expire_date)) {
                     $highlitedApartments[] = $apartment;
-                } 
+                }
             }
         }
-        
-    }     
+    }
 
     return view('welcome', [
         'highlightedApartments' => $highlitedApartments
@@ -43,16 +42,16 @@ Auth::routes();
 Route::get('/search', 'HomeController@index')->name('search');
 
 Route::middleware('auth')
-->namespace('Host') //riaggiungere middleware('auth') 
-->prefix('host')
-->name('host.')
-->group(function () {
-    Route::get('/', 'HomeController@index')->name('dashboard');
-    Route::resource('apartments', 'ApartmentController');
-    Route::get('messages', 'MessageController@index')->name('messages');
-    Route::get('/apartments/{apartment}/sponsor', 'SponsorController@index')->name('apartments.sponsor');
-    Route::post('/payment/process/{apartment}', 'SponsorController@process')->name('payment.process');
-});
+    ->namespace('Host') //riaggiungere middleware('auth') 
+    ->prefix('host')
+    ->name('host.')
+    ->group(function () {
+        Route::get('/', 'HomeController@index')->name('dashboard');
+        Route::resource('apartments', 'ApartmentController');
+        Route::get('messages', 'MessageController@index')->name('messages');
+        Route::get('/apartments/{apartment}/sponsor', 'SponsorController@index')->name('apartments.sponsor');
+        Route::post('/payment/process/{apartment}', 'SponsorController@process')->name('payment.process');
+    });
 
 
 Route::get('/{apartment}', 'HomeController@show')->name('show');
