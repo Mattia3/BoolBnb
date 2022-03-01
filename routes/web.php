@@ -1,5 +1,7 @@
 <?php
 
+use App\Apartment;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,7 +17,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $apartments = Apartment::all();
+    $highlitedApartments = [];
+    foreach ($apartments as $apartment) {
+        $sponsorsOnApartment = $apartment->sponsors()->get();
+        
+        if(count($sponsorsOnApartment) != 0) {
+            foreach ($sponsorsOnApartment as $sponsor) {
+                
+                if (Carbon::now()->gte($sponsor->pivot->starting_date) && Carbon::now()->lt($sponsor->pivot->expire_date )) {
+                    $highlitedApartments[] = $apartment;
+                } 
+            }
+        }
+        
+    }     
+
+    return view('welcome', [
+        'highlightedApartments' => $highlitedApartments
+    ]);
 });
 
 Auth::routes();

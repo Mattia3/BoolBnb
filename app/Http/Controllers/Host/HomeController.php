@@ -37,11 +37,45 @@ class HomeController extends Controller
             $messages += count($msg);
         }
 
+        $messagesDate=[];
+        foreach ($apartments as $apartment) {
+            $msgs = $apartment->messages()->get();
+            if (count($msgs) == 1){
+                $message = $apartment->messages()->first();
+                //dd($message->created_at->format('m/d/Y'));
+                $messagesDate[] = $message->created_at->format('m');
+            } elseif (count($msgs) > 1) {
+                foreach ($msgs as $message) {
+                    $messagesDate[] = $message->created_at->format('m');
+                }
+            } 
+        }
+
+                
+        $graphData = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+        for ($i=1; $i <= 12 ; $i++) { 
+            foreach ($messagesDate as $month) {
+                if ($i == $month) {
+                    $graphData[$i-1] += 1;
+                } else {
+                    $graphData[$i-1] += 0;
+                }
+            }
+        }
+
+        //dd($graphData);
+
+        
+
+
+
         return view('host.dashboard', [
             'apartments' => $apartments,
             'host' => $host,
             'messages' => $messages,
-            'highlitedApartments' => $highlitedApartments
+            'highlitedApartments' => $highlitedApartments, 
+            'messagesDate' => $messagesDate,
+            'graphData' => $graphData
         ]); 
     }
 }

@@ -41157,16 +41157,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
 
 var m = document.getElementById('m').innerHTML;
-console.log(m); // 2
+var a = document.getElementById('a').innerHTML;
+a = JSON.parse('[' + a + ']'); // 2
 
-var labels = ['January', 'February', 'March', 'April', 'May', 'June'];
+var labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var data = {
   labels: labels,
   datasets: [{
     label: 'Messaggi',
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
-    data: [0, m, 2, 3, 4]
+    data: a
   }]
 };
 var config = {

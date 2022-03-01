@@ -86,17 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./resources/js/chartjs.js":
-/*!*********************************!*\
-  !*** ./resources/js/chartjs.js ***!
-  \*********************************/
-/*! no exports provided */
-/***/ (function(module, exports) {
-
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open 'C:\\Users\\Utente\\Desktop\\Boolean_#43\\BoolBnb\\resources\\js\\chartjs.js'");
-
-/***/ }),
-
 /***/ 2:
 /*!***************************************!*\
   !*** multi ./resources/js/chartjs.js ***!
@@ -104,7 +93,7 @@ throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean_#43\BoolBnb\resources\js\chartjs.js */"./resources/js/chartjs.js");
+!(function webpackMissingModule() { var e = new Error("Cannot find module 'C:\\Users\\Utente\\Desktop\\Boolean_#43\\BoolBnb\\resources\\js\\chartjs.js'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
 
 
 /***/ })
