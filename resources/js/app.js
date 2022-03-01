@@ -12,6 +12,8 @@ require('./homeSeachBox');
 
 require('./card-contact-host');
 
+import './mychart.js';
+
 
 /**
  * The following block of code may be used to automatically register your
