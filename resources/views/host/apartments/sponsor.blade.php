@@ -1,6 +1,6 @@
 @extends('layouts.host')
 @section("page_title", "Sponsor")
-@section('hero') bg-index @endsection
+@section('hero') bg-dashboard @endsection
 @section('Gestisci-annunci') _active @endsection
 
 @section('content')
@@ -34,7 +34,7 @@
           </div>
 
           {{-- Radio --}}
-          <div class="text-center btn-sponsor">
+          <div class="text-center btn-sponsor-padding">
             <label class="container-radio" for="{{$sponsor->id}}">
               <input type="radio" id="{{$sponsor->id}}" name="sponsor_id" value="{{ $sponsor->price }}" data-price="{{ $sponsor->price }}">
               <span class="checkmark text-nowrap">Seleziona</span>

@@ -53,7 +53,6 @@ $nav = Apartment::where('slug');
           <li><a href="{{route('host.apartments.index')}}" class="@yield('Gestisci-annunci')">Gestisci annunci</a></li>
           <li><a href="">Messaggi</a></li>
           <li><a href="{{route('host.apartments.create')}}" class="{{ (request()->is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
-          <li><a href="">Statistiche</a></li>
         </ul>
       </div>
 

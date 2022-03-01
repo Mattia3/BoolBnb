@@ -26,8 +26,12 @@ body {
 }
 .btn-1 {
   @include btn-gradient-transition; 
-  &:focus-visible {outline: none;}
-  &:focus{box-shadow: none;}
+}
+.btn-sponsor {
+  @include btn-gradient-transition-2; 
+}
+.btn-delete {
+  @include btn-gradient-transition-3; 
 }
 .btn-reset {
   color: $color-b1;
