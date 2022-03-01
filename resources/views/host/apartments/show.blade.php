@@ -54,14 +54,8 @@
         <!-- Slider main container -->
         <div class="d-flex space_negative gap-3 pb-2">
           <div class="swiper swiper-show">
-            <!-- Additional required wrapper -->
+
             <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide">
-                <img class="w-100" src="/images/hero.jpg">
-              </div>
-
-
               @foreach($images as $image)
               <div class="swiper-slide">
                 <img class="w-100" src="{{ asset('storage/' . $image->img_path) }}">
@@ -71,110 +65,108 @@
             </div>
           </div>
         </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
-
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+        <img class="cover_img" src="{{ asset('storage/' . $apartment->cover_img) }}">
+      </div>
     </div>
 
-    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-      <img class="cover_img" src="{{ asset('storage/' . $apartment->cover_img) }}">
-      {{-- <img class="cover_img" src="{{ asset('storage/apartment/apartment_cover/cover-1.jpg') }}"> --}}
-    </div>
   </div>
-</div>
 
-<div class="bg-grey">
-  <div class="container">
-    <div class="row py-5 align-items-center">
-      <!-- MAP TomTom -->
-      <div id="mymap" class="col-lg-6 col-md-12 col-sm-12 col-xs-12"></div>
-      <!-- ------------------------------------------ -->
-      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 px-4">
-        <h3 class="pb-3">Descrizione Appartamento</h3>
-        <p>{{ $apartment->description }}</p>
 
-        {{-- Modal --}}
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-1 my-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Regole della casa
-        </button>
+  <div class="bg-grey">
+    <div class="container">
+      <div class="row py-5 align-items-center">
+        <!-- MAP TomTom -->
+        <div id="mymap" class="col-lg-6 col-md-12 col-sm-12 col-xs-12"></div>
+        <!-- ------------------------------------------ -->
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 px-4">
+          <h3 class="pb-3">Descrizione Appartamento</h3>
+          <p>{{ $apartment->description }}</p>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Regole della casa</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          {{-- Modal --}}
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-1 my-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Regole della casa
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Regole della casa</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  @foreach ($rules as $rule)
+                  <p>{{ $rule->name }}</p>
+                  @endforeach
+                </div>
+                <div class="modal-footer"></div>
               </div>
-              <div class="modal-body">
-                @foreach ($rules as $rule)
-                <p>{{ $rule->name }}</p>
-                @endforeach
-              </div>
-              <div class="modal-footer"></div>
             </div>
           </div>
+
+          <h3>Cosa puoi trovare nelle vicinanze</h3>
+          <p>{{ $apartment->place_description }}</p>
+
         </div>
-
-        <h3>Cosa puoi trovare nelle vicinanze</h3>
-        <p>{{ $apartment->place_description }}</p>
-
       </div>
     </div>
   </div>
-</div>
 
-{{-- Container Large --}}
-<div class="container-large">
-  <div class="container container-card">
+  {{-- Container Large --}}
+  <div class="container-large">
+    <div class="container container-card">
 
-    {{-- Card --}}
-    <div class="offset-md-1 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-      <div class="card">
-        <div class="photo">
-          <img src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="{{ Auth::user()->name }} {{ Auth::user()->last_name }}">
+      {{-- Card --}}
+      <div class="offset-md-1 col-lg-4 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+          <div class="photo">
+            <img src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="{{ Auth::user()->name }} {{ Auth::user()->last_name }}">
+          </div>
+          <div class="banner">
+            <img src="{{ asset('storage/' . $apartment->cover_img) }}">
+          </div>
+          <ul>
+            <li><b>{{ Auth::user()->name }} {{ Auth::user()->last_name }}</b></li>
+            <li>Host</li>
+          </ul>
+          <button class="contact" id="main-button">contattatami</button>
+          <div class="social-media-banner d-flex align-items-center justify-content-center">
+            <a href=""><i class="fa-brands fa-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+          <form class="email-form">
+            <input id="name" type="text" class="input-name" placeholder="Nome">
+            <input id="email" type="text" class="input-email" placeholder="Email">
+            <textarea id="comment" type="text" class="input-message" placeholder="Messaggio"></textarea>
+            <button id="send" class="contact">send</button>
+          </form>
         </div>
-        <div class="banner">
-          <img src="{{ asset('storage/' . $apartment->cover_img) }}">
-        </div>
-        <ul>
-          <li><b>{{ Auth::user()->name }} {{ Auth::user()->last_name }}</b></li>
-          <li>Host</li>
-        </ul>
-        <button class="contact" id="main-button">contattatami</button>
-        <div class="social-media-banner d-flex align-items-center justify-content-center">
-          <a href=""><i class="fa-brands fa-twitter"></i></a>
-          <a href=""><i class="fa-brands fa-facebook-f"></i></a>
-          <a href=""><i class="fa-brands fa-instagram"></i></a>
-          <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
-        </div>
-        <form class="email-form">
-          <input id="name" type="text" class="input-name" placeholder="Nome">
-          <input id="email" type="text" class="input-email" placeholder="Email">
-          <textarea id="comment" type="text" class="input-message" placeholder="Messaggio"></textarea>
-          <button id="send" class="contact">send</button>
-        </form>
+      </div>
+
+
+    </div>
+    <div class="container-medium">
+      <div class="container-small"></div>
+    </div>
+  </div>
+
+
+
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-md-12-col-sm-12-col-xs-12">
+        <h3>Statistiche</h3>
       </div>
     </div>
-
-
   </div>
-  <div class="container-medium">
-    <div class="container-small"></div>
-  </div>
-</div>
-
-
-
-<div class="container">
-  <div class="row py-5">
-    <div class="col-md-12-col-sm-12-col-xs-12">
-      <h3>Statistiche</h3>
-    </div>
-  </div>
-</div>
 
 </div>
 

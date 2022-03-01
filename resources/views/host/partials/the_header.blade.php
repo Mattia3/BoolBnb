@@ -56,7 +56,7 @@ $nav = Apartment::where('slug');
         <ul class="d-flex flex-wrap navbar-link">
           <li><a href="{{route('host.dashboard')}}" class="{{(request()-> is('host')) ? '_active' : '' }}">Profilo utente</a></li>
           <li><a href="{{route('host.apartments.index')}}" class="{{(request()-> is('host/apartments')) ? '_active' : '' }}">Gestisci annunci</a></li>
-          <li><a href="{{route('host.messages')}}">Messaggi</a></li>
+          <li><a href="{{route('host.messages')}}" class="{{ (request()->is('host/messages')) ? '_active' : '' }}">Messaggi</a></li>
           <li><a href="{{route('host.apartments.create')}}" class="{{(request()-> is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
         </ul>
       </div>

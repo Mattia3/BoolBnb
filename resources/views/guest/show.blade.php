@@ -38,16 +38,21 @@
                     </div>
                 </div>
 
-                <div class="d-flex space_negative gap-3 pb-3">
-                    <img class="w-100" src="/images/image_appartment_gallery.jpg">
-                    <img class="w-100" src="/images/image_appartment_gallery.jpg">
-                </div>
+                <div class="d-flex space_negative gap-3 pb-2">
+                    <div class="swiper swiper-show">
+                        <div class="swiper-wrapper">
+                            @foreach($images as $image)
+                            <div class="swiper-slide">
+                                <img class="w-100" src="{{ asset('storage/' . $image->img_path) }}">
+                            </div>
+                            @endforeach
 
-                <div class="arrow">
-                    <a class="text-secondary" href="#"><i class="fa-solid fa-arrow-left-long"></i></a>
-                    <a class="text-secondary" href="#"><i class="fa-solid fa-arrow-right-long"></i></a>
-                </div>
+                        </div>
 
+                    </div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <img class="cover_img" src="{{ asset('storage/' . $apartment->cover_img) }}">
@@ -59,36 +64,49 @@
         <div class="container">
             <div class="row py-5 align-items-center">
                 <!-- MAP TomTom -->
-                <div id="mymap" class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-
-                </div>
+                <div id="mymap" class="col-lg-6 col-md-12 col-sm-12 col-xs-12"></div>
                 <!-- ------------------------------------------ -->
-                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 px-4">
                     <h3 class="pb-3">Descrizione Appartamento</h3>
                     <p>{{ $apartment->description }}</p>
-                    <p>Descrizione</p>
-                    <h3 class="pb-3">Cosa puoi trovare nelle vicinanze</h3>
+
+                    {{-- Modal --}}
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-1 my-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Regole della casa
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Regole della casa</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    @foreach ($rules as $rule)
+                                    <p>{{ $rule->name }}</p>
+                                    @endforeach
+                                </div>
+                                <div class="modal-footer"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3>Cosa puoi trovare nelle vicinanze</h3>
                     <p>{{ $apartment->place_description }}</p>
-                    <p>Place Description</p>
 
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="container">
-        <div class="row pt-5">
-            <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 pb-5">
-                <div class="rule_apartment">
-                    <h3 class="pb-3">Regole della casa</h3>
-                    <ul>
-                        @foreach ($rules as $rule)
-                        <li>{{ $rule->name }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 pb-5">
+    <div class="container-large">
+        <div class="container container-card">
+
+
+            <div class="offset-md-1 col-lg-4 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="photo">
                         <img src="{{ asset('storage/' . $host->img_profile) }}" alt="{{ $host->name }} {{ $host->last_name }}">
@@ -117,44 +135,71 @@
                     </form>
                 </div>
             </div>
+
+        </div>
+        <div class="container-medium">
+            <div class="container-small"></div>
         </div>
     </div>
-
-    {{-- <div class="container">
-        <div class="row py-5">
-            <div class="col-md-12-col-sm-12-col-xs-12">
-                <h3>Statistiche</h3>
-            </div>
-        </div>
-    </div> --}}
-
 </div>
 
 @endsection
 
 <script type="module">
+    // Swiper
+    import Swiper from 'https://unpkg.com/swiper@8/swiper-bundle.esm.browser.min.js'
+
+    const swiper = new Swiper('.swiper', {
+        // Optional parameters
+        direction: 'horizontal',
+        slidesPerView: 1,
+        spaceBetween: 10,
+
+        breakpoints: {
+            '749': {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+        },
+
+        // If we need pagination
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        // And if we need scrollbar
+        scrollbar: {
+            el: '.swiper-scrollbar',
+        },
+    });
 
     // Card Contatts Host
     const btnContact = document.querySelector(".contact");
 
-    btnContact.addEventListener("click", function(e){
+    btnContact.addEventListener("click", function(e) {
 
-    document.querySelector(".card").classList.toggle("active");
-    document.querySelector(".banner").classList.toggle("active");
-    document.querySelector(".photo").classList.toggle("active");
-    document.querySelector(".social-media-banner").classList.toggle("active");
-    document.querySelector(".email-form").classList.toggle("active");
+        document.querySelector(".card").classList.toggle("active");
+        document.querySelector(".banner").classList.toggle("active");
+        document.querySelector(".photo").classList.toggle("active");
+        document.querySelector(".social-media-banner").classList.toggle("active");
+        document.querySelector(".email-form").classList.toggle("active");
 
-    let buttonText = document.querySelector("button.contact#main-button").textContent;
-    console.log(buttonText);
+        let buttonText = document.querySelector("button.contact#main-button").textContent;
+        console.log(buttonText);
 
-    if(buttonText === "indietro"){
-        buttonText = 'contattatami';
-        document.querySelector('button.contact#main-button').textContent = buttonText;
-    } else {
-        buttonText = 'indietro';
-        document.querySelector('button.contact#main-button').textContent = buttonText;
-    }
+        if (buttonText === "indietro") {
+            buttonText = 'contattatami';
+            document.querySelector('button.contact#main-button').textContent = buttonText;
+        } else {
+            buttonText = 'indietro';
+            document.querySelector('button.contact#main-button').textContent = buttonText;
+        }
     });
 
     // Mailtrap
@@ -168,20 +213,20 @@
         message: ""
     }
 
-    function onSubmit (){
+    function onSubmit() {
         window.axios.post("/contacts", form)
-        .then(resp =>{
-            alert("ok, la mail dovrebbe essere partita correttamente");
-        });
+            .then(resp => {
+                alert("ok, la mail dovrebbe essere partita correttamente");
+            });
     };
 
-    btnSend.addEventListener("click", function(){
+    btnSend.addEventListener("click", function() {
 
         let valueInputName = document.querySelector(".input-name").value;
         let valueInputEmail = document.querySelector(".input-email").value;
         let valueInputMessage = document.querySelector(".input-message").value;
 
-        if((valueInputName == null) || (valueInputEmail == null) || (valueInputMessage == null)){
+        if ((valueInputName == null) || (valueInputEmail == null) || (valueInputMessage == null)) {
             return;
         }
 
@@ -194,6 +239,4 @@
         onSubmit();
 
     });
-
-
 </script>

@@ -68,17 +68,17 @@
         </div>
       </div>
 
-      @for($i = 0; $i < 3; $i++)
-        <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
-          <div class="form-file">
-            <div>
-              <i class="fa-solid fa-file-image"></i>
-              <h4 class="title-label p-0">Immagine {{$i+1}}</h4>
-            </div>
-            <input type="file" name="images[]" id="field_images" value="{{ old('cover_img') }}" required>
+      <h4 class="title-label pt-5 ps-5">Aggiungi altre immagini</h4>
+      @for($i = 0; $i < 3; $i++) <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center pb-3 pt-1">
+        <div class="form-file">
+          <div>
+            <i class="fa-solid fa-file-image"></i>
+            <h4 class="title-label p-0">Immagine {{$i+1}}</h4>
           </div>
+          <input type="file" name="images[]" id="field_images" value="{{ old('cover_img') }}" required>
         </div>
-      @endfor
+    </div>
+    @endfor
     </div>
 
 
@@ -178,11 +178,11 @@
           @foreach($languages as $language)
           <div class="d-inline-block pb-2">
             <input class="form-check-input p-0" name="languages[]" type="checkbox" value="{{$language->id}}" id="{{$language->name}}-{{$language->id}}">
-            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
-          </div>
-          @endforeach
-        </div> --}}
+        <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->name}}-{{$language->id}}">{{$language->name }}</label>
       </div>
+      @endforeach
+    </div> --}}
+    </div>
     </div>
 
 
@@ -205,13 +205,13 @@
 
   function updateImage() {
     // Reset
-    while(titlePreview.firstChild) {
+    while (titlePreview.firstChild) {
       titlePreview.removeChild(titlePreview.firstChild);
     }
     // info file
     const curFiles = inputImg.files;
     // se il file non è caricato mostra text
-    if(curFiles.length === 0) {
+    if (curFiles.length === 0) {
       const icon = document.createElement('i');
       const text = document.createElement('h4');
 
@@ -224,7 +224,7 @@
       // Se il file è caricato mostra img
     } else {
       // Ciclo info del file caricato
-      for(const file of curFiles) {
+      for (const file of curFiles) {
         const image = document.createElement('img');
         image.src = URL.createObjectURL(file);
         image.classList.add('style-image-preview');

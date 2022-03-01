@@ -323,6 +323,9 @@
     -moz-transition: all 0.2s ease-in-out;
     -o-transition: all 0.2s ease-in-out;
     -ms-transition: all 0.2s ease-in-out;
+    &::placeholder{
+      color: black;
+    }
   }
   .email-form input:focus,
   .email-form textarea:focus {
@@ -336,7 +339,6 @@
   }
   .email-form textarea {
     width: 200px;
-    text-transform: capitalize;
     background-color: white;
     margin: 0 auto;
     display: block;
@@ -360,7 +362,7 @@
             position: relative;
         }
     }
-  }
+  
   @media only screen and (max-width: 990px) {
     .arrow {
       text-align: center;

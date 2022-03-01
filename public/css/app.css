@@ -25241,14 +25241,15 @@ body {
 }
 
 .bar_menu_mobile {
-  background-color: #b4a1c1;
+  background-color: #8b7ca0;
   padding: 15px;
   justify-content: space-around;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 111;
-  box-shadow: 5px 12px 50px #d7dad6;
+  border-radius: 70px 70px 0px 0px;
+  box-shadow: 0 0 25px 0px;
 }
 
 .bar_menu_mobile a {
@@ -25616,7 +25617,7 @@ main {
   height: 100%;
 }
 
-.create-edit .form-file .title-preview i {
+.create-edit .form-file i {
   color: #7A9A83;
   font-size: 40px;
   padding-bottom: 8px;
@@ -25909,6 +25910,12 @@ main {
   color: #c7d0e1;
 }
 
+.container_apartment_show .email-form.active {
+  height: 520px;
+  z-index: 3;
+  transition: all 1s ease-in-out;
+}
+
 .container_apartment_show button.contact {
   margin: 0 auto;
   text-align: center;
@@ -25984,7 +25991,7 @@ main {
 }
 
 .container_apartment_show .email-form.active {
-  height: 520px;
+  height: 310px;
   z-index: 3;
   transition: all 1s ease-in-out;
 }
@@ -26004,6 +26011,18 @@ main {
   -ms-transition: all 0.2s ease-in-out;
 }
 
+.container_apartment_show .email-form input::-moz-placeholder {
+  color: black;
+}
+
+.container_apartment_show .email-form input:-ms-input-placeholder {
+  color: black;
+}
+
+.container_apartment_show .email-form input::placeholder {
+  color: black;
+}
+
 .container_apartment_show .email-form input:focus,
 .container_apartment_show .email-form textarea:focus {
   border: 1px solid grey;
@@ -26018,7 +26037,6 @@ main {
 
 .container_apartment_show .email-form textarea {
   width: 200px;
-  text-transform: capitalize;
   background-color: white;
   margin: 0 auto;
   display: block;
@@ -27362,6 +27380,12 @@ input::placeholder {
   padding-left: 6px;
 }
 
+@media only screen and (max-width: 767px) {
+  .menuNavigazione {
+    display: none !important;
+  }
+}
+
 body.credits-body {
   background-color: #212121;
 }
@@ -27523,11 +27547,6 @@ body.credits-body .box .content .h2 {
   font-size: 20px;
   color: #fff;
   margin-bottom: 10px;
-}
-@media only screen and (max-width: 767px) {
-  .menuNavigazione {
-    display: none !important;
-  }
 }
 
 .background-container-about-us {

@@ -81,7 +81,7 @@ class ApartmentController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        
+
         $request->validate([
             'title' => 'string|min:5|max:60|required|unique:apartments',
             'address' => 'string|required',
@@ -164,7 +164,7 @@ class ApartmentController extends Controller
             $services = $apartment->services()->get();
             $rules = $apartment->rules()->get();
             $messages = $apartment->messages()->get();
-            $images = $apartment->images()->get(); //probabilmente fare un paginate
+            $images = $apartment->images()->get();
 
             $user_id = Auth::id();
             $host = User::where('id', $user_id)->first();
