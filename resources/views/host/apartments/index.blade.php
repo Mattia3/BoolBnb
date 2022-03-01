@@ -2,6 +2,7 @@
 @section("page_title", "Dashboard")
 
 @section('hero') bg-index @endsection
+@section('Gestisci-annunci') _active @endsection
 
 
 @section('content')

@@ -2,6 +2,7 @@
 @section("page_title", "Dettaglio Articolo")
 
 @section('hero') bg-show @endsection
+@section('Gestisci-annunci') _active @endsection
 
 
 @section('content')

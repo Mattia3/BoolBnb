@@ -1,3 +1,9 @@
+@php 
+use Illuminate\Support\Str;
+use App\Apartment;
+$nav = Apartment::where('slug');
+@endphp
+
 <div class="bg-hero @yield('hero')">
   <div class="d-flex justify-content-between align-items-center px-4 py-4">
     <h5><a class="nav-link text-white" href="{{ url('/') }}" role="button">Home</a></h5>
@@ -37,15 +43,16 @@
       {{-- Image Profile --}}
       <img class="img-profile" src="{{ asset('storage/host/host-2.jpg') }}" alt="profile">
   
-  
+
+
       {{-- Link --}}
       <div class="col-lg-10 col-sm-9 _d-none-sm">
         <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
         <ul class="d-flex flex-wrap navbar-link">
-          <li><a href="{{route('host.dashboard')}}" class="{{(request()-> is('host')) ? '_active' : '' }}">Profilo utente</a></li>
-          <li><a href="{{route('host.apartments.index')}}" class="{{(request()-> is('host/apartments')) ? '_active' : '' }}">Gestisci annunci</a></li>
+          <li><a href="{{route('host.dashboard')}}" class="{{ (request()->is('host')) ? '_active' : '' }}">Profilo utente</a></li>
+          <li><a href="{{route('host.apartments.index')}}" class="@yield('Gestisci-annunci')">Gestisci annunci</a></li>
           <li><a href="">Messaggi</a></li>
-          <li><a href="{{route('host.apartments.create')}}" class="{{(request()-> is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
+          <li><a href="{{route('host.apartments.create')}}" class="{{ (request()->is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
           <li><a href="">Statistiche</a></li>
         </ul>
       </div>

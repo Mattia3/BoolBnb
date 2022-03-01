@@ -18,19 +18,20 @@ class SponsorController extends Controller
   public function index($slug) 
   {  
     $apartment = Apartment::where('slug', $slug)->first();
+    $sponsors = Sponsor::all();  
 
     // $sponsor = Sponsor::all();
     // $starting_date = Carbon::now()->toDateTimeString();
 
 
-    return view('host.apartments.sponsor', compact('apartment'));
+    return view('host.apartments.sponsor', compact('apartment', 'sponsors'));
   }
 
 
   public function process(Request $request, $slug)
   {
-    $payload = $request->payload;
-    $nonce = $payload['nonce'];
+    // $payload = $request->payload;
+    // $nonce = $payload['nonce'];
 
 
     // $payload = $request->input('payload', true);
@@ -77,8 +78,8 @@ class SponsorController extends Controller
     $status = \Braintree\Transaction::sale([
       'amount' => $sponsor->price,
       // 'paymentMethodNonce' => 'fake-luhn-invalid-nonce',
-      // 'paymentMethodNonce' => 'fake-valid-nonce',
-      'paymentMethodNonce' => $nonce,
+      'paymentMethodNonce' => 'fake-valid-nonce',
+      // 'paymentMethodNonce' => $nonce,
       'options' => [
         'submitForSettlement' => True
     ]]);
@@ -130,7 +131,7 @@ class SponsorController extends Controller
     // }
     
 
-    // return redirect()->route('host.apartments.index');
-    return response()->json($status);
+    return redirect()->route('host.apartments.index');
+    // return response()->json($status);
   }
 }
