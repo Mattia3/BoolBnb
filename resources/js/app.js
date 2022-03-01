@@ -12,7 +12,7 @@ require('./homeSeachBox');
 
 require('./card-contact-host');
 
-import './mychart.js';
+require('./mychart');
 
 
 /**

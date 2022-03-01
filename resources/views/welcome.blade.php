@@ -34,42 +34,19 @@
                     <div class="blog-slider">
                         <div class="blog-slider__wrp swiper-wrapper">
 
-                            <div class="blog-slider__item swiper-slide">
-                                <div class="blog-slider__img">
+                            @for($i = 0; $i < 3; $i++)
+                                <div class="blog-slider__item swiper-slide">
+                                    <div class="blog-slider__img">
 
-                                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp">
+                                        <img src="{{ asset('storage/' . $highlightedApartments[$i]->cover_img) }}">
+                                    </div>
+                                    <div class="blog-slider__content">
+                                        <div class="blog-slider__title">{{$highlightedApartments[$i]->title}}</div>
+                                        <div class="blog-slider__text">{{Str::limit($highlightedApartments[$i]->description, 200)}} </div>
+                                        <a href="{{route('show', $highlightedApartments[$i]->slug)}}" class="blog-slider__button">READ MORE</a>
+                                    </div>
                                 </div>
-                                <div class="blog-slider__content">
-                                    <span class="blog-slider__code">26 December 2019</span>
-                                    <div class="blog-slider__title">Lorem Ipsum Dolor</div>
-                                    <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi? </div>
-                                    <a href="#" class="blog-slider__button">READ MORE</a>
-                                </div>
-                            </div>
-
-                            <div class="blog-slider__item swiper-slide">
-                                <div class="blog-slider__img">
-                                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/jason-leung-798979-unsplash.webp">
-                                </div>
-                                <div class="blog-slider__content">
-                                    <span class="blog-slider__code">26 December 2019</span>
-                                    <div class="blog-slider__title">Lorem Ipsum Dolor2</div>
-                                    <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-                                    <a href="#" class="blog-slider__button">READ MORE</a>
-                                </div>
-                            </div>
-
-                            <div class="blog-slider__item swiper-slide">
-                                <div class="blog-slider__img">
-                                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp">
-                                </div>
-                                <div class="blog-slider__content">
-                                    <span class="blog-slider__code">26 December 2019</span>
-                                    <div class="blog-slider__title">Lorem Ipsum Dolor</div>
-                                    <div class="blog-slider__text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae voluptate repellendus magni illo ea animi?</div>
-                                    <a href="#" class="blog-slider__button">READ MORE</a>
-                                </div>
-                            </div>
+                            @endfor
 
                         </div>
                         <div class="blog-slider__pagination"></div>

@@ -40997,12 +40997,9 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mychart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mychart.js */ "./resources/js/mychart.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -41015,7 +41012,7 @@ __webpack_require__(/*! ./homeSeachBox */ "./resources/js/homeSeachBox.js");
 
 __webpack_require__(/*! ./card-contact-host */ "./resources/js/card-contact-host.js");
 
-
+__webpack_require__(/*! ./mychart */ "./resources/js/mychart.js");
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -41160,16 +41157,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var chart_js_auto__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! chart.js/auto */ "./node_modules/chart.js/auto/auto.esm.js");
 
 var m = document.getElementById('m').innerHTML;
-console.log(m); // 2
+var a = document.getElementById('a').innerHTML;
+a = JSON.parse('[' + a + ']'); // 2
 
-var labels = ['January', 'February', 'March', 'April', 'May', 'June'];
+var labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 var data = {
   labels: labels,
   datasets: [{
     label: 'Messaggi',
     backgroundColor: 'rgb(255, 99, 132)',
     borderColor: 'rgb(255, 99, 132)',
-    data: [0, m, 2, 3, 4]
+    data: a
   }]
 };
 var config = {
@@ -41205,8 +41203,8 @@ var myChart = new chart_js_auto__WEBPACK_IMPORTED_MODULE_0__["default"](document
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Alessandro\Desktop\BoolBnB\BoolBnb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Alessandro\Desktop\BoolBnB\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Utente\Desktop\Boolean_#43\BoolBnb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean_#43\BoolBnb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

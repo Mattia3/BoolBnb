@@ -38,6 +38,7 @@
                 </div>
                 <div class="col">
                     <a class="box_number text-center">
+                        <p id='a' hidden> {{implode(',', $graphData)}}</p>
                         <p id="m" class="number mb-0"> {{ $messages }}</p>
                         <p class="text">Messaggi</p>
                     </a>

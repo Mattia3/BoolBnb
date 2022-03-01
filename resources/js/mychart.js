@@ -1,7 +1,8 @@
 import Chart from 'chart.js/auto';
 
 let m = document.getElementById('m').innerHTML;
-console.log(m); // 2
+let a = document.getElementById('a').innerHTML;
+a= JSON.parse('[' + a + ']'); // 2
 
 const labels = [
     'January',
@@ -10,6 +11,12 @@ const labels = [
     'April',
     'May',
     'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
 ];
 
 const data = {
@@ -18,7 +25,7 @@ const data = {
         label: 'Messaggi',
         backgroundColor: 'rgb(255, 99, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: [0, m, 2, 3, 4],
+        data: a,
     }]
 };
 
