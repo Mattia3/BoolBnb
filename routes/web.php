@@ -37,6 +37,10 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/about-us', function () {
+    return view('about-us');
+});
+
 Auth::routes();
 
 Route::get('/search', 'HomeController@index')->name('search');

@@ -58,4 +58,34 @@
             text-align: center;
         }
     }
+    @media only screen and (max-width: 767px) {
+        margin-bottom: 70px;
+    }
+}
+
+.bar_menu_mobile{
+    background-color: #b4a1c1;
+    padding: 15px;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 111;
+    box-shadow: 5px 12px 50px #d7dad6;
+
+    a{
+        color: #fff;
+        span{
+            color: #000
+        }
+    }
+
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+
+    @media only screen and (max-width: 767px) {
+        display: flex;
+    }
+
 }
