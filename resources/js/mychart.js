@@ -2,7 +2,7 @@ import Chart from 'chart.js/auto';
 
 let m = document.getElementById('m').innerHTML;
 let a = document.getElementById('a').innerHTML;
-a= JSON.parse('[' + a + ']'); // 2
+a = JSON.parse('[' + a + ']'); // 2
 
 const labels = [
     'January',
@@ -42,6 +42,6 @@ const config = {
 };
 
 const myChart = new Chart(
-    document.getElementById('myChart'),
+    document.getElementById('myNewChart'),
     config
 );

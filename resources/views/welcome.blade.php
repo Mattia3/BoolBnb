@@ -34,19 +34,7 @@
                     <div class="blog-slider">
                         <div class="blog-slider__wrp swiper-wrapper">
 
-                            @for($i = 0; $i < 3; $i++)
-                                <div class="blog-slider__item swiper-slide">
-                                    <div class="blog-slider__img">
 
-                                        <img src="{{ asset('storage/' . $highlightedApartments[$i]->cover_img) }}">
-                                    </div>
-                                    <div class="blog-slider__content">
-                                        <div class="blog-slider__title">{{$highlightedApartments[$i]->title}}</div>
-                                        <div class="blog-slider__text">{{Str::limit($highlightedApartments[$i]->description, 200)}} </div>
-                                        <a href="{{route('show', $highlightedApartments[$i]->slug)}}" class="blog-slider__button">READ MORE</a>
-                                    </div>
-                                </div>
-                            @endfor
 
                         </div>
                         <div class="blog-slider__pagination"></div>

@@ -10,7 +10,6 @@ require('./bootstrap');
 // require('./tomtom');
 require('./homeSeachBox');
 
-require('./mychart');
 
 require('./card-contact-host');
 

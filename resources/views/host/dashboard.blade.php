@@ -92,7 +92,7 @@
         <div class="col">
             <h2>Statistiche Generali</h2>
             <div>
-                <canvas id="myChart"></canvas>
+                <canvas id="myNewChart"></canvas>
             </div>
         </div>
     </div>
