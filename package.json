@@ -29,6 +29,7 @@
         "@popperjs/core": "^2.11.2",
         "@tomtom-international/web-sdk-maps": "^6.18.0",
         "@tomtom-international/web-sdk-plugin-pancontrols": "^2.1.6",
+        "@tomtom-international/web-sdk-plugin-searchbox": "^3.1.12",
         "@tomtom-international/web-sdk-plugin-zoomcontrols": "^2.1.6",
         "@tomtom-international/web-sdk-services": "^6.18.0",
         "dayjs": "^1.10.7",
