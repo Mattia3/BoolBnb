@@ -24,13 +24,12 @@
                 </div>
             </div>
         </div>
-
         <div class="container">
-            <div class="row">
+            <div class="row py-5">
                 <div class="col-md-12 col-sm-12 col-xs-12">
 
                     @if(count($highlightedApartments) != 0)
-                    <div class="carousel_apratments_swiper mt-150">
+                    <div class="carousel_apratments_swiper">
                         <div class="blog-slider">
                             <div class="blog-slider__wrp swiper-wrapper">
 
@@ -83,6 +82,9 @@
     </div>
     <!-- --------------------------------------------- -->
 </div>
+</div>
+
+
 
 <div class="container py-5">
     <div class="row py-5">
