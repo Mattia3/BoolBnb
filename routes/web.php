@@ -17,23 +17,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
- 
+
 Auth::routes();
 
-Route::get('/search', 'HomeController@index')->name('home');
+Route::get('/search', 'HomeController@index')->name('search');
 
 Route::middleware('auth')
-    ->namespace('Host') //riaggiungere middleware('auth') 
-    ->prefix('host')
-    ->name('host.')
-    ->group(function () {
-        Route::get('/', 'HomeController@index')->name('dashboard');
-        Route::resource('apartments', 'ApartmentController');
-        
-        Route::get('/apartments/{apartment}/sponsor', 'SponsorController@index')->name('apartments.sponsor');
-        Route::post('/payment/process/{apartment}', 'SponsorController@process')->name('payment.process');
-        // Route::post('braintree/webhook', '\Laravel\Cashier\Http\Controllers\WebhookController@handleWebhook');
-
+->namespace('Host') //riaggiungere middleware('auth') 
+->prefix('host')
+->name('host.')
+->group(function () {
+    Route::get('/', 'HomeController@index')->name('dashboard');
+    Route::resource('apartments', 'ApartmentController');
+    Route::get('messages', 'MessageController@index')->name('messages');
+    Route::get('/apartments/{apartment}/sponsor', 'SponsorController@index')->name('apartments.sponsor');
+    Route::post('/payment/process/{apartment}', 'SponsorController@process')->name('payment.process');
 });
 
-Route::post('/contacts', 'ContactController@store');
+
+Route::get('/{apartment}', 'HomeController@show')->name('show');
+Route::post('/messages/{apartment}', 'MessageController@store')->name('message.store');

@@ -228,7 +228,7 @@
     }
 
     .email-form.active{
-        height: 310px;
+        height: 520px;
         z-index: 3;
         -webkit-transition: all 1s ease-in-out;
         -moz-transition:    all 1s ease-in-out;
@@ -276,7 +276,7 @@
     }
 
     .email-form button{
-        margin-top: 0px;
+        margin-top: 20px;
     }
     
     @media only screen and (min-width: 991px) {    
@@ -294,6 +294,13 @@
     }
 }
 
+// Guest
+.bg-guest-show{
+    background-image: url("/images/hero.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 350px;
+}
 
 
 // MAP TomTom

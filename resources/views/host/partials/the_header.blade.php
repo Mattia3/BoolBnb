@@ -29,6 +29,11 @@ $nav = Apartment::where('slug');
                 @csrf
               </form>
             </li>
+
+            <li><a class="dropdown-item text-center" href="{{ route('host.dashboard') }}">
+                {{ __('Area privata') }}
+              </a>
+            </li>
           </ul>
         </div>
       </h5>
@@ -41,7 +46,7 @@ $nav = Apartment::where('slug');
     <div class="row align-items-center">
   
       {{-- Image Profile --}}
-      <img class="img-profile" src="{{ asset('storage/host/host-2.jpg') }}" alt="profile">
+      <img class="img-profile" src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="profile">
   
 
 
@@ -49,10 +54,10 @@ $nav = Apartment::where('slug');
       <div class="col-lg-10 col-sm-9 _d-none-sm">
         <h3 class="text-white mb-3"> {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h3>
         <ul class="d-flex flex-wrap navbar-link">
-          <li><a href="{{route('host.dashboard')}}" class="{{ (request()->is('host')) ? '_active' : '' }}">Profilo utente</a></li>
-          <li><a href="{{route('host.apartments.index')}}" class="@yield('Gestisci-annunci')">Gestisci annunci</a></li>
-          <li><a href="">Messaggi</a></li>
-          <li><a href="{{route('host.apartments.create')}}" class="{{ (request()->is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
+          <li><a href="{{route('host.dashboard')}}" class="{{(request()-> is('host')) ? '_active' : '' }}">Profilo utente</a></li>
+          <li><a href="{{route('host.apartments.index')}}" class="{{(request()-> is('host/apartments')) ? '_active' : '' }}">Gestisci annunci</a></li>
+          <li><a href="{{route('host.messages')}}">Messaggi</a></li>
+          <li><a href="{{route('host.apartments.create')}}" class="{{(request()-> is('host/apartments/create')) ? '_active' : '' }}">Pubblica annuncio</a></li>
           <li><a href="">Statistiche</a></li>
         </ul>
       </div>
@@ -69,7 +74,7 @@ $nav = Apartment::where('slug');
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
             <li><a class="dropdown-item" href="{{route('host.dashboard')}}">Profilo utente</a></li>
             <li><a class="dropdown-item" href="{{route('host.apartments.index')}}">Gestisci annunci</a></li>
-            <li><a class="dropdown-item" href="">Messaggi</a></li>
+            <li><a class="dropdown-item" href="{{route('host.messages')}}">Messaggi</a></li>
             <li><hr class="m-1"></li>
             <li><a class="dropdown-item" href="{{route('host.apartments.create')}}">Pubblica annuncio</a></li>
             <li><a class="dropdown-item" href="">Statistiche</a></li>

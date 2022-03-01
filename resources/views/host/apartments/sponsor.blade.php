@@ -6,7 +6,7 @@
 @section('content')
 
     
-  <div class="container my-container">
+<div class="container my-container">
     <h2 class="pb-5">Promuovi il tuo appartamento </h2>
 
 

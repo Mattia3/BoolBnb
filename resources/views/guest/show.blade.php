@@ -1,27 +1,11 @@
-@extends('layouts.host')
-@section("page_title", "Dettaglio Articolo")
-
-@section('hero') bg-show @endsection
-@section('Gestisci-annunci') _active @endsection
-
+@extends('layouts.guest')
+@section("page_title", "Dettaglio appartamento")
 
 @section('content')
 
 <div class="container_apartment_show">
 
     <div class="container">
-
-        <h5></h5>
-
-        <div class="d-flex justify-content-end ms-auto pt-3" style="gap:5px;">
-            <a href="{{ route('host.apartments.sponsor', $apartment->slug)}}" class="btn btn-primary2"><i class="fa-solid fa-star"></i></a>
-            <a href="{{ route('host.apartments.edit', $apartment->slug)}}" class="btn btn-primary2"> <i class="fa-solid fa-pencil"></i> </a>
-            <form action="{{ route('host.apartments.destroy', $apartment->slug) }}" method="post">
-                @csrf
-                @method('delete')
-                <button type="submit" class="btn btn-danger2"><i class="fa-solid fa-trash-can"></i></button>
-            </form>
-        </div>
 
         <div class="row position-relative py-5">
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -49,14 +33,14 @@
                         <p><i class="{{ $service->icon_class }}"></i> {{ $service->name }} </p>
                     </div>
                     @endforeach
+                    <div class="col">
+                        <p><i class="fa-solid fa-pencil"></i> {{ $service->name }} </p>
+                    </div>
                 </div>
 
                 <div class="d-flex space_negative gap-3 pb-3">
-                    @foreach($images as $image)
-                        <img class="w-100" src="{{ asset('storage/' . $image->img_path) }}">
-                    @endforeach
-                    {{-- <img class="w-100" src="{{ asset('storage/' . $images[0]->img_path) }}">
-                    <img class="w-100" src="{{ asset('storage/' . $images[1]->img_path) }}"> --}}
+                    <img class="w-100" src="/images/image_appartment_gallery.jpg">
+                    <img class="w-100" src="/images/image_appartment_gallery.jpg">
                 </div>
 
                 <div class="arrow">
@@ -82,8 +66,10 @@
                 <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                     <h3 class="pb-3">Descrizione Appartamento</h3>
                     <p>{{ $apartment->description }}</p>
+                    <p>Descrizione</p>
                     <h3 class="pb-3">Cosa puoi trovare nelle vicinanze</h3>
                     <p>{{ $apartment->place_description }}</p>
+                    <p>Place Description</p>
 
                 </div>
             </div>
@@ -105,14 +91,14 @@
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 pb-5">
                 <div class="card">
                     <div class="photo">
-                        <img src="{{ asset('storage/' . Auth::user()->img_profile) }}" alt="{{ Auth::user()->name }} {{ Auth::user()->last_name }}">
+                        <img src="{{ asset('storage/' . $host->img_profile) }}" alt="{{ $host->name }} {{ $host->last_name }}">
                     </div>
                     <div class="banner">
                         <img src="{{ asset('storage/' . $apartment->cover_img) }}">
                     </div>
                     <ul>
-                        <li><b>{{ Auth::user()->name }} {{ Auth::user()->last_name }}</b></li>
-                        <li>Host</li>
+                        <li><b>{{ $host->name }} {{ $host->last_name }}</b></li>
+                        <li>Certificated Host</li>
                     </ul>
                     <button class="contact" id="main-button">contattatami</button>
                     <div class="social-media-banner d-flex align-items-center justify-content-center">
@@ -121,10 +107,12 @@
                         <a href=""><i class="fa-brands fa-instagram"></i></a>
                         <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
-                    <form class="email-form">
-                        <input id="name" type="text" class="input-name" placeholder="Nome">
-                        <input id="email" type="text" class="input-email" placeholder="Email">
-                        <textarea id="comment" type="text" class="input-message" placeholder="Messaggio"></textarea>
+                    <form class="email-form" action="{{route('message.store', $apartment->slug)}}" method="POST">
+                        @csrf
+                        <input id="name" type="text" class="input-name" placeholder="Nome" name="name">
+                        <input id="name" type="text" class="input-name" placeholder="Cognome" name="last_name">
+                        <input id="email" type="text" class="input-email" placeholder="Email" name="email">
+                        <textarea id="comment" type="text" class="input-message" placeholder="Messaggio" name="body_email"></textarea>
                         <button id="send" class="contact">send</button>
                     </form>
                 </div>
@@ -132,13 +120,13 @@
         </div>
     </div>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="row py-5">
             <div class="col-md-12-col-sm-12-col-xs-12">
                 <h3>Statistiche</h3>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 </div>
 
@@ -187,9 +175,7 @@
         });
     };
 
-    btnSend.addEventListener("click", function(e){
-
-        e.preventDefault();
+    btnSend.addEventListener("click", function(){
 
         let valueInputName = document.querySelector(".input-name").value;
         let valueInputEmail = document.querySelector(".input-email").value;

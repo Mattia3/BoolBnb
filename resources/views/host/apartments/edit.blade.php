@@ -68,6 +68,18 @@
           </div>
         </div>
       </div>
+
+      @for($i = 0; $i < 3; $i++)
+        <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
+          <div class="form-file">
+            <div>
+              <i class="fa-solid fa-file-image"></i>
+              <h4 class="title-label p-0">Immagine {{$i+1}}</h4>
+            </div>
+            <input type="file" name="images[]" id="field_images" value="{{ old('cover_img') }}" required>
+          </div>
+        </div>
+      @endfor
     </div>
 
 
