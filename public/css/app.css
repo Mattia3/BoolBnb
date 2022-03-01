@@ -26151,7 +26151,7 @@ main {
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #ffeba7;
+  background-image: radial-gradient(circle 674px at 18.3% 77%, #1f5491 56.6%, #0f335c 56.6%);
 }
 
 .container-login .checkbox:checked + label:before,
@@ -26161,8 +26161,7 @@ main {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  color: #ffeba7;
-  background-color: #102770;
+  background-image: radial-gradient(circle 674px at 18.3% 77%, #5392df 3.4%, #0f335c 56.6%);
   font-family: "unicons";
   content: "\EB4F";
   z-index: 20;
@@ -26170,7 +26169,7 @@ main {
   left: -10px;
   line-height: 36px;
   text-align: center;
-  font-size: 24px;
+  font-size: 0px;
   transition: all 0.5s ease;
 }
 
@@ -26202,8 +26201,7 @@ main {
 .container-login .card-back {
   width: 100%;
   height: 100%;
-  background-color: #2a2b38;
-  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/pat.svg");
+  background-image: radial-gradient(circle 674px at 18.3% 77%, #8bbaf4 3.4%, #1f5491 56.6%);
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: 300%;
@@ -26275,7 +26273,6 @@ main {
   font-size: 24px;
   line-height: 48px;
   text-align: left;
-  color: #ffeba7;
   transition: all 200ms linear;
 }
 
@@ -26350,21 +26347,19 @@ main {
   -ms-flex-pack: center;
   text-align: center;
   border: none;
-  background-color: #ffeba7;
-  color: #102770;
+  background-image: radial-gradient(circle 674px at 18.3% 77%, #8bbaf4 3.4%, #0f335c 56.6%);
+  color: white;
   box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
 }
 
 .container-login .btn:active,
 .container-login .btn:focus {
   background-color: #102770;
-  color: #ffeba7;
   box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
 }
 
 .container-login .btn:hover {
-  background-color: #102770;
-  color: #ffeba7;
+  background-color: #7A9A83;
   box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
 }
 

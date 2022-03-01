@@ -56,11 +56,11 @@
   </form>
 
 
-
   <script>
     // Braintree
     document.addEventListener('DOMContentLoaded', function() {
       var button = document.querySelector('#submit-button');
+
 
       braintree.dropin.create({
         authorization: "{{ \Braintree\ClientToken::generate() }}",
