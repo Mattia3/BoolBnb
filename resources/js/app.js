@@ -10,10 +10,9 @@ require('./bootstrap');
 // require('./tomtom');
 require('./homeSeachBox');
 
+require('./mychart');
+
 require('./card-contact-host');
-
-import './mychart.js';
-
 
 /**
  * The following block of code may be used to automatically register your

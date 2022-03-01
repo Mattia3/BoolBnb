@@ -40997,12 +40997,9 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _mychart_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./mychart.js */ "./resources/js/mychart.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -41013,9 +41010,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // requir
 
 __webpack_require__(/*! ./homeSeachBox */ "./resources/js/homeSeachBox.js");
 
+__webpack_require__(/*! ./mychart */ "./resources/js/mychart.js");
+
 __webpack_require__(/*! ./card-contact-host */ "./resources/js/card-contact-host.js");
-
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
