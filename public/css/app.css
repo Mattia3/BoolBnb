@@ -25023,7 +25023,15 @@ img.img-profile {
 }
 
 .bg-filter {
-  background-image: uurl("./../../storage/app/public/hero/hero-3.jpg");
+  background-image: url(../images/hero-3.jpg?e9788c7f614514075201b335b32ff9d9);
+}
+
+.bg-post {
+  background-image: url(../images/hero-4.jpg?6cd0b7450156809ca51abc877b0c5c62);
+}
+
+.bg-create {
+  background-image: url(../images/hero-5.jpg?9ace1b2a0b6fe4c24bd805ff6430c631);
 }
 
 ._d-none-sm {
@@ -25697,6 +25705,7 @@ main {
 
 .container_apartment_show {
   padding: 70px 0;
+  padding-bottom: 0;
 }
 
 .container_apartment_show .swiper-show {

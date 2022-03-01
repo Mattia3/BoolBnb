@@ -2,11 +2,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-8 col-xs-12 offset-md-2 offset-sm-2 px-0 offset-xs-0">
-        <div class="row py-4 row-footer">
+        <div class="row py-4 row-footer text-center">
           <div class="col-md-4 col-sm-12 col-xs-12 ">
             <ul>
               <li>
-                <h4>Contatti</h4>
+                <h4>Assistenza</h4>
               </li>
               <li> <a href="#">Centro assistenza</a> </li>
               <li> <a href="#">Moneyback</a> </li>
@@ -17,7 +17,7 @@
           <div class="col-md-4 col-sm-12 col-xs-12">
             <ul>
               <li>
-                <h4>Contatti</h4>
+                <h4>Guest</h4>
               </li>
               <li> <a href="#">Garanzia per l'Host</a> </li>
               <li> <a href="#">Sponsorizzazioni</a> </li>

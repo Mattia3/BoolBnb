@@ -90,7 +90,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- --------------------------------------------- -->
     </div>
 
     <div class="container py-5">
@@ -109,10 +109,10 @@
                             <h1>Host Certificati</h1>
                         </div>
                     </div>
-                    <div class="card__side card__side--back card__side--back">
-                        <p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore debitis ut illum, atque id quibusdam nihil dolorum veniam exercitationem odit natus possimus, quis, molestias accusamus doloremque fugiat minima unde fugit!</p>
-                        </p>
+                    <div class="card__side card__side--back card__side--back px-5">
+
+                        <p>Tutti i nostri host sono stati accuratamnete selezionati e certificati per garantire la massima serietà, unitmanete alla migliore esperienza possibile per i nostri ospiti.</p>
+
                     </div>
                 </div>
             </div>
@@ -125,10 +125,10 @@
                             <h1>Garanzia MoneyBack</h1>
                         </div>
                     </div>
-                    <div class="card__side card__side--back card__side--back">
-                        <p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore debitis ut illum, atque id quibusdam nihil dolorum veniam exercitationem odit natus possimus, quis, molestias accusamus doloremque fugiat minima unde fugit!</p>
-                        </p>
+                    <div class="card__side card__side--back card__side--back px-5">
+
+                        <p>Se riscontri un problema dopo una prenotazione, o durante un soggiorno proveremo a risolverlo nell'immediato. Qualora non fosse possibile, provvederemo al rimborso dell'intero importo.</p>
+
                     </div>
                 </div>
             </div>
@@ -141,10 +141,10 @@
                             <h1>Assistenza 24/7</h1>
                         </div>
                     </div>
-                    <div class="card__side card__side--back card__side--back">
-                        <p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore debitis ut illum, atque id quibusdam nihil dolorum veniam exercitationem odit natus possimus, quis, molestias accusamus doloremque fugiat minima unde fugit!</p>
-                        </p>
+                    <div class="card__side card__side--back card__side--back px-5">
+
+                        <p>Per garantire il massimo supporto, il nostro team di assistenza è operativo 24/7. Per domande, curiosità o difficoltà sulla nostra piattaforma non esitare a contattarci.</p>
+
                     </div>
                 </div>
             </div>

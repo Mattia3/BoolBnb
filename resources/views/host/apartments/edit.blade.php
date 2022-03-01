@@ -1,7 +1,7 @@
 @extends('layouts.host')
 @section("page_title", "Modifica appartamento")
 
-@section('hero') bg-dashboard @endsection
+@section('hero') bg-create @endsection
 @section('Gestisci-annunci') _active @endsection
 
 @section('content')
@@ -18,10 +18,10 @@
   @endif
 
   {{-- Form --}}
-  <form action="{{ route('host.apartments.update', $apartment->slug) }}"  enctype="multipart/form-data" method="POST">
+  <form action="{{ route('host.apartments.update', $apartment->slug) }}" enctype="multipart/form-data" method="POST">
     @csrf
     @method('PUT')
-    
+
     {{-- Box 1 --}}
     <h2 class="title-form">Appartamento</h2>
     <div class="row box-form">
@@ -69,17 +69,16 @@
         </div>
       </div>
 
-      @for($i = 0; $i < 3; $i++)
-        <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
-          <div class="form-file">
-            <div>
-              <i class="fa-solid fa-file-image"></i>
-              <h4 class="title-label p-0">Immagine {{$i+1}}</h4>
-            </div>
-            <input type="file" name="images[]" id="field_images" value="{{ old('cover_img') }}" required>
+      @for($i = 0; $i < 3; $i++) <div class="col-md-4 col-sm-12 text-center d-flex justify-content-center align-items-center py-3">
+        <div class="form-file">
+          <div>
+            <i class="fa-solid fa-file-image"></i>
+            <h4 class="title-label p-0">Immagine {{$i+1}}</h4>
           </div>
+          <input type="file" name="images[]" id="field_images" value="{{ old('cover_img') }}" required>
         </div>
-      @endfor
+    </div>
+    @endfor
     </div>
 
 
@@ -180,14 +179,14 @@
           @foreach($languages as $language)
           <div class="d-inline-block pb-2">
             <input class="form-check-input p-0" name="languages[]" type="checkbox" id="{{$language->id}}-{{$language->name}}" value="{{$language->id}}">
-            <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->id}}-{{$language->name}}">{{$language->name }}</label>
-          </div>
-          @endforeach
-        </div> --}}
+        <label class="form-check-label text-capitalize pe-3 ps-1" for="{{$language->id}}-{{$language->name}}">{{$language->name }}</label>
       </div>
+      @endforeach
+    </div> --}}
+    </div>
     </div>
 
-    
+
     {{-- Buttons Crea/Reset--}}
     <button class="btn btn-reset" type="reset">Reset</button>
     <button class="btn btn-1 ms-3" type="submit">Pubblica</button>
@@ -207,13 +206,13 @@
 
   function updateImage() {
     // Reset
-    while(titlePreview.firstChild) {
+    while (titlePreview.firstChild) {
       titlePreview.removeChild(titlePreview.firstChild);
     }
     // info file
     const curFiles = inputImg.files;
     // se il file non è caricato mostra text
-    if(curFiles.length === 0) {
+    if (curFiles.length === 0) {
       const icon = document.createElement('i');
       const text = document.createElement('h4');
 
@@ -226,7 +225,7 @@
       // Se il file è caricato mostra img
     } else {
       // Ciclo info del file caricato
-      for(const file of curFiles) {
+      for (const file of curFiles) {
         const image = document.createElement('img');
         image.src = URL.createObjectURL(file);
         image.classList.add('style-image-preview');
@@ -252,17 +251,17 @@
   var totalItemFour = document.querySelector('.total-item-4');
 
   function countItems(one, two) {
-    for(var i = 0; i < one.length; i++) {
+    for (var i = 0; i < one.length; i++) {
 
       one[i].addEventListener('click', function() {
         var oldValue = two.value;
-        
-        if( this.value === '+' ) {
+
+        if (this.value === '+') {
           // var string convert to integer
           var newValue = parseInt(oldValue, 10) + 1;
         } else {
           // Don't allow decrementing below 1
-          if(oldValue > 1) {
+          if (oldValue > 1) {
             var newValue = parseInt(oldValue, 10) - 1;
           } else {
             newValue = 0;

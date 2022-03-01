@@ -97,7 +97,7 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Regole della casa</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Non adatto a:</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -155,16 +155,6 @@
     </div>
     <div class="container-medium">
       <div class="container-small"></div>
-    </div>
-  </div>
-
-
-
-  <div class="container">
-    <div class="row py-5">
-      <div class="col-md-12-col-sm-12-col-xs-12">
-        <h3>Statistiche</h3>
-      </div>
     </div>
   </div>
 

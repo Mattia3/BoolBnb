@@ -1,7 +1,7 @@
 @extends('layouts.host')
 @section("page_title", "Dashboard")
 
-@section('hero') bg-index @endsection
+@section('hero') bg-post @endsection
 @section('Gestisci-annunci') _active @endsection
 
 
