@@ -29,41 +29,60 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+                
+                @if(count($highlightedApartments) != 0)
+                    <div class="carousel_apratments_swiper mt-150">
+                        <div class="blog-slider">
+                            <div class="blog-slider__wrp swiper-wrapper">
 
-                <div class="carousel_apratments_swiper mt-150">
-                    <div class="blog-slider">
-                        <div class="blog-slider__wrp swiper-wrapper">
+                                @if(count($highlightedApartments) < 3)
+                                    @foreach($highlightedApartments as $highlightedApartment)
+                                        <div class="blog-slider__item swiper-slide">
+                                            <div class="blog-slider__img">
 
-                            @for($i = 0; $i < 3; $i++)
-                                <div class="blog-slider__item swiper-slide">
-                                    <div class="blog-slider__img">
+                                                <img src="{{ asset('storage/' . $highlightedApartment->cover_img) }}">
+                                            </div>
+                                            <div class="blog-slider__content">
+                                                <div class="blog-slider__title">{{$highlightedApartment->title}}</div>
+                                                <div class="blog-slider__text">{{Str::limit($highlightedApartment->description, 200)}} </div>
+                                                <a href="{{route('show', $highlightedApartment->slug)}}" class="blog-slider__button">READ MORE</a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                @else
+                                    @for($i = 0; $i <= 3; $i++)
+                                        <div class="blog-slider__item swiper-slide">
+                                            <div class="blog-slider__img">
 
-                                        <img src="{{ asset('storage/' . $highlightedApartments[$i]->cover_img) }}">
+                                                <img src="{{ asset('storage/' . $highlightedApartments[$i]->cover_img) }}">
+                                            </div>
+                                            <div class="blog-slider__content">
+                                                <div class="blog-slider__title">{{$highlightedApartments[$i]->title}}</div>
+                                                <div class="blog-slider__text">{{Str::limit($highlightedApartments[$i]->description, 200)}} </div>
+                                                <a href="{{route('show', $highlightedApartments[$i]->slug)}}" class="blog-slider__button">READ MORE</a>
+                                            </div>
+                                        </div>
+                                    @endfor
+                                @endif
+                            </div>
+                            <div class="blog-slider__pagination"></div>
+
+                            @if(count($highlightedApartments) > 1)
+                                <div id="mouse-scroll" class="icon-down">
+                                    <div class="mouse">
+                                        <div class="mouse-in"></div>
                                     </div>
-                                    <div class="blog-slider__content">
-                                        <div class="blog-slider__title">{{$highlightedApartments[$i]->title}}</div>
-                                        <div class="blog-slider__text">{{Str::limit($highlightedApartments[$i]->description, 200)}} </div>
-                                        <a href="{{route('show', $highlightedApartments[$i]->slug)}}" class="blog-slider__button">READ MORE</a>
+                                    <div>
+                                        <span class="down-arrow-1"></span>
+                                        <span class="down-arrow-2"></span>
+                                        <span class="down-arrow-3"></span>
                                     </div>
                                 </div>
-                            @endfor
+                            @endif
 
                         </div>
-                        <div class="blog-slider__pagination"></div>
-
-                        <div id="mouse-scroll" class="icon-down">
-                            <div class="mouse">
-                                <div class="mouse-in"></div>
-                            </div>
-                            <div>
-                                <span class="down-arrow-1"></span>
-                                <span class="down-arrow-2"></span>
-                                <span class="down-arrow-3"></span>
-                            </div>
-                        </div>
-
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
