@@ -1,5 +1,5 @@
 @extends('layouts.guest')
-@section('page_title', 'login')
+@section('page_title', 'Login')
 
 @section('content')
 <div class="background-login">

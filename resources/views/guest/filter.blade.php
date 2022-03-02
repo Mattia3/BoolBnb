@@ -1,5 +1,5 @@
 @extends('layouts.guest')
-@section('page_title', 'filter')
+@section('page_title', 'Cerca')
 
 @section('content')
 <div id="app">

@@ -1,5 +1,5 @@
 @extends('layouts.guest')
-@section('page_title', 'filter')
+@section('page_title', 'About Us')
 
 @section('content')
 <div class="background-container-about-us">
@@ -45,7 +45,7 @@
                         <div class="name">Maria Acanfora</div>
                         <p>Jr. Full Stack Web Developer</p>
                         <div class="intro">
-                            <p>Laureata in Ingegneria Civile con indirizzo Strutture, ho sviluppato un ampio e solido background ingegneristico comprendente la conoscenza di grandi strutture come i ponti e la meccanica computazionale. Nonostante ciò, durante il corso di studi ho riscontrato una notevole passione e predisposizione per il mondo della programmazione. 
+                            <p>Laureata in Ingegneria Civile con indirizzo Strutture, ho sviluppato un ampio e solido background ingegneristico comprendente la conoscenza di grandi strutture come i ponti e la meccanica computazionale. Nonostante ciò, durante il corso di studi ho riscontrato una notevole passione e predisposizione per il mondo della programmazione.
                             </p>
                         </div>
                         <div class="social-icon">
@@ -130,7 +130,7 @@
                     </div>
                 </div>
             </div>
-        </div>    
+        </div>
     </div>
 </div>
 @endsection
