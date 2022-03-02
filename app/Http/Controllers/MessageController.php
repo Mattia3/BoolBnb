@@ -13,6 +13,7 @@ class MessageController extends Controller
         $apartment = Apartment::where('slug', $slug)->first();
         $services = $apartment->services()->get();
         $rules = $apartment->rules()->get();
+        $images = $apartment->images()->get();
         $data = $request->all();
 
         $host = User::where('id', $apartment->user_id)->first();
@@ -26,7 +27,8 @@ class MessageController extends Controller
             'apartment' => $apartment,
             'services' => $services,
             'rules' => $rules,
-            'host' => $host
+            'host' => $host,
+            'images' => $images
         ])->with(['status' => 'Messaggio inviato correttamente']);
     }
 }
