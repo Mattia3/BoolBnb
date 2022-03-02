@@ -1,0 +1,14 @@
+.box_number{
+    display: block;
+    background-color: #e5e5e5;
+    color: #000;
+    border-radius: 15px;
+    padding:20px;
+    &:hover{
+        color: #000;
+    }
+    .number{
+        font-size: 40px;
+        font-weight: bold;
+    }
+}

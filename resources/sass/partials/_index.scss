@@ -1,0 +1,53 @@
+.number-card-vote {
+    position: absolute;
+    top: 9px;
+    left: 7px;
+    background-color: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.number-card-price i {
+    color: #000;
+    padding-right: 5px;
+}
+
+.number-card-price {
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    background-color: white;
+    border-radius: 10em/10em;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 10px;
+}
+.card{
+    transition: transform .5s ease-in-out;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.card-title{
+    margin-bottom: 0.5rem;
+    font-size: 20px;
+    line-height: 1em;
+    color: #9b7daf;
+}
+.card-title:hover{
+    color: #8151a2;
+}
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+}

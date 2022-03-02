@@ -1,4 +1,5 @@
 window._ = require('lodash');
+window.dayjs = require('dayjs');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -6,10 +7,10 @@ window._ = require('lodash');
  * code may be modified to fit the specific needs of your application.
  */
 
-try {
-    window.Popper = require('@popperjs/core').default;
+ try {
+    window.Popper = require('@popperjs/core');
 
-    require('bootstrap');
+    require('bootstrap/dist/js/bootstrap');
 } catch (e) {}
 
 /**
@@ -21,6 +22,7 @@ try {
 window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+window.axios.defaults.withCredentials = true;
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

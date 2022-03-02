@@ -1,0 +1,231 @@
+.create-edit {
+  padding: $p-page;
+
+  .title-form {
+    color: $color-b1;
+    padding-bottom: 35px;
+  }
+
+  .title-label {
+    color: $color-b1;
+    padding-bottom: 12px;
+    font-size: 17px;
+    letter-spacing: 1px;
+  }
+  
+  .box-form {
+    box-shadow: $shadow-1;
+    border-radius: 20px;
+    padding: 35px 40px;
+    margin-bottom: 55px;
+  }
+
+  .box-input {
+    padding-bottom: 23px;
+  }
+
+  input {
+    border-color: rgba($color: $color-b2, $alpha: 0.5);
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #1b1b1b;
+
+    &:focus-visible {
+      outline: none;
+    }
+    &::placeholder {
+      color: #CBCBCB;
+    }
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    border-color: rgba($color: $color-b2, $alpha: 0.5);
+    border-radius: 10px;
+    padding: 10px 15px;
+    color: #1b1b1b;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+  
+
+  .container-radio {
+    display: inline-block;
+    position: relative;
+    padding-left: 30px;
+    padding-right: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .container-radio input {
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border: 1px solid rgba($color: $color-b2, $alpha: 0.5);
+    border-radius: 50%;
+  }
+
+  .container-radio:hover input ~ .checkmark {
+    background-color: #e7e7e7;
+  }
+
+  .container-radio input:checked ~ .checkmark {
+    background-color: $color-b2;
+    border: none;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .container-radio input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .container-radio .checkmark:after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+
+
+  .form-check-input {
+    &:checked {
+      background-color: $color-b2;
+      border-color: $color-b2;
+    }
+    &:focus {
+      border-color: transparent;
+      box-shadow: 0 0 0 0.25rem rgba($color: $color-b2, $alpha: 0.5);
+    }
+  }
+
+  .form-file {
+    position: relative;
+    display: inline-block;
+    box-shadow: $shadow-1;
+    border-radius: 20px;
+    padding: 55px 40px;
+    text-align: center;
+    // width: 70%;
+    // height: 85%;
+    transition: 1.2s;
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    .title-preview {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+    i {
+      color: $color-g2;
+      font-size: 40px;
+      padding-bottom: 8px;
+
+    }
+    
+    input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 0;
+      cursor: pointer;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .style-image-preview {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+
+
+
+  .btn-counter-style {
+    background-color: white;
+    border: 1px solid rgba($color: $color-b2, $alpha: 0.5);
+    border-radius: 50%;
+    color: $color-b1;
+    padding: 5px 13px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .total-item-style {
+    background-color: transparent;
+    color: $color-b1;
+    // color: #717171;
+    border: none;
+    width: 60px;
+    font-size: 16px;
+    text-align: center;
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+
+}
+
+// sm //
+@media screen and (min-width: 100px){
+  .form-file {
+    width: 80%;
+    height: 200px;
+  }
+}
+// md //
+@media screen and (min-width: 768px){
+  .form-file {
+    width: 85%;
+    height: 85%;
+  }
+}
+// lg //
+@media screen and (min-width: 992px) {
+  .form-file {
+    width: 80%;
+  }
+}
+// xl //
+@media screen and (min-width: 1200px) {
+  .form-file {
+    width: 70%;
+  }
+}

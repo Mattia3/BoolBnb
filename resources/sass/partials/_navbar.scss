@@ -1,0 +1,136 @@
+.bg-hero {
+  background-size: cover;
+  background-position: center;
+  height: 300px;
+}
+
+img.img-profile {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding-top: calc(var(--bs-gutter-x) * 0.5);
+  padding-bottom: calc(var(--bs-gutter-x) * 0.5);
+}
+
+
+
+.navbar-link {
+  li {
+    margin: 0 10px 10px 0;
+  }
+  a {
+    background-color: #00000033;
+    border: 1px solid $color-b1;
+    border-radius: 21px;
+    padding: 8px 15px;
+    color: white;
+  }
+  ._active {
+    background-image: $color-gradient;
+    border: none;
+  }
+  ._active-red {
+    background-image: red;
+    border: none;
+  }
+}
+
+
+// Hamburger //
+.btn-hamburger {
+  background-image: $color-gradient;
+  color: white;
+  border-radius: 50%;
+  padding: 11px 12px 11px 16px;
+  margin: 0;
+  text-align: center;
+  border: none;
+}
+
+.dropdown-item {
+  padding: 9px 20px;
+  color: $color-gradient;
+  &:hover{
+    color: $color-gradient;
+    background-color: #f5f5f5;
+  }
+  &:active {
+    color: $color-gradient;
+    background-color: white;
+  }
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0;
+  vertical-align: none;
+  content: "";
+  border: none;
+}
+
+.dropdown-menu  {
+  border-radius: 10px;
+}
+
+
+// Background Hero
+.bg-index {
+  background-image: url('storage/app/public/hero/hero-2.jpg');
+}
+.bg-dashboard {
+  background-image: url('storage/app/public/hero/hero-1.jpg');
+}
+.bg-filter {
+  background-image: url('storage/app/public/hero/hero-3.jpg');
+}
+
+.bg-post {
+  background-image: url('storage/app/public/hero/hero-4.jpg');
+}
+
+.bg-create {
+  background-image: url('storage/app/public/hero/hero-5.jpg');
+}
+
+
+
+
+
+
+
+._d-none-sm {
+  display: none;
+}
+._d-none-hamburger {
+  display: block;
+}
+
+
+
+
+// xs //
+@media screen and (max-width: 575px){
+  ._p-nav {
+    padding-top: 80px;
+  }
+}
+// sm //
+@media screen and (min-width: 576px){
+  ._d-none-sm {
+    display: block;
+  }
+  ._d-none-hamburger {
+    display: none;
+  }
+  ._p-nav {
+    padding-top: 60px;
+  }
+}
+
+// lg //
+@media screen and (min-width: 992px) {
+  ._p-nav {
+    padding-top: 75px;
+  }
+}

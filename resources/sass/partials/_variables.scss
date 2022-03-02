@@ -1,0 +1,59 @@
+// Colors
+$color-b1: #A0BAB7;
+$color-b2: #B8D0D0;
+$color-g1: #637D5A;
+$color-g2: #7A9A83;
+
+$color-gradient: linear-gradient(0deg, rgba(184,208,208,1) 0%, rgba(160,186,183,1) 100%);
+
+$color-gradient-2: linear-gradient(0deg, rgba(122,154,131,1) 0%, rgba(99,125,90,1) 100%);
+
+@mixin btn-gradient-transition {
+  background-image: linear-gradient(to right, #A0BAB7 0%, #B8D0D0  51%, #A0BAB7  100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  @include btn-transition; 
+}
+
+@mixin btn-gradient-transition-2 {
+  background-image: linear-gradient(to right, #637d5a  0%, #7a9a83   51%, #637d5a   100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  @include btn-transition; 
+}
+
+@mixin btn-gradient-transition-3 {
+  background-image: linear-gradient(to right, #a14e4e  0%, #d46969   51%, #a14e4e   100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  @include btn-transition; 
+}
+
+
+
+
+
+
+@mixin btn-transition {
+  &:hover {
+    color: white;
+    background-position: right center;
+  }
+  &:focus-visible {outline: none;}
+  &:focus{box-shadow: none;}
+}
+
+
+// Shadow
+$shadow-1: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+$shadow-2: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+$shadow-2: rgb(191 124 79 / 20%) 0px 7px 29px 0px;
+
+// Padding
+$p-page: 70px 0;
+
+// Tipography
+$font-title: 'Playfair Display', serif; 
+$font-text: 'Oswald', serif;
+
+

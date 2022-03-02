@@ -1,0 +1,95 @@
+.messages-container {
+  padding: 60px 0 70px;
+
+
+  .box-messages {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 13px;
+    display: flex;
+    height: 100px;
+
+    img.img-profile-messages {
+      width: 100px;
+      height: 100px;
+      border-radius: 13px;
+      object-fit: cover;
+    }
+
+    .box-text {
+      padding: 15px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      .title-apartment {
+        color: $color-b1;
+        display: inline-block;
+        font-size: 19px;
+      }
+      .number-messages {
+        color: $color-b2;
+        display: inline-block;
+        font-size: 14px;
+      }
+
+      // .date-messages {
+      //   text-align: right;
+      //   color: #ADADAD;
+      //   font-size: 12px;
+      //   display: inline-block;
+      //   float: right;
+      // }
+      i {
+        color: $color-g2;
+        display: inline-block;
+        font-size: 21px;
+        float: right;
+      }
+    }
+
+  }
+
+
+
+  .accordion-box {
+    border: 1px solid rgba($color: $color-b2, $alpha: 0.5);
+    border-radius: 13px;
+    padding: 20px;
+
+    .accordion-messages {
+      background: $color-gradient;
+      border-radius: 7px;
+      padding: 15px 15px;
+
+
+      .title-user {
+        padding-bottom: 10px;
+        border-bottom: 2px solid white;
+        h5 {
+          color: white;
+          font-size: 15px;
+          padding-right: 20px;
+          display: inline-block;
+          i {
+            padding-right: 8px;
+          }
+        }
+      }
+
+
+      .text-messages {
+        color: white;
+        font-size: 16px;
+        padding-top: 15px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+

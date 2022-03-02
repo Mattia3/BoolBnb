@@ -1,19 +1,56 @@
 // Fonts
 @import "~@fontsource/playfair-display/index.css";
 @import "~@fontsource/oswald/index.css";
+@import "~@fontsource/oswald/200.css";
+@import "~@fontsource/oswald/300.css";
+@import "~@fontsource/oswald/600.css";
 
 // Variables
-@import 'variables';
+@import "partials/variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 // Fontawesome
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
 
 // Swiper
-@import '~swiper/swiper.scss'; 
-@import '~swiper/swiper-bundle.css';
+@import "~swiper/swiper.scss";
+@import "~swiper/swiper-bundle.css";
+
+// TomTom
+@import "@tomtom-international/web-sdk-maps";
+@import "@tomtom-international/web-sdk-plugin-pancontrols";
+@import "@tomtom-international/web-sdk-plugin-searchbox";
+/* @import "@tomtom-international/web-sdk-plugin-zoomcontrols"; */
+
+// Host
+@import "partials/navbar";
+
+@import "partials/generals";
+
+@import "partials/footer";
+
+@import "partials/home-dashboard";
+
+@import "partials/index";
+
+@import "partials/filter";
+
+@import "partials/create-edit";
+
+@import "partials/apartament-show";
+
+@import "partials/login";
+
+@import "partials/messages";
+
+@import "partials/sponsor";
+
+@import "partials/home-guests";
+
+@import "partials/credits";
+@import "partials/about-us";

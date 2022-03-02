@@ -1,0 +1,42 @@
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+body {
+  font-family: $font-text;
+}
+
+
+// Btn //
+.btn {
+  color: white;
+  padding: 8px 20px;
+}
+.btn-1 {
+  @include btn-gradient-transition; 
+}
+.btn-sponsor {
+  @include btn-gradient-transition-2; 
+}
+.btn-delete {
+  @include btn-gradient-transition-3; 
+}
+.btn-reset {
+  color: $color-b1;
+  text-decoration: underline;
+  box-shadow: $shadow-2;
+  &:focus {box-shadow: $shadow-2;}
+  &:hover {color: $color-b1;}
+}

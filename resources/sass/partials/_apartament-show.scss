@@ -1,0 +1,399 @@
+.container_apartment_show {
+  padding: $p-page;
+  padding-bottom: 0;
+
+  // Swiper
+  .swiper-show {
+    height: auto;
+  }
+
+  .swiper-slide {
+    img {
+      border-radius: 10px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .swiper-button-prev, .swiper-button-next {
+    position: relative;
+    top: 0;
+    display: inline-block;
+    width: 17px;
+    height: 20px;
+
+  }
+  
+  .swiper-button-next, .swiper-rtl .swiper-button-prev {
+    margin-left: 26px;
+  }
+
+
+  .swiper-button-prev:after, .swiper-button-next:after {
+    font-size: 20px;
+  }
+
+  .swiper-button-prev:after {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\f30a";
+    color: #6c757d;
+  }
+
+  .swiper-button-next:after {
+    display: inline-block;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font: var(--fa-font-solid);
+    content: "\f30b";
+    color: #6c757d;
+  }
+
+
+  .title-apartment {
+    color: $color-b1;
+    font-weight: 700;
+  }
+
+  .label_price {
+    background-color: $color-b1;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 10px;
+    font-size: 25px;
+  }
+  .bg-grey {
+    // background-image: $color-gradient;
+    background-color: #f8f8f8;
+    .map {
+      border-radius: 15px;
+      width: 100%;
+    }
+  }
+
+  .cover_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+
+  // Container
+  .container-large {
+    width: 100%;
+    position: relative;
+    height: 600px;
+    display: flex;
+    .container-small {
+      width: 40%;
+      height: 100%;
+      // background-image: $color-gradient;
+      background: #ffffff10;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .container-medium {
+      width: 100%;
+      height: 100%;
+      background-image: url('/images/office.jpg');
+      background-size: cover;
+      background-position-y: center;
+      object-fit: cover;
+    }
+    .container-card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      z-index: 99;
+    }
+  }
+
+
+  .card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: 0 auto;
+    background-color: white;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+  }
+  .card.active {
+    height: 490px;
+  }
+  .banner {
+    z-index: 2;
+    position: relative;
+    margin-top: -154px;
+    width: 100%;
+    height: 150px;
+    background-image: url("https://snap-photos.s3.amazonaws.com/img-thumbs/960w/RQ2Z75PQIN.jpg");
+    background-size: cover;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+    overflow: hidden;
+
+    img {
+      width: 300px;
+      max-width: 100%;
+    }
+  }
+
+  .banner.active {
+    height: 0;
+  }
+
+  .photo {
+    z-index: 3;
+    position: relative;
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    background-color: white;
+    margin: 0 auto;
+    background-image: url("https://filmshotfreezer.files.wordpress.com/2011/07/untitled-1.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+    top: 75px;
+    -webkit-box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0px 0px 5px 1px rgba(0, 0, 0, 0.3);
+    -webkit-transition: top 0.7s ease-in-out, background 0.15s ease;
+    -moz-transition: top 0.7s ease-in-out, background 0.15s ease;
+    -o-transition: top 0.7s ease-in-out, background 0.15s ease;
+    -ms-transition: top 0.7s ease-in-out, background 0.15s ease;
+    overflow: hidden;
+
+    img {
+      width: 150px;
+      max-width: 100%;
+    }
+  }
+
+  .photo.active {
+    top: -80px;
+  }
+  .card ul {
+    list-style: none;
+    text-align: center;
+    padding-left: 0;
+    margin-top: 87px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    -webkit-transition: all 0.7s ease-in-out;
+    -moz-transition: all 0.7s ease-in-out;
+    -o-transition: all 0.7s ease-in-out;
+    -ms-transition: all 0.7s ease-in-out;
+  }
+
+  .card ul.active {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .card i {
+    font-size: 25px;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 150px;
+    width: 300px;
+    text-align: left;
+    color: #c7d0e1;
+  }
+
+    .email-form.active{
+        height: 520px;
+        z-index: 3;
+        -webkit-transition: all 1s ease-in-out;
+        -moz-transition:    all 1s ease-in-out;
+        -o-transition:      all 1s ease-in-out;
+        -ms-transition:     all 1s ease-in-out;
+        transition: all 1s ease-in-out;
+    }
+  button.contact {
+    margin: 0 auto;
+    text-align: center;
+    margin-top: -15px;
+    width: 100%;
+    height: 35px;
+    display: block;
+    border: none;
+    background-color: transparent;
+    font-family: inherit;
+    color: white;
+    background-color: #c7d0e1;
+    font-size: 12px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+  }
+
+  button.contact:hover {
+    cursor: pointer;
+    background-color: #979da8;
+  }
+
+  button.contact:focus {
+    outline: 0;
+  }
+
+  .social-media-banner {
+    width: 300px;
+    height: 50px;
+    margin-top: 25px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    -webkit-transition: all 1.5s ease-in-out;
+    -moz-transition: all 1.5s ease-in-out;
+    -o-transition: all 1.5s ease-in-out;
+    -ms-transition: all 1.5 ease-in-out;
+  }
+
+  .social-media-banner.active {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+  }
+
+  .social-media-banner a i {
+    display: inline;
+    width: auto;
+    margin-right: 15px;
+    margin-left: 10px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+  }
+
+  .social-media-banner a i:hover {
+    color: #979da8;
+  }
+
+  .email-form {
+    height: 0;
+    overflow: hidden;
+    width: 300px;
+    z-index: -1;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .email-form.active {
+    height: 310px;
+    z-index: 3;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+  }
+
+  .email-form input {
+    width: 200px;
+    text-transform: capitalize;
+    margin: 0 auto;
+    font-family: inherit;
+    border: 1px solid #dadee5;
+    margin-top: 5px;
+    height: 30px;
+    display: block;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    &::placeholder{
+      color: black;
+    }
+  }
+  .email-form input:focus,
+  .email-form textarea:focus {
+    border: 1px solid grey;
+    outline: none;
+  }
+  ::-webkit-input-placeholder {
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .email-form textarea {
+    width: 200px;
+    background-color: white;
+    margin: 0 auto;
+    display: block;
+    margin-top: 5px;
+    border: 1px solid #dadee5;
+    font-family: inherit;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+  }
+
+    .email-form button{
+        margin-top: 20px;
+    }
+    
+    @media only screen and (min-width: 991px) {    
+        .space_negative{
+            margin-right: -150px;
+            z-index: 1;
+            position: relative;
+        }
+    }
+  
+  @media only screen and (max-width: 990px) {
+    .arrow {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+  }
+}
+
+// Guest
+.bg-guest-show{
+    background-image: url("/images/hero.jpg");
+    background-size: cover;
+    background-position: center center;
+    height: 350px;
+}
+
+
+// MAP TomTom
+#mymap {
+  height: 500px;
+}
+
+.marker {
+  background-image: url("https://i.pinimg.com/originals/6c/e9/12/6ce9124ba178121ec828d8e2e566c1f4.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  width: 55px;
+  height: 75px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
