@@ -7,7 +7,7 @@ $nav = Apartment::where('slug');
 <div class="bg-hero @yield('hero')">
   <div class="d-flex justify-content-between align-items-center px-4 py-4">
     <h5><a class="nav-link text-white" href="{{ url('/') }}" role="button">Home</a></h5>
-    <a href="" class="text-white">
+    <a style="padding-right: 70px;" href="" class="text-white">
       <img style="width: 35px;" src="{{ asset('storage/Logo.png') }}" alt="logo">
     </a>
     {{-- <a href="" class="text-white"><h5>Login</h5></a> --}}

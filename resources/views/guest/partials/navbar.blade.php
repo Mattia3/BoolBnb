@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center px-4 py-4 w-100 position-absolute menuNavigazione">
   <h5><a class="nav-link text-white" href="{{ url('/about-us') }}" role="button">About Us</a></h5>
-  <a href="{{ url('/') }}" class="text-white">
+  <a style="padding-right: 70px;" href="{{ url('/') }}" class="text-white">
     <img style="width: 35px;" src="{{ asset('storage/Logo.png') }}" alt="logo">
   </a>
   @if(!Auth::user())
